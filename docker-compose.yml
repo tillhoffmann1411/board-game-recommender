@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+
+  django:
+    build:
+      context: backend
+    ports: 
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    command: sh -c "python ./app/manage.py runserver 0.0.0.0:3000"
+    container_name: django
+    environment: 
+      - DEBUG=1
+
+  angular:
+    build:
+      context: frontend
+    volumes:
+      - './frontend:/app'
+      - '/app/node_modules'
+    ports:
+      - 4200:4200
+    container_name: angular

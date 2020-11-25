@@ -1,1 +1,0 @@
-# Just a placeholder file, delete me when the project starts

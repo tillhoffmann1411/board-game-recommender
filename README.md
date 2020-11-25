@@ -1,14 +1,12 @@
 # Board Game Recommender
 
 ## Setup
-### Frontend
 
-1. Install Angular CLI `npm install -g @angular/cli`
+1. Install Docker and Docker-compose
 2. Clone repository
-3. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+3. Run `docker-compose up`to build and run the project
+4. Visit http://localhost:4200 for the frontend and http://localhost:3000 for the backend
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 Feel free to use [commit emojis](https://gitmoji.carloscuesta.me/) for some color and easy to understand commit messages.
