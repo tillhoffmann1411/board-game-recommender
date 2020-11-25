@@ -1,0 +1,29 @@
+<div class="component">
+  <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+
+    <section class="input-section">
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" autofocus autocomplete="name" formControlName="name">
+    </section>
+
+    <section class="input-section">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" autofocus autocomplete="email" formControlName="email">
+    </section>
+
+    <section class="input-section">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" autofocus autocomplete="current-password"
+        formControlName="password">
+    </section>
+
+    <section *ngIf="error" class="error-section">
+      <span>Check your Email and Password.</span>
+    </section>
+
+    <section class="action-section">
+      <button type="submit">Create Account</button>
+    </section>
+
+  </form>
+</div>

@@ -1,0 +1,86 @@
+@import "./colors.scss";
+
+body {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: $background;
+}
+
+button {
+  color: $font-color;
+  border: none;
+  width: fit-content;
+  background: $accent;
+  padding: 10px 20px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+button.secondary {
+  background: $input-background;
+  color: $font-color;
+}
+
+button.primary {
+  background: $primary;
+  color: $on-primary-font;
+}
+
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+
+form {
+  width: 100%;
+  height: 100%;
+  background: $background2;
+  color: $font-color;
+  border-radius: 10px;
+
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+
+    label {
+      padding: 0.5rem;
+    }
+
+    input {
+      color: $font-color;
+      padding: 0.7rem;
+      border: 2px solid $input-background;
+      background: $input-background;
+      border-radius: 10px;
+    }
+
+    input:focus {
+      outline: none;
+      border: 2px $accent solid;
+    }
+  }
+
+  .error-section {
+    color: red;
+    padding: 0.5rem 1rem;
+  } 
+  
+  .action-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 1rem 1rem;
+  }
+}

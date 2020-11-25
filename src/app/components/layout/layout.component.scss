@@ -1,0 +1,44 @@
+@import "../../../colors.scss";
+
+.wrapper {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: minmax(40px, auto) 1fr auto;
+
+  header {
+    color: $on-primary-font;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    font-size: clamp(1rem, 1.5rem, 3rem);
+    justify-content: space-between;
+    background: $primary;
+
+    @media only screen and (max-width: 480px) {
+      .la-user-section {
+        display: none;
+      }
+      .sm-user-section {
+        display: flex;
+      }
+    }
+    @media only screen and (min-width: 480px) {
+      .la-user-section {
+        display: flex;
+      }
+      .sm-user-section {
+        display: none;
+      }
+    }
+  }
+
+  main {
+    padding: 8px;
+  }
+
+  footer {
+    color: $font-color;
+    padding: 8px;
+  }
+
+}
