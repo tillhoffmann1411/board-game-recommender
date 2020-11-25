@@ -1,8 +1,7 @@
-# Angular-Boilerplate
-
-An Angular Boilerplate template for Angular Projects. This template is designed to work well with [Node-Boilerplate](https://github.com/tillhoffmann1411/node-boilerplate)
+# Board Game Recommender
 
 ## Setup
+### Frontend
 
 1. Install Angular CLI `npm install -g @angular/cli`
 2. Clone repository
