@@ -6,13 +6,14 @@ services:
     build:
       context: backend
     ports: 
-      - "3000:3000"
+      - 8000:8000
     volumes:
       - ./backend:/app
-    command: sh -c "python ./app/manage.py runserver 0.0.0.0:3000"
+    command: sh -c "python ./app/manage.py runserver 0.0.0.0:8000"
     container_name: django
     environment: 
       - DEBUG=1
+    restart: on-failure
 
   angular:
     build:
@@ -23,3 +24,4 @@ services:
     ports:
       - 4200:4200
     container_name: angular
+    restart: on-failure
