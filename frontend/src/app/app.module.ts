@@ -16,6 +16,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsModule.forRoot([AuthState]),
     BrowserAnimationsModule,
-    AngularSvgIconModule.forRoot()
+    AngularSvgIconModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

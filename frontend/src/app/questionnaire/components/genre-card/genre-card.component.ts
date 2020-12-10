@@ -1,3 +1,4 @@
+import { core } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,9 +10,14 @@ export class GenreCardComponent implements OnInit {
   @Input() icon: string;
   @Input() text: string;
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+
   }
 
 }
+
+
+// src="../../../../assets/icons/{{ icon }}"

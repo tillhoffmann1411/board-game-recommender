@@ -7,9 +7,9 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
   {
     path: '', component: LayoutComponent, children: [
+      { path: '', component: LandingPageComponent },
       { path: 'signin', component: SignInComponent },
       { path: 'signup', component: SignUpComponent },
       { path: 'questionnaire', loadChildren: () => import('./questionnaire/questionnaire.module').then(m => m.QuestionnaireModule) },
