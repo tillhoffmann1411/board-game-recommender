@@ -1,0 +1,50 @@
+.container {
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+
+  
+  .slogan {
+    position: absolute;
+    width: 711px;
+    height: 148px;
+    left: 100px;
+    top: 389px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 66px;
+
+    .button {
+      font-size: 24px;
+    }
+  }
+
+  .image {
+    position: absolute;
+    width: 45%;
+    height: 70%;
+    right: 5%;
+    top: 15%;
+    z-index: -2;
+  }
+
+
+
+
+  .blue-flare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .rose-flare {
+    position: absolute;
+    width: 432px;
+    height: 487px;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}

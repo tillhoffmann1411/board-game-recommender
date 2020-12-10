@@ -20,7 +20,7 @@ services:
       context: frontend
     volumes:
       - './frontend:/app'
-      - '/app/node_modules'
+      - './frontend/node_modules:/app/node_modules'
     ports:
       - 4200:4200
     container_name: angular

@@ -12,7 +12,13 @@
     align-items: center;
     font-size: clamp(1rem, 1.5rem, 3rem);
     justify-content: space-between;
-    background: $primary;
+    background-color: $background2;
+    
+    .title {
+      font-weight: bold;
+      font-size: 1.3em;
+      cursor: pointer;
+    }
 
     @media only screen and (max-width: 480px) {
       .la-user-section {

@@ -1,4 +1,38 @@
 @import "./colors.scss";
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$board-game-recommender-primary: mat-palette($mat-amber, A200, A100, A400);
+$board-game-recommender-accent: mat-palette($mat-blue, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$board-game-recommender-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$board-game-recommender-theme: mat-light-theme((
+  color: (
+    primary: $board-game-recommender-primary,
+    accent: $board-game-recommender-accent,
+    warn: $board-game-recommender-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($board-game-recommender-theme);
+
 
 body {
   margin: 0px;
@@ -7,13 +41,13 @@ body {
 }
 
 button {
-  color: $font-color;
+  color: $primary;
   border: none;
   width: fit-content;
-  background: $accent;
+  background: #ffffff00;
   padding: 10px 20px;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-left: 10px;
 }
@@ -84,3 +118,5 @@ form {
     padding: 1rem 1rem;
   }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

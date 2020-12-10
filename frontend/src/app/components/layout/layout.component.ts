@@ -20,11 +20,15 @@ export class LayoutComponent implements OnInit {
     this.authService.getIsLoggedIn.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
       if (isLoggedIn) {
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       } else {
-        this.router.navigate(['/signin']);
+        // this.router.navigate(['/signin']);
       }
     });
+  }
+
+  goToHome() {
+    this.router.navigate(['/']);
   }
 
   goToSignin() {

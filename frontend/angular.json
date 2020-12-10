@@ -71,6 +71,8 @@
           "options": {
             "browserTarget": "board-game-recommender:build"
           },
+          "port": 4200,
+          "host": "0.0.0.0",
           "configurations": {
             "production": {
               "browserTarget": "board-game-recommender:build:production"
