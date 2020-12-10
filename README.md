@@ -1,4 +1,5 @@
 # Board Game Recommender
+Since the latest version of Angular is used whenever possible, IE9, IE10, and IE mobile are not supported.
 
 ## Setup
 
