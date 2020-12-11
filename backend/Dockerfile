@@ -2,16 +2,26 @@ FROM python:3.8-alpine
 
 ENV PATH="/scripts:${PATH}"
 
+# Copy required Python packages
 COPY ./requirements.txt /requirements.txt
-RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
+COPY ./scripts /scripts
+
+
+# Install python packages an remove temporary stuff
 RUN apk add bash
+RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
+RUN apk add --no-cache postgresql-libs
+RUN apk add --no-cache --virtual .build-deps musl-dev postgresql-dev
+
+RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
-RUN apk del .tmp
+
+RUN apk --purge del .build-deps .tmp
+
 
 RUN mkdir /app
 COPY ./app /app
 WORKDIR /app
-COPY ./scripts /scripts
 
 RUN chmod +x /scripts/*
 

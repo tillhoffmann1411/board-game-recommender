@@ -1,15 +1,15 @@
 .container {
   height: 100%;
   width: 100%;
-  justify-content: space-between;
+  display: flex;
 
   
   .slogan {
     position: absolute;
     width: 711px;
     height: 148px;
-    left: 100px;
-    top: 389px;
+    left: 10vw;
+    top: 40vh;
 
     font-style: normal;
     font-weight: bold;
@@ -22,25 +22,21 @@
   }
 
   .image {
-    position: absolute;
-    width: 45%;
-    height: 70%;
-    right: 5%;
-    top: 15%;
-    z-index: -2;
+  position: absolute;
+  right: 5%;
+  z-index: -1;
+  width: auto;
+  max-height: 80vh;
   }
 
-
-
-
   .blue-flare {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
   }
   .rose-flare {
-    position: absolute;
+    position: fixed;
     width: 432px;
     height: 487px;
     right: 0;
