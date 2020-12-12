@@ -2,8 +2,18 @@
   <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
 
     <section class="input-section">
-      <label for="name">Name</label>
-      <input id="name" type="text" name="name" autofocus autocomplete="name" formControlName="name">
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" autofocus autocomplete="username" formControlName="username">
+    </section>
+
+    <section class="input-section">
+      <label for="firstName">First name</label>
+      <input id="firstName" type="text" name="firstName" autofocus autocomplete="firstName" formControlName="firstName">
+    </section>
+
+    <section class="input-section">
+      <label for="lastName">Last name</label>
+      <input id="lastName" type="text" name="lastName" autofocus autocomplete="lastName" formControlName="lastName">
     </section>
 
     <section class="input-section">
@@ -13,7 +23,7 @@
 
     <section class="input-section">
       <label for="password">Password</label>
-      <input id="password" type="password" name="password" autofocus autocomplete="current-password"
+      <input id="password" type="password" name="password" autofocus autocomplete="new-password"
         formControlName="password">
     </section>
 

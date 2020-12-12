@@ -6,7 +6,7 @@ import { Auth } from './auth.actions';
 import { UserHttpService } from '../../services/user.service';
 
 const DEFAULTS = {
-  user: { id: '', name: '', email: '' },
+  user: { id: '', username: '' },
   error: '',
   loggedIn: false,
   jwtExpires: 0,
@@ -51,8 +51,8 @@ export class AuthState {
    */
 
   @Action(Auth.SignIn)
-  signIn(ctx: StateContext<IAuthState>, { email, password }: Auth.SignIn) {
-    this.userService.signIn(email, password).then(res => {
+  signIn(ctx: StateContext<IAuthState>, { username, password }: Auth.SignIn) {
+    this.userService.signIn(username, password).then(res => {
       if (res.loggedIn) {
         this.store.dispatch(new Auth.SignInSuccess(res));
       } else {
@@ -79,8 +79,8 @@ export class AuthState {
    */
 
   @Action(Auth.SignUp)
-  signUp(ctx: StateContext<IAuthState>, { email, password }: Auth.SignUp) {
-    this.userService.signUp(name, email, password).then(res => {
+  signUp(ctx: StateContext<IAuthState>, { username, password, email, firstName, lastName }: Auth.SignUp) {
+    this.userService.signUp(username, password, email, firstName, lastName).then(res => {
       if (res.loggedIn) {
         this.store.dispatch(new Auth.SignUpSuccess(res));
       } else {

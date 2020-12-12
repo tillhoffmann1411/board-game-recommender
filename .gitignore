@@ -45,5 +45,32 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Environment variables
-*.env*
+# virtual environments
+venv
+
+# Python files
+*.pyc
+__pycache__
+
+# Python Notebook dot files
+.ipynb*
+
+# Secret environment settings
+.env
+env
+
+# Node and Webpack files
+node_modules
+npm-debug.log
+webpack-stats*
+
+# Static assests
+staticfiles
+static_cdn
+media_cdn
+
+# Ignore sqlite
+db.sqlite3
+
+# Apple files
+.DS_Store

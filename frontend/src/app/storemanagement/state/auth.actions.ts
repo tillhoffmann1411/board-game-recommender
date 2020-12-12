@@ -17,7 +17,7 @@ export namespace Auth {
 
   export class SignIn {
     static readonly type = '[Auth] Sign in and set data';
-    constructor(public email: string, public password: string) { }
+    constructor(public username: string, public password: string) { }
   }
 
   export class SignInError {
@@ -37,7 +37,7 @@ export namespace Auth {
 
   export class SignUp {
     static readonly type = '[Auth] Sign up and set data';
-    constructor(public name: string, public email: string, public password: string) { }
+    constructor(public username: string, public password: string, public email?: string, public firstName?: string, public lastName?: string) { }
   }
 
   export class SignUpError {

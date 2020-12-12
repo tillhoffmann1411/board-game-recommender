@@ -21,8 +21,10 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', Validators.required),
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+      email: new FormControl('', [Validators.email]),
       password: new FormControl('', Validators.required),
     });
   }
@@ -31,7 +33,13 @@ export class SignUpComponent implements OnInit {
     console.log(this.signUpForm.value);
     if (this.signUpForm.valid) {
       try {
-        const response = await this.userService.signUp(this.signUpForm.value.name, this.signUpForm.value.email, this.signUpForm.value.password);
+        const response = await this.userService.signUp(
+          this.signUpForm.value.username,
+          this.signUpForm.value.password,
+          this.signUpForm.value.email,
+          this.signUpForm.value.firstName,
+          this.signUpForm.value.lastName
+        );
         this.error = false;
         console.log('Signup response:', response);
       } catch (error) {

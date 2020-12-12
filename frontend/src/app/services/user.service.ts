@@ -1,5 +1,5 @@
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IAuth } from '../models/auth';
 
@@ -8,23 +8,32 @@ import { IAuth } from '../models/auth';
 })
 export class UserHttpService {
   baseUrl = environment.api.url;
+  headers: HttpHeaders = new HttpHeaders().append('Accept', 'application/json');
 
   constructor(private http: HttpClient) { }
 
-  signIn(email: string, password: string) {
-    return this.http.post<IAuth>(this.baseUrl + '/users/signin', { email, password }, { withCredentials: true }).toPromise();
+  signIn(username: string, password: string) {
+    return this.http.post<IAuth>(this.baseUrl + '/auth/login/', { username, password }).toPromise();
   }
 
-  signUp(name: string, email: string, password: string) {
-    return this.http.post<IAuth>(this.baseUrl + '/users/signup', { name, email, password }, { withCredentials: true }).toPromise();
+  signUp(username: string, password: string, email?: string, firstName?: string, lastName?: string) {
+    const user = {
+      username,
+      email,
+      password1: password,
+      password2: password,
+      last_name: lastName,
+      first_name: firstName
+    };
+    return this.http.post<IAuth>(this.baseUrl + '/auth/registration/', user, { headers: this.headers }).toPromise();
   }
 
   signOut() {
-    return this.http.get<{ success: boolean }>(this.baseUrl + '/users/signout', { withCredentials: true }).toPromise();
+    return this.http.get<{ success: boolean }>(this.baseUrl + '/auth/logout/', { headers: this.headers }).toPromise();
   }
 
   delete(id: string) {
     const params = new HttpParams().append('id', id);
-    return this.http.delete<{ success: boolean }>(this.baseUrl + '/users', { withCredentials: true, params }).toPromise();
+    return this.http.delete<{ success: boolean }>(this.baseUrl + '/users', { params, headers: this.headers }).toPromise();
   }
 }

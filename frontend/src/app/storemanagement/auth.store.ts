@@ -23,12 +23,12 @@ export class AuthStore {
     return this.store.selectSnapshot<IAuthState>(state => state).user;
   }
 
-  signIn(email: string, password: string): Observable<void> {
-    return this.store.dispatch(new Auth.SignIn(email, password));
+  signIn(username: string, password: string): Observable<void> {
+    return this.store.dispatch(new Auth.SignIn(username, password));
   }
 
-  signUp(name: string, email: string, password: string) {
-    return this.store.dispatch(new Auth.SignUp(name, email, password));
+  signUp(username: string, password: string, email?: string, firstName?: string, lastName?: string) {
+    return this.store.dispatch(new Auth.SignUp(username, password, email, firstName, lastName));
   }
 
   signOut(): Observable<void> {
