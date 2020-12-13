@@ -41,36 +41,58 @@ yarn-error.log
 testem.log
 /typings
 
-# System Files
-.DS_Store
-Thumbs.db
 
-# virtual environments
-venv
 
-# Python files
-*.pyc
-__pycache__
 
-# Python Notebook dot files
-.ipynb*
+### Python
 
-# Secret environment settings
-.env
-env
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
 
-# Node and Webpack files
-node_modules
-npm-debug.log
-webpack-stats*
+# C extensions
+*.so
 
-# Static assests
-staticfiles
-static_cdn
-media_cdn
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Ignore sqlite
-db.sqlite3
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Apple files
-.DS_Store
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
