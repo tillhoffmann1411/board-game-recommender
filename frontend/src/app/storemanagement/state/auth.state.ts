@@ -5,6 +5,7 @@ import { IAuth } from '../../models/auth';
 import { Auth } from './auth.actions';
 import { UserHttpService } from '../../services/user.service';
 import { IUser } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 const DEFAULTS = {
   user: { id: NaN, username: '' },
@@ -28,6 +29,7 @@ export class AuthState {
   constructor(
     private userService: UserHttpService,
     private store: Store,
+    private router: Router
   ) { }
 
   @Selector()
@@ -124,8 +126,11 @@ export class AuthState {
   @Action(Auth.SignOut)
   async signOut(ctx: StateContext<IAuthState>) {
     const response = await this.userService.signOut();
-    if (response.success) {
+    if (response.detail === 'Successfully logged out.') {
       ctx.setState(DEFAULTS);
+      this.router.navigate(['/']);
+    } else {
+      ctx.setState({ ...DEFAULTS, error: 'Error by logging out: ' + response.detail });
     }
   }
 
@@ -137,10 +142,11 @@ export class AuthState {
   @Action(Auth.Delete)
   async delete(ctx: StateContext<IAuthState>) {
     const response = await this.userService.delete(ctx.getState().user.id);
-    if (response.success) {
+    if (response.detail) {
       ctx.setState(DEFAULTS);
+      this.router.navigate(['/']);
     } else {
-      ctx.patchState({ error: 'Deleting user failed' });
+      ctx.setState({ ...ctx.getState(), error: 'Deleting user failed: ' + response.detail });
     }
   }
 }

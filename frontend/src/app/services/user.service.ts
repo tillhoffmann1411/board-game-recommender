@@ -29,11 +29,11 @@ export class UserHttpService {
   }
 
   signOut() {
-    return this.http.get<{ success: boolean }>(this.baseUrl + '/auth/logout/', { headers: this.headers }).toPromise();
+    return this.http.post<{ detail: string }>(this.baseUrl + '/auth/logout/', { headers: this.headers }).toPromise();
   }
 
   delete(id: number) {
     const params = new HttpParams().append('id', id.toString());
-    return this.http.delete<{ success: boolean }>(this.baseUrl + '/users', { params, headers: this.headers }).toPromise();
+    return this.http.delete<{ detail: string }>(this.baseUrl + '/users', { params, headers: this.headers }).toPromise();
   }
 }
