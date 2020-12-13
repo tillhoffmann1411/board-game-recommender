@@ -7,4 +7,3 @@ django-environ
 djangorestframework-jwt
 django-rest-auth
 django-rest-auth[with_social]
-django-cors-headers
