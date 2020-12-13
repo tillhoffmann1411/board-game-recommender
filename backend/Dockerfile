@@ -3,7 +3,7 @@ FROM python:3.8-alpine
 ENV PATH="/scripts:${PATH}"
 
 # Copy required Python packages
-COPY ./requirements/ /requirements
+COPY ./requirements.txt /requirements.txt
 COPY ./scripts /scripts
 
 
@@ -14,7 +14,7 @@ RUN apk add --no-cache postgresql-libs
 RUN apk add --no-cache --virtual .build-deps musl-dev postgresql-dev
 
 RUN pip install --upgrade pip
-RUN pip install -r /requirements/local.txt
+RUN pip install -r /requirements.txt
 
 RUN apk --purge del .build-deps .tmp
 
