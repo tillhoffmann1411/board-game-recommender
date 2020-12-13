@@ -6,13 +6,17 @@
   grid-template-rows: minmax(40px, auto) 1fr auto;
 
   header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
     color: $on-primary-font;
     padding: 8px;
     display: flex;
     align-items: center;
     font-size: clamp(1rem, 1.5rem, 3rem);
     justify-content: space-between;
-    // background-color: $background2;
+    z-index: 2;
     
     .icon {
       font-weight: bold;
@@ -36,10 +40,6 @@
         display: none;
       }
     }
-  }
-
-  main {
-    padding: 8px;
   }
 
   footer {

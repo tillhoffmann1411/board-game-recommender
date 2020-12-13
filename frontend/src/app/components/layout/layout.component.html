@@ -9,7 +9,7 @@
     </section>
     <section class="la-user-section">
       <button (click)="goToSignup()" *ngIf="!isLoggedIn">Create Account</button>
-      <button class="primary" (click)="goToSignin()" *ngIf="!isLoggedIn">Log In</button>
+      <button (click)="goToSignin()" *ngIf="!isLoggedIn">Log In</button>
       <button (click)="logout()" *ngIf="isLoggedIn">Sign Out</button>
       <button (click)="delete()" *ngIf="isLoggedIn">Delete Me</button>
     </section>

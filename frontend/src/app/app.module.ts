@@ -15,6 +15,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { QuestionnaireModule } from './questionnaire/questionnaire.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
   ],
   imports: [
     CommonModule,
+    QuestionnaireModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

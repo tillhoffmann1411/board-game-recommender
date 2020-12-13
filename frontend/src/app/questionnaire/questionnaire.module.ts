@@ -8,11 +8,17 @@ import { GenreCardComponent } from './components/genre-card/genre-card.component
 
 
 @NgModule({
-  declarations: [QuestionnaireComponent, GenreCardComponent],
+  declarations: [
+    QuestionnaireComponent,
+    GenreCardComponent,
+  ],
   imports: [
     CommonModule,
     QuestionnaireRoutingModule,
     MatIconModule
+  ],
+  exports: [
+    QuestionnaireComponent,
   ]
 })
 export class QuestionnaireModule { }
