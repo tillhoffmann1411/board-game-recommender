@@ -32,8 +32,8 @@ export class UserHttpService {
     return this.http.get<{ success: boolean }>(this.baseUrl + '/auth/logout/', { headers: this.headers }).toPromise();
   }
 
-  delete(id: string) {
-    const params = new HttpParams().append('id', id);
+  delete(id: number) {
+    const params = new HttpParams().append('id', id.toString());
     return this.http.delete<{ success: boolean }>(this.baseUrl + '/users', { params, headers: this.headers }).toPromise();
   }
 }

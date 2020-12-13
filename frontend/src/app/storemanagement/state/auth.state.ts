@@ -4,18 +4,18 @@ import { State, StateContext, Action, Selector, Store } from '@ngxs/store';
 import { IAuth } from '../../models/auth';
 import { Auth } from './auth.actions';
 import { UserHttpService } from '../../services/user.service';
+import { IUser } from 'src/app/models/user';
 
 const DEFAULTS = {
-  user: { id: '', username: '' },
+  user: { id: NaN, username: '' },
   error: '',
   loggedIn: false,
-  jwtExpires: 0,
-  refreshToken: '',
-  refreshTokenExpires: 0,
 };
 
-export interface IAuthState extends IAuth {
+export interface IAuthState {
+  user: IUser,
   error: string;
+  loggedIn: boolean,
 }
 
 @State<IAuthState>({
@@ -53,7 +53,8 @@ export class AuthState {
   @Action(Auth.SignIn)
   signIn(ctx: StateContext<IAuthState>, { username, password }: Auth.SignIn) {
     this.userService.signIn(username, password).then(res => {
-      if (res.loggedIn) {
+      console.log(res);
+      if (res.token) {
         this.store.dispatch(new Auth.SignInSuccess(res));
       } else {
         this.store.dispatch(new Auth.SignInError());
@@ -65,12 +66,19 @@ export class AuthState {
 
   @Action(Auth.SignInSuccess)
   signInSuccess(ctx: StateContext<IAuthState>, { auth }: Auth.SignInSuccess) {
-    ctx.setState({ ...auth, error: '' });
+    const user: IUser = {
+      id: auth.user.pk,
+      username: auth.user.username,
+      email: auth.user.email,
+      firstName: auth.user.first_name,
+      lastName: auth.user.last_name
+    }
+    ctx.setState({ user, loggedIn: true, error: '' });
   }
 
   @Action(Auth.SignInError)
   signInError(ctx: StateContext<IAuthState>, { auth }: Auth.SignInSuccess) {
-    ctx.setState({ ...DEFAULTS, error: 'Sign in failed' });
+    ctx.setState({ ...DEFAULTS, error: auth.non_field_errors ? auth.non_field_errors.toString() : 'Sign in failed' });
   }
 
 
@@ -81,7 +89,7 @@ export class AuthState {
   @Action(Auth.SignUp)
   signUp(ctx: StateContext<IAuthState>, { username, password, email, firstName, lastName }: Auth.SignUp) {
     this.userService.signUp(username, password, email, firstName, lastName).then(res => {
-      if (res.loggedIn) {
+      if (res.token) {
         this.store.dispatch(new Auth.SignUpSuccess(res));
       } else {
         this.store.dispatch(new Auth.SignUpError());
@@ -93,12 +101,19 @@ export class AuthState {
 
   @Action(Auth.SignUpSuccess)
   signUpSuccess(ctx: StateContext<IAuthState>, { auth }: Auth.SignUpSuccess) {
-    ctx.setState({ ...auth, error: '' });
+    const user: IUser = {
+      id: auth.user.pk,
+      username: auth.user.username,
+      email: auth.user.email,
+      firstName: auth.user.first_name,
+      lastName: auth.user.last_name
+    }
+    ctx.setState({ user, loggedIn: true, error: '' });
   }
 
   @Action(Auth.SignUpError)
   signUpError(ctx: StateContext<IAuthState>, { auth }: Auth.SignUpSuccess) {
-    ctx.setState({ ...DEFAULTS, error: 'Sign up failed' });
+    ctx.setState({ ...DEFAULTS, error: auth.non_field_errors ? auth.non_field_errors.toString() : 'Sign up failed' });
   }
 
 
