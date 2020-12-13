@@ -55,6 +55,11 @@ ROOT_URLCONF = 'app.urls'
 
 REST_USE_JWT = True
 
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+    'JWT_AUTH_COOKIE': 'jwt-token',
+}
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
