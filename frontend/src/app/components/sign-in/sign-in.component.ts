@@ -35,6 +35,11 @@ export class SignInComponent implements OnInit {
   async signIn() {
     if (this.signInForm.valid) {
       await this.authService.signIn(this.signInForm.value.username, this.signInForm.value.password);
+      this.authService.getIsLoggedIn.subscribe(res => {
+        if (res) {
+          this.router.navigate(['/profile']);
+        }
+      });
     } else {
       this.error = true;
     }

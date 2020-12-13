@@ -1,22 +1,32 @@
 import { Injectable } from '@angular/core';
 import { State, StateContext, Action, Selector, Store } from '@ngxs/store';
+import jwt_decode from "jwt-decode";
+import { Router } from '@angular/router';
 
-import { IAuth } from '../../models/auth';
 import { Auth } from './auth.actions';
 import { UserHttpService } from '../../services/user.service';
 import { IUser } from 'src/app/models/user';
-import { Router } from '@angular/router';
+import { IAuth } from 'src/app/models/auth';
+
+interface IDecodedToken {
+  email: string,
+  exp: number,
+  user_id: number,
+  username: string
+}
 
 const DEFAULTS = {
   user: { id: NaN, username: '' },
   error: '',
   loggedIn: false,
+  expires: new Date(),
 };
 
 export interface IAuthState {
   user: IUser,
   error: string;
   loggedIn: boolean,
+  expires: Date,
 }
 
 @State<IAuthState>({
@@ -29,7 +39,6 @@ export class AuthState {
   constructor(
     private userService: UserHttpService,
     private store: Store,
-    private router: Router
   ) { }
 
   @Selector()
@@ -55,7 +64,6 @@ export class AuthState {
   @Action(Auth.SignIn)
   signIn(ctx: StateContext<IAuthState>, { username, password }: Auth.SignIn) {
     this.userService.signIn(username, password).then(res => {
-      console.log(res);
       if (res.token) {
         this.store.dispatch(new Auth.SignInSuccess(res));
       } else {
@@ -68,14 +76,10 @@ export class AuthState {
 
   @Action(Auth.SignInSuccess)
   signInSuccess(ctx: StateContext<IAuthState>, { auth }: Auth.SignInSuccess) {
-    const user: IUser = {
-      id: auth.user.pk,
-      username: auth.user.username,
-      email: auth.user.email,
-      firstName: auth.user.first_name,
-      lastName: auth.user.last_name
-    }
-    ctx.setState({ user, loggedIn: true, error: '' });
+    const expires = this.extractDateFromToken(auth.token);
+    const user: IUser = this.extractUserFromAuth(auth);
+    localStorage.setItem('isloggedIn', 'true');
+    ctx.setState({ user, loggedIn: true, error: '', expires });
   }
 
   @Action(Auth.SignInError)
@@ -103,14 +107,10 @@ export class AuthState {
 
   @Action(Auth.SignUpSuccess)
   signUpSuccess(ctx: StateContext<IAuthState>, { auth }: Auth.SignUpSuccess) {
-    const user: IUser = {
-      id: auth.user.pk,
-      username: auth.user.username,
-      email: auth.user.email,
-      firstName: auth.user.first_name,
-      lastName: auth.user.last_name
-    }
-    ctx.setState({ user, loggedIn: true, error: '' });
+    const expires = this.extractDateFromToken(auth.token);
+    const user = this.extractUserFromAuth(auth);
+    localStorage.setItem('isloggedIn', 'true');
+    ctx.setState({ user, loggedIn: true, error: '', expires });
   }
 
   @Action(Auth.SignUpError)
@@ -128,10 +128,10 @@ export class AuthState {
     const response = await this.userService.signOut();
     if (response.detail === 'Successfully logged out.') {
       ctx.setState(DEFAULTS);
-      this.router.navigate(['/']);
     } else {
       ctx.setState({ ...DEFAULTS, error: 'Error by logging out: ' + response.detail });
     }
+    localStorage.clear();
   }
 
 
@@ -144,9 +144,24 @@ export class AuthState {
     const response = await this.userService.delete(ctx.getState().user.id);
     if (response.detail) {
       ctx.setState(DEFAULTS);
-      this.router.navigate(['/']);
     } else {
       ctx.setState({ ...ctx.getState(), error: 'Deleting user failed: ' + response.detail });
     }
+    localStorage.clear();
+  }
+
+  private extractDateFromToken(token: string): Date {
+    const decodedToken: IDecodedToken = jwt_decode(token);
+    return new Date((new Date(0)).setUTCSeconds(decodedToken.exp));
+  }
+
+  private extractUserFromAuth(auth: IAuth): IUser {
+    return {
+      id: auth.user.pk,
+      username: auth.user.username,
+      email: auth.user.email,
+      firstName: auth.user.first_name,
+      lastName: auth.user.last_name
+    };
   }
 }

@@ -23,6 +23,10 @@ export class AuthStore {
     return this.store.selectSnapshot<IAuthState>(state => state).user;
   }
 
+  getIsLoggedInSnapshot(): boolean {
+    return this.store.selectSnapshot<IAuthState>(state => state).loggedIn;
+  }
+
   signIn(username: string, password: string): Observable<void> {
     return this.store.dispatch(new Auth.SignIn(username, password));
   }
