@@ -1,3 +1,0 @@
-# Platzhalter test
-
-print('blabla')
