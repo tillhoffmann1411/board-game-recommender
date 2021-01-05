@@ -32,12 +32,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
-    'rest_auth.registration',
-    'allauth',
-    'allauth.account',
     'corsheaders',
+
+    'game',
 ]
 
 MIDDLEWARE = [
@@ -51,24 +48,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
 ROOT_URLCONF = 'app.urls'
 
-REST_USE_JWT = True
-
-JWT_AUTH = {
-    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
-    'JWT_AUTH_COOKIE': 'jwt-token',
-}
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-    ),
-}
 
 TEMPLATES = [
     {

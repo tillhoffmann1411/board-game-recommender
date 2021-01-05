@@ -1,9 +1,6 @@
 Django>=3.0.6,<3.1
 uWSGI>=2.0.18,<2.1
+psycopg2-binary
 django-cors-headers
 djangorestframework
-psycopg2-binary
-django-environ
-djangorestframework-jwt
-django-rest-auth
-django-rest-auth[with_social]
+djangorestframework_simplejwt
