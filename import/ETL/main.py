@@ -1,5 +1,5 @@
-import os
-print(str(os.getcwd()))
+# Press Umschalt+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 from ETL.Integration.auxiliary_tables import auxiliary_tables
 from ETL.globals import *
 from ETL.Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_review_data, clean_bga_api_game_information, \
@@ -9,7 +9,6 @@ from ETL.Integration.bgg_and_bga_integration import match_game_names, merge_game
     clean_reviews
 from ETL.API.bga_api import get_bga_game_information_from_api, get_bga_mechanics, get_bga_categories
 from datetime import datetime
-
 
 
 def pipeline():

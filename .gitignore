@@ -78,3 +78,4 @@ db.sqlite3
 
 # All csv and json files in Data
 /import/Data
+geckodriver.log
