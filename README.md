@@ -26,7 +26,7 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py createsuperuser
 ```
-.. This initializes the database and you create a super user for testing. When you are done you can exit the bash by entering `exit`
+⋅⋅⋅This initializes the database and you create a super user for testing. When you are done you can exit the bash by entering `exit`
 5. Now the app is setup. You can test the Django JSON API by using [Postman](https://documenter.getpostman.com/view/12313948/TVzLpLVA#cbeaa66c-6bb1-4a39-8ffc-9bde38f702f5). To access the app visit http://localhost:4200
 
 
