@@ -2,8 +2,8 @@ from rest_framework import serializers
 from django.http import JsonResponse
 
 from django.contrib.auth.models import User
-from game.serializers import BoardGameSerializer
-from game.models import BoardGame
+from games.serializers import BoardGameSerializer
+from games.models import BoardGame
 
 from .models import Taste
 

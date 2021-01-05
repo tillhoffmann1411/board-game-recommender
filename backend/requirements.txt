@@ -4,3 +4,5 @@ psycopg2-binary
 django-cors-headers
 djangorestframework
 djangorestframework_simplejwt
+dj-rest-auth
+dj-rest-auth[with_social]

@@ -73,6 +73,9 @@ media_cdn
 # Ignore sqlite
 db.sqlite3
 
+# Ignore temporary postgres db data
+/backend/db-data
+
 # Apple files
 .DS_Store
 

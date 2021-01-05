@@ -33,10 +33,17 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    'allauth',
+    'allauth.account',
 
-    'account',
-    'game',
+
+
+    'accounts',
+    'games',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +70,15 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     'UPDATE_LAST_LOGIN': True,
+}
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+REST_USE_JWT = True
+
+JWT_AUTH_COOKIE = 'jwt'
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserSerializer',
 }
 
 ROOT_URLCONF = 'app.urls'
@@ -139,3 +155,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SITE_ID = 1

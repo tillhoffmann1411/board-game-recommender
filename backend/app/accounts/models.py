@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from game.models import BoardGame
+from games.models import BoardGame
 
 
 class Taste(models.Model):

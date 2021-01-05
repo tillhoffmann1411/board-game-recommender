@@ -7,15 +7,15 @@ Since the latest version of Angular is used whenever possible, IE9, IE10, and IE
 2. Clone repository
 3. Create a .env file in the root folder with following parameters
 ```
-DEBUG=
+DEBUG=True
 SECRET_KEY=
-DJANGO_ALLOWED_HOSTS=
+DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 0.0.0.0 [::1]
 
-DB_NAME=
-DB_USER=
-DB_PASSWORD=
-DB_HOST=
-DB_PORT=
+DB_NAME=postgres
+DB_USER=user
+DB_PASSWORD=userpw
+DB_HOST=db
+DB_PORT=5432
 ```
 3. Run `docker-compose up`to build and run the project
 4. Run `docker container exec -it django bash` to start a bash inside the django container  

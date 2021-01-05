@@ -31,9 +31,14 @@ services:
   postgres:
     image: postgres
     container_name: postgres
+    volumes:
+      - ./backend/db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     environment:
       - POSTGRES_DB=$DB_NAME
       - POSTGRES_USER=$DB_USER
       - POSTGRES_PASSWORD=$DB_PASSWORD
+
+volumes:
+  db-data:
