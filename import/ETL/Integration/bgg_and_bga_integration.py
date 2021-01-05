@@ -71,7 +71,7 @@ def match_game_names():
             for bgg_game in bgg_dic_grouped_by_year[year]:
                 ref_list.append(bgg_game['name'])
 
-            match = find_closest_match(input_string, ref_list, 0)
+            match = find_closest_match(input_string, ref_list, JACCARD_THRESHOLD)
             bga_game['match'] = match['name']
             bga_game['jaccard_score'] = match['jaccard_score']
 
@@ -345,7 +345,8 @@ def ngrams(string, n=3):
     string = '##' + string + '##'
 
     # remove common words like 'edition','first','second','third:
-    remove_words = ['edition', 'first', 'second', 'third', '2nd', 'deluxe', 'game', 'board', 'card', 'anniversary']
+    remove_words = ['edition', 'first', 'second', 'third', '2nd', 'deluxe', 'game', 'board', 'card', 'anniversary',
+                    'classic', 'collector']
 
     # split words so that words like 'expEDITION' do not get removed:
     string_words = string.split()
