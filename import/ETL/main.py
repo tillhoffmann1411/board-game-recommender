@@ -1,16 +1,15 @@
-# This is a sample Python script.
-
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import os
+print(str(os.getcwd()))
 from ETL.Integration.auxiliary_tables import auxiliary_tables
 from ETL.globals import *
-from Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_review_data, clean_bga_api_game_information, \
+from ETL.Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_review_data, clean_bga_api_game_information, \
     create_list_of_ids_of_all_bga_games
-from Cleaning.BoardGameGeeks.clean_boardgamegeeks_data import clean_bgg_games, clean_bgg_reviews
-from Integration.bgg_and_bga_integration import match_game_names, merge_game_information, merge_reviews, extract_users, \
+from ETL.Cleaning.BoardGameGeeks.clean_boardgamegeeks_data import clean_bgg_games, clean_bgg_reviews
+from ETL.Integration.bgg_and_bga_integration import match_game_names, merge_game_information, merge_reviews, extract_users, \
     clean_reviews
 from ETL.API.bga_api import get_bga_game_information_from_api, get_bga_mechanics, get_bga_categories
 from datetime import datetime
+
 
 
 def pipeline():
@@ -40,6 +39,7 @@ def pipeline():
         6.1:
     """
 
+    print('Hello World!')
 
     if RUN_PIPELINE_SPIDER:
         # runSpider()
@@ -76,12 +76,9 @@ def pipeline():
         print('Integration pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
 
-
-
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     pipeline()
-
 
 
 #######################################################################################

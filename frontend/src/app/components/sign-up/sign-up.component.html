@@ -1,39 +1,54 @@
-<div class="component">
-  <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+<div class="flare-dots">
+  <img src="./../../assets/images/flare-dark-five-dots.svg" alt="">
+</div>
+<div class="flare-middle">
+  <img src="./../../assets/images/flare-dark-middle.svg" alt="">
+</div>
 
-    <section class="input-section">
-      <label for="username">Username</label>
-      <input id="username" type="text" name="username" autofocus autocomplete="username" formControlName="username">
-    </section>
+<div class="wrapper">
+  <div class="component">
+    <div class="image">
+      <img src="./../../assets/images/game-boards.svg" alt="">
+    </div>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
 
-    <section class="input-section">
-      <label for="firstName">First name</label>
-      <input id="firstName" type="text" name="firstName" autofocus autocomplete="firstName" formControlName="firstName">
-    </section>
+      <h1>Sign up</h1>
 
-    <section class="input-section">
-      <label for="lastName">Last name</label>
-      <input id="lastName" type="text" name="lastName" autofocus autocomplete="lastName" formControlName="lastName">
-    </section>
+      <section class="input-section">
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" autofocus autocomplete="username" formControlName="username">
+      </section>
 
-    <section class="input-section">
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" autofocus autocomplete="email" formControlName="email">
-    </section>
+      <section class="input-section">
+        <label for="firstName">First name</label>
+        <input id="firstName" type="text" name="firstName" autofocus autocomplete="firstName"
+          formControlName="firstName">
+      </section>
 
-    <section class="input-section">
-      <label for="password">Password</label>
-      <input id="password" type="password" name="password" autofocus autocomplete="new-password"
-        formControlName="password">
-    </section>
+      <section class="input-section">
+        <label for="lastName">Last name</label>
+        <input id="lastName" type="text" name="lastName" autofocus autocomplete="lastName" formControlName="lastName">
+      </section>
 
-    <section *ngIf="error" class="error-section">
-      <span>Check your Email and Password.</span>
-    </section>
+      <section class="input-section">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" autofocus autocomplete="email" formControlName="email">
+      </section>
 
-    <section class="action-section">
-      <button type="submit">Create Account</button>
-    </section>
+      <section class="input-section">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" autofocus autocomplete="new-password"
+          formControlName="password">
+      </section>
 
-  </form>
+      <section *ngIf="error" class="error-section">
+        <span>Check your Email and Password.</span>
+      </section>
+
+      <section class="action-section">
+        <button type="submit" autofocus class="primary">Create Account</button>
+      </section>
+
+    </form>
+  </div>
 </div>
