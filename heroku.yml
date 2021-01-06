@@ -1,4 +1,8 @@
-
+setup:
+  docker:
+    postgres: postgres
+# Reference the Dockerfiles to build into Docker images 
 build:
   docker:
-    web: Dockerfile
+    frontend: frontend/Dockerfile.prod
+    backend: backend/Dockerfile.prod
