@@ -11,11 +11,11 @@ DEBUG=True
 SECRET_KEY=
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 0.0.0.0 [::1]
 
-DB_NAME=postgres
-DB_USER=user
-DB_PASSWORD=userpw
-DB_HOST=db
-DB_PORT=5432
+POSTGRES_DB=postgres
+POSTGRES_USER=user
+POSTGRES_PASSWORD=userpw
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
 ```
 3. Run `docker-compose up`to build and run the project
 4. Run `docker container exec -it django bash` to start a bash inside the django container  

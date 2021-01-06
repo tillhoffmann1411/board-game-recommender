@@ -1,6 +1,6 @@
 # Reference the Dockerfiles to build into Docker images 
 build:
   docker:
-    postgres: postgres
+    postgres: Dockerfile.prod.postgres
     frontend: frontend/Dockerfile.prod
     backend: backend/Dockerfile.prod
