@@ -1,0 +1,31 @@
+# Specifies the add-ons and config vars to create during app provisioning
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+  config:
+    S3_BUCKET: my-example-bucket
+
+# Specifies the Dockerfile to build
+build:
+  docker:
+    web: Dockerfile
+    worker: worker/Dockerfile
+  config:
+    RAILS_ENV: development
+    FOO: bar
+
+# Specifies the release phase tasks to execute
+release:
+  command:
+    - ./deployment-tasks.sh
+  image: worker
+
+# Specifies process types and the commands to run for each
+run:
+  web: bundle exec puma -C config/puma.rb
+  worker: python myworker.py
+  asset-syncer:
+    command:
+      - python asset-syncer.py
+    image: worker
