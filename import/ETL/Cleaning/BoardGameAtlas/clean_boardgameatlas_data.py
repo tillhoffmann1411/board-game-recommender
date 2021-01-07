@@ -14,8 +14,7 @@ def clean_bga_game_information_scraper():
     Dataframe is then saved to a JSON file.
     '''
 
-    df = import_json_to_dataframe(
-        '../Data/BoardGameAtlas/Raw/Scrapy/BoardGameInformationScraper.json')
+    df = import_json_to_dataframe('../Data/BoardGameAtlas/Raw/Scrapy/BoardGameInformationScraper.json')
 
     # remove unwanted symbols (especially brackets)
     unwanted_symbols = ['[', ']', "'"]
@@ -43,8 +42,7 @@ def clean_bga_game_information_scraper():
     df = df.drop_duplicates(subset='bga_game_id', keep="first")
 
     # create json file
-    export_df_to_json(df,
-                   '../Data/BoardGameAtlas/Processed/bga_GameInformation_scrapy_Cleaned.json')
+    export_df_to_json(df,'../Data/BoardGameAtlas/Processed/bga_GameInformation_scrapy_Cleaned.json')
 
 
 def create_list_of_ids_of_all_bga_games():

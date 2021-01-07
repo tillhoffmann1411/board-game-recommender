@@ -4,10 +4,69 @@ import re
 
 from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, export_df_to_csv
 
-JACCARD_THRESHOLD = 0.31034
+# Threshold for matching game names. For jaccard scores lower than that threshold games are no longer matched.
+JACCARD_THRESHOLD_GAME_NAME = 0.31034
+
+# Counting the number of comparisons when applying our similarity function to game names.
+COMPARISONS = 0
+
+
+def integrate_boardgame_table():
+    # match bga and bgg boardgames by applying the set-based similarity function jaccard on the boardgame names.
+    match_game_names()
+
+    # merge the bga and bgg game information datasets by using the game matches identified in the previous step
+    merge_game_information()
+
+
+def integrate_user_and_review_tables():
+    # merges the reviews of both the bga and bgg dataset
+    merge_reviews()
+
+    # create a user table by extracting information from the merged reviews on users from bga and bgg dataset
+    extract_users()
+
+    # adds previously created user keys to review table, as well as deletes a few unnecessary or redundant columns
+    clean_reviews()
 
 
 def match_game_names():
+    """
+    This function matches bga and bgg boardgames based on their game names and the year in which they were published.
+    This is how it works:
+    - We calculate n-grams with n=3 for each boardgamename.
+    - By removing stopwords that appear in many games, but that do not add much meaning to the game title we ensure
+    reduce the number of false-positives and false-negatives.
+    Examples: the stopwords 'board' and 'game' are removed:
+        bga_name = '7 Wonders'
+        bgg_name = '7 Wonders - The Board Game'
+        -> this would result in a rather low jaccard score without removing the stopwords.
+
+        bga_name = 'Settlers - The Board Game'
+        bgg_name = '7 Wonder - The Board Game'
+        -> this would result in a rather high jaccard score considering that both do not refer to the same game.
+    - We then compare the similarity of a bga candidate and a bgg candidate by calculating the jaccard similarity.
+    - The candidate with the highest jaccard score is chosen. Only if the jaccard score of that candidate exceeds our
+    threshold the games are matched.
+
+    Scalability Challenge:
+    - However, there is one issue with that strategy: Computing the jaccard similarity requires comparisons of
+    ca. 8,000 bga games and ca. 19,000 bgg games. The quadratic complexity requires a veeery long run time.
+    -> 8,000 x 19,000 = 152,000,000 comparisons.
+
+    Therefore we adjusted our approach:
+    1) First, we find game names that match exactly. We can subtract these games from the their datasets to decrease
+    the sizes of games that have to be compared to: ca. 3,000 bga games and ca. 15,000 bgg games.
+    -> 3,000 x 15,000 = 45,000,000 (complexity reduced by ~70%)
+    2) This is still quite a lot of comparisons. However, we made another observation. In the set of games that could
+    be matched exactly, in almost all cases the publish years are the same, which makes sense obviously.
+    3) Therefore we can further reduce complexity by grouping by publish years and comparing only games that have
+    exactly the same publish year.This further reduces the number of comparisons to: ~ 330,000
+    Hence, by applying the similarity function only to the most promising pairs we reduced the number of required
+    comparisons by 99.8%.
+
+    """
+
     bgg_filename = get_latest_version_of_file(
         '../Data/BoardGameGeeks/Processed/GameInformation/01_BGG_Game_Information_*.csv')
     bgg_df = pd.read_csv(bgg_filename, index_col=0)
@@ -71,9 +130,12 @@ def match_game_names():
             for bgg_game in bgg_dic_grouped_by_year[year]:
                 ref_list.append(bgg_game['name'])
 
-            match = find_closest_match(input_string, ref_list, JACCARD_THRESHOLD)
+            match = find_closest_match(input_string, ref_list, JACCARD_THRESHOLD_GAME_NAME)
             bga_game['match'] = match['name']
             bga_game['jaccard_score'] = match['jaccard_score']
+
+    global COMPARISONS
+    print('Number of comparisons: '+str(COMPARISONS))
 
     bga_list_matches = []
     for year in years:
@@ -128,6 +190,20 @@ def match_game_names():
 
 
 def merge_game_information():
+    '''
+    Function merges the boardgames of the previously matched games.
+
+    For the matched games there are three types of columns:
+        a) columns that exist in both datasets but we only need to keep one of them (conflicting attributes):
+            (e.g. name, year_published, min_players, ...)
+            In this case we chose to keep the bgg columns! This means that we also
+        b) columns that exist in both datasets but we want to keep both:
+            (e.g. bga_game_id/bgg_game_id, num_user_ratings, average_user_rating, bga_rank/bgg_rank, ...)
+        c) columns that exist only in the bgg dataset:
+            (e.g. num_user_comments, ...)
+        d) columns that exist only in the bga dataset:
+            (e.g. reddit_all_time_count, bga_game_url, ...)
+    '''
     # import data:
     # bgg game information dataset:
     bgg_filename = get_latest_version_of_file(
@@ -137,22 +213,22 @@ def merge_game_information():
     bga_filename = get_latest_version_of_file('../Data/BoardGameAtlas/Processed/API/01_BGA_Game_Information_*.json')
     bga_df = import_json_to_dataframe(bga_filename)
 
-    # this leaves us with four groups:
-    # 1) Matched Games
-    # 2) BGG Games that could not be matched
-    # 3) BGA Games that could not be matched
+    # 1) this leaves us with three groups:
+    # a) Matched Games
+    # b) BGG Games that could not be matched
+    # c) BGA Games that could not be matched
 
-    # 1) matched games:
+    # 1a) matched games:
     ids_matched_games_df = pd.read_csv('../Data/Joined/Integration/GameInformation/matched_bga_and_bgg_ids.csv',
                                        index_col=0)
     bgg_subset_matches = bgg_df[bgg_df['bgg_game_id'].isin(ids_matched_games_df['bgg_game_id'])]
     bga_subset_matches = bga_df[bga_df['bga_game_id'].isin(ids_matched_games_df['bga_game_id'])]
-    # 2) BGG games no matched:
+    # 1b) BGG games no matched:
     bgg_subset_no_matches = bgg_df[~bgg_df['bgg_game_id'].isin(ids_matched_games_df['bgg_game_id'])]
-    # 3) BGA games no matched:
+    # 1c) BGA games no matched:
     bga_subset_no_matches = bga_df[~bga_df['bga_game_id'].isin(ids_matched_games_df['bga_game_id'])]
 
-    # 1)
+    # 2)
     # For the matched games there are three types of columns:
     #   a) columns that exist in both datasets but we only need to keep one of them:
     #       (e.g. name, year_published, min_players, ...)
@@ -164,7 +240,7 @@ def merge_game_information():
     #   d) columns that exist only in the bga dataset:
     #       (e.g. reddit_all_time_count, bga_game_url, ...)
 
-    # 1a) drop columns from bga dataset:
+    # 2a) drop columns from bga dataset:
     drop_bga_columns = ['name', 'year_published', 'min_players', 'max_players', 'min_playtime', 'max_playtime',
                         'min_age', 'game_description', 'image_url', 'thumbnail_url']
     bga_subset_matches.drop(columns=drop_bga_columns, inplace=True)
@@ -212,7 +288,7 @@ def merge_game_information():
         print('BGA_game_ids: ' + str(count_duplicates_bga))
 
     # export to csv:
-    export_df_to_csv(games_df, '../Data/Joined/Integration/GameInformation/01_GameInformation_All_Games_Integrated.csv')
+    export_df_to_csv(games_df, '../Data/Joined/Results/BoardGames.csv')
     export_df_to_csv(key_df, '../Data/Joined/Integration/GameKeys/Keys_All_Games_Integrated.csv')
 
 
@@ -221,8 +297,11 @@ def merge_reviews():
     bgg_reviews_path = '../Data/BoardGameGeeks/Processed/Reviews/bgg_reviews_15m_CLEANED.csv'
     bga_reviews_path = '../Data/BoardGameAtlas/Processed/API/bga_all_reviews_for_games_with_more_than_2_reviews_CLEANED.csv'
 
-    bgg_reviews = pd.read_csv(bgg_reviews_path, index_col=0)
+    bgg_reviews = pd.read_csv(bgg_reviews_path)
     bga_reviews = pd.read_csv(bga_reviews_path, index_col=0)
+
+    # remove index column from bgg_reviews. Including index_col=0 in the read_csv statement did not work for some unknown reason.
+    bgg_reviews.drop(bgg_reviews.columns[0], axis=1)
 
     # import keys:
     key_df = pd.read_csv('../Data/Joined/Integration/GameKeys/Keys_All_Games_Integrated.csv', index_col=0)
@@ -244,7 +323,10 @@ def merge_reviews():
 def extract_users():
     # import reviews df:
     reviews_path = '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated.csv'
-    all_reviews = pd.read_csv(reviews_path, index_col=0)
+    all_reviews = pd.read_csv(reviews_path)
+    # remove index column from all_reviews.
+    # Including index_col=0 in the read_csv statement throws an error for some unknown reason.
+    all_reviews.drop(all_reviews.columns[0], axis=1)
 
     # Create user dataframe:
     users_df = all_reviews.groupby(['user_name', 'review_origin']).size().reset_index(name='num_ratings')
@@ -259,8 +341,7 @@ def extract_users():
     print('BoardGameAtlas users: ' + str(sum_bgg_users))
 
     # Add average rating column to user df:
-    users_df['avg_rating'] = \
-    all_reviews.groupby(['user_name', 'review_origin'], as_index=False).agg({'rating': 'mean'})['rating']
+    users_df['avg_rating'] = all_reviews.groupby(['user_name', 'review_origin'], as_index=False).agg({'rating': 'mean'})['rating']
 
     # Rename origin column:
     users_df.rename(columns={'review_origin': 'user_origin'}, inplace=True)
@@ -269,18 +350,21 @@ def extract_users():
     users_df.insert(0, 'user_key', range(1, 1 + len(users_df)))
 
     # Export users to csv:
-    export_df_to_csv(users_df, '../Data/Joined/Integration/Users/all_users_integrated.csv')
+    export_df_to_csv(users_df, '../Data/Joined/Results/User.csv')
 
 
 def clean_reviews():
     # import users:
-    users_path = '../Data/Joined/Integration/Users/all_users.csv'
+    users_path = '../Data/Joined/Results/User.csv'
     users_df = pd.read_csv(users_path, index_col=0)
     users_df = users_df[['user_key', 'user_name', 'user_origin']]
 
     # import reviews:
     reviews_path = '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated.csv'
-    all_reviews = pd.read_csv(reviews_path, index_col=0)
+    all_reviews = pd.read_csv(reviews_path)
+    # remove index column from bgg_reviews. Including index_col=0 in the read_csv statement did not work for some unknown reason.
+    all_reviews.drop(all_reviews.columns[0], axis=1)
+
 
     # Delete user_id column from review_df which currently holds user_ids from bga_dataset
     # Also delete these columns: review_id, review_date, game_id, bga_game_id and bgg_game_id
@@ -301,7 +385,7 @@ def clean_reviews():
     all_reviews = all_reviews[new_columns]
 
     # Export df:
-    export_df_to_csv(all_reviews, '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated_and_Cleaned.csv')
+    export_df_to_csv(all_reviews, '../Data/Joined/Results/Reviews.csv')
 
 
 def find_closest_match(inp_string, ref_list, threshold=0.8):
@@ -333,17 +417,6 @@ def find_closest_match(inp_string, ref_list, threshold=0.8):
 def ngrams(string, n=3):
     string = re.sub(r'[,-./]|\sBD', r'', string)
 
-    # add prefix and suffix '##': Uno -> ##Uno##
-    # 3-grams: [##U,#Un,Uno,no#,o##]
-
-    # Carcassonno:
-    # [##C,#Ca,Car,arc,rca,cas,ass,..,no#,o##]
-
-    # intersection [no#,o##] -> 2
-    # union [##U,#Un,Uno,no#,o##,##C,#Ca,Car,arc,rca,cas,ass,..] -> 14
-
-    string = '##' + string + '##'
-
     # remove common words like 'edition','first','second','third:
     remove_words = ['edition', 'first', 'second', 'third', '2nd', 'deluxe', 'game', 'board', 'card', 'anniversary',
                     'classic', 'collector']
@@ -353,11 +426,18 @@ def ngrams(string, n=3):
     result_words = [word for word in string_words if word.lower() not in remove_words]
     string = ' '.join(result_words)
 
+
+    # add prefix and suffix '##': Uno -> ##Uno##
+    # 3-grams: [##U,#Un,Uno,no#,o##]
+    string = '##' + string + '##'
+
     ngrams = zip(*[string[i:] for i in range(n)])
     return [''.join(ngram) for ngram in ngrams]
 
 
 def jaccard_similarity(list1, list2):
+    global COMPARISONS
+    COMPARISONS = COMPARISONS + 1
     l1 = set(list1)
     l2 = set(list2)
     intersection = len(l1.intersection(l2))

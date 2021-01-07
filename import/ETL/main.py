@@ -1,12 +1,11 @@
 # Press Umschalt+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from ETL.Integration.auxiliary_tables import auxiliary_tables
+from ETL.Integration.auxiliary_tables import integrate_auxiliary_tables
 from ETL.globals import *
 from Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_review_data, clean_bga_api_game_information, \
-    create_list_of_ids_of_all_bga_games
+    create_list_of_ids_of_all_bga_games, create_id_list_of_included_games, clean_bga_game_information_scraper
 from Cleaning.BoardGameGeeks.clean_boardgamegeeks_data import clean_bgg_games, clean_bgg_reviews
-from Integration.bgg_and_bga_integration import match_game_names, merge_game_information, merge_reviews, extract_users, \
-    clean_reviews
+from Integration.bgg_and_bga_integration import integrate_boardgame_table, integrate_user_and_review_tables
 from ETL.API.bga_api import get_bga_game_information_from_api, get_bga_mechanics, get_bga_categories
 from datetime import datetime
 
@@ -39,7 +38,7 @@ def pipeline():
     """
 
 
-    if RUN_PIPELINE_SPIDER:
+    if RUN_PIPELINE_BGA_SPIDER:
         # runSpider()
         # clean_bga_game_information_scraper()
         create_list_of_ids_of_all_bga_games()
@@ -50,30 +49,24 @@ def pipeline():
         # get_bga_mechanics()
         # get_bga_categories()
         clean_bga_api_game_information()
-        # create_id_list_of_included_games()
+        create_id_list_of_included_games()
         print('BGA Game Info API Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
     if RUN_BGA_REVIEWS_API_PIPELINE:
         # bga_review_api_main()
-        # clean_bga_api_review_data()
+        clean_bga_api_review_data()
         print('BGA Game Review API Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
     if RUN_BGG_CLEANING_PIPELINE:
-        # clean_bgg_games()
-        # clean_bgg_reviews()
+        clean_bgg_games()
+        clean_bgg_reviews()
         print('BGG Cleaning Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
     if RUN_INTEGRATION_PIPELINE:
-        match_game_names()
-        # merge_game_information()
-        # merge_reviews()
-        # extract_users()
-        # clean_reviews()
-        auxiliary_tables()
-
+        integrate_boardgame_table()
+        integrate_user_and_review_tables()
+        integrate_auxiliary_tables()
         print('Integration pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
-
-
 
 
 # Press the green button in the gutter to run the script.

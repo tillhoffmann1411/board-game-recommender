@@ -16,7 +16,7 @@ import json
 
 class BgaPipeline:
     def open_spider(self, spider):
-        self.file = open('bga_boardGameRatings.json', 'w')
+        self.file = open('../Data/BoardGameAtlas/Raw/Scrapy/Publishers/bga_boardGameRatings.json', 'w')
 
     def close_spider(self, spider):
         self.file.close()
