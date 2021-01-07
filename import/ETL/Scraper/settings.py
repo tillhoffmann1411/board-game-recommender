@@ -8,10 +8,10 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 
-BOT_NAME = 'boardgameatlas'
+BOT_NAME = 'Scraper'
 
-SPIDER_MODULES = ['boardgameatlas.spiders']
-NEWSPIDER_MODULE = 'boardgameatlas.spiders'
+SPIDER_MODULES = ['Scraper.spiders']
+NEWSPIDER_MODULE = 'Scraper.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -72,7 +72,7 @@ ROBOTSTXT_OBEY = False
 # 300 = priority (the lower the more important)
 
 ITEM_PIPELINES = {
-    'boardgameatlas.pipelines.BgaPipeline': 300
+    'etl.pipelines.BgaPipeline': 300
 }
 
 

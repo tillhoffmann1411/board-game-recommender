@@ -62,8 +62,8 @@ def export_dic_to_json(dic, path_and_name):
         json.dump(dic, fp, sort_keys=False, indent=4)
 
 
-def import_json_to_dataframe(path_and_filename):
-    df = pd.read_json(path_and_filename, orient='records')
+def import_json_to_dataframe(path_and_filename, orient='records'):
+    df = pd.read_json(path_and_filename, orient=orient)
     return df
 
 
