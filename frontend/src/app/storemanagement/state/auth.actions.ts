@@ -15,17 +15,17 @@ export namespace Auth {
    * Sign up
    */
 
-  export class SignIn {
+  export class Login {
     static readonly type = '[Auth] Sign in and set data';
     constructor(public username: string, public password: string) { }
   }
 
-  export class SignInError {
+  export class LoginError {
     static readonly type = '[Auth] Failed to Sign in';
     constructor() { }
   }
 
-  export class SignInSuccess {
+  export class LoginSuccess {
     static readonly type = '[Auth] Successful Signed in';
     constructor(public auth: IAuth) { }
   }
@@ -35,17 +35,17 @@ export namespace Auth {
    * Sign up
    */
 
-  export class SignUp {
+  export class Register {
     static readonly type = '[Auth] Sign up and set data';
     constructor(public username: string, public password: string, public email?: string, public firstName?: string, public lastName?: string) { }
   }
 
-  export class SignUpError {
+  export class RegisterError {
     static readonly type = '[Auth] Failed to Sign up';
     constructor() { }
   }
 
-  export class SignUpSuccess {
+  export class RegisterSuccess {
     static readonly type = '[Auth] Successful Signed up';
     constructor(public auth: IAuth) { }
   }

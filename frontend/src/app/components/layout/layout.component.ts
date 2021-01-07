@@ -17,12 +17,12 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authService.getIsLoggedIn.subscribe(isLoggedIn => {
-      this.isLoggedIn = isLoggedIn;
-      if (isLoggedIn) {
-        // this.router.navigate(['/']);
+    this.authService.getIsLoggedIn.subscribe(isloggedIn => {
+      this.isLoggedIn = isloggedIn
+      if (this.isLoggedIn) {
+        this.router.navigate(['/profile']);
       } else {
-        // this.router.navigate(['/signin']);
+        this.router.navigate(['/login']);
       }
     });
   }
@@ -32,16 +32,17 @@ export class LayoutComponent implements OnInit {
   }
 
   goToSignin() {
-    this.router.navigate(['/signin']);
+    this.router.navigate(['/login']);
   }
 
   goToSignup() {
-    this.router.navigate(['/signup']);
+    this.router.navigate(['/register']);
   }
 
   logout() {
     this.authService.signOut();
     this.authService.getIsLoggedIn.subscribe(res => {
+      console.log('Logout:', res);
       if (!res) {
         this.router.navigate(['/']);
       }

@@ -415,7 +415,7 @@ def find_closest_match(inp_string, ref_list, threshold=0.8):
 
 
 def ngrams(string, n=3):
-    string = re.sub(r'[,-./]|\sBD', r'', string)
+    string = re.sub(r'[,-./:!?)(\']|\sBD', r'', string)
 
     # remove common words like 'edition','first','second','third:
     remove_words = ['edition', 'first', 'second', 'third', '2nd', 'deluxe', 'game', 'board', 'card', 'anniversary',
