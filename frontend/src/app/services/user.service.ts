@@ -1,7 +1,7 @@
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IAuth } from '../models/auth';
+import { IAuth, IRegisterResponse, ILogoutResponse, IRefreshTokenResponse, ILoginResponse } from '../models/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -12,24 +12,26 @@ export class UserHttpService {
 
   constructor(private http: HttpClient) { }
 
-  signIn(username: string, password: string) {
-    return this.http.post<IAuth>(this.baseUrl + '/auth/login/', { username, password }).toPromise();
+  login(username: string, password: string): Promise<IRegisterResponse> {
+    return this.http.post<IRegisterResponse>(this.baseUrl + '/auth/login/', { username, password }).toPromise();
   }
 
-  signUp(username: string, password: string, email?: string, firstName?: string, lastName?: string) {
+  register(username: string, password: string, email?: string): Promise<ILoginResponse> {
     const user = {
       username,
       email,
       password1: password,
       password2: password,
-      last_name: lastName,
-      first_name: firstName
     };
-    return this.http.post<IAuth>(this.baseUrl + '/auth/registration/', user, { headers: this.headers }).toPromise();
+    return this.http.post<ILoginResponse>(this.baseUrl + '/auth/register/', user, { headers: this.headers }).toPromise();
   }
 
-  signOut() {
-    return this.http.post<{ detail: string }>(this.baseUrl + '/auth/logout/', { headers: this.headers }).toPromise();
+  signOut(): Promise<ILogoutResponse> {
+    return this.http.post<ILogoutResponse>(this.baseUrl + '/auth/logout/', { headers: this.headers }).toPromise();
+  }
+
+  refreshToken(refreshToken: string): Promise<IRefreshTokenResponse> {
+    return this.http.post<IRefreshTokenResponse>(this.baseUrl + '/auth/logout/', { headers: this.headers }).toPromise();
   }
 
   delete(id: number) {

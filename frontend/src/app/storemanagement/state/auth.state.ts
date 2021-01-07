@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { State, StateContext, Action, Selector, Store } from '@ngxs/store';
 import jwt_decode from "jwt-decode";
-import { Router } from '@angular/router';
 
 import { Auth } from './auth.actions';
 import { UserHttpService } from '../../services/user.service';
 import { IUser } from 'src/app/models/user';
-import { IAuth } from 'src/app/models/auth';
 
 interface IDecodedToken {
   email: string,
@@ -43,7 +41,11 @@ export class AuthState {
 
   @Selector()
   static getIsLoggedIn(state: IAuthState) {
-    return state.loggedIn;
+    if (localStorage.getItem('isloggedIn') === 'true') {
+      return true;
+    } else {
+      return false
+    }
   }
 
   @Selector()
@@ -61,30 +63,30 @@ export class AuthState {
    * Sign in
    */
 
-  @Action(Auth.SignIn)
-  signIn(ctx: StateContext<IAuthState>, { username, password }: Auth.SignIn) {
-    this.userService.signIn(username, password).then(res => {
-      if (res.token) {
-        this.store.dispatch(new Auth.SignInSuccess(res));
+  @Action(Auth.Login)
+  login(ctx: StateContext<IAuthState>, { username, password }: Auth.Login) {
+    this.userService.login(username, password).then(res => {
+      if (res.access_token) {
+        this.store.dispatch(new Auth.LoginSuccess({ user: res.user, jwt: res.access_token }));
       } else {
-        this.store.dispatch(new Auth.SignInError());
+        this.store.dispatch(new Auth.LoginError());
       }
     }).catch(() => {
-      this.store.dispatch(new Auth.SignInError());
+      this.store.dispatch(new Auth.LoginError());
     });
   }
 
-  @Action(Auth.SignInSuccess)
-  signInSuccess(ctx: StateContext<IAuthState>, { auth }: Auth.SignInSuccess) {
-    const expires = this.extractDateFromToken(auth.token);
-    const user: IUser = this.extractUserFromAuth(auth);
+  @Action(Auth.LoginSuccess)
+  loginSuccess(ctx: StateContext<IAuthState>, { auth }: Auth.LoginSuccess) {
+    const expires = this.extractDateFromToken(auth.jwt);
+    const user: IUser = auth.user;
     localStorage.setItem('isloggedIn', 'true');
     ctx.setState({ user, loggedIn: true, error: '', expires });
   }
 
-  @Action(Auth.SignInError)
-  signInError(ctx: StateContext<IAuthState>, { auth }: Auth.SignInSuccess) {
-    ctx.setState({ ...DEFAULTS, error: auth.non_field_errors ? auth.non_field_errors.toString() : 'Sign in failed' });
+  @Action(Auth.LoginError)
+  loginError(ctx: StateContext<IAuthState>, { auth }: Auth.LoginSuccess) {
+    ctx.setState({ ...DEFAULTS, error: 'Sign in failed' });
   }
 
 
@@ -92,30 +94,30 @@ export class AuthState {
    * Sign up
    */
 
-  @Action(Auth.SignUp)
-  signUp(ctx: StateContext<IAuthState>, { username, password, email, firstName, lastName }: Auth.SignUp) {
-    this.userService.signUp(username, password, email, firstName, lastName).then(res => {
-      if (res.token) {
-        this.store.dispatch(new Auth.SignUpSuccess(res));
+  @Action(Auth.Register)
+  register(ctx: StateContext<IAuthState>, { username, password, email }: Auth.Register) {
+    this.userService.register(username, password, email).then(res => {
+      if (res.access_token) {
+        this.store.dispatch(new Auth.RegisterSuccess({ user: res.user, jwt: res.access_token }));
       } else {
-        this.store.dispatch(new Auth.SignUpError());
+        this.store.dispatch(new Auth.RegisterError());
       }
     }).catch(() => {
-      this.store.dispatch(new Auth.SignUpError());
+      this.store.dispatch(new Auth.RegisterError());
     });
   }
 
-  @Action(Auth.SignUpSuccess)
-  signUpSuccess(ctx: StateContext<IAuthState>, { auth }: Auth.SignUpSuccess) {
-    const expires = this.extractDateFromToken(auth.token);
-    const user = this.extractUserFromAuth(auth);
+  @Action(Auth.RegisterSuccess)
+  registerSuccess(ctx: StateContext<IAuthState>, { auth }: Auth.RegisterSuccess) {
+    const expires = this.extractDateFromToken(auth.jwt);
+    const user = auth.user;
     localStorage.setItem('isloggedIn', 'true');
     ctx.setState({ user, loggedIn: true, error: '', expires });
   }
 
-  @Action(Auth.SignUpError)
-  signUpError(ctx: StateContext<IAuthState>, { auth }: Auth.SignUpSuccess) {
-    ctx.setState({ ...DEFAULTS, error: auth.non_field_errors ? auth.non_field_errors.toString() : 'Sign up failed' });
+  @Action(Auth.RegisterError)
+  registerError(ctx: StateContext<IAuthState>, { auth }: Auth.RegisterSuccess) {
+    ctx.setState({ ...DEFAULTS, error: 'Sign up failed' });
   }
 
 
@@ -125,13 +127,11 @@ export class AuthState {
 
   @Action(Auth.SignOut)
   async signOut(ctx: StateContext<IAuthState>) {
-    const response = await this.userService.signOut();
-    if (response.detail === 'Successfully logged out.') {
-      ctx.setState(DEFAULTS);
-    } else {
-      ctx.setState({ ...DEFAULTS, error: 'Error by logging out: ' + response.detail });
-    }
+    try {
+      const response = await this.userService.delete(ctx.getState().user.id);
+    } catch (e) { }
     localStorage.clear();
+    ctx.setState(DEFAULTS);
   }
 
 
@@ -141,27 +141,15 @@ export class AuthState {
 
   @Action(Auth.Delete)
   async delete(ctx: StateContext<IAuthState>) {
-    const response = await this.userService.delete(ctx.getState().user.id);
-    if (response.detail) {
-      ctx.setState(DEFAULTS);
-    } else {
-      ctx.setState({ ...ctx.getState(), error: 'Deleting user failed: ' + response.detail });
-    }
+    try {
+      const response = await this.userService.delete(ctx.getState().user.id);
+    } catch (e) { }
     localStorage.clear();
+    ctx.setState(DEFAULTS);
   }
 
   private extractDateFromToken(token: string): Date {
     const decodedToken: IDecodedToken = jwt_decode(token);
     return new Date((new Date(0)).setUTCSeconds(decodedToken.exp));
-  }
-
-  private extractUserFromAuth(auth: IAuth): IUser {
-    return {
-      id: auth.user.pk,
-      username: auth.user.username,
-      email: auth.user.email,
-      firstName: auth.user.first_name,
-      lastName: auth.user.last_name
-    };
   }
 }

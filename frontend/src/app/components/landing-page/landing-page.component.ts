@@ -16,7 +16,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   letsGo() {
-    this.router.navigate(['/signin']);
+    this.router.navigate(['/register']);
   }
 
 }

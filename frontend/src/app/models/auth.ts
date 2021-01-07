@@ -1,13 +1,27 @@
 import { IUser } from './user';
 
 export interface IAuth {
-  user: {
-    pk: number;
-    username: string,
-    first_name?: string,
-    last_name?: string,
-    email?: string,
-  },
-  token: string,
-  non_field_errors?: string[],
+  user: IUser,
+  jwt: string,
+}
+
+// API Responses
+export interface IRegisterResponse {
+  access_token: string,
+  refresh_token: string,
+  user: IUser
+}
+
+export interface ILoginResponse {
+  access_token: string,
+  refresh_token: string,
+  user: IUser
+}
+
+export interface ILogoutResponse {
+  detail: string
+}
+
+export interface IRefreshTokenResponse {
+  access: string
 }

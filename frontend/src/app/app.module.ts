@@ -9,8 +9,8 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularSvgIconModule } from 'angular-svg-icon';
@@ -22,8 +22,8 @@ import { AuthGuard } from './services/auth-guard.service';
   declarations: [
     AppComponent,
     LayoutComponent,
-    SignInComponent,
-    SignUpComponent,
+    LoginComponent,
+    RegisterComponent,
     LandingPageComponent,
   ],
   imports: [
