@@ -6,6 +6,7 @@ services:
     build:
       context: backend
     container_name: django
+    working_dir: /app
     volumes:
       - ./backend:/app
     ports: 
@@ -31,9 +32,14 @@ services:
   postgres:
     image: postgres
     container_name: postgres
+    volumes:
+      - ./backend/db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB=$DB_NAME
-      - POSTGRES_USER=$DB_USER
-      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DB=$POSTGRES_DB
+      - POSTGRES_USER=$POSTGRES_USER
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+
+volumes:
+  db-data:

@@ -51,6 +51,7 @@ venv
 # Python files
 *.pyc
 __pycache__
+__init__.py
 
 # Python Notebook dot files
 .ipynb*
@@ -72,8 +73,12 @@ media_cdn
 # Ignore sqlite
 db.sqlite3
 
+# Ignore temporary postgres db data
+/backend/db-data
+
 # Apple files
 .DS_Store
 
 # All csv and json files in Data
 /import/Data
+geckodriver.log

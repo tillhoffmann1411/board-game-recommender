@@ -1,12 +1,13 @@
-from django.contrib import admin
 from django.urls import path, include
 from django.urls.conf import re_path
 
-from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path(r'^auth/', include('rest_auth.urls')),
-    re_path(r'^auth/registration/', include('rest_auth.registration.urls')),
-    re_path(r'^token-auth/', obtain_jwt_token),
+    re_path(r'^games/', include('games.urls')),
+    re_path(r'^user/', include('accounts.urls')),
+
+    re_path(r'^auth/', include('dj_rest_auth.urls')),
+    path('auth/register/', include('dj_rest_auth.registration.urls')),
+    path('refresh-token/', jwt_views.TokenRefreshView.as_view()),
 ]

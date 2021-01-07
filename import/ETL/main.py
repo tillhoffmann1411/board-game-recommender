@@ -2,10 +2,10 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 from ETL.Integration.auxiliary_tables import integrate_auxiliary_tables
 from ETL.globals import *
-from Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_review_data, clean_bga_api_game_information, \
+from ETL.Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_review_data, clean_bga_api_game_information, \
     create_list_of_ids_of_all_bga_games, create_id_list_of_included_games, clean_bga_game_information_scraper
-from Cleaning.BoardGameGeeks.clean_boardgamegeeks_data import clean_bgg_games, clean_bgg_reviews
-from Integration.bgg_and_bga_integration import integrate_boardgame_table, integrate_user_and_review_tables
+from ETL.Cleaning.BoardGameGeeks.clean_boardgamegeeks_data import clean_bgg_games, clean_bgg_reviews
+from ETL.Integration.bgg_and_bga_integration import integrate_boardgame_table, integrate_user_and_review_tables
 from ETL.API.bga_api import get_bga_game_information_from_api, get_bga_mechanics, get_bga_categories
 from datetime import datetime
 
@@ -72,7 +72,6 @@ def pipeline():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     pipeline()
-
 
 
 #######################################################################################
