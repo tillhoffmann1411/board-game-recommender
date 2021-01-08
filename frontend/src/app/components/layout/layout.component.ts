@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd, NavigationStart, RouteConfigLoadEnd, RouterEvent, ActivationEnd } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 import { AuthStore } from 'src/app/storemanagement/auth.store';
 
@@ -10,6 +12,7 @@ import { AuthStore } from 'src/app/storemanagement/auth.store';
 })
 export class LayoutComponent implements OnInit {
   isLoggedIn = false;
+  route: any;
 
   constructor(
     private router: Router,
@@ -17,12 +20,16 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.route = { url: this.router.url };
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((e) => {
+        this.route = e;
+      });
+
     this.authService.getIsLoggedIn.subscribe(isloggedIn => {
       this.isLoggedIn = isloggedIn
       if (this.isLoggedIn) {
         this.router.navigate(['/profile']);
-      } else {
-        this.router.navigate(['/login']);
       }
     });
   }

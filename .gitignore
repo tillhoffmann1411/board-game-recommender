@@ -59,6 +59,7 @@ __init__.py
 # Secret environment settings
 .env
 env
+.env.prod
 
 # Node and Webpack files
 node_modules
