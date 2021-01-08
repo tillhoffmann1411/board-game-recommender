@@ -28,13 +28,13 @@ def pipeline():
         3.2: Clean API GameReviews data
 
     4)  Kaggle Dataset BGG: Reviews
-        4.1: Clean Data
+        4.1: Clean BGG GameInformation and create "auxiliary tables" for publishers, designers, categories and mechanics
+        4.2: Clean BGG Reviews
 
-    5)  Kaggle Dataset BGG: GameInformation
-        5.1: Clean Data
-
-    6)  Data Integration:
-        6.1:
+    5)  Integration:
+        5.1: Integrate BGA and BGG boardgame table by matching game names
+        5.2: Integrate BGA and BGG reviews and create integrated user table
+        5.3: Integrates the auxiliary tables publishers, designers, categories, mechanics and GameNameTranslations
     """
 
 
