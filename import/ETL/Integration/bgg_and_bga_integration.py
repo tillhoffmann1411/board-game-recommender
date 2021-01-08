@@ -5,7 +5,7 @@ import re
 from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, export_df_to_csv
 
 # Threshold for matching game names. For jaccard scores lower than that threshold games are no longer matched.
-JACCARD_THRESHOLD_GAME_NAME = 0.31034
+JACCARD_THRESHOLD_GAME_NAME = 0.301
 
 # Counting the number of comparisons when applying our similarity function to game names.
 COMPARISONS = 0
@@ -419,7 +419,7 @@ def ngrams(string, n=3):
 
     # remove common words like 'edition','first','second','third:
     remove_words = ['edition', 'first', 'second', 'third', '2nd', 'deluxe', 'game', 'board', 'card', 'anniversary',
-                    'classic', 'collector']
+                    'classic', 'collector', 'strategy', '3rd', '4th', '5th', 'third', 'fourth', 'fifth']
 
     # split words so that words like 'expEDITION' do not get removed:
     string_words = string.split()
