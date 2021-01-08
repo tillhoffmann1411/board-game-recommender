@@ -196,6 +196,9 @@ def clean_bga_api_review_data():
     # import data
     df = import_json_to_dataframe('../Data/BoardGameAtlas/Processed/API/bga_all_reviews_for_games_with_more_than_2_reviews.json')
 
+    # double the ratings columns to adjust the scale
+    df['rating'] *= 2
+
     # drop column review_title
     del df['review_title']
 
@@ -370,6 +373,9 @@ def clean_bga_api_game_information():
         'url': 'bga_game_url',
         'price': 'bga_price_us_dollar'
     }, inplace=True)
+
+    # double the avg rating scores so they fit the bgg rating scale:
+    game_information_df['bga_average_user_rating'] *= 2
 
     # Export all 6 dataframes:
     path = '../Data/BoardGameAtlas/Processed/API/'
