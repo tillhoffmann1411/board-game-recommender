@@ -128,7 +128,7 @@ export class AuthState {
   @Action(Auth.SignOut)
   async signOut(ctx: StateContext<IAuthState>) {
     try {
-      const response = await this.userService.delete(ctx.getState().user.id);
+      const response = await this.userService.signOut();
     } catch (e) { }
     localStorage.clear();
     ctx.setState(DEFAULTS);

@@ -42,7 +42,6 @@ export class LayoutComponent implements OnInit {
   logout() {
     this.authService.signOut();
     this.authService.getIsLoggedIn.subscribe(res => {
-      console.log('Logout:', res);
       if (!res) {
         this.router.navigate(['/']);
       }

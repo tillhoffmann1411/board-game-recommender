@@ -22,6 +22,9 @@ services:
     container_name: nginx
     ports:
       - 80:80
+    restart: on-failure
+    depends_on:
+      - postgres
 
   angular:
     build:

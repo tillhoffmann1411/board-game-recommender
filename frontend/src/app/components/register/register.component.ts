@@ -38,9 +38,7 @@ export class RegisterComponent implements OnInit {
           this.registerForm.value.email
         );
         this.error = false;
-        console.log('Register response:', response);
       } catch (error) {
-        console.log('Could not register');
         this.error = true;
       }
     } else {
