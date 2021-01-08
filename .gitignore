@@ -60,6 +60,7 @@ __init__.py
 .env
 env
 .env.prod
+/frontend/src/environments/*
 
 # Node and Webpack files
 node_modules
