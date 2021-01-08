@@ -18,7 +18,7 @@ SECRET_KEY = env.get('SECRET_KEY')
 DEBUG = env.get('DEBUG')
 
 ALLOWED_HOSTS = env.get('DJANGO_ALLOWED_HOSTS').split(' ')
-CORS_ORIGIN_WHITELIST = ['http://localhost:4200']
+CORS_ORIGIN_WHITELIST = env.get('DJANGO_ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
