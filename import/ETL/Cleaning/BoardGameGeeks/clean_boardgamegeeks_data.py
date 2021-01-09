@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from ETL.helper import export_df_to_csv
+from ETL.helper import export_df_to_csv, export_df_to_pickle, export_df_to_parquet
 
 
 def clean_bgg_games():
@@ -176,14 +176,8 @@ def clean_bgg_reviews():
     # add column has_review_text (0 = only rating, no text; 1 = rating + text)
     df['has_review_text'] = np.where(df['review_text'].isnull(), 0, 1)
 
-    # add two placeholder columns
-    df['review_id'] = np.nan
-    df['review_date'] = np.nan
-
-    # export dataframe:
-    export_path = '../Data/BoardGameGeeks/Processed/Reviews/bgg_reviews_15m_CLEANED.csv'
-    export_df_to_csv(df, export_path)
-
-
+    # export dataframe to pickle:
+    export_path = '../Data/BoardGameGeeks/Processed/Reviews/bgg_reviews_15m_CLEANED.pickle'
+    export_df_to_pickle(df, export_path)
 
 

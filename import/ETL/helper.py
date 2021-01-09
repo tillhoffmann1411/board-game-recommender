@@ -53,8 +53,18 @@ def export_df_to_json(df, path_and_name):
 
 
 def export_df_to_csv(df, path_and_name):
-    df.to_csv(path_and_name)
+    df.to_csv(path_and_name, encoding='utf-8-sig')
     print("CSV file exported to: " + str(path_and_name))
+
+
+def export_df_to_pickle(df, path_and_name):
+    df.to_pickle(path_and_name)
+    print("Pickle file exported to: " + str(path_and_name))
+
+
+def export_df_to_parquet(df, path_and_name):
+    df.to_parquet(path_and_name)
+    print("Parquet file exported to: " + str(path_and_name))
 
 
 def export_dic_to_json(dic, path_and_name):
@@ -64,6 +74,16 @@ def export_dic_to_json(dic, path_and_name):
 
 def import_json_to_dataframe(path_and_filename, orient='records'):
     df = pd.read_json(path_and_filename, orient=orient)
+    return df
+
+
+def import_pickle_to_dataframe(path_and_filename):
+    df = pd.read_pickle(path_and_filename)
+    return df
+
+
+def import_parquet_to_dataframe(path_and_filename):
+    df = pd.read_parquet(path_and_filename)
     return df
 
 

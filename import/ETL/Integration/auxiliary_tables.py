@@ -570,57 +570,6 @@ def merge_bga_and_bgg_publishers():
     export_df_to_csv(publishers_df, export_path)
 
 
-def merge_bga_and_bgg_publisher_game_relation():
-    # import bga_publisher_game_relation
-    import_path_1 = '../Data/BoardGameAtlas/Processed/API/bga_publishers_scrapy_and_api_data_merged.csv'
-    game_publisher_relation_bga = pd.read_csv(import_path_1, index_col=0)
-    game_publisher_relation_bga = game_publisher_relation_bga[['game_id', 'publisher_id']]
-
-    # import bgg_publisher_game_relation
-    import_path_2_fuzzy = '../Data/BoardGameGeeks/Processed/GameInformation/02_BGG_Game_Publisher_Relation_*.csv'
-    import_path_2 = get_latest_version_of_file(import_path_2_fuzzy)
-    game_publisher_relation_bgg = pd.read_csv(import_path_2, index_col=0)
-    game_publisher_relation_bgg = game_publisher_relation_bgg[['bgg_game_id', 'publisher_name']]
-
-    # import publishers
-    import_path_3 = '../Data/Joined/Results/Publisher.csv'
-    publishers = pd.read_csv(import_path_3, index_col=0)
-
-    # import game keys
-    import_path_4 = '../Data/Joined/Integration/GameKeys/Keys_All_Games_Integrated.csv'
-    game_keys = pd.read_csv(import_path_4, index_col=0)
-
-
-    # replace bga game ids with game keys
-    game_publisher_relation_bga = pd.merge(left=game_publisher_relation_bga, right=game_keys,
-                                           left_on='game_id', right_on='bga_game_id')
-    game_publisher_relation_bga = game_publisher_relation_bga[['game_key', 'publisher_id']]
-
-    # replace publisher_bga_id with publisher_key
-    game_publisher_relation_bga = pd.merge(left=publishers, right=game_publisher_relation_bga,
-                                           left_on='publisher_bga_id', right_on='publisher_id')
-    game_publisher_relation_bga = game_publisher_relation_bga[['game_key', 'publisher_key']]
-
-
-    # replace bgg game ids with game keys
-    game_publisher_relation_bgg = pd.merge(left=game_publisher_relation_bgg, right=game_keys,
-                                           left_on='bgg_game_id', right_on='bgg_game_id')
-    game_publisher_relation_bgg = game_publisher_relation_bgg[['game_key', 'publisher_name']]
-
-    # replace bgg publisher name with publisher key
-    game_publisher_relation_bgg = pd.merge(left=game_publisher_relation_bgg, right=publishers,
-                                           left_on='publisher_name', right_on='bgg_publisher_name')
-    game_publisher_relation_bgg = game_publisher_relation_bgg[['game_key', 'publisher_key']]
-
-
-    # concat both dataframes:
-    game_publisher_relation_combined = pd.concat([game_publisher_relation_bga, game_publisher_relation_bgg])
-
-    # export game_publisher relation:
-    export_path = '../Data/Joined/Results/Publisher_Game_Relation.csv'
-    export_df_to_csv(game_publisher_relation_combined, export_path)
-
-
 def create_list_of_all_bga_designers():
     # import bga designers
     fuzzy_import_path = '../Data/BoardGameAtlas/Processed/API/03_BGA_Game_designers_Relation*.json'
@@ -810,7 +759,7 @@ def merge_bga_and_bgg_publisher_game_relation():
     game_publisher_relation_combined = pd.concat([game_publisher_relation_bga, game_publisher_relation_bgg])
 
     # export game_publisher relation:
-    export_path = '../Data/Joined/Integration/GameInformation/02b_Publisher_Game_Relation_Integrated'
+    export_path = '../Data/Joined/Results/Publisher_Game_Relation.csv'
     export_df_to_csv(game_publisher_relation_combined, export_path)
 
 
@@ -879,7 +828,7 @@ def merge_bga_and_bgg_designer_game_relation():
     game_designer_relation_combined = pd.concat([game_designer_relation_bga, game_designer_relation_bgg])
 
     # export game_designer relation:
-    export_path = '../Data/Joined/Integration/GameInformation/03b_designer_Game_Relation_Integrated'
+    export_path = '../Data/Joined/Results/Designer_Game_Relation.csv'
     export_df_to_csv(game_designer_relation_combined, export_path)
 
 
@@ -910,7 +859,7 @@ def integrate_game_name_relation_tables():
     names_combined = pd.concat([names_bga, names_bgg]).sort_values('game_key')
 
     # Remove duplicates:
-    print('Number of duplicate game names found and dropped: '+str(len(names_combined)-len(names_combined.drop_duplicates())))
+    print('Number of duplicate game names in GameNameTranslation table found and dropped: '+str(len(names_combined)-len(names_combined.drop_duplicates())))
     names_combined.drop_duplicates(inplace=True)
 
     # Export result:

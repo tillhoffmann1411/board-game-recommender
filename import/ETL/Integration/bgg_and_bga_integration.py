@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 import re
 
-from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, export_df_to_csv
+from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, export_df_to_csv, \
+    import_pickle_to_dataframe, export_df_to_pickle
 
 # Threshold for matching game names. For jaccard scores lower than that threshold games are no longer matched.
 JACCARD_THRESHOLD_GAME_NAME = 0.301
@@ -294,11 +295,12 @@ def merge_game_information():
 
 def merge_reviews():
     # import reviews:
-    bgg_reviews_path = '../Data/BoardGameGeeks/Processed/Reviews/bgg_reviews_15m_CLEANED.csv'
+    bgg_reviews_path = '../Data/BoardGameGeeks/Processed/Reviews/bgg_reviews_15m_CLEANED.pickle'
     bga_reviews_path = '../Data/BoardGameAtlas/Processed/API/bga_all_reviews_for_games_with_more_than_2_reviews_CLEANED.csv'
 
-    bgg_reviews = pd.read_csv(bgg_reviews_path)
     bga_reviews = pd.read_csv(bga_reviews_path, index_col=0)
+    bgg_reviews = import_pickle_to_dataframe(bgg_reviews_path)
+
 
     # remove index column from bgg_reviews. Including index_col=0 in the read_csv statement did not work for some unknown reason.
     bgg_reviews.drop(bgg_reviews.columns[0], axis=1)
@@ -317,13 +319,13 @@ def merge_reviews():
     all_reviews = pd.concat([bga_reviews, bgg_reviews], ignore_index=True, sort=False)
 
     # export df:
-    export_df_to_csv(all_reviews, '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated.csv')
+    export_df_to_pickle(all_reviews, '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated.pickle')
 
 
 def extract_users():
     # import reviews df:
-    reviews_path = '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated.csv'
-    all_reviews = pd.read_csv(reviews_path)
+    reviews_path = '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated.pickle'
+    all_reviews = import_pickle_to_dataframe(reviews_path)
     # remove index column from all_reviews.
     # Including index_col=0 in the read_csv statement throws an error for some unknown reason.
     all_reviews.drop(all_reviews.columns[0], axis=1)
@@ -360,11 +362,8 @@ def clean_reviews():
     users_df = users_df[['user_key', 'user_name', 'user_origin']]
 
     # import reviews:
-    reviews_path = '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated.csv'
-    all_reviews = pd.read_csv(reviews_path)
-    # remove index column from bgg_reviews. Including index_col=0 in the read_csv statement did not work for some unknown reason.
-    all_reviews.drop(all_reviews.columns[0], axis=1)
-
+    reviews_path = '../Data/Joined/Integration/Reviews/Reviews_All_Games_Integrated.pickle'
+    all_reviews = import_pickle_to_dataframe(reviews_path)
 
     # Delete user_id column from review_df which currently holds user_ids from bga_dataset
     # Also delete these columns: review_id, review_date, game_id, bga_game_id and bgg_game_id
