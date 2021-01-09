@@ -1,12 +1,13 @@
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IAuth, IRegisterResponse, ILogoutResponse, IRefreshTokenResponse, ILoginResponse } from '../models/auth';
+import { IRegisterResponse, ILogoutResponse, IRefreshTokenResponse, ILoginResponse } from '../models/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserHttpService {
+
   baseUrl = environment.api.url;
   headers: HttpHeaders = new HttpHeaders().append('Accept', 'application/json');
 

@@ -8,8 +8,9 @@
       <img src="../../../assets/icons/boreg.svg" alt="Boreg">
     </section>
     <section class="la-user-section">
-      <button (click)="goToSignup()" *ngIf="!isLoggedIn">Create Account</button>
-      <button (click)="goToSignin()" *ngIf="!isLoggedIn">Log In</button>
+      <button (click)="goToSignup()" *ngIf="!isLoggedIn && this.route && this.route.url !== '/register'">Create
+        Account</button>
+      <button (click)="goToSignin()" *ngIf="!isLoggedIn && this.route && this.route.url !== '/login'">Log In</button>
       <button (click)="logout()" *ngIf="isLoggedIn">Sign Out</button>
       <button (click)="delete()" *ngIf="isLoggedIn">Delete Me</button>
     </section>

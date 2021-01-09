@@ -20,17 +20,6 @@
       </section>
 
       <section class="input-section">
-        <label for="firstName">First name</label>
-        <input id="firstName" type="text" name="firstName" autofocus autocomplete="firstName"
-          formControlName="firstName">
-      </section>
-
-      <section class="input-section">
-        <label for="lastName">Last name</label>
-        <input id="lastName" type="text" name="lastName" autofocus autocomplete="lastName" formControlName="lastName">
-      </section>
-
-      <section class="input-section">
         <label for="email">Email</label>
         <input id="email" type="email" name="email" autofocus autocomplete="email" formControlName="email">
       </section>
@@ -42,7 +31,7 @@
       </section>
 
       <section *ngIf="error" class="error-section">
-        <span>Check your Email and Password.</span>
+        <span>Check your Username and Password.</span>
       </section>
 
       <section class="action-section">
