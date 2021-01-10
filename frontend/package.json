@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build --prod  --aot --build-optimizer && gzipper compress -v ./dist",
+    "build": "ng build --prod  --aot --build-optimizer",
     "build-stats": "ng build --build-optimizer --stats-json",
     "lint": "ng lint",
     "postinstall": "ngcc"
@@ -26,7 +26,6 @@
     "jwt-decode": "^3.1.2",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
-    "gzipper": "^4.3.0",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
