@@ -7,6 +7,7 @@ services:
       context: backend
       dockerfile: Dockerfile.prod
     working_dir: /app
+    container_name: django
     command: gunicorn app.wsgi:application --bind 0.0.0.0:8000
     expose: 
       - 8000
@@ -20,6 +21,7 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile.prod
+    container_name: frontend
     ports:
       - 80:80
     env_file:
@@ -28,6 +30,7 @@ services:
 
   postgres:
     image: postgres
+    container_name: postgres
     ports:
       - 5432:5432
     env_file:
