@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build",
+    "build": "ng build --prod --build-optimizer",
+    "build-stats": "ng build --stats-json",
     "lint": "ng lint",
     "postinstall": "ngcc"
   },
