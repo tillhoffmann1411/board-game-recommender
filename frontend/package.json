@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build --prod  --aot --build-optimizer && gzipper --verbose ./dist",
+    "build": "ng build --prod  --aot --build-optimizer && gzipper compress -v ./dist",
     "build-stats": "ng build --build-optimizer --stats-json",
     "lint": "ng lint",
     "postinstall": "ngcc"
