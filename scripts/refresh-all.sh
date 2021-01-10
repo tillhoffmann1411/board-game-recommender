@@ -1,11 +1,7 @@
-cd ..
+docker-compose -f docker-compose.prod.yml down
 
-dockdocker-compose -f docker-compose.prod.yml down
-
-docker container prune
-
-y
+docker container prune | y
 
 git pull
 
-dockdocker-compose -f docker-compose.prod.yml up --build
+docker-compose -f docker-compose.prod.yml up --build
