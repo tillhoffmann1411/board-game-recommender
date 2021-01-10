@@ -31,10 +31,10 @@ RUN mkdir -p /vol/web/media
 RUN mkdir -p /vol/web/static
 
 # Creating new user and switch to it
-RUN adduser -D user
-RUN chown user */migrations
-RUN chown -R user:user /vol
-RUN chmod -R 755 /vol/web
-USER user
+# RUN adduser -D user
+# RUN chown user */migrations
+# RUN chown -R user:user /vol
+# RUN chmod -R 755 /vol/web
+# USER user
 
 CMD ["entrypoint.prod.sh"]
