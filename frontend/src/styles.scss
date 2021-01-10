@@ -23,6 +23,7 @@ $font-lg: 20px;
 
 
 @import "./colors.scss";
+@import "./media-query.scss";
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -92,9 +93,14 @@ $board-game-recommender-theme: mat-light-theme((
 @include mat-core($custom-typography);
 
 
+
+// General CSS settings
+
+
 body {
   margin: 0px;
   height: 100%;
+  box-sizing: border-box;
   background: $background;
   font-family: $primary_font;
   font-size: $primary-fs;
@@ -179,7 +185,13 @@ form {
     padding: 1rem 1rem;
   }
 }
-*{
+
+* {
   font-family: Montserrat;
 }
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 html { height: 100%; }
+

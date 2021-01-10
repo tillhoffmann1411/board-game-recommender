@@ -1,18 +1,18 @@
-<div class="flare-dots">
+<div class="flare-dots hide-on-xs hide-on-s">
   <img src="./../../assets/images/flare-dark-five-dots.svg" alt="">
 </div>
-<div class="flare-middle">
+<div class="flare-middle hide-on-s hide-on-xs">
   <img src="./../../assets/images/flare-dark-middle.svg" alt="">
 </div>
 
 <div class="wrapper">
-  <div class="component">
-    <div class="image">
+  <div class="component row">
+    <div class="image col-3 hide-on-xs hide-on-s">
       <img src="./../../assets/images/game-boards.svg" alt="">
     </div>
-    <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <form class="col-3" [formGroup]="registerForm" (ngSubmit)="register()">
 
-      <h1>Sign up</h1>
+      <h1>Register</h1>
 
       <section class="input-section">
         <label for="username">Username</label>

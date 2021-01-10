@@ -2,26 +2,19 @@
 
 
 .wrapper {
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
+  background-color: $accent;
 }
 
 .component {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
 
-  .image {
-    background-color: $accent;
-    display: flex;
-    border-radius: 10px 0px 0px 10px;
-  }
-  
   form {
-    flex: 0 1 400px; /*  No stretching: */
-    border-radius: 0px 10px 10px 0px;
+    margin: 1rem;
 
     h1 {
       padding: 30px;
@@ -36,11 +29,27 @@
       padding: 100px 20px 20px 0;
     }
   }
+
+  @media only screen and (min-width: 768px) {
+
+    .image {
+      display: flex;
+      background-color: $accent;
+      border-radius: 10px 0px 0px 10px;
+    }
+
+    form {
+      margin: 0;
+      border-radius: 0px 10px 10px 0px;
+    }
+  }
 }
 
 
 
 .flare-dots {
+  top: 0;
+  left: 0;
   position: absolute;
   z-index: -1;
 }
@@ -50,4 +59,10 @@
   right: 0;
   bottom: 0;
   z-index: -1;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    background-color: $background;
+  }
 }

@@ -2,7 +2,8 @@
 
 
 .wrapper {
-  height: 100vh;
+  background-color: $accent;
+  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -14,11 +15,18 @@
   width: 100%;
   
   form {
-    flex: 0 1 500px; /*  No stretching: */
+    margin: 1rem;
+
+    h1 {
+      padding: 1rem 0 0 1.5rem;
+      font-weight: bold;
+    }
   }
 }
 
 .flare-dots {
+  top: 0;
+  left: 0;
   z-index: -1;
   position: absolute;
 }
@@ -28,4 +36,15 @@
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    background-color: $background;
+  }
+
+  form {
+    margin: 0;
+    flex: 0 1 500px;
+  }
 }

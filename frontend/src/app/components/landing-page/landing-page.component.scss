@@ -1,56 +1,46 @@
 .container {
-  height: 100vh;
+  height: 100%;
+  .row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
   
   .slogan {
-    position: absolute;
-    width: 711px;
-    height: 148px;
-    left: 10vw;
-    top: 40vh;
-
     font-style: normal;
     font-weight: bolder;
-    font-size: 54px;
-    line-height: 66px;
+    padding: 2rem;
+    font-size: 2.5rem;
+    line-height: 2.6rem;
 
     .button {
+      margin: 1rem 0;
       font-size: 24px;
     }
   }
 
   .image {
-  position: absolute;
-  right: 5%;
-  top: 11rem;
-  z-index: -1;
-  width: auto;
-  max-height: 80vh;
+    z-index: -1;
   }
 
-  .flare-corner {
+  .flare.corner {
     position: absolute;
     top: 0;
     left: 0;
+    width: 90vw;
     z-index: -1;
   }
-  .flare-dots {
+  .flare.dots {
     position: absolute;
     right: 8rem;
     top: 8rem;
     z-index: -1;
   }
-  .flare-long {
+  .flare.long {
+    display: hide;
     position: absolute;
     right: 0;
     z-index: -1;
-    top: 50rem;
-  }
-}
-
-.slogan {
-  
-  .text {
-    font-weight: 600;
-    font-size: larger;
+    top: 45rem;
   }
 }

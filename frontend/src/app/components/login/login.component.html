@@ -1,13 +1,15 @@
-<div class="flare-dots">
+<div class="flare-dots hide-on-s hide-on-xs">
   <img src="./../../assets/images/flare-dark-five-dots.svg" alt="">
 </div>
-<div class="flare-middle">
+<div class="flare-middle hide-on-s hide-on-xs">
   <img src="./../../assets/images/flare-dark-middle.svg" alt="">
 </div>
 
 <div class="wrapper">
   <div class="component">
     <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <h1>Login</h1>
 
       <section class="input-section">
         <label for="username">Username</label>
