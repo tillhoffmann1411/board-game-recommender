@@ -9,7 +9,7 @@ npm run build
 cd ..
 
 git add frontend/dist
-git commit -m ":hammer: new production frontend build"
+git commit -m ":rocket: new production frontend build"
 
 git push
 
