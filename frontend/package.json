@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build",
+    "build": "ng build --prod  --aot --build-optimizer && gzipper compress -v ./dist",
+    "build-stats": "ng build --build-optimizer --stats-json",
     "lint": "ng lint",
     "postinstall": "ngcc"
   },
@@ -16,7 +17,6 @@
     "@angular/compiler": "~11.0.4",
     "@angular/core": "~11.0.4",
     "@angular/forms": "~11.0.4",
-    "@angular/material": "^11.0.2",
     "@angular/platform-browser": "~11.0.4",
     "@angular/platform-browser-dynamic": "~11.0.4",
     "@angular/router": "~11.0.4",
@@ -35,6 +35,7 @@
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "dotenv": "^8.2.0",
+    "gzipper": "^4.3.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.5",
