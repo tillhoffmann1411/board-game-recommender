@@ -7,8 +7,8 @@ from rest_framework.views import APIView
 
 from django.contrib.auth.models import User
 
-from .models import Taste
-from .serializers import TasteSerializer, UserSerializer
+from .models import Review
+from .serializers import ReviewSerializer, UserSerializer
 from .permissions import IsOwner, IsYourProfile
 
 
@@ -40,22 +40,22 @@ class UserDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class TasteList(generics.ListCreateAPIView):
-    queryset = Taste.objects.all()
-    serializer_class = TasteSerializer
+class ReviewList(generics.ListCreateAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
     permission_classes = (IsOwner, )
 
     def perform_create(self, serializer):
         serializer.save(
-            games=self.request.data['games'],
+            game=self.request.data['game'],
             created_by=self.request.user),
 
 
-class TasteDetail(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = TasteSerializer
+class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ReviewSerializer
     permission_classes = (IsOwner, )
-    lookup_url_kwarg = 'taste_id'
+    lookup_url_kwarg = 'review_id'
 
     def get_queryset(self):
-        taste = self.kwargs['taste_id']
-        return Taste.objects.filter(id=taste)
+        review = self.kwargs['review_id']
+        return Review.objects.filter(id=review)
