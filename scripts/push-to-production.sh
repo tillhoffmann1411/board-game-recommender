@@ -6,7 +6,9 @@ cd frontend
 
 npm run build
 
-git add /frontend/dist
+cd ..
+
+git add frontend/dist
 git commit -m ":hammer: new production frontend build"
 
 git push
