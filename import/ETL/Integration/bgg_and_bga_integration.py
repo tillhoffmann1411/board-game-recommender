@@ -62,10 +62,11 @@ def match_game_names():
     2) This is still quite a lot of comparisons. However, we made another observation. In the set of games that could
     be matched exactly, in almost all cases the publish years are the same, which makes sense obviously.
     3) Therefore we can further reduce complexity by grouping by publish years and comparing only games that have
-    exactly the same publish year.This further reduces the number of comparisons to: ~ 330,000
+    the same publish year. To make sure we don't lose games because the publish years deviate by one year, we also
+    compare to games published in the years one year before and after.
+    This further reduces the number of comparisons to: ~ 1,000,000
     Hence, by applying the similarity function only to the most promising pairs we reduced the number of required
-    comparisons by 99.8%.
-
+    comparisons by 98%.
     """
 
     bgg_filename = get_latest_version_of_file(
@@ -128,8 +129,18 @@ def match_game_names():
             input_string = bga_game['name']
 
             ref_list = []
+            # create ref_list with all bgg games that were published in the same year as the bga_game:
             for bgg_game in bgg_dic_grouped_by_year[year]:
                 ref_list.append(bgg_game['name'])
+
+            # also check bgg games that were published in the previous year and one year later:
+            if year+1 in bgg_dic_grouped_by_year:
+                for bgg_game in bgg_dic_grouped_by_year[year+1]:
+                    ref_list.append(bgg_game['name'])
+            if year-1 in bgg_dic_grouped_by_year:
+                for bgg_game in bgg_dic_grouped_by_year[year-1]:
+                    ref_list.append(bgg_game['name'])
+
 
             match = find_closest_match(input_string, ref_list, JACCARD_THRESHOLD_GAME_NAME)
             bga_game['match'] = match['name']

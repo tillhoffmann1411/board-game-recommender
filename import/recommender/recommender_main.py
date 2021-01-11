@@ -9,12 +9,13 @@
 
 import pandas as pd
 import numpy as np
+import sys
+import time
 
 
 def get_recommendation_data():
 
-    # df = pd.read_json('')
-    data = pd.read_csv('../Data/test_data/test_5000.csv', sep=',', header=0)
+    data = pd.read_csv('../Data/test_data/test_2mil.csv', sep=',', header=0)
     print(data.shape)
 
     # filter in sql query - only get data from users when they are also rated at least one same game with new_user
@@ -27,7 +28,7 @@ def prepare_data(data):
 
     # calculate sparsity of matrix
     print(len(data) / (len(data)*len(data.columns)))
-    # sparsity of 0.005 -> collaborative filtering might not be best option
+    # if sparsity < 0.005 -> collaborative filtering might not be best option
 
     return data_pivot
 
@@ -45,18 +46,32 @@ def get_cosine_similarity(x, y):
     return sim
 
 
-def calculate_cosine_similarity(data, new_user):
+# does not work here - assumption to added zero ratings for unrated games leads to wrong results
+def calculate_similarity(data, new_user, method):
     # get items of requested user
     item_requested = data.loc[new_user].to_numpy()
-    position_requested_item = list(data.index).index('4Corners')
-    print("-----item_requested: ", item_requested, "index number: ", position_requested_item)
+    position_requested_user = list(data.index).index(new_user)
+    print("-----item_requested: ", item_requested, "index number: ", position_requested_user)
+
+    if method == 'cosine_similarity':
+        print('..use cosine_similarity')
+    elif method == 'centered_cosine_similarity':
+        print('..use centered_cosine_similarity')
+        # calculate mean per user - use only nonzero values
+        mean_user = data.sum(axis=1) / data.apply(np.count_nonzero, axis=1)
+        # replace nan and inf with 0 rating
+        mean_user = mean_user.replace([np.inf, -np.inf], np.nan).fillna(value=0)
+
+        # subtract mean only from nonzero values
+        data = data.sub(mean_user, axis=0).multiply(data > 0).add(0)
+
 
     # create empty list to collect results
     similarities = []
 
     # compute similarity for all user
     for i in range(len(data.index)):
-        if i != position_requested_item:
+        if i != position_requested_user:
             # get item_to_compare
             item_to_compare = data.iloc[i].to_numpy()
             print("------item_to_compare: ", item_to_compare)
@@ -134,27 +149,29 @@ def predict(data, baseline, threshold_min_number_ratings_per_game):
 
 if __name__ == "__main__":
     # get data from database
-    data = get_recommendation_data()
+    df = get_recommendation_data()
     # get new user name for recommendation
-    new_user = "4Corners"  # from frontend?
+    new_user = "Artax" #"4Corners"  # from frontend?
 
     # prepare data
-    data = prepare_data(data=data)
+    df = prepare_data(data=df)
 
-    # calculate similarities
-    result_cosine_similarity = calculate_cosine_similarity(data=data, new_user=new_user)
+    # calculate user similarities
+    result_similarity = calculate_similarity(data=df,
+                                             new_user=new_user,
+                                             method="centered_cosine_similarity")
 
     # calculate baseline rating
-    baseline = calculate_baseline(data=data,
-                                  item_requested=result_cosine_similarity[1],
+    baseline = calculate_baseline(data=df,
+                                  item_requested=result_similarity[1],
                                   method="average",
                                   threshold_min_number_ratings_per_game=20)
 
     # prepare data for prediction
-    prediction_data = prepare_prediction_data(data=data,
-                                              item_requested=result_cosine_similarity[1],
-                                              similarities=result_cosine_similarity[0],
-                                              threshold_filter_similar_user=0.7)
+    prediction_data = prepare_prediction_data(data=df,
+                                              item_requested=result_similarity[1],
+                                              similarities=result_similarity[0],
+                                              threshold_filter_similar_user=0.2)
 
     # predict (can also use other models) - average rating in user group
     prediction = predict(data=prediction_data,

@@ -25,7 +25,6 @@ def clean_bgg_games():
         'wishing',
         'trading',
         'numweights',
-        'averageweight',
         'suggested_num_players',
         'suggested_playerage',
         'suggested_language_dependence',
@@ -68,7 +67,8 @@ def clean_bgg_games():
         'Board Game Rank': 'bgg_rank',
         'description': 'game_description',
         'image': 'image_url',
-        'thumbnail': 'thumbnail_url'
+        'thumbnail': 'thumbnail_url',
+        'averageweight': 'bgg_average_weight'
     }, inplace=True)
 
     # desired dataframes:
