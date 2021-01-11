@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd, NavigationStart, RouteConfigLoadEnd, RouterEvent, ActivationEnd } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 import { AuthStore } from 'src/app/storemanagement/auth.store';
 
 @Component({
-  selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   route: any;
+
+  @Output() public sidenavToggle = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -34,16 +35,8 @@ export class LayoutComponent implements OnInit {
     });
   }
 
-  goToHome() {
-    this.router.navigate(['/']);
-  }
-
-  goToSignin() {
-    this.router.navigate(['/login']);
-  }
-
-  goToSignup() {
-    this.router.navigate(['/register']);
+  public onToggleSidenav() {
+    this.sidenavToggle.emit();
   }
 
   logout() {

@@ -1,0 +1,28 @@
+<mat-toolbar>
+
+  <div class="hide hide-on-l hide-on-xl">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <section class="icon" routerLink="/">
+    <img src="../../../assets/icons/boreg.svg" alt="Boreg">
+  </section>
+
+  <section class="la-user-section hide-on-xs hide-on-s">
+    <ul class="navigation-items">
+      <li>
+        <a routerLink="/register" *ngIf="!isLoggedIn && this.route && this.route.url !== '/register'">Create
+          Account</a>
+      </li>
+      <li>
+        <a routerLink="/login" *ngIf="!isLoggedIn && this.route && this.route.url !== '/login'">Log In</a>
+      </li>
+      <li>
+        <a routerLink="/logout" *ngIf="isLoggedIn">Sign Out</a>
+      </li>
+    </ul>
+  </section>
+
+</mat-toolbar>
