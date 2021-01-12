@@ -9,12 +9,7 @@ import math
 
 def split_df_in_batches(df, batchsize):
     num_batches = math.ceil(len(df) / batchsize)
-
     return np.array_split(df, num_batches)
-
-
-
-
 
 
 
@@ -68,8 +63,27 @@ class PostgresWrapper:
                     'TRUNCATE TABLE ' + table + ' CASCADE;')
 
         if batchsize != -1:
-            print('not yet implemented!')
+
             df_batches = split_df_in_batches(df, batchsize)
+
+            for batch in df_batches:
+                csv_file_like_object = io.StringIO()
+                for row in df.values:
+                    csv_file_like_object.write("\t".join(map(str, row)) + '\n')
+                csv_file_like_object.seek(0)
+
+                with self.connection.cursor() as cursor:
+                    cursor.copy_from(csv_file_like_object,
+                                     table,
+                                     sep="\t",
+                                     columns=['"' + item + '"' for item in df.columns],
+                                     null="")
+                    if commit:
+                        self.connection.commit()
+                        logging.debug("data successfully inserted")
+                    else:
+                        logging.debug("something went wrong!")
+                        return self.connection
 
         else:
             csv_file_like_object = io.StringIO()
