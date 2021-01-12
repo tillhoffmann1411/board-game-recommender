@@ -74,7 +74,7 @@ class BoardGame(models.Model):
     game_mechanic = ForeignKey(GameMechanic, on_delete=models.SET_NULL, blank=True, null=True)
     category = ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
     # Similar Online Games
-    similar_online_games = models.ManyToManyField(OnlineGame, through='SimilarBoardOnlineGame', blank=True, null=True)
+    similar_online_games = models.ManyToManyField(OnlineGame, through='SimilarBoardOnlineGame')
 
     # BGG stuff
     bgg_id = models.IntegerField(blank=True, null=True)

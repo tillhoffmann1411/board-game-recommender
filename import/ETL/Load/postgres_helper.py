@@ -65,7 +65,7 @@ class PostgresWrapper:
             if truncate_table:
                 logging.debug("delete rows from " + table + "...")
                 cursor.execute(
-                    'TRUNCATE TABLE ' + table + ';')
+                    'TRUNCATE TABLE ' + table + ' CASCADE;')
 
         if batchsize != -1:
             print('not yet implemented!')

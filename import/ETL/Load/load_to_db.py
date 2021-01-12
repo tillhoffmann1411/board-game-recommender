@@ -22,7 +22,6 @@ def upload_users_to_db():
     # drop avg rating column:
     del users_df['avg_rating']
 
-
     # create Postgres Wrapper:
     dbWrapper = PostgresWrapper(host=os.getenv('DATA_DB_HOST'),
                                 user=os.getenv('DATA_DB_USER'),
@@ -32,13 +31,12 @@ def upload_users_to_db():
 
     dbWrapper.connect()
 
-
     # execute upload
     dbWrapper.upload_dataframe(table='accounts_usertaste',
                                df=users_df,
                                commit=True,
-                               batchsize=-1,
-                               truncate_table=False)
+                               batchsize=100,
+                               truncate_table=True)
 
     logging.info('Upload completed')
     dbWrapper.disconnect()
