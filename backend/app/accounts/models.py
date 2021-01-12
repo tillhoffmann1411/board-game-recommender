@@ -8,7 +8,7 @@ from games.models import BoardGame
 class UserTaste(models.Model):
     username = models.CharField(max_length=80)
     number_of_ratings = models.PositiveIntegerField(blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     origin = models.CharField(max_length=10, blank=True, null=True)
 
 
