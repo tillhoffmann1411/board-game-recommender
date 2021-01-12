@@ -42,6 +42,7 @@ export class SidenavComponent implements OnInit {
     this.authService.getIsLoggedIn.subscribe(res => {
       if (!res) {
         this.router.navigate(['/']);
+        this.onSidenavClose();
       }
     });
   }
