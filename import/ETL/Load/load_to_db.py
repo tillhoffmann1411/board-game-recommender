@@ -1,11 +1,12 @@
 from ETL.Load.postgres_helper import PostgresWrapper
 from dotenv import load_dotenv
+from pathlib import Path
 import pandas as pd
 import logging
 import os
 
+env_path = Path('../../../.env')
 load_dotenv()
-
 
 def upload_users_to_db():
 
@@ -24,20 +25,20 @@ def upload_users_to_db():
 
 
     # create instance of Postgres Wrapper:
-    dbWrapper = PostgresWrapper(host=os.getenv('DATA_DB_HOST'),
-                                user=os.getenv('DATA_DB_USER'),
-                                password=os.getenv('DATA_DB_PASSWORD'),
-                                database=os.getenv('DATA_DB_NAME'),
-                                port=os.getenv('DATA_DB_PORT'))
+    dbWrapper = PostgresWrapper(host=os.getenv('POSTGRES_HOST'),
+                                user=os.getenv('POSTGRES_USER'),
+                                password=os.getenv('POSTGRES_PASSWORD'),
+                                database=os.getenv('POSTGRES_DB'),
+                                port=os.getenv('POSTGRES_PORT'))
 
     dbWrapper.connect()
 
     # execute upload
     dbWrapper.upload_dataframe(table='accounts_usertaste',
                                df=users_df,
-                               commit=True,
                                batchsize=100,
-                               truncate_table=True)
+                               truncate_table=True,
+                               commit=True)
 
     logging.info('Upload completed')
     dbWrapper.disconnect()

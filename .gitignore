@@ -85,4 +85,4 @@ geckodriver.log
 
 
 # django
-*/migrations/*
+/migrations

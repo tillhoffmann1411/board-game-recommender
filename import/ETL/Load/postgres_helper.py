@@ -56,19 +56,19 @@ class PostgresWrapper:
         assert isinstance(truncate_table, bool)
         assert isinstance(commit, bool)
 
-        with self.connection.cursor() as cursor:
-            if truncate_table:
-                logging.debug("delete rows from " + table + "...")
-                cursor.execute(
-                    'TRUNCATE TABLE ' + table + ' CASCADE;')
+        if truncate_table:
+            print("delete rows from " + table + "...")
+            with self.connection.cursor() as cursor:
+                cursor.execute('TRUNCATE TABLE ' + table + ' CASCADE;')
 
         if batchsize != -1:
-
+            print('Use batch strategy with batchsize ' + str(batchsize))
             df_batches = split_df_in_batches(df, batchsize)
-
-            for batch in df_batches:
+            print('Number of rows: ' + str(len(df)) + ' - Number of Batches: ' + str(len(df_batches)))
+            for idx, df_batch in enumerate(df_batches):
+                print('Batch nr ' + str(idx))
                 csv_file_like_object = io.StringIO()
-                for row in df.values:
+                for row in df_batch.values:
                     csv_file_like_object.write("\t".join(map(str, row)) + '\n')
                 csv_file_like_object.seek(0)
 
@@ -82,7 +82,6 @@ class PostgresWrapper:
                         self.connection.commit()
                         logging.debug("data successfully inserted")
                     else:
-                        logging.debug("something went wrong!")
                         return self.connection
 
         else:
