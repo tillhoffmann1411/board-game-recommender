@@ -212,7 +212,7 @@ def merge_game_information():
         b) columns that exist in both datasets but we want to keep both:
             (e.g. bga_game_id/bgg_game_id, num_user_ratings, average_user_rating, bga_rank/bgg_rank, ...)
         c) columns that exist only in the bgg dataset:
-            (e.g. num_user_comments, ...)
+            (e.g. num_user_comments, bgg_average_weight, ...)
         d) columns that exist only in the bga dataset:
             (e.g. reddit_all_time_count, bga_game_url, ...)
     '''
@@ -248,7 +248,7 @@ def merge_game_information():
     #   b) columns that exist in both datasets but we want to keep both:
     #       (e.g. bga_game_id/bgg_game_id, num_user_ratings, average_user_rating, bga_rank/bgg_rank, ...)
     #   c) columns that exist only in the bgg dataset:
-    #       (e.g. num_user_comments, ...)
+    #       (e.g. num_user_comments, bgg_average_weight, ...)
     #   d) columns that exist only in the bga dataset:
     #       (e.g. reddit_all_time_count, bga_game_url, ...)
 
