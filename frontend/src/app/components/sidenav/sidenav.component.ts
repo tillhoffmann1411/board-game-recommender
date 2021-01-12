@@ -33,8 +33,17 @@ export class SidenavComponent implements OnInit {
     });
   }
 
-
   public onSidenavClose() {
     this.sidenavClose.emit();
   }
+
+  logout() {
+    this.authService.signOut();
+    this.authService.getIsLoggedIn.subscribe(res => {
+      if (!res) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
+
 }

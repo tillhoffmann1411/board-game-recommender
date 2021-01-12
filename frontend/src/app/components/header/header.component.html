@@ -20,7 +20,7 @@
         <a routerLink="/login" *ngIf="!isLoggedIn && this.route && this.route.url !== '/login'">Log In</a>
       </li>
       <li>
-        <a routerLink="/logout" *ngIf="isLoggedIn">Sign Out</a>
+        <a routerLink="/" (click)="logout()" *ngIf="isLoggedIn">Sign Out</a>
       </li>
     </ul>
   </section>
