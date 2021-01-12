@@ -23,7 +23,7 @@ def upload_users_to_db():
     del users_df['avg_rating']
 
 
-    # create Postgres Wrapper:
+    # create instance of Postgres Wrapper:
     dbWrapper = PostgresWrapper(host=os.getenv('DATA_DB_HOST'),
                                 user=os.getenv('DATA_DB_USER'),
                                 password=os.getenv('DATA_DB_PASSWORD'),
