@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610456829815,
+  "timestamp": 1610460951023,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.8742bbc4cab91b7b193c.js",
+        "/main.24dcb27ecd8f7f24a295.js",
         "/manifest.webmanifest",
         "/polyfills.2e89f9530eab053a7df4.js",
         "/runtime.0e49e2b53282f40c8925.js",
@@ -166,8 +166,8 @@
     "/assets/images/game-illustration.png": "2b3e7368edc2361bfa85235e32e333a4a8973801",
     "/assets/scss/modules/_fonts.scss": "184f8126fb3cd7a3034fdbcb471c6b92d29a8b77",
     "/favicon.ico": "842330c87812448eb6e3df330e04ca35fcbdbe15",
-    "/index.html": "00d4cde677914d26080f052939fb8cfdfbb5e4a7",
-    "/main.8742bbc4cab91b7b193c.js": "cec6978713f475c6a5773a4a2290e92bbabf16af",
+    "/index.html": "f8f67a4a238df7ff58d0cd50726f8a809f62309f",
+    "/main.24dcb27ecd8f7f24a295.js": "e90fc42560be7d044a1ed384f17995d19b7b798b",
     "/manifest.webmanifest": "6d84acd71a47bd8b0995c9cb4bdf887dfc892001",
     "/polyfills.2e89f9530eab053a7df4.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
     "/runtime.0e49e2b53282f40c8925.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
