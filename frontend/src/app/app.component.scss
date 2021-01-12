@@ -12,6 +12,7 @@ mat-sidenav {
 app-header {
   width: 100%;
   position: absolute;
+  z-index: inherit;
 }
 
 router-outle {
