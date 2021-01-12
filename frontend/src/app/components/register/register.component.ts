@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { UserHttpService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { AuthStore } from 'src/app/storemanagement/auth.store';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserHttpService,
+    private userService: AuthStore,
     private router: Router,
   ) { }
 
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   async register() {
     if (this.registerForm.valid) {
       try {
-        const response = await this.userService.register(
+        await this.userService.register(
           this.registerForm.value.username,
           this.registerForm.value.password,
           this.registerForm.value.email

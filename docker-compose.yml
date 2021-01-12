@@ -31,7 +31,7 @@ services:
     image: postgres
     container_name: postgres
     volumes:
-      - ./backend/db-data:/var/lib/postgresql/data
+      - ./db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     env_file: .env
