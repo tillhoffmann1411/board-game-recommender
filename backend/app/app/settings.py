@@ -15,7 +15,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.get('DEBUG')
+
+
+def str2bool(v):
+    return v.lower() in ("yes", "true", "True", "1")
+
+
+DEBUG = str2bool(env.get('DEBUG'))
 
 ALLOWED_HOSTS = env.get('DJANGO_ALLOWED_HOSTS').split(' ')
 CORS_ORIGIN_WHITELIST = ['http://localhost:4200'] if env.get('DEBUG') else env.get('DJANGO_ALLOWED_HOSTS').split(' ')
