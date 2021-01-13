@@ -1,6 +1,7 @@
 # Press Umschalt+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 from ETL.Integration.auxiliary_tables import integrate_auxiliary_tables
+from ETL.Load.load_to_db import upload_users_to_db
 from ETL.globals import *
 from ETL.Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_review_data, clean_bga_api_game_information, \
     create_list_of_ids_of_all_bga_games, create_id_list_of_included_games, clean_bga_game_information_scraper
@@ -24,7 +25,7 @@ def pipeline():
         2.4: Get Ids of Games with >= 3 ratings
 
     3)  API: GameReviews
-        3.1: Get all 162k reviews for games with >= ratings provided by BGA reviews API
+        3.1: Get all 162k reviews for games with >= 3 ratings provided by BGA reviews API
         3.2: Clean API GameReviews data
 
     4)  Kaggle Dataset BGG: Reviews
@@ -67,6 +68,9 @@ def pipeline():
         integrate_user_and_review_tables()
         integrate_auxiliary_tables()
         print('Integration pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
+
+    if RUN_UPLOAD:
+        upload_users_to_db()
 
 
 # Press the green button in the gutter to run the script.

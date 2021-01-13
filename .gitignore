@@ -74,7 +74,7 @@ media_cdn
 db.sqlite3
 
 # Ignore temporary postgres db data
-/backend/db-data
+db-data
 
 # Apple files
 .DS_Store
@@ -82,3 +82,7 @@ db.sqlite3
 # All csv and json files in Data
 /import/Data
 geckodriver.log
+
+
+# django
+/migrations
