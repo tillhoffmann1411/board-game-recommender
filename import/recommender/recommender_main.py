@@ -24,7 +24,8 @@ def get_recommendation_data(link, sample_number_rows):
     return data
 
 
-def prepare_data(data):
+def prepare_data(data, min_number_ratings_user=0, min_number_ratings_game=0):
+    """ output:     pandas data frame - utility matrix """
     # create utility matrix
     data_pivot = data.pivot(index='user', columns='name', values='rating').fillna(0)  # zero means worst possible rating
 
