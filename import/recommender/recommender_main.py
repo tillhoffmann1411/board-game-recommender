@@ -9,14 +9,16 @@
 
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
 import sys
 import time
 
 
-def get_recommendation_data():
+def get_recommendation_data(link, sample_number_rows):
+    """ output:     pandas data frame """
 
-    data = pd.read_csv('../Data/test_data/test_2mil.csv', sep=',', header=0)
-    print(data.shape)
+    data = pd.read_csv(link, sep=',', header=0, nrows=sample_number_rows)
+    print('---data shape: ', data.shape)
 
     # filter in sql query - only get data from users when they are also rated at least one same game with new_user
     return data
@@ -26,11 +28,33 @@ def prepare_data(data):
     # create utility matrix
     data_pivot = data.pivot(index='user', columns='name', values='rating').fillna(0)  # zero means worst possible rating
 
+    ## filter user and games with only few ratings
+    # count non zero values per game and user
+    non_zero_games = np.count_nonzero(data_pivot, axis=0)
+    non_zero_user = np.count_nonzero(data_pivot, axis=1)
+    # create boolean arrays
+    non_zero_user_boolean = non_zero_user >= min_number_ratings_user
+    non_zero_games_boolean = non_zero_games >= min_number_ratings_game
+    # filter data
+    data_pivot = data_pivot.loc[non_zero_user_boolean, non_zero_games_boolean]
+
+    # info
+    print('---pivot data shape: ', data.shape)
     # calculate sparsity of matrix
-    print(len(data) / (len(data)*len(data.columns)))
-    # if sparsity < 0.005 -> collaborative filtering might not be best option
+    print('sparsity of matrix', len(data) / (len(data)*len(data.columns))) # if sparsity < 0.005 -> collaborative filtering might not be best option
 
     return data_pivot
+
+
+def make_train_test_split(data, train_size, test_size, random_state):
+    # split data
+    train_data, test_data = train_test_split(data, test_size=test_size, train_size=train_size, random_state=42)
+
+    # select all user with more than 2 ratings
+    # copy() data
+    # delete
+
+    return [train, test]
 
 
 def get_cosine_similarity(x, y):
@@ -64,7 +88,6 @@ def calculate_similarity(data, new_user, method):
 
         # subtract mean only from nonzero values
         data = data.sub(mean_user, axis=0).multiply(data > 0).add(0)
-
 
     # create empty list to collect results
     similarities = []
@@ -147,14 +170,32 @@ def predict(data, baseline, threshold_min_number_ratings_per_game):
     return [sorted_pred, pred_info]
 
 
+def calculate_global_average(data):
+    calculation_data = data.replace(0, np.NaN)
+    global_average = calculation_data.mean()
+
+    print('--- global mean: ', global_average)
+    return global_average
+
+
 if __name__ == "__main__":
     # get data from database
-    df = get_recommendation_data()
+    df = get_recommendation_data(link='../Data/test_data/test_2mil.csv',
+                                 sample_number_rows=5000)
+
     # get new user name for recommendation
-    new_user = "Artax" #"4Corners"  # from frontend?
+    new_user = "Artax"  #"4Corners"  # from frontend?
 
     # prepare data
-    df = prepare_data(data=df)
+    df = prepare_data(data=df,
+                      min_number_ratings_user=0,
+                      min_number_ratings_game=0)
+
+    # split data
+    train_data, test_data = train_test_split(df,
+                                             test_size=0.8,
+                                             train_size=0.2,
+                                             random_state=42)
 
     # calculate user similarities
     result_similarity = calculate_similarity(data=df,
@@ -181,17 +222,3 @@ if __name__ == "__main__":
     print(prediction[1])
     prediction[1].to_csv(path_or_buf='/Users/maxmaiberger/Documents/board-game-recommender/import/Data/test_data/pred_res_info.csv')
 
-
-    ### evaluate different recommender approaches
-    ## cosine similarity
-    # - i have to calculate ratings in frontend - can take much time
-    # -
-    ## centered cosine similarity
-    ## matrix factorization
-    ## tree model - xg boost
-    ## k-d trees?
-    ## knn
-    ## svm
-    ## regression
-
-    # chose best approach
