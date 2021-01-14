@@ -110,6 +110,35 @@ button:active {
   transform: scale(.95);
 }
 
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #585858;
+}
+
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+
+  input {
+    color: $font-color;
+    padding: 0.7rem;
+    border: 2px solid $input-background;
+    background: $input-background;
+    border-radius: 10px;
+  }
+  
+  input:focus {
+    outline: none;
+    border: 2px $accent solid;
+  }
+
+  label {
+    padding: 0.5rem;
+  }
+}
 
 form {
   width: 100%;
@@ -117,29 +146,6 @@ form {
   background: $background2;
   color: $font-color;
   border-radius: 10px;
-
-  .input-section {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem 1rem;
-
-    label {
-      padding: 0.5rem;
-    }
-
-    input {
-      color: $font-color;
-      padding: 0.7rem;
-      border: 2px solid $input-background;
-      background: $input-background;
-      border-radius: 10px;
-    }
-
-    input:focus {
-      outline: none;
-      border: 2px $accent solid;
-    }
-  }
 
   .error-section {
     color: red;

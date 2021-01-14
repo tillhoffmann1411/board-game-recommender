@@ -1,0 +1,42 @@
+.card {
+  margin: 1rem 0.5rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.25);
+
+  .image {
+    display: flex;
+    
+    img {
+      border-radius: 10px 10px 0 0;
+      height: 10rem;
+  }
+  }
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.mat-card-content {
+  height: 8rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.liked {
+  color: green;
+}
+
+.disliked {
+  color: red;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+  .card {
+    max-width: 15rem;
+  }
+}

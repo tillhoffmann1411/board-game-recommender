@@ -1,0 +1,21 @@
+<div class="wrapper row">
+  <section class="search-section row">
+    <h1>Give {{ this.openRatings }} games you like or dislike</h1>
+    <div class="input-section col-l-4">
+      <label for="search">Search for games</label>
+      <span class="input-line">
+        <input #search class="search-input" type="text" autofocus placeholder="Monopoly">
+        <button class="primary" [disabled]="openRatings !== 0"
+          matTooltip="'Please rate at least' + openRatings + ' more games'"
+          [matTooltipDisabled]="openRatings === 0">Next</button>
+      </span>
+    </div>
+  </section>
+  <section class="game-list row">
+    <div *ngFor="let game of games">
+      <app-game-card [name]="game.name" [description]="game.description" [imageUrl]="game.imageUrl" [taste]="'neutral'"
+        (rated)="this.gameRated($event)">
+      </app-game-card>
+    </div>
+  </section>
+</div>
