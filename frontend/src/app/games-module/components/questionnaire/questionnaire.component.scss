@@ -24,9 +24,12 @@
         width: 100%;
         float: left;
       }
-
-      button {
-        float: right;
+      div {
+        display: flex;
+        button {
+          margin-left: 0.5rem;
+          float: right;
+        }
       }
     }
   }
@@ -35,7 +38,7 @@
 .game-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 

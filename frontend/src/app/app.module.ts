@@ -37,9 +37,9 @@ import { environment } from '../environments/environment';
   imports: [
     CommonModule,
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
     HttpClientModule,
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsModule.forRoot([AuthState], { developmentMode: true }),

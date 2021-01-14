@@ -1,4 +1,4 @@
-
+@import "./colors.scss";
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -12,8 +12,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$board-game-recommender-primary: mat-palette($mat-indigo);
-$board-game-recommender-accent: mat-palette($mat-pink, A200, A100, A400);
+$board-game-recommender-primary: mat-palette($md-primary);
+$board-game-recommender-accent: mat-palette($md-accent, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $board-game-recommender-warn: mat-palette($mat-red);
@@ -27,6 +27,15 @@ $board-game-recommender-theme: mat-light-theme((
     warn: $board-game-recommender-warn,
   )
 ));
+
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Montserrat',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -60,8 +69,11 @@ $primary-fs: 16px;
 $font-md: 18px;
 $font-lg: 20px;
 
+h1, h2, h3 {
+  font-weight: bolder;
+}
 
-@import "./colors.scss";
+
 @import "./media-query.scss";
 
 // General CSS settings
@@ -113,7 +125,7 @@ button:active {
 button:disabled,
 button[disabled]{
   background-color: #cccccc;
-  color: #585858;
+  color: #868686;
 }
 
 
