@@ -12,24 +12,20 @@
   margin: 0.5rem;
   background: $background2;
   border-radius: 10px;
+  align-items: center;
 
-  .input-section {
-    align-self: center;
-    text-align: center;
+  .input-line {
+    display: flex;
 
-    .input-line {
+    .search-input {
+      width: 100%;
+      float: left;
+    }
+    div {
       display: flex;
-
-      .search-input {
-        width: 100%;
-        float: left;
-      }
-      div {
-        display: flex;
-        button {
-          margin-left: 0.5rem;
-          float: right;
-        }
+      button {
+        margin-left: 0.5rem;
+        float: right;
       }
     }
   }

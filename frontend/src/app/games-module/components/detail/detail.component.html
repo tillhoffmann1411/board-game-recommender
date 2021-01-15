@@ -1,0 +1,44 @@
+<div class="wrapper row">
+
+  <section class="top-section row" *ngIf="game">
+    <div class="image col-3">
+      <img [src]="game.imageUrl" [alt]="game.name">
+    </div>
+
+    <div class="game-info col-7">
+      <h1>{{ game.name }} ({{ game.yearPublished }})</h1>
+      <div>Playtime: {{ game.minPlaytime }} - {{ game.maxPlaytime }}</div>
+      <div>Player: {{ game.minNumberOfPlayers }} - {{ game.maxNumberOfPlayers }}</div>
+      <div>Age: {{ game.minAge }}+</div>
+    </div>
+
+    <div class="actions col-2">
+      <app-star-rating [numStars]="10" [rating]="rating" (rated)="rate($event)">
+      </app-star-rating>
+    </div>
+
+  </section>
+
+  <section class="description-section row" *ngIf="game">
+    <h2>Description</h2>
+    <p class="long-description">{{ game.description }}</p>
+    <div class="short-description">
+      <mat-expansion-panel class="mat-elevation-z0">
+        <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="30px">
+          <mat-panel-title>
+            <div>{{ game.description }}</div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        {{ game.description }}
+      </mat-expansion-panel>
+    </div>
+  </section>
+
+  <section class="game-section row">
+    <h2>Corresponding online games</h2>
+    <div class="game-list">
+      <app-game-card [game]="game" *ngFor="let game of onlineGames" [deactivateRating]="true"></app-game-card>
+    </div>
+  </section>
+
+</div>

@@ -13,19 +13,21 @@
   <section class="la-user-section hide-on-xs hide-on-s">
     <ul class="navigation-items">
       <li>
-        <a routerLink="/register" *ngIf="!isLoggedIn && this.route && this.route.url !== '/register'">Create
-          Account</a>
+        <button routerLink="/register" *ngIf="!isLoggedIn && this.route && this.route.url !== '/register'">Create
+          Account</button>
       </li>
       <li>
-        <a routerLink="/login" *ngIf="!isLoggedIn && this.route && this.route.url !== '/login'">Log In</a>
-      </li>
-
-      <li>
-        <a routerLink="/games" *ngIf="isLoggedIn">Recommender</a>
+        <button routerLink="/login" *ngIf="!isLoggedIn && this.route && this.route.url !== '/login'">Log In</button>
       </li>
 
       <li>
-        <a routerLink="/" (click)="logout()" *ngIf="isLoggedIn">Logout</a>
+        <button routerLink="/games/recommendations" *ngIf="isLoggedIn">Recommender</button>
+      </li>
+
+      <li>
+        <button routerLink="/" (click)="logout()" *ngIf="isLoggedIn">
+          <mat-icon matTooltip="Logout">power_settings_new</mat-icon>
+        </button>
       </li>
     </ul>
   </section>

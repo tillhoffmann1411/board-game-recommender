@@ -1,0 +1,28 @@
+@import "../../../../colors.scss";
+
+.wrapper {
+  margin-top: 4rem;
+}
+
+
+.top-section {
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.game-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    padding: 2rem;
+  }
+
+  .top-section {
+    padding: 2rem;
+  }
+}

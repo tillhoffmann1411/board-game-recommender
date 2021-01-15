@@ -19,9 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.authService.getIsLoggedIn.subscribe(isloggedIn => {
       this.isLoggedIn = isloggedIn
-      if (this.isLoggedIn) {
-        this.router.navigate(['/games']);
-      }
     });
   }
 }

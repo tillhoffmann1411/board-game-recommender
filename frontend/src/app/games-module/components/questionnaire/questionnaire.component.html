@@ -1,6 +1,7 @@
 <div class="wrapper row">
+
   <section class="search-section row">
-    <h2>Give {{ this.openRatings }} games you like or dislike</h2>
+    <h2>Give&nbsp;{{ this.openRatings }}&nbsp;games you like or dislike</h2>
     <div class="input-section col-l-4">
       <label for="search">Search for games</label>
       <span class="input-line">
@@ -10,16 +11,17 @@
 
         <div [matTooltip]="'Please rate at least' + openRatings + ' more games'"
           [matTooltipDisabled]="openRatings === 0">
-          <button color="primary" [disabled]="openRatings !== 0">Next</button>
+          <button class="primary" [disabled]="openRatings !== 0" (click)="next()">Next</button>
         </div>
       </span>
     </div>
   </section>
+
   <section class="game-list row">
     <div *ngFor="let game of filteredGames | async">
-      <app-game-card [name]="game.name" [description]="game.description" [imageUrl]="game.imageUrl" [taste]="'neutral'"
-        (rated)="this.gameRated($event)">
+      <app-game-card [game]="game" [taste]="'neutral'" (rated)="this.gameRated($event)">
       </app-game-card>
     </div>
   </section>
+
 </div>

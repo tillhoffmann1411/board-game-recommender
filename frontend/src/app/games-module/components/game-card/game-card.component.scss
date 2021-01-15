@@ -1,6 +1,7 @@
 .card {
   margin: 1rem 0.5rem;
   border-radius: 10px;
+  min-width: 12rem;
 
   .image {
     display: flex;
@@ -25,12 +26,24 @@
   color: red;
 }
 
+.activatedDetails:hover {
+  background-color: rgb(228, 228, 228);
+  cursor: pointer;
+  transform: scale(.99);
+}
+
+.activatedDetails:active {
+  background-color: rgb(204, 204, 204);
+  cursor: pointer;
+  transform: scale(.98);
+}
+
 
 
 
 @media only screen and (min-width: 768px) {
   .card {
-    max-width: 18rem;
+    width: 18rem;
     margin: 1rem;
   }
 }

@@ -10,10 +10,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    StarRatingComponent
+  ],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -24,6 +28,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTooltipModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatExpansionModule,
   ],
   exports: [
     MatSidenavModule,
@@ -35,6 +40,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTooltipModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatExpansionModule,
+    StarRatingComponent,
   ],
 })
 export class MaterialModule { }

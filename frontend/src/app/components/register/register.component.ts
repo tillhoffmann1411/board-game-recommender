@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
           this.registerForm.value.password,
           this.registerForm.value.email
         );
+        this.router.navigate(['games']);
         this.error = false;
       } catch (error) {
         this.error = true;

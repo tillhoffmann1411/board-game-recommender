@@ -19,7 +19,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AuthState } from './storemanagement/state/auth.state';
 import { AuthGuard } from './services/auth-guard.service';
-import { MaterialModule } from './shared-modules/material.module';
+import { MaterialModule } from './shared/material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
