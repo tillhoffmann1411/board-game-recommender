@@ -1,0 +1,22 @@
+<mat-card class="card mat-elevation-z0">
+  <mat-card-title>
+    <div class="image">
+      <img mat-card-image [src]="imageUrl" [alt]="name">
+    </div>
+  </mat-card-title>
+
+  <mat-card-content>
+    <h2>{{ name }}</h2>
+    <p>
+      {{ description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button (click)="like()">
+      <mat-icon [ngClass]="taste === 'like'?'liked':'neutral'">thumb_up</mat-icon>
+    </button>
+    <button mat-icon-button (click)="dislike()">
+      <mat-icon [ngClass]="taste === 'dislike'?'disliked':'neutral'">thumb_down</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

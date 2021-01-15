@@ -13,6 +13,10 @@
     <mat-icon>person_add</mat-icon><span class="nav-caption">Register</span>
   </a>
 
+  <a mat-list-item routerLink="/games" (click)="onSidenavClose()" *ngIf="isLoggedIn">
+    <mat-icon>insights</mat-icon><span class="nav-caption">Recommender</span>
+  </a>
+
   <a mat-list-item routerLink="/" (click)="logout()" *ngIf="isLoggedIn">
     <mat-icon>power_settings_new</mat-icon><span class="nav-caption">Logout</span>
   </a>

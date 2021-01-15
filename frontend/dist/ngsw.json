@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610470147637,
+  "timestamp": 1610668514092,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,14 @@
         "ignoreVary": true
       },
       "urls": [
+        "/4.a98b9f2369d353323804.js",
         "/favicon.ico",
         "/index.html",
-        "/main.b77babc107f224a776cd.js",
+        "/main.76c40f695ed0c9347fc8.js",
         "/manifest.webmanifest",
         "/polyfills.2e89f9530eab053a7df4.js",
-        "/runtime.0e49e2b53282f40c8925.js",
-        "/styles.7d0473cf220835f8a4d5.css"
+        "/runtime.c357d13e0f044529c991.js",
+        "/styles.0a70c8fbaa81a4f5593d.css"
       ],
       "patterns": []
     },
@@ -100,6 +101,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
+    "/4.a98b9f2369d353323804.js": "77a71fb643add95fe89901e0b23993dd2dc67a0b",
     "/assets/fonts/Black/Montserrat-Black.woff": "faf30fd3c3a82d2ce82a8aa6e828d43ab366a53d",
     "/assets/fonts/Black/Montserrat-Black.woff2": "aee56f3b5cc0f426ce241a6ae87439d4ce4ca2a2",
     "/assets/fonts/Black/Montserrat-BlackItalic.woff": "63e2fe667f4eb69bb6fa6d5c61bd8598e77e298b",
@@ -166,12 +168,12 @@
     "/assets/images/game-illustration.png": "2b3e7368edc2361bfa85235e32e333a4a8973801",
     "/assets/scss/modules/_fonts.scss": "184f8126fb3cd7a3034fdbcb471c6b92d29a8b77",
     "/favicon.ico": "842330c87812448eb6e3df330e04ca35fcbdbe15",
-    "/index.html": "65b440c4f74dbaf3c9c8466c83167ca42e1357a2",
-    "/main.b77babc107f224a776cd.js": "7350bb399b01efb2d6325a043a553df102fda9cf",
+    "/index.html": "c60ad238b3ba58e2b887679407800b05f065dc44",
+    "/main.76c40f695ed0c9347fc8.js": "191eafbc6fd7ee0ad92b1b36dd6606a9d42cef9a",
     "/manifest.webmanifest": "6d84acd71a47bd8b0995c9cb4bdf887dfc892001",
     "/polyfills.2e89f9530eab053a7df4.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
-    "/runtime.0e49e2b53282f40c8925.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.7d0473cf220835f8a4d5.css": "ff220f5f8b31c856d4e03274d7764d2b059bae51"
+    "/runtime.c357d13e0f044529c991.js": "a069e907dfc5276431b54e32c9af5cc1bbc72a86",
+    "/styles.0a70c8fbaa81a4f5593d.css": "1106b4d388086c43b6bfdac51b5a8013832f8062"
   },
   "navigationUrls": [
     {

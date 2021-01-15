@@ -1,0 +1,36 @@
+.card {
+  margin: 1rem 0.5rem;
+  border-radius: 10px;
+
+  .image {
+    display: flex;
+    
+    img {
+      border-radius: 10px 10px 0 0;
+      height: 10rem;
+  }
+  }
+}
+.mat-card-content {
+  height: 8rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.liked {
+  color: green;
+}
+
+.disliked {
+  color: red;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+  .card {
+    max-width: 18rem;
+    margin: 1rem;
+  }
+}
