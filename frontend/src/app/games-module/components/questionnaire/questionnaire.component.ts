@@ -3,7 +3,8 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { IBoardGame, GAMES } from 'src/app/models/game';
+import { IBoardGame, GAMES, IRating } from 'src/app/models/game';
+import { GameStore } from 'src/app/storemanagement/game.store';
 
 
 @Component({
@@ -13,28 +14,29 @@ import { IBoardGame, GAMES } from 'src/app/models/game';
 })
 export class QuestionnaireComponent implements OnInit {
   searchControl = new FormControl();
-  games: IBoardGame[] = GAMES;
+  games: IBoardGame[];
   filteredGames: Observable<IBoardGame[]>;
-  openRatings = 5;
+  ratings: IRating[] = [];
 
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private gameService: GameStore,
   ) { }
 
   ngOnInit(): void {
-    this.filteredGames = this.searchControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    )
-  }
+    this.gameService.loadBoardGames();
 
-  gameRated(rate: { game: number, rating: number }) {
-    console.log('Rating: ', rate.game, '; rated:', rate.rating);
-    if (this.openRatings > 0) {
-      this.openRatings--;
-    }
+    this.gameService.getRatings.subscribe(ratings => this.ratings = ratings);
+    this.gameService.getBoardGames.subscribe(games => {
+      this.games = games;
+
+      this.filteredGames = this.searchControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      )
+    })
   }
 
   next() {

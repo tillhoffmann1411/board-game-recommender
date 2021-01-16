@@ -23,6 +23,7 @@ import { MaterialModule } from './shared/material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { GameState } from './storemanagement/state/game.state';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsModule.forRoot([AuthState], { developmentMode: true }),
+    NgxsModule.forRoot([AuthState, GameState], { developmentMode: true }),
     BrowserAnimationsModule,
     AngularSvgIconModule.forRoot(),
 

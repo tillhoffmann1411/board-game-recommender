@@ -85,7 +85,7 @@ export class AuthState {
   }
 
   @Action(Auth.LoginError)
-  loginError(ctx: StateContext<IAuthState>, { auth }: Auth.LoginSuccess) {
+  loginError(ctx: StateContext<IAuthState>) {
     ctx.setState({ ...DEFAULTS, error: 'Sign in failed' });
   }
 

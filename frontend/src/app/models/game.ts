@@ -1,3 +1,10 @@
+export interface IGameState {
+  boardGames: IBoardGame[];
+  recommendedBoardGames: IBoardGame[];
+  ratings: IRating[];
+  error: string;
+}
+
 export interface IBoardGame {
   id: number;
   name: string;
@@ -13,6 +20,28 @@ export interface IBoardGame {
   categories?: ICategories[];
   gameMechanic?: IGameMechanic[];
   publisher?: IPublisher[];
+}
+
+export interface IOnlineGame {
+  id: number;
+  name: string;
+  description: string;
+  imageUrl?: string;
+  yearPublished?: number;
+  minPlaytime?: number;
+  maxPlaytime?: number;
+  minNumberOfPlayers?: number;
+  maxNumberOfPlayers?: number;
+  minAge?: number;
+  author?: IAuthor[];
+  categories?: ICategories[];
+  gameMechanic?: IGameMechanic[];
+  publisher?: IPublisher[];
+}
+
+export interface IRating {
+  gameId: number,
+  rating: number
 }
 
 

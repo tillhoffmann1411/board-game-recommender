@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBoardGame, GAMES } from 'src/app/models/game';
+import { GameStore } from 'src/app/storemanagement/game.store';
 
 @Component({
   selector: 'app-detail',
@@ -15,14 +16,21 @@ export class DetailComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private gameStore: GameStore,
   ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.game = this.onlineGames.find(g => g.id === parseInt(params.id));
     });
-    this.onlineGames = this.onlineGames.splice(0, 2);
+
+    this.gameStore.getRatings.subscribe(ratings => {
+      const userRate = ratings.find(rating => rating.gameId === this.game?.id)?.rating;
+      this.rating = userRate ? userRate : 0;
+    });
+
+    this.onlineGames = [...this.onlineGames].splice(0, 2);
   }
 
   rate(rating: number) {
