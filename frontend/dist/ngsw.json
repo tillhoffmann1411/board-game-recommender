@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610749557636,
+  "timestamp": 1610756898582,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/4.0a6e8a35c682a8d46ea4.js",
+        "/4.09cb50458a730bcef712.js",
         "/favicon.ico",
         "/index.html",
-        "/main.b81e64f6f2c411174783.js",
+        "/main.de270dfd9ccea3d8a048.js",
         "/manifest.webmanifest",
         "/polyfills.2e89f9530eab053a7df4.js",
-        "/runtime.11add20437aa047c8307.js",
+        "/runtime.a91525db52eb7d93b43d.js",
         "/styles.40db44dd45911fe2a9d9.css"
       ],
       "patterns": []
@@ -101,7 +101,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/4.0a6e8a35c682a8d46ea4.js": "63e3f5999c71b3b026d8b25390882f662ca6bf8b",
+    "/4.09cb50458a730bcef712.js": "c7b0b8cd04bbe2582b7a36ef310bcb2e92545fba",
     "/assets/fonts/Black/Montserrat-Black.woff": "faf30fd3c3a82d2ce82a8aa6e828d43ab366a53d",
     "/assets/fonts/Black/Montserrat-Black.woff2": "aee56f3b5cc0f426ce241a6ae87439d4ce4ca2a2",
     "/assets/fonts/Black/Montserrat-BlackItalic.woff": "63e2fe667f4eb69bb6fa6d5c61bd8598e77e298b",
@@ -168,11 +168,11 @@
     "/assets/images/game-illustration.png": "2b3e7368edc2361bfa85235e32e333a4a8973801",
     "/assets/scss/modules/_fonts.scss": "184f8126fb3cd7a3034fdbcb471c6b92d29a8b77",
     "/favicon.ico": "842330c87812448eb6e3df330e04ca35fcbdbe15",
-    "/index.html": "8303f6e9e9cdc000b833b2215205cceb3a17323a",
-    "/main.b81e64f6f2c411174783.js": "c18f1ecbbf525f0465860a157e47d90d88c98f7c",
+    "/index.html": "6a5173afcfc833c44b95dee284273294c06bdfda",
+    "/main.de270dfd9ccea3d8a048.js": "d4a9dc9b220394be7f468bdc0d7ad17cf1bca7cf",
     "/manifest.webmanifest": "6d84acd71a47bd8b0995c9cb4bdf887dfc892001",
     "/polyfills.2e89f9530eab053a7df4.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
-    "/runtime.11add20437aa047c8307.js": "0bbf35716f20d37071376719cb5fa546e2943167",
+    "/runtime.a91525db52eb7d93b43d.js": "af41f4805fef7f995e9f4e5fdb19ea2f472f170f",
     "/styles.40db44dd45911fe2a9d9.css": "13ec2f06240165bf01b795d618ab05b65eb31a57"
   },
   "navigationUrls": [
