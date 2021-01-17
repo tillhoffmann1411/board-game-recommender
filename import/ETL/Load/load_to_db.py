@@ -5,12 +5,11 @@ import pandas as pd
 import logging
 import os
 
-env_path = Path('../../../.env')
 load_dotenv()
 
-def upload_users_to_db():
 
-    # import users:
+def upload_users_to_db():
+    # import users csv:
     users_df = pd.read_csv('../Data/Joined/Results/User.csv', index_col=0)
 
     # rename a few columns:
@@ -23,9 +22,193 @@ def upload_users_to_db():
     # drop avg rating column:
     del users_df['avg_rating']
 
+    upload_dataframe(users_df, 'accounts_usertaste')
 
+
+def upload_board_games_to_db():
+    # import boardgame csv:
+    board_game_df = pd.read_csv(
+        '../Data/Joined/Integration/Board Games/GameInformation/01_GameInformation_All_Games_Integrated.csv',
+        index_col=0)
+
+    # rename a few columns:
+    board_game_df.rename(columns={'game_key': 'id',
+                                  'game_description': 'description',
+                                  'min_players': 'min_number_of_players',
+                                  'max_players': 'max_number_of_players',
+                                  'bgg_game_id': 'bgg_id',
+                                  'bga_game_id': 'bga_id',
+                                  'bgg_average_user_rating': 'bgg_avg_rating',
+                                  'bga_average_user_rating': 'bga_avg_rating',
+                                  'bgg_num_user_ratings': 'bgg_num_ratings',
+                                  'bga_num_user_ratings': 'bga_num_ratings',
+                                  'bga_game_url': 'bga_url',
+                                  'bga_price_us_dollar': 'bga_price_us',
+                                  'bga_trending_rank': 'bga_rank_trending'
+                                  }, inplace=True)
+
+    # drop some columns:
+    del board_game_df['bgg_bayes_average']
+    del board_game_df['main_designer_name']
+    del board_game_df['main_designer_id']
+    del board_game_df['main_designer_url']
+    del board_game_df['main_publisher_name']
+    del board_game_df['main_publisher_id']
+    del board_game_df['main_publisher_url']
+
+    upload_dataframe(board_game_df, 'games_boardgame')
+
+
+def upload_reviews_to_db():
+    # import users csv:
+    reviews_df = pd.read_csv(
+        '../Data/Joined/Integration/Board Games/Reviews/Reviews_All_Games_Integrated_and_Cleaned.csv',
+        index_col=0,
+        dtype={
+            'game_key': int,
+            'user_key': int,
+            'rating': float,
+            'review_text': object,
+            'has_review_text': int,
+            'user_origin': object
+        },
+        keep_default_na=False)
+
+    # rename a few columns:
+    reviews_df.rename(columns={'game_key': 'game_id',
+                               'user_key': 'created_by_id',
+                               'rating': 'rating',
+                               'user_origin': 'origin'
+                               }, inplace=True)
+
+    # drop avg rating column:
+    del reviews_df['review_text']
+    del reviews_df['has_review_text']
+
+    upload_dataframe(reviews_df, 'accounts_review', 10000)
+
+
+def upload_categories_to_db():
+    # import users csv:
+    categories_df = pd.read_csv(
+        '../Data/Joined/Integration/Board Games/GameInformation/05_Categories_Integrated_with_bga_and_bgg_ids.csv',
+        index_col=0,
+        dtype={
+            'category_key': int,
+            'category_bga_id': str,
+            'bgg_category_key': float,
+            'bga_name': str,
+            'bgg_name': str,
+            'categroy_bga_url': str,
+            'category_name': str
+        })
+
+    # rename a few columns:
+    categories_df.rename(columns={'category_key': 'id',
+                                  'category_name': 'name',
+                                  'category_bga_id': 'bga_id',
+                                  'bgg_category_key': 'bgg_id',
+                                  'category_bga_url': 'bga_url'
+                                  }, inplace=True)
+
+    upload_dataframe(categories_df, 'games_category')
+
+
+def upload_gamemechanic_to_db():
+    # import users csv:
+    mechanic_df = pd.read_csv(
+        '../Data/Joined/Integration/Board Games/GameInformation/04_Mechanics_Integrated_and_Normalized.csv',
+        index_col=0,
+        dtype={
+            'mechanic_key': int,
+            'mechanic_bga_id': str,
+            'bgg_mechanic_key': float,
+            'bga_name': str,
+            'bgg_name': str,
+            'mechanic_bga_url': str,
+            'mechanic_name': str
+        },
+        keep_default_na=False)
+
+    # rename a few columns:
+    mechanic_df.rename(columns={'mechanic_key': 'id',
+                                'mechanic_name': 'name',
+                                'mechanic_bga_id': 'bga_id',
+                                'bgg_mechanic_key': 'bgg_id',
+                                'mechanic_bga_url': 'bga_url'
+                                }, inplace=True)
+
+    upload_dataframe(mechanic_df, 'games_gamemechanic')
+
+
+def upload_publisher_to_db():
+    # import users csv:
+    publisher_df = pd.read_csv(
+        '../Data/Joined/Integration/',
+        index_col=0,
+        dtype={
+            'publisher_key': int,
+            'name': str,
+            'bga_url': str
+        },
+        keep_default_na=False)
+
+    # rename a few columns:
+    publisher_df.rename(columns={'publisher_key': 'id'
+                                 }, inplace=True)
+
+    upload_dataframe(publisher_df, 'games_publisher')
+
+
+def upload_author_to_db():
+    # import users csv:
+    author_df = pd.read_csv(
+        '../Data/Joined/Integration/',
+        index_col=0,
+        dtype={
+            'autho_key': int,
+            'name': str,
+            'bga_url': str
+        },
+        keep_default_na=False)
+
+    # rename a few columns:
+    author_df.rename(columns={'author_key': 'id'
+                              }, inplace=True)
+
+    upload_dataframe(author_df, 'games_author')
+
+
+def upload_online_games_to_db():
+    # import boardgame csv:
+    board_game_df = pd.read_csv(
+        '../Data/Joined/Integration',
+        index_col=0)
+
+    # rename a few columns:
+    board_game_df.rename(columns={'game_key': 'id',
+                                  'game_description': 'description',
+                                  'min_players': 'min_number_of_players',
+                                  'max_players': 'max_number_of_players',
+                                  }, inplace=True)
+
+    upload_dataframe(board_game_df, 'games_onlinegame')
+
+def upload_similarboardonlinegame_to_db():
+    # import boardgame csv:
+    similar_df = pd.read_csv(
+        '../Data/Joined/Integration',
+        index_col=0)
+
+    # rename a few columns:
+    similar_df.rename(columns={'key': 'id'}, inplace=True)
+
+    upload_dataframe(similar_df, 'games_boardgame')
+
+
+def upload_dataframe(df: pd.DataFrame, table: str, batchsize: int = 1000):
     # create instance of Postgres Wrapper:
-    dbWrapper = PostgresWrapper(host=os.getenv('POSTGRES_HOST'),
+    dbWrapper = PostgresWrapper(host='localhost',  # os.getenv('POSTGRES_HOST'),
                                 user=os.getenv('POSTGRES_USER'),
                                 password=os.getenv('POSTGRES_PASSWORD'),
                                 database=os.getenv('POSTGRES_DB'),
@@ -34,9 +217,9 @@ def upload_users_to_db():
     dbWrapper.connect()
 
     # execute upload
-    dbWrapper.upload_dataframe(table='accounts_usertaste',
-                               df=users_df,
-                               batchsize=100,
+    dbWrapper.upload_dataframe(table=table,
+                               df=df,
+                               batchsize=batchsize,
                                truncate_table=True,
                                commit=True)
 
