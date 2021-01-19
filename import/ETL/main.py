@@ -73,7 +73,7 @@ def pipeline():
         print('Integration pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
     if RUN_UPLOAD:
-        upload_users_to_db()
+        # upload_users_to_db()
         upload_board_games_to_db()
         upload_reviews_to_db()
         upload_categories_to_db()

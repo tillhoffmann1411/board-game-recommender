@@ -28,6 +28,7 @@ class PostgresWrapper:
         self.disconnect()
 
     def connect(self) -> psycopg2._psycopg.connection:
+        print("Connecting to " + self.host + "...")
         conn = psycopg2.connect(
             host=self.host,
             port=self.port,

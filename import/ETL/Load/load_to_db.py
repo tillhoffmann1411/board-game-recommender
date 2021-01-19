@@ -5,7 +5,6 @@ import pandas as pd
 import logging
 import os
 
-prod_env = Path('./../../../.env.prod')
 load_dotenv()
 
 
@@ -29,7 +28,7 @@ def upload_users_to_db():
 def upload_board_games_to_db():
     # import boardgame csv:
     board_game_df = pd.read_csv(
-        '../Data/Joined/Integration/Board Games/GameInformation/01_GameInformation_All_Games_Integrated.csv',
+        '../Data/Joined/Results/BoardGames.csv',
         index_col=0)
 
     # rename a few columns:
@@ -41,6 +40,7 @@ def upload_board_games_to_db():
                                   'bga_game_id': 'bga_id',
                                   'bgg_average_user_rating': 'bgg_avg_rating',
                                   'bga_average_user_rating': 'bga_avg_rating',
+                                  'bgg_average_weight': 'bgg_avg_weight',
                                   'bgg_num_user_ratings': 'bgg_num_ratings',
                                   'bga_num_user_ratings': 'bga_num_ratings',
                                   'bga_game_url': 'bga_url',
@@ -63,7 +63,7 @@ def upload_board_games_to_db():
 def upload_reviews_to_db():
     # import users csv:
     reviews_df = pd.read_csv(
-        '../Data/Joined/Integration/Board Games/Reviews/Reviews_All_Games_Integrated_and_Cleaned.csv',
+        '../Data/Joined/Results/Reviews.csv',
         index_col=0,
         dtype={
             'game_key': int,
@@ -92,7 +92,7 @@ def upload_reviews_to_db():
 def upload_categories_to_db():
     # import users csv:
     categories_df = pd.read_csv(
-        '../Data/Joined/Integration/Board Games/GameInformation/05_Categories_Integrated_with_bga_and_bgg_ids.csv',
+        '../Data/Joined/Results/Categories.csv',
         index_col=0,
         dtype={
             'category_key': int,
@@ -118,7 +118,7 @@ def upload_categories_to_db():
 def upload_gamemechanic_to_db():
     # import users csv:
     mechanic_df = pd.read_csv(
-        '../Data/Joined/Integration/Board Games/GameInformation/04_Mechanics_Integrated_and_Normalized.csv',
+        '../Data/Joined/Results/Mechanics.csv',
         index_col=0,
         dtype={
             'mechanic_key': int,
@@ -145,7 +145,7 @@ def upload_gamemechanic_to_db():
 def upload_publisher_to_db():
     # import users csv:
     publisher_df = pd.read_csv(
-        '../Data/Joined/Integration/',
+        '../Data/Joined/Results/Publisher.csv',
         index_col=0,
         dtype={
             'publisher_key': int,
@@ -164,7 +164,7 @@ def upload_publisher_to_db():
 def upload_author_to_db():
     # import users csv:
     author_df = pd.read_csv(
-        '../Data/Joined/Integration/',
+        '../Data/Joined/Results/Designer.csv',
         index_col=0,
         dtype={
             'autho_key': int,
@@ -209,7 +209,7 @@ def upload_similarboardonlinegame_to_db():
 
 def upload_dataframe(df: pd.DataFrame, table: str, batchsize: int = 1000):
     # create instance of Postgres Wrapper:
-    dbWrapper = PostgresWrapper(host='localhost',  # os.getenv('POSTGRES_HOST'),
+    dbWrapper = PostgresWrapper(host= os.getenv('POSTGRES_HOST'), # 'localhost',
                                 user=os.getenv('POSTGRES_USER'),
                                 password=os.getenv('POSTGRES_PASSWORD'),
                                 database=os.getenv('POSTGRES_DB'),

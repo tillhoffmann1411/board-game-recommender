@@ -89,6 +89,7 @@ class BoardGame(models.Model):
     bga_id = models.CharField(max_length=256, blank=True, null=True)
     bga_avg_rating = models.FloatField(blank=True, null=True)
     bga_num_ratings = models.FloatField(blank=True, null=True)
+    bgg_average_weight = models.FloatField(blank=True, null=True)
     bga_url = models.URLField(max_length=500, blank=True, null=True)
     bga_rank = models.FloatField(blank=True, null=True)
     bga_rank_trending = models.FloatField(blank=True, null=True)

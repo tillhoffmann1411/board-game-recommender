@@ -21,6 +21,7 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.route.queryParams.subscribe(params => {
       this.game = this.onlineGames.find(g => g.id === parseInt(params.id));
     });
