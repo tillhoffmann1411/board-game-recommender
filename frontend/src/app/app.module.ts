@@ -12,7 +12,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -29,10 +28,8 @@ import { GameState } from './storemanagement/state/game.state';
 import { httpInterceptorProviders } from './middlewares';
 
 
-// Note we need a separate function as it's required
-// by the AOT compiler.
 export function playerFactory() {
-  return player;
+  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
 }
 
 

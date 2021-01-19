@@ -5,6 +5,7 @@ import pandas as pd
 import logging
 import os
 
+prod_env = Path('./../../../.env.prod')
 load_dotenv()
 
 
