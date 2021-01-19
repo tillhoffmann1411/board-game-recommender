@@ -66,8 +66,8 @@ export class AuthState {
   @Action(Auth.Login)
   login(ctx: StateContext<IAuthState>, { username, password }: Auth.Login) {
     this.userService.login(username, password).then(res => {
-      if (res.access_token) {
-        this.store.dispatch(new Auth.LoginSuccess({ user: res.user, jwt: res.access_token }));
+      if (res.accessToken) {
+        this.store.dispatch(new Auth.LoginSuccess({ user: res.user, jwt: res.accessToken }));
       } else {
         this.store.dispatch(new Auth.LoginError());
       }
@@ -98,8 +98,8 @@ export class AuthState {
   @Action(Auth.Register)
   register(ctx: StateContext<IAuthState>, { username, password, email }: Auth.Register) {
     this.userService.register(username, password, email).then(res => {
-      if (res.access_token) {
-        this.store.dispatch(new Auth.RegisterSuccess({ user: res.user, jwt: res.access_token }));
+      if (res.accessToken) {
+        this.store.dispatch(new Auth.RegisterSuccess({ user: res.user, jwt: res.accessToken }));
       } else {
         this.store.dispatch(new Auth.RegisterError());
       }

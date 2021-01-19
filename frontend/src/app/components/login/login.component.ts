@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.getError.subscribe(error => {
       if (error) {
+        console.error(error);
         this.error = true;
       }
     });
