@@ -14,7 +14,11 @@
   </a>
 
   <a mat-list-item routerLink="/games/recommendations" (click)="onSidenavClose()" *ngIf="isLoggedIn">
-    <mat-icon>insights</mat-icon><span class="nav-caption">Recommender</span>
+    <mat-icon>insights</mat-icon><span class="nav-caption">Games</span>
+  </a>
+
+  <a mat-list-item routerLink="/games" (click)="onSidenavClose()" *ngIf="isLoggedIn">
+    <mat-icon>insights</mat-icon><span class="nav-caption">Ratings</span>
   </a>
 
   <a mat-list-item routerLink="/" (click)="logout()" *ngIf="isLoggedIn">

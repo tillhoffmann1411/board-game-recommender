@@ -1,49 +1,40 @@
 .card {
+  display: flex;
+  flex-direction: column;
   margin: 1rem 0.5rem;
+  width: 18rem;
+}
+
+img {
+  width: 16rem;
+  height: 16rem;
+  margin: 0 auto;
   border-radius: 10px;
-  min-width: 12rem;
-
-  .image {
-    display: flex;
-    
-    img {
-      border-radius: 10px 10px 0 0;
-      height: 10rem;
-  }
-  }
-}
-.mat-card-content {
-  height: 8rem;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  box-shadow:  10px -10px 20px #c5c5c5;
 }
 
-.liked {
-  color: green;
+.name {
+  text-align: center;
 }
 
-.disliked {
-  color: red;
+.rating {
+  margin-top: 5px;
 }
 
 .activatedDetails:hover {
-  background-color: rgb(228, 228, 228);
-  cursor: pointer;
   transform: scale(.99);
+  cursor: pointer;
 }
 
 .activatedDetails:active {
-  background-color: rgb(204, 204, 204);
   cursor: pointer;
   transform: scale(.98);
 }
 
 
 
-
 @media only screen and (min-width: 768px) {
   .card {
-    width: 18rem;
     margin: 1rem;
   }
 }

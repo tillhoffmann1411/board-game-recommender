@@ -27,10 +27,11 @@ export class QuestionnaireComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.gameService.loadBoardGames();
-
     this.gameService.getRatings.subscribe(ratings => this.ratings = ratings);
     this.gameService.getBoardGames.subscribe(games => {
+      if (games.length === 0) {
+        this.gameService.loadBoardGames();
+      }
       this.games = games;
 
       this.filteredGames = this.searchControl.valueChanges.pipe(
