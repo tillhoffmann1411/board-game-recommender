@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthStore } from 'src/app/storemanagement/auth.store';
+import { GameStore } from 'src/app/storemanagement/game.store';
 
 @Component({
   selector: 'app-register',

@@ -11,6 +11,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,6 +27,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GameState } from './storemanagement/state/game.state';
 import { httpInterceptorProviders } from './middlewares';
+
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
 
 
 @NgModule({
@@ -47,6 +56,7 @@ import { httpInterceptorProviders } from './middlewares';
     NgxsModule.forRoot([AuthState, GameState], { developmentMode: true }),
     BrowserAnimationsModule,
     AngularSvgIconModule.forRoot(),
+    LottieModule.forRoot({ player: playerFactory }),
 
     MaterialModule,
 

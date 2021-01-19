@@ -18,7 +18,7 @@
   </section>
 
   <section class="game-list row">
-    <ng-container>
+    <ng-container *ngIf="!isLoading; else loading">
       <div *ngFor="let game of filteredGames | async">
         <app-game-card [game]="game" [taste]="'neutral'">
         </app-game-card>
@@ -26,5 +26,9 @@
     </ng-container>
 
   </section>
+
+  <ng-template #loading>
+    <app-loading></app-loading>
+  </ng-template>
 
 </div>

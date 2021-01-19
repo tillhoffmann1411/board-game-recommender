@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { IBoardGame, GAMES, IRating } from 'src/app/models/game';
+import { IBoardGame, IRating } from 'src/app/models/game';
 import { GameStore } from 'src/app/storemanagement/game.store';
 
 
@@ -18,6 +17,7 @@ export class QuestionnaireComponent implements OnInit {
   games: IBoardGame[];
   filteredGames: Observable<IBoardGame[]>;
   ratings: IRating[] = [];
+  isLoading = true;
 
 
   constructor(
@@ -29,8 +29,8 @@ export class QuestionnaireComponent implements OnInit {
   ngOnInit(): void {
     this.gameService.getRatings.subscribe(ratings => this.ratings = ratings);
     this.gameService.getBoardGames.subscribe(games => {
-      if (games.length === 0) {
-        this.gameService.loadBoardGames();
+      if (games.length > 0) {
+        this.isLoading = false;
       }
       this.games = games;
 
@@ -41,6 +41,7 @@ export class QuestionnaireComponent implements OnInit {
       );
     });
   }
+
 
 
   next() {

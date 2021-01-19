@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthStore } from './storemanagement/auth.store';
+import { GameStore } from './storemanagement/game.store';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,16 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
 
   constructor(
-    private router: Router,
-    private authService: AuthStore
+    private authService: AuthStore,
+    private gameStore: GameStore,
   ) { }
 
   ngOnInit() {
     this.authService.getIsLoggedIn.subscribe(isloggedIn => {
       this.isLoggedIn = isloggedIn
+      if (this.isLoggedIn) {
+        this.gameStore.loadBoardGames();
+      }
     });
   }
 }
