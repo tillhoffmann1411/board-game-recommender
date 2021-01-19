@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -34,22 +35,23 @@ export class QuestionnaireComponent implements OnInit {
 
       this.filteredGames = this.searchControl.valueChanges.pipe(
         startWith(''),
-        map(value => this._filter(value))
-      )
-    })
+        map(searchInput => this._filter(searchInput)),
+        map(boardGames => boardGames.slice(0, 10))
+      );
+    });
   }
+
 
   next() {
     this.router.navigate(['recommendations'], { relativeTo: this.route });
   }
 
-
   /**
    * Function is from angular material Docu 
    * https://material.angular.io/components/autocomplete/examples
    */
-  private _filter(value: string): IBoardGame[] {
-    const filterValue = this._normalizeValue(value);
+  private _filter(searchInput: string): IBoardGame[] {
+    const filterValue = this._normalizeValue(searchInput);
     return this.games.filter(game => this._normalizeValue(game.name).includes(filterValue));
   }
   /**

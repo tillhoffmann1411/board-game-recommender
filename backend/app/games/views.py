@@ -35,7 +35,7 @@ from .serializers import BoardGameSerializer
 
 
 # --- The easy way read and write (post and get)
-class BoardGameList(generics.ListCreateAPIView):
+class BoardGameList(generics.ListAPIView):
     # Write operations just for admins, GET for other authenticated users
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = BoardGame.objects.all()

@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     MatInputModule,
     MatAutocompleteModule,
     MatExpansionModule,
+    MatPaginatorModule,
   ],
   exports: [
     MatSidenavModule,
@@ -42,6 +44,7 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     MatAutocompleteModule,
     MatExpansionModule,
     StarRatingComponent,
+    MatPaginatorModule,
   ],
 })
 export class MaterialModule { }

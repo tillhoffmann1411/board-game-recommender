@@ -14,8 +14,7 @@ export class GameHttpService {
   constructor(private http: HttpClient) { }
 
   getBoardGames(): Promise<IBoardGame[]> {
-    return Promise.resolve(GAMES);
-    // return this.http.get<IBoardGame[]>(this.baseUrl + '/games/').toPromise();
+    return this.http.get<IBoardGame[]>(this.baseUrl + '/games/').toPromise();
   }
 
   getRecommendedBoardGames(): Promise<IBoardGame[]> {

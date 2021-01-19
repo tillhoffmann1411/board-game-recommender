@@ -18,10 +18,13 @@
   </section>
 
   <section class="game-list row">
-    <div *ngFor="let game of filteredGames | async">
-      <app-game-card [game]="game" [taste]="'neutral'">
-      </app-game-card>
-    </div>
+    <ng-container>
+      <div *ngFor="let game of filteredGames | async">
+        <app-game-card [game]="game" [taste]="'neutral'">
+        </app-game-card>
+      </div>
+    </ng-container>
+
   </section>
 
 </div>

@@ -6,5 +6,6 @@ djangorestframework
 djangorestframework_simplejwt
 dj-rest-auth
 dj-rest-auth[with_social]
+djangorestframework-camel-case
 
 gunicorn

@@ -81,6 +81,7 @@ export class AuthState {
     const expires = this.extractDateFromToken(auth.jwt);
     const user: IUser = auth.user;
     localStorage.setItem('isloggedIn', 'true');
+    localStorage.setItem('token', auth.jwt);
     ctx.setState({ user, loggedIn: true, error: '', expires });
   }
 
@@ -112,6 +113,7 @@ export class AuthState {
     const expires = this.extractDateFromToken(auth.jwt);
     const user = auth.user;
     localStorage.setItem('isloggedIn', 'true');
+    localStorage.setItem('token', auth.jwt);
     ctx.setState({ user, loggedIn: true, error: '', expires });
   }
 

@@ -24,6 +24,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GameState } from './storemanagement/state/game.state';
+import { httpInterceptorProviders } from './middlewares';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { GameState } from './storemanagement/state/game.state';
   ],
   providers: [
     AuthGuard,
+    httpInterceptorProviders,
   ],
   exports: [
     MatSidenavModule,
