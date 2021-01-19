@@ -37,7 +37,7 @@ export class QuestionnaireComponent implements OnInit {
       this.filteredGames = this.searchControl.valueChanges.pipe(
         startWith(''),
         map(searchInput => this._filter(searchInput)),
-        map(boardGames => boardGames.slice(0, 10))
+        map(boardGames => boardGames.slice(0, 15))
       );
     });
   }
