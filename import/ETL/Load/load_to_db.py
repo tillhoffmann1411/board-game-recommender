@@ -202,7 +202,7 @@ def upload_similarboardonlinegame_to_db():
 
 def upload_dataframe(df: pd.DataFrame, table: str, batchsize: int = 1000):
     # create instance of Postgres Wrapper:
-    dbWrapper = PostgresWrapper(host='localhost',  # os.getenv('POSTGRES_HOST'), #
+    dbWrapper = PostgresWrapper(host=os.getenv('POSTGRES_HOST_EXTERNAL'),
                                 user=os.getenv('POSTGRES_USER'),
                                 password=os.getenv('POSTGRES_PASSWORD'),
                                 database=os.getenv('POSTGRES_DB'),

@@ -27,6 +27,8 @@ services:
     env_file:
       - .env
     restart: on-failure
+    depends_on:
+      - django
 
   postgres:
     image: postgres
