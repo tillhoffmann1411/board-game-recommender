@@ -40,7 +40,6 @@ def upload_board_games_to_db():
                                   'bga_game_id': 'bga_id',
                                   'bgg_average_user_rating': 'bgg_avg_rating',
                                   'bga_average_user_rating': 'bga_avg_rating',
-                                  'bgg_average_weight': 'bgg_avg_weight',
                                   'bgg_num_user_ratings': 'bgg_num_ratings',
                                   'bga_num_user_ratings': 'bga_num_ratings',
                                   'bga_game_url': 'bga_url',
@@ -69,7 +68,6 @@ def upload_reviews_to_db():
             'game_key': int,
             'user_key': int,
             'rating': float,
-            'review_text': object,
             'has_review_text': int,
             'user_origin': object
         },
@@ -83,7 +81,6 @@ def upload_reviews_to_db():
                                }, inplace=True)
 
     # drop avg rating column:
-    del reviews_df['review_text']
     del reviews_df['has_review_text']
 
     upload_dataframe(reviews_df, 'accounts_review', 10000)
@@ -96,10 +93,6 @@ def upload_categories_to_db():
         index_col=0,
         dtype={
             'category_key': int,
-            'category_bga_id': str,
-            'bgg_category_key': float,
-            'bga_name': str,
-            'bgg_name': str,
             'categroy_bga_url': str,
             'category_name': str
         })
@@ -107,8 +100,6 @@ def upload_categories_to_db():
     # rename a few columns:
     categories_df.rename(columns={'category_key': 'id',
                                   'category_name': 'name',
-                                  'category_bga_id': 'bga_id',
-                                  'bgg_category_key': 'bgg_id',
                                   'category_bga_url': 'bga_url'
                                   }, inplace=True)
 
@@ -122,10 +113,6 @@ def upload_gamemechanic_to_db():
         index_col=0,
         dtype={
             'mechanic_key': int,
-            'mechanic_bga_id': str,
-            'bgg_mechanic_key': float,
-            'bga_name': str,
-            'bgg_name': str,
             'mechanic_bga_url': str,
             'mechanic_name': str
         },
@@ -134,8 +121,6 @@ def upload_gamemechanic_to_db():
     # rename a few columns:
     mechanic_df.rename(columns={'mechanic_key': 'id',
                                 'mechanic_name': 'name',
-                                'mechanic_bga_id': 'bga_id',
-                                'bgg_mechanic_key': 'bgg_id',
                                 'mechanic_bga_url': 'bga_url'
                                 }, inplace=True)
 
@@ -149,13 +134,20 @@ def upload_publisher_to_db():
         index_col=0,
         dtype={
             'publisher_key': int,
-            'name': str,
-            'bga_url': str
+            'publisher_name': str,
+            'publisher_image_url': str,
+            'publisher_url': str,
+            'publisher_bga_id': str,
+            'publisher_bgg_key': int,
+            'bgg_publisher_name': str,
         },
         keep_default_na=False)
 
     # rename a few columns:
-    publisher_df.rename(columns={'publisher_key': 'id'
+    publisher_df.rename(columns={'publisher_key': 'id',
+                                 'publisher_name': 'name',
+                                 'publisher_image_url': 'image_url',
+                                 'publisher_url': 'url',
                                  }, inplace=True)
 
     upload_dataframe(publisher_df, 'games_publisher')
@@ -195,6 +187,7 @@ def upload_online_games_to_db():
 
     upload_dataframe(board_game_df, 'games_onlinegame')
 
+
 def upload_similarboardonlinegame_to_db():
     # import boardgame csv:
     similar_df = pd.read_csv(
@@ -209,7 +202,7 @@ def upload_similarboardonlinegame_to_db():
 
 def upload_dataframe(df: pd.DataFrame, table: str, batchsize: int = 1000):
     # create instance of Postgres Wrapper:
-    dbWrapper = PostgresWrapper(host= os.getenv('POSTGRES_HOST'), # 'localhost',
+    dbWrapper = PostgresWrapper(host='localhost',  # os.getenv('POSTGRES_HOST'), #
                                 user=os.getenv('POSTGRES_USER'),
                                 password=os.getenv('POSTGRES_PASSWORD'),
                                 database=os.getenv('POSTGRES_DB'),

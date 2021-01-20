@@ -16,6 +16,5 @@ class Review(models.Model):
     game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
     created_by = models.ForeignKey(UserTaste, on_delete=models.CASCADE)
     rating = models.FloatField(validators=[MaxValueValidator(10)], blank=True, null=True)
-    text = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     origin = models.CharField(max_length=10, blank=True, null=True)

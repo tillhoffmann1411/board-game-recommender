@@ -51,6 +51,8 @@ class PostgresWrapper:
         return cur.fetchall()
 
     def df_to_csv_string(self, df: pd.DataFrame):
+        if 'description' in df.columns:
+            df['description'] = df['description'].replace(to_replace=[r"\\t|\\n|\\r", "\t|\n|\r"], value=["",""], regex=True)
         csv_df = io.StringIO()
         for row in df.values:
             csv_df.write("\t".join(map(str, row)) + '\n')
@@ -58,7 +60,7 @@ class PostgresWrapper:
         return csv_df
 
     def upload_dataframe(self, table: str, df: pd.DataFrame, batchsize: int = -1, truncate_table: bool = False,
-                         commit: bool = False):
+                         commit: bool = False, start_batch: int = 0):
         assert isinstance(table, str)
         assert isinstance(df, pd.DataFrame)
         assert isinstance(batchsize, int)
@@ -75,6 +77,8 @@ class PostgresWrapper:
             t_start = datetime.now()
             # Split dataframe into batches and create new one
             df_batches = split_df_in_batches(df, batchsize)
+            if start_batch != 0:
+                del df_batches[0:start_batch]
             print('Number of rows: ' + str(len(df)) + ' - Number of Batches: ' + str(len(df_batches)))
 
             for idx, df_batch in enumerate(df_batches):
