@@ -74,8 +74,8 @@ def pipeline():
 
     if RUN_UPLOAD:
         #upload_users_to_db()
-        upload_board_games_to_db()
-        #upload_reviews_to_db()
+        #upload_board_games_to_db()
+        upload_reviews_to_db()
         #upload_categories_to_db()
         #upload_gamemechanic_to_db()
         #upload_publisher_to_db()

@@ -6,7 +6,7 @@
 
   <section class="game-section row" *ngIf="games">
     <div *ngFor="let game of games | async">
-      <app-game-card [game]="game" [taste]="'neutral'" [activateDetails]="true">
+      <app-game-card [game]="game" [activateDetails]="true">
       </app-game-card>
     </div>
   </section>

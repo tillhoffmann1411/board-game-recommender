@@ -40,8 +40,11 @@ export interface IOnlineGame {
 }
 
 export interface IRating {
-  gameId: number,
-  rating: number
+  id?: number,
+  game: number,
+  rating: number,
+  createdAt?: Date,
+  createdBy?: number,
 }
 
 

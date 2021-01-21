@@ -27,7 +27,7 @@ export class DetailComponent implements OnInit {
     });
 
     this.gameStore.getRatings.subscribe(ratings => {
-      const userRate = ratings.find(rating => rating.gameId === this.game?.id)?.rating;
+      const userRate = ratings.find(rating => rating.game === this.game?.id)?.rating;
       this.rating = userRate ? userRate : 0;
     });
 

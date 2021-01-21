@@ -10,7 +10,7 @@ import { GameStore } from 'src/app/storemanagement/game.store';
 })
 export class GameCardComponent implements OnInit {
   @Input() game: IBoardGame;
-  @Input() taste: string = 'neutral';
+  @Input() rating: number | undefined;
   @Input() activateDetails = false;
   @Input() deactivateRating = false;
 
@@ -26,8 +26,8 @@ export class GameCardComponent implements OnInit {
   }
 
   rate(rating: number) {
-    this.gameStore.sendRating({ gameId: this.game.id, rating });
-    this.rated.emit({ gameId: this.game.id, rating } as IRating);
+    this.gameStore.sendRating({ game: this.game.id, rating });
+    this.rated.emit({ game: this.game.id, rating } as IRating);
   }
 
   openDetails() {

@@ -78,3 +78,11 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = BoardGame.objects.all()
     serializer_class = BoardGameSerializer
+
+
+class Recommendation(APIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+
+    def get(self, request, format=None):
+        user = self.request.user
+        return Response(user.id)

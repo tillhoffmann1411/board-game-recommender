@@ -21,8 +21,11 @@ export class GameHttpService {
     return Promise.resolve(GAMES);
   }
 
-  sendRatings(rating: IRating): Promise<string> {
-    return Promise.resolve('Uploaded ratings');
-    // return this.http.post<string>(this.baseUrl + '/games/ratings/', { ratings }).toPromise();
+  sendRatings(rating: IRating): Promise<IRating> {
+    return this.http.post<IRating>(this.baseUrl + '/user/review/', rating).toPromise();
+  }
+
+  getRatings(): Promise<IRating[]> {
+    return this.http.get<IRating[]>(this.baseUrl + '/user/review/').toPromise();
   }
 }

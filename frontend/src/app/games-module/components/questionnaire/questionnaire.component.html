@@ -20,7 +20,7 @@
   <section class="game-list row">
     <ng-container *ngIf="!isLoading">
       <div *ngFor="let game of filteredGames | async">
-        <app-game-card [game]="game" [taste]="'neutral'">
+        <app-game-card [game]="game" [rating]="getRatingForGame(game.id)">
         </app-game-card>
       </div>
     </ng-container>

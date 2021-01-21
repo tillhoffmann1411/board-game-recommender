@@ -44,38 +44,65 @@ export class GameState {
   /**
    * send Ratings
    */
-  @Action(Game.SendRatings)
-  sendRatings(ctx: StateContext<IGameState>, { rating }: Game.SendRatings) {
+  @Action(Game.SendRating)
+  sendRating(ctx: StateContext<IGameState>, { rating }: Game.SendRating) {
     this.gameService.sendRatings(rating).then(res => {
       if (res) {
-        this.store.dispatch(new Game.SendRatingsSuccess(rating))
+        this.store.dispatch(new Game.SendRatingSuccess(rating))
       } else {
-        this.store.dispatch(new Game.SendRatingsError());
+        this.store.dispatch(new Game.SendRatingError());
       }
     }).catch(() => {
-      this.store.dispatch(new Game.SendRatingsError());
+      this.store.dispatch(new Game.SendRatingError());
     });
   }
 
-  @Action(Game.SendRatingsSuccess)
-  loginSuccess(ctx: StateContext<IGameState>, { rating }: Game.SendRatingsSuccess) {
+  @Action(Game.SendRatingSuccess)
+  sendRatingSuccess(ctx: StateContext<IGameState>, { rating }: Game.SendRatingSuccess) {
     const oldRatings = new Map<number, number>();
 
     ctx.getState().ratings.forEach(rating => {
-      oldRatings.set(rating.gameId, rating.rating);
+      oldRatings.set(rating.game, rating.rating);
     });
-    oldRatings.set(rating.gameId, rating.rating);
+    oldRatings.set(rating.game, rating.rating);
 
     const newRatings: IRating[] = [];
-    oldRatings.forEach((rating, gameId) => {
-      newRatings.push({ gameId, rating });
+    oldRatings.forEach((rating, game) => {
+      newRatings.push({ game, rating });
     });
     ctx.setState({ ...ctx.getState(), ratings: newRatings });
   }
 
-  @Action(Game.SendRatingsError)
-  loginError(ctx: StateContext<IGameState>) {
+  @Action(Game.SendRatingError)
+  sendRatingError(ctx: StateContext<IGameState>) {
     ctx.setState({ ...ctx.getState(), error: 'Error by sending ratings.' });
+  }
+
+
+  /**
+ * load Ratings
+ */
+  @Action(Game.LoadRatings)
+  loadRating(ctx: StateContext<IGameState>) {
+    this.gameService.getRatings().then((res: IRating[]) => {
+      if (res) {
+        this.store.dispatch(new Game.LoadRatingsSuccess(res))
+      } else {
+        this.store.dispatch(new Game.LoadRatingsError());
+      }
+    }).catch(() => {
+      this.store.dispatch(new Game.LoadRatingsError());
+    });
+  }
+
+  @Action(Game.LoadRatingsSuccess)
+  loadRatingSuccess(ctx: StateContext<IGameState>, { ratings }: Game.LoadRatingsSuccess) {
+    ctx.setState({ ...ctx.getState(), ratings });
+  }
+
+  @Action(Game.LoadRatingsError)
+  loadRatingError(ctx: StateContext<IGameState>) {
+    ctx.setState({ ...ctx.getState(), error: 'Error by loading ratings.' });
   }
 
 

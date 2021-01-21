@@ -42,7 +42,9 @@ export class QuestionnaireComponent implements OnInit {
     });
   }
 
-
+  getRatingForGame(gameId: number): undefined | number {
+    return this.ratings.find(r => r.game === gameId)?.rating;
+  }
 
   next() {
     this.router.navigate(['recommendations'], { relativeTo: this.route });

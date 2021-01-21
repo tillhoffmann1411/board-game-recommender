@@ -18,19 +18,37 @@ export namespace Game {
   /**
    * Send User Ratings
    */
-  export class SendRatings {
-    static readonly type = '[Game] Send user ratings';
+  export class SendRating {
+    static readonly type = '[Game] Send user rating';
     constructor(public rating: IRating) { }
   }
 
-  export class SendRatingsError {
-    static readonly type = '[Game] Failed to send user ratings';
+  export class SendRatingError {
+    static readonly type = '[Game] Failed to send user rating';
     constructor() { }
   }
 
-  export class SendRatingsSuccess {
-    static readonly type = '[Game] Successful sended user ratings';
+  export class SendRatingSuccess {
+    static readonly type = '[Game] Successful sended user rating';
     constructor(public rating: IRating) { }
+  }
+
+  /**
+   * Load User Ratings
+   */
+  export class LoadRatings {
+    static readonly type = '[Game] Load user ratings';
+    constructor() { }
+  }
+
+  export class LoadRatingsError {
+    static readonly type = '[Game] Failed to load user ratings';
+    constructor() { }
+  }
+
+  export class LoadRatingsSuccess {
+    static readonly type = '[Game] Successful loaded user ratings';
+    constructor(public ratings: IRating[]) { }
   }
 
 

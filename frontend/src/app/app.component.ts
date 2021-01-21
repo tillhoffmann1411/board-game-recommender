@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
       this.isLoggedIn = isloggedIn
       if (this.isLoggedIn) {
         this.gameStore.loadBoardGames();
+        this.gameStore.loadRatings();
       }
     });
   }
