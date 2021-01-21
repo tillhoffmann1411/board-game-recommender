@@ -24,7 +24,8 @@ def str2bool(v):
 DEBUG = str2bool(env.get('DEBUG'))
 
 ALLOWED_HOSTS = env.get('DJANGO_ALLOWED_HOSTS').split(' ')
-CORS_ORIGIN_WHITELIST = ['http://localhost:4200'] if env.get('DEBUG') else env.get('DJANGO_ALLOWED_HOSTS').split(' ')
+CORS_ORIGIN_WHITELIST = ['http://localhost:4200',
+                         'http://localhost'] if env.get('DEBUG') else env.get('DJANGO_ALLOWED_HOSTS').split(' ')
 
 
 # Application definition

@@ -19,7 +19,6 @@ export class LoadingComponent implements OnInit {
   }
 
   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
   }
 
 }

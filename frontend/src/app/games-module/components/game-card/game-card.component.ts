@@ -31,7 +31,6 @@ export class GameCardComponent implements OnInit {
   }
 
   openDetails() {
-    console.log('id', this.game.id);
     this.router.navigate(['detail'], { relativeTo: this.route.parent, queryParams: { id: this.game.id } })
   }
 

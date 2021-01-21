@@ -1,6 +1,6 @@
 <div class="wrapper row">
 
-  <section class="search-section row">
+  <section class="search-section row" *ngIf="!isLoading">
     <h2>Give&nbsp;{{ (5 - ratings.length) < 0 ? 0 : 5 - ratings.length }}&nbsp;games you like or dislike</h2>
         <div class="input-section col-l-4">
           <label for="search">Search for games</label>
@@ -18,7 +18,7 @@
   </section>
 
   <section class="game-list row">
-    <ng-container *ngIf="!isLoading; else loading">
+    <ng-container *ngIf="!isLoading">
       <div *ngFor="let game of filteredGames | async">
         <app-game-card [game]="game" [taste]="'neutral'">
         </app-game-card>
@@ -27,8 +27,9 @@
 
   </section>
 
-  <ng-template #loading>
+  <section class="loading" *ngIf="isLoading">
+    <h2>Give us a second, we are loading all the greate games.</h2>
     <app-loading></app-loading>
-  </ng-template>
+  </section>
 
 </div>
