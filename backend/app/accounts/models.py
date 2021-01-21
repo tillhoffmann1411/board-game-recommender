@@ -31,5 +31,6 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     origin = models.CharField(max_length=10, blank=True, null=True)
 
-    class Meta:
-        unique_together = [['created_by', 'game']]
+    # TODO Comment in when csv is updated
+    # class Meta:
+    #     unique_together = [['created_by', 'game']]
