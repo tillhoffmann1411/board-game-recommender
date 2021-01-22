@@ -10,11 +10,11 @@ from games.models import BoardGame
 
 
 def check_superuser(sender, instance, signal, *args, **kwargs):
-    if sender is User:
+    if sender is User and not UserTaste.objects.filter(user=instance).exists():
         UserTaste.objects.create(number_of_ratings=0, user=instance, origin='boreg')
 
 
-post_save.connect(check_superuser, sender=User)
+post_save.connect(check_superuser, sender=User, dispatch_uid='Accounts')
 
 
 class UserTaste(models.Model):
