@@ -88,6 +88,6 @@ export namespace Game {
 
   export class LoadRecommendedBoardGamesSuccess {
     static readonly type = '[Game] Successful loaded recommended Board Games';
-    constructor(public recommendedBoardGames: IBoardGame[]) { }
+    constructor(public recommendedBoardGameIds: { id: number, name: string }[]) { }
   }
 }

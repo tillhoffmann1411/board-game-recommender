@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { GAMES, IBoardGame, IRating } from '../models/game';
+import { IBoardGame, IRating } from '../models/game';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,8 @@ export class GameHttpService {
     return this.http.get<IBoardGame[]>(this.baseUrl + '/games/').toPromise();
   }
 
-  getRecommendedBoardGames(): Promise<IBoardGame[]> {
-    return Promise.resolve(GAMES);
+  getRecommendedBoardGames(): Promise<{ 'id': number, 'name': string }[]> {
+    return this.http.get<{ 'id': number, 'name': string }[]>(this.baseUrl + '/games/recommendation/').toPromise();
   }
 
   sendRatings(rating: IRating): Promise<IRating> {

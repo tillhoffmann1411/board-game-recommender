@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthStore } from 'src/app/storemanagement/auth.store';
 import { filter } from 'rxjs/operators';
+import { GameStore } from 'src/app/storemanagement/game.store';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,11 +12,13 @@ import { filter } from 'rxjs/operators';
 export class SidenavComponent implements OnInit {
   isLoggedIn = false;
   route: any;
+  enoughRatings = false;
   @Output() sidenavClose = new EventEmitter();
 
   constructor(
     private router: Router,
-    private authService: AuthStore
+    private authService: AuthStore,
+    private gameStore: GameStore,
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +27,10 @@ export class SidenavComponent implements OnInit {
       .subscribe((e) => {
         this.route = e;
       });
+
+    this.gameStore.getRatings.subscribe(ratings => {
+      this.enoughRatings = ratings.length >= 5;
+    });
 
     this.authService.getIsLoggedIn.subscribe(isloggedIn => {
       this.isLoggedIn = isloggedIn

@@ -1,4 +1,7 @@
+from django.db.models.base import Model
 from django.http import Http404
+import random
+from django.db.models import Max
 
 from rest_framework import generics, status
 from rest_framework.views import APIView
@@ -80,9 +83,12 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BoardGameSerializer
 
 
-class Recommendation(APIView):
+class Recommendation(generics.ListAPIView):
+    serializer_class = BoardGameSerializer
+    queryset = BoardGame.objects.all()
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, request, format=None):
-        user = self.request.user
-        return Response(user.id)
+        queryset = self.get_queryset()[3000:3100]
+        random_items = BoardGameSerializer(queryset, many=True, fields=('id', 'name'))
+        return Response(random_items.data)

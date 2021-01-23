@@ -4,16 +4,39 @@
   margin-top: 4rem;
 }
 
+::ng-deep .mat-expansion-panel-content > .mat-expansion-panel-body, mat-expansion-panel, .mat-expansion-panel, .mat-expansion-panel-header:hover {
+  border-radius: 10px;
+  background-color: $background2;
+}
 
-.top-section {
-  padding: 0.5rem;
-  margin: 0.5rem;
+.filter {
+  .num-input {
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+  }
+}
+
+.filter-actions {
+  text-align: center;
+  margin: 1rem 0;
 }
 
 .game-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background: $background;
+}
+
+
+.loading {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -22,7 +45,16 @@
     padding: 2rem;
   }
 
-  .top-section {
-    padding: 2rem;
+  .filter-section {
+    padding: 1rem 0;
+  }
+
+  .game-section {
+    height: 90vh;
+    overflow-y: auto;
+  }
+
+  .mat-expansion-panel-header {
+    display: none;
   }
 }

@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 import { AuthStore } from 'src/app/storemanagement/auth.store';
+import { GameStore } from 'src/app/storemanagement/game.store';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,14 @@ import { AuthStore } from 'src/app/storemanagement/auth.store';
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   route: any;
+  enoughRatings = false;
 
   @Output() public sidenavToggle = new EventEmitter();
 
   constructor(
     private router: Router,
-    private authService: AuthStore
+    private authService: AuthStore,
+    private gameStore: GameStore,
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +29,10 @@ export class HeaderComponent implements OnInit {
       .subscribe((e) => {
         this.route = e;
       });
+
+    this.gameStore.getRatings.subscribe(ratings => {
+      this.enoughRatings = ratings.length >= 5;
+    });
 
     this.authService.getIsLoggedIn.subscribe(isloggedIn => {
       this.isLoggedIn = isloggedIn

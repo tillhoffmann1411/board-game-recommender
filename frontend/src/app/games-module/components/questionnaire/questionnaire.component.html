@@ -2,7 +2,7 @@
 
   <section class="search-section row" *ngIf="!isLoading">
     <h2>Give&nbsp;{{ (5 - ratings.length) < 0 ? 0 : 5 - ratings.length }}&nbsp;games you like or dislike</h2>
-        <div class="input-section col-l-4">
+        <div class="input-section col-xl-4">
           <label for="search">Search for games</label>
           <span class="input-line">
 
@@ -11,7 +11,9 @@
 
             <div [matTooltip]="'Please rate at least' + (5 - ratings.length) + ' more games'"
               [matTooltipDisabled]="ratings.length >= 5">
-              <button class="primary" [disabled]="ratings.length < 5" (click)="next()">Next</button>
+              <button class="primary" [disabled]="ratings.length < 5" (click)="next()">
+                Next <mat-icon>chevron_right</mat-icon>
+              </button>
             </div>
           </span>
         </div>
@@ -24,7 +26,6 @@
         </app-game-card>
       </div>
     </ng-container>
-
   </section>
 
   <section class="loading" *ngIf="isLoading">

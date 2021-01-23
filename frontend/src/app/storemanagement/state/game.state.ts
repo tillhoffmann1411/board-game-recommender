@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import { IGameState, IRating } from 'src/app/models/game';
+import { IBoardGame, IGameState, IRating } from 'src/app/models/game';
 import { GameHttpService } from 'src/app/services/game.service';
 import { Game } from './game.actions';
 
@@ -125,6 +125,7 @@ export class GameState {
 
   @Action(Game.LoadBoardGamesSuccess)
   loadBoardGamesSuccess(ctx: StateContext<IGameState>, { boardGames }: Game.LoadBoardGamesSuccess) {
+    this.store.dispatch(new Game.LoadRecommendedBoardGames())
     ctx.setState({ ...ctx.getState(), boardGames });
   }
 
@@ -151,7 +152,20 @@ export class GameState {
   }
 
   @Action(Game.LoadRecommendedBoardGamesSuccess)
-  loadRecommendedBoardGamesSuccess(ctx: StateContext<IGameState>, { recommendedBoardGames }: Game.LoadRecommendedBoardGamesSuccess) {
+  loadRecommendedBoardGamesSuccess(ctx: StateContext<IGameState>, { recommendedBoardGameIds }: Game.LoadRecommendedBoardGamesSuccess) {
+    const bgMap: Map<number, IBoardGame> = new Map();
+    const recommendedBoardGames: IBoardGame[] = [];
+
+    ctx.getState().boardGames.forEach(bg => {
+      if (!bgMap.has(bg.id)) {
+        bgMap.set(bg.id, bg);
+      }
+    });
+    recommendedBoardGameIds.forEach(bgId => {
+      if (bgMap.has(bgId.id)) {
+        recommendedBoardGames.push(bgMap.get(bgId.id)!);
+      }
+    });
     ctx.setState({ ...ctx.getState(), recommendedBoardGames });
   }
 

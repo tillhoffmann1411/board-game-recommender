@@ -1,14 +1,84 @@
 <div class="wrapper row">
 
-  <section class="top-section row">
-    <h2>Our recommendations for you:</h2>
+  <section class="filter-section col-xl-2">
+    <mat-expansion-panel class="filter mat-elevation-z0" [expanded]="largeScreen" [disabled]="isLoading">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filter
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="filter">
+        <div class="filter-actions">
+          <button class="button primary">
+            <mat-icon>filter_alt</mat-icon>
+            Filter
+          </button>
+        </div>
+
+        <div class="input-section">
+          <label for="category">Category</label>
+          <mat-select #category class="input">
+            <mat-option value="option1">Option 1</mat-option>
+            <mat-option value="option2">Option 2</mat-option>
+            <mat-option value="option3">Option 3</mat-option>
+          </mat-select>
+        </div>
+
+        <div class="input-section">
+          <label for="mechanic">Game mechanic</label>
+          <mat-select #mechanic class="input">
+            <mat-option value="option1">Option 1</mat-option>
+            <mat-option value="option2">Option 2</mat-option>
+            <mat-option value="option3">Option 3</mat-option>
+          </mat-select>
+        </div>
+
+        <div class="input-section">
+          <label for="age">Min Age</label>
+          <div class="num-input">
+            <button mat-icon-button color="primary">
+              <mat-icon>remove</mat-icon>
+            </button>
+            <input type="number" min="0" max="99" #age class="input" value="10" />
+            <button mat-icon-button color="primary">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-section">
+          <label for="age">Player</label>
+          <div class="num-input">
+            <input type="number" min="0" max="49" #age class="input" value="2" />
+            &nbsp;-&nbsp;
+            <input type="number" min="1" max="50" #age class="input" value="4" />
+          </div>
+        </div>
+
+        <div class="input-section">
+          <label for="age">Playtime (min)</label>
+          <div class="num-input">
+            <input type="number" min="0" max="999" #age class="input" value="30" />
+            &nbsp;-&nbsp;
+            <input type="number" min="1" max="1000" #age class="input" value="90" />
+          </div>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
   </section>
 
-  <section class="game-section row" *ngIf="games">
-    <div *ngFor="let game of games | async">
+  <section class="game-section col-xl-10" *ngIf="!isLoading">
+    <div *ngFor="let game of games">
       <app-game-card [game]="game" [activateDetails]="true">
       </app-game-card>
     </div>
+  </section>
+
+  <section class="loading" *ngIf="isLoading">
+    <h2>We are looking for games you will love!</h2>
+    <app-loading></app-loading>
   </section>
 
 </div>

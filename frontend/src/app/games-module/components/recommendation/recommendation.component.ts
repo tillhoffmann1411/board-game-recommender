@@ -9,16 +9,25 @@ import { GameStore } from 'src/app/storemanagement/game.store';
   styleUrls: ['./recommendation.component.scss']
 })
 export class RecommendationComponent implements OnInit {
-  games: Observable<IBoardGame[]>;
+  games: IBoardGame[];
+  isLoading = false;
+  largeScreen = document.body.clientWidth > 768;
 
   constructor(
     private gameService: GameStore,
   ) { }
 
   ngOnInit(): void {
-    this.gameService.loadRecommendedBoardGames();
-
-    this.games = this.gameService.getRecommendedBoardGames;
+    window.addEventListener('resize', (event) => {
+      this.largeScreen = document.body.clientWidth > 768;
+    });
+    this.isLoading = true;
+    this.gameService.getRecommendedBoardGames.subscribe(games => {
+      if (games.length > 0) {
+        this.isLoading = false;
+      }
+      this.games = games;
+    });
   }
 
 }
