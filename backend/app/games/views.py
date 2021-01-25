@@ -104,7 +104,7 @@ class Recommendation(APIView):
 
         # get all data to compare
         data = get_recommendation_data(reviews_df,  # link='./app/games/recommender/Reviews.csv',
-                                       min_number_ratings_game=5,
+                                       min_number_ratings_game=1,
                                        min_number_ratings_user=1,
                                        size_user_sample=5_000_000,
                                        seed=2352)  # if None random games

@@ -24,11 +24,21 @@
   margin: 1rem 0;
 }
 
-.game-section {
+.game-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   background: $background;
+
+  ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+  /* Optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+      background: transparent;
+ }
 }
 
 
@@ -42,7 +52,7 @@
 
 @media only screen and (min-width: 768px) {
   .wrapper {
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .filter-section {
@@ -50,9 +60,28 @@
   }
 
   .game-section {
-    height: 90vh;
-    overflow-y: auto;
+    float: right;
+    padding: 1rem;
+    ::-webkit-scrollbar {
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+      height: 0.5rem;
+    }
+    /* Optional: show position indicator in red */
+    ::-webkit-scrollbar-thumb {
+        background: $background2;
+        border-radius: 10px;
+   }
+
+    .game-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      background: $background;
+    }
   }
+
 
   .mat-expansion-panel-header {
     display: none;
