@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611362064269,
+  "timestamp": 1611606825627,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,14 +11,14 @@
         "ignoreVary": true
       },
       "urls": [
-        "/5.915d616901223b907cc9.js",
+        "/5.21d145e9661e0fd3e41e.js",
         "/favicon.ico",
         "/index.html",
         "/lottie-web.be8f45a906c5061bae97.js",
-        "/main.a69ffbc212f8ae7b1eef.js",
+        "/main.8622f2e388773bef4eb3.js",
         "/manifest.webmanifest",
         "/polyfills.a88c71f8c22a8253ff66.js",
-        "/runtime.3320d8d440f0c09027eb.js",
+        "/runtime.c07b3408059277ad6573.js",
         "/styles.1d4636adb8e74eb12c65.css"
       ],
       "patterns": []
@@ -103,7 +103,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/5.915d616901223b907cc9.js": "d24c24dc3fa84070b5cc1c4550de9beb428dc47b",
+    "/5.21d145e9661e0fd3e41e.js": "afe05e89bd1b19059e379d8c30ecd45a575cf4e2",
     "/assets/fonts/Black/Montserrat-Black.woff": "faf30fd3c3a82d2ce82a8aa6e828d43ab366a53d",
     "/assets/fonts/Black/Montserrat-Black.woff2": "aee56f3b5cc0f426ce241a6ae87439d4ce4ca2a2",
     "/assets/fonts/Black/Montserrat-BlackItalic.woff": "63e2fe667f4eb69bb6fa6d5c61bd8598e77e298b",
@@ -171,12 +171,12 @@
     "/assets/images/loading-dice.json": "b9d48da1be495b8a78a830478191f97faec494b8",
     "/assets/scss/modules/_fonts.scss": "184f8126fb3cd7a3034fdbcb471c6b92d29a8b77",
     "/favicon.ico": "842330c87812448eb6e3df330e04ca35fcbdbe15",
-    "/index.html": "05977f9e51ece84395dc878ae2919cfdfe6a3d50",
+    "/index.html": "4f8c03709a3653e100ab51a7acfebd788322e01f",
     "/lottie-web.be8f45a906c5061bae97.js": "248a5badd9c3912d1988a166fdfd6004a31a18f4",
-    "/main.a69ffbc212f8ae7b1eef.js": "fd7b83039391b1caf823d944044215861f389b1e",
+    "/main.8622f2e388773bef4eb3.js": "ff388a87c394a80c1e7e7c4fbf458aa3eaaa7902",
     "/manifest.webmanifest": "6d84acd71a47bd8b0995c9cb4bdf887dfc892001",
     "/polyfills.a88c71f8c22a8253ff66.js": "b6380ed034569010e4ec859b66fbc7c7132365a3",
-    "/runtime.3320d8d440f0c09027eb.js": "1c4d5dc8e6bd7437e4a487d3534d7d6b35131b43",
+    "/runtime.c07b3408059277ad6573.js": "60e6f85d633946548232b40517069a7edf29a528",
     "/styles.1d4636adb8e74eb12c65.css": "57d30814ff3766c8750d72a6b0ab5e2dd3ffc65a"
   },
   "navigationUrls": [
