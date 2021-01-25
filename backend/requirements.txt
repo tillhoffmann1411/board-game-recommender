@@ -9,3 +9,7 @@ dj-rest-auth[with_social]
 djangorestframework-camel-case
 
 gunicorn
+
+pandas
+numpy
+django-pandas

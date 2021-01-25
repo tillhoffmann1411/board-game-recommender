@@ -17,11 +17,19 @@ export interface IBoardGame {
   minNumberOfPlayers?: number;
   maxNumberOfPlayers?: number;
   minAge?: number;
+  bggAvgRating?: number;
+  bgaAvgRating?: number;
+  bggRating?: number;
+  bgaRating?: number;
+  officialUrl?: string;
+  thumbnailUrl?: string;
+  bgaUrl?: string;
   author?: IAuthor[];
   categories?: ICategories[];
   gameMechanic?: IGameMechanic[];
   publisher?: IPublisher[];
 }
+
 
 export interface IOnlineGame {
   id: number;

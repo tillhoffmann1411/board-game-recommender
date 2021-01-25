@@ -56,11 +56,11 @@ class BoardGameDetailSerializer(BoardGameSerializer):
         model = BoardGame
         fields = ('id', 'name', 'description', 'image_url', 'year_published', 'min_playtime', 'max_playtime',
                   'bga_price_us', 'min_number_of_players', 'max_number_of_players', 'min_age',
-                  'bgg_avg_rating', 'bga_avg_rating', 'bga_url', 'thumbnail_url', 'official_url')
+                  'bgg_avg_rating', 'bga_avg_rating', 'bga_url', 'thumbnail_url', 'official_url', 'bga_rank', 'bgg_rank')
 
     # Unused fields:    'reddit_all_time_count', 'author', 'category', 'game_mechanic', 'publisher',
-    #                   'bga_rank_trending', 'bga_rank', 'bgg_average_wight', 'bga_num_ratings', 'bga_id',
-    #                   'bgg_num_user_comments', 'bgg_stddev', 'bgg_rank', 'bgg_avg_bayes', 'bbg_num_ratings', 'bgg_id',
+    #                   'bga_rank_trending', 'bgg_average_wight', 'bga_num_ratings', 'bga_id',
+    #                   'bgg_num_user_comments', 'bgg_stddev', 'bgg_avg_bayes', 'bbg_num_ratings', 'bgg_id',
 
     # From: https://stackoverflow.com/questions/52169173/django-rest-framework-how-to-substitute-null-with-empty-string
     # This function helps to make Float values (-> NaN) JSON compatible

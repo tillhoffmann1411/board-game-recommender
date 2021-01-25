@@ -21,8 +21,8 @@ export class GameHttpService {
     return this.http.get<IBoardGame>(this.baseUrl + '/games/' + id + '/').toPromise();
   }
 
-  getRecommendedBoardGames(): Promise<{ 'id': number, 'boardGame': number, 'user': number }[]> {
-    return this.http.get<{ 'id': number, 'boardGame': number, 'user': number }[]>(this.baseUrl + '/games/recommendation/').toPromise();
+  getRecommendedBoardGames(): Promise<{ gameId: number, 0: number }[]> {
+    return this.http.get<{ gameId: number, 0: number }[]>(this.baseUrl + '/games/recommendation/').toPromise();
   }
 
   sendRatings(rating: IRating): Promise<IRating> {

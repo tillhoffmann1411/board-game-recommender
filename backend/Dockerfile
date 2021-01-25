@@ -9,14 +9,14 @@ COPY ./scripts /scripts
 
 # Install python packages an remove temporary stuff
 RUN apk add bash vim
-RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers libffi-dev
+RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers libffi-dev g++
 RUN apk add --no-cache postgresql-libs
 RUN apk add --no-cache --virtual .build-deps musl-dev postgresql-dev
 
 RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
 
-RUN apk --purge del .build-deps .tmp
+# RUN apk --purge del .build-deps .tmp
 
 
 RUN mkdir /app

@@ -215,8 +215,8 @@ export class GameState {
       }
     });
     recommendedBoardGameIds.forEach(bgId => {
-      if (bgMap.has(bgId.boardGame)) {
-        recommendedBoardGames.push(bgMap.get(bgId.boardGame)!);
+      if (bgMap.has(bgId.gameId)) {
+        recommendedBoardGames.push(bgMap.get(bgId.gameId)!);
       }
     });
     ctx.setState({ ...ctx.getState(), recommendedBoardGames });

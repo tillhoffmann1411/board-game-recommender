@@ -50,4 +50,8 @@ export class DetailComponent implements OnInit {
     this.gameStore.sendRating({ game: this.game.id, rating });
   }
 
+  goToAmazon() {
+    window.open('https://www.amazon.com/s?k=' + this.game.name, '_blank');
+  }
+
 }
