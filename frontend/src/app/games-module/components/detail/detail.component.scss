@@ -2,6 +2,7 @@
 
 .wrapper {
   margin-top: 4rem;
+  padding: 0 0.25rem;
 }
 
 
@@ -9,6 +10,7 @@
 
   img {
     width: 100%;
+    border-radius: 10px;
   }
 
   .game-info {
@@ -58,7 +60,7 @@
 
 
 .game-section {
-  margin: 5rem 0.25rem;
+  margin: 5rem 0;
   padding: 0.5rem;
   background-color: $background2;
   border-radius: 10px;

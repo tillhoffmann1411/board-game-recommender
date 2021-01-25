@@ -7,14 +7,14 @@ export interface IAuth {
 
 // API Responses
 export interface IRegisterResponse {
-  access_token: string,
-  refresh_token: string,
+  accessToken: string,
+  refreshToken: string,
   user: IUser
 }
 
 export interface ILoginResponse {
-  access_token: string,
-  refresh_token: string,
+  accessToken: string,
+  refreshToken: string,
   user: IUser
 }
 

@@ -21,7 +21,11 @@
       </li>
 
       <li>
-        <button routerLink="/games/recommendations" *ngIf="isLoggedIn">Recommender</button>
+        <button routerLink="/games" *ngIf="isLoggedIn">Rate games</button>
+      </li>
+
+      <li>
+        <button routerLink="/games/recommendations" *ngIf="isLoggedIn && enoughRatings">Games</button>
       </li>
 
       <li>

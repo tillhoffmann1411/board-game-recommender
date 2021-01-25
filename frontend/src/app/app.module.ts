@@ -11,6 +11,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { LottieModule } from 'ngx-lottie';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -24,6 +25,12 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GameState } from './storemanagement/state/game.state';
+import { httpInterceptorProviders } from './middlewares';
+
+
+export function playerFactory() {
+  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+}
 
 
 @NgModule({
@@ -46,6 +53,7 @@ import { GameState } from './storemanagement/state/game.state';
     NgxsModule.forRoot([AuthState, GameState], { developmentMode: true }),
     BrowserAnimationsModule,
     AngularSvgIconModule.forRoot(),
+    LottieModule.forRoot({ player: playerFactory }),
 
     MaterialModule,
 
@@ -53,6 +61,7 @@ import { GameState } from './storemanagement/state/game.state';
   ],
   providers: [
     AuthGuard,
+    httpInterceptorProviders,
   ],
   exports: [
     MatSidenavModule,

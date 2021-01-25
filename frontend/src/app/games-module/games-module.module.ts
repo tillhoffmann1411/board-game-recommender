@@ -10,6 +10,7 @@ import { RecommendationComponent } from './components/recommendation/recommendat
 import { DetailComponent } from './components/detail/detail.component';
 
 
+
 @NgModule({
   declarations: [
     QuestionnaireComponent,
@@ -22,7 +23,7 @@ import { DetailComponent } from './components/detail/detail.component';
     MaterialModule,
     GamesModuleRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class GamesModuleModule { }

@@ -32,6 +32,9 @@ export class GameStore {
     return this.store.selectSnapshot<IGameState>(state => state).recommendedBoardGames;
   }
 
+  loadRatings() {
+    this.store.dispatch(new Game.LoadRatings());
+  }
 
   loadBoardGames() {
     this.store.dispatch(new Game.LoadBoardGames());
@@ -42,6 +45,6 @@ export class GameStore {
   }
 
   sendRating(rating: IRating) {
-    this.store.dispatch(new Game.SendRatings(rating));
+    this.store.dispatch(new Game.SendRating(rating));
   }
 }

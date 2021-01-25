@@ -1,24 +1,8 @@
-<mat-card class="card mat-elevation-z0" [ngClass]="activateDetails ? 'activatedDetails' : ''"
-  (click)="activateDetails && openDetails()">
-
-  <ng-container>
-    <mat-card-title>
-      <div class="image">
-        <img mat-card-image [src]="game.imageUrl" [alt]="game.name">
-      </div>
-    </mat-card-title>
-
-    <mat-card-content>
-      <h2>{{ game.name }}</h2>
-      <p>
-        {{ game.description }}
-      </p>
-    </mat-card-content>
-  </ng-container>
-
-  <mat-card-actions *ngIf="!activateDetails && !deactivateRating">
-    <app-star-rating [numStars]="10" (rated)="rate($event)">
-    </app-star-rating>
-  </mat-card-actions>
-
-</mat-card>
+<div class="card">
+  <img [src]="game.imageUrl" [alt]="game.name" [ngClass]="activateDetails ? 'activatedDetails' : ''"
+    (click)="activateDetails && openDetails()">
+  <app-star-rating *ngIf="!activateDetails && !deactivateRating" class="rating" [numStars]="10" [rating]="rating"
+    (rated)="rate($event)">
+  </app-star-rating>
+  <h2 class="name">{{ game.name }}</h2>
+</div>

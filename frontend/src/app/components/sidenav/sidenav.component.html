@@ -13,8 +13,12 @@
     <mat-icon>person_add</mat-icon><span class="nav-caption">Register</span>
   </a>
 
-  <a mat-list-item routerLink="/games/recommendations" (click)="onSidenavClose()" *ngIf="isLoggedIn">
-    <mat-icon>insights</mat-icon><span class="nav-caption">Recommender</span>
+  <a mat-list-item routerLink="/games/recommendations" (click)="onSidenavClose()" *ngIf="isLoggedIn && enoughRatings">
+    <mat-icon>games</mat-icon><span class="nav-caption">Games</span>
+  </a>
+
+  <a mat-list-item routerLink="/games" (click)="onSidenavClose()" *ngIf="isLoggedIn">
+    <mat-icon>insights</mat-icon><span class="nav-caption">Rate games</span>
   </a>
 
   <a mat-list-item routerLink="/" (click)="logout()" *ngIf="isLoggedIn">

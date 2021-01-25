@@ -6,8 +6,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from django.contrib.auth.models import User
+from games.models import BoardGame
 
-from .models import Review
+from .models import Review, UserTaste
 from .serializers import ReviewSerializer, UserSerializer
 from .permissions import IsOwner, IsYourProfile
 
@@ -26,7 +27,7 @@ class UserDetail(APIView):
         serializer = UserSerializer(user)
         return Response(serializer.data)
 
-    def put(self, request, pk, format=None):
+    def put(self, request, format=None):
         user = self.request.user
         serializer = UserSerializer(user, data=request.data)
         if serializer.is_valid():
@@ -41,14 +42,20 @@ class UserDetail(APIView):
 
 
 class ReviewList(generics.ListCreateAPIView):
-    queryset = Review.objects.all()
+    queryset = Review.objects.all().select_related('rating', 'game_id', 'created_at')
     serializer_class = ReviewSerializer
-    permission_classes = (IsOwner, )
+    permission_classes = (IsAuthenticated, )
 
     def perform_create(self, serializer):
+        user_taste = UserTaste.objects.get(user=self.request.user)
         serializer.save(
-            game=self.request.data['game'],
-            created_by=self.request.user),
+            game=BoardGame.objects.get(id=self.request.data['game']),
+            created_by=user_taste,
+            rating=self.request.data['rating']),
+
+    def get_queryset(self, *args, **kwargs):
+        user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
+        return Review.objects.all().filter(created_by=user_taste)
 
 
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):

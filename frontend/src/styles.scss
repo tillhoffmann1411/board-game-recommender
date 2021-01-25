@@ -96,6 +96,11 @@ button {
   font-size: 1.2rem;
   font-weight: bold;
   margin-left: 10px;
+  white-space: nowrap;
+
+  .mat-icon {
+    vertical-align: bottom;
+  }
 }
 
 button.secondary {
@@ -133,17 +138,19 @@ button[disabled]{
   flex-direction: column;
   padding: 0.5rem 1rem;
 
-  input {
+  input, .input {
     color: $font-color;
     padding: 0.7rem;
-    border: 2px solid $input-background;
+    border: 2px solid #868686;
     background: $input-background;
     border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
   }
   
-  input:focus {
+  input:focus, .input:focus {
     outline: none;
-    border: 2px $accent solid;
+    border: 2px $primary solid;
   }
 
   label {

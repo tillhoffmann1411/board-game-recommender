@@ -6,33 +6,27 @@ from django.db.models.fields.related import ForeignKey
 class Author(models.Model):
     id = models.CharField(max_length=256, primary_key=True)
     name = models.CharField(max_length=256)
-    bga_url = models.URLField(max_length=500, blank=True, null=True)
+    url = models.URLField(max_length=500, blank=True, null=True)
+    image_url = models.URLField(max_length=500, blank=True, null=True)
 
 
 class Publisher(models.Model):
     id = models.CharField(max_length=256, primary_key=True)
     name = models.CharField(max_length=256)
-    bga_url = models.URLField(max_length=500, blank=True, null=True)
+    url = models.URLField(max_length=500, blank=True, null=True)
+    image_url = models.URLField(max_length=500, blank=True, null=True)
 
 
 class GameMechanic(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=256)
-    bga_id = models.CharField(max_length=256, blank=True, null=True)
-    bga_name = models.CharField(max_length=256, blank=True, null=True)
     bga_url = models.URLField(max_length=256, blank=True, null=True)
-    bgg_id = models.FloatField(blank=True, null=True)
-    bgg_name = models.CharField(max_length=256, blank=True, null=True)
 
 
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=256)
-    bga_id = models.CharField(max_length=256, blank=True, null=True)
-    bga_name = models.CharField(max_length=256, blank=True, null=True)
     bga_url = models.URLField(max_length=256, blank=True, null=True)
-    bgg_id = models.FloatField(blank=True, null=True)
-    bgg_name = models.CharField(max_length=256, blank=True, null=True)
 
 
 class OnlineGame(models.Model):
@@ -89,6 +83,7 @@ class BoardGame(models.Model):
     bga_id = models.CharField(max_length=256, blank=True, null=True)
     bga_avg_rating = models.FloatField(blank=True, null=True)
     bga_num_ratings = models.FloatField(blank=True, null=True)
+    bgg_average_weight = models.FloatField(blank=True, null=True)
     bga_url = models.URLField(max_length=500, blank=True, null=True)
     bga_rank = models.FloatField(blank=True, null=True)
     bga_rank_trending = models.FloatField(blank=True, null=True)

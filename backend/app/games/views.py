@@ -1,4 +1,7 @@
+from django.db.models.base import Model
 from django.http import Http404
+import random
+from django.db.models import Max
 
 from rest_framework import generics, status
 from rest_framework.views import APIView
@@ -35,7 +38,7 @@ from .serializers import BoardGameSerializer
 
 
 # --- The easy way read and write (post and get)
-class BoardGameList(generics.ListCreateAPIView):
+class BoardGameList(generics.ListAPIView):
     # Write operations just for admins, GET for other authenticated users
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = BoardGame.objects.all()
@@ -78,3 +81,14 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = BoardGame.objects.all()
     serializer_class = BoardGameSerializer
+
+
+class Recommendation(generics.ListAPIView):
+    serializer_class = BoardGameSerializer
+    queryset = BoardGame.objects.all()
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+
+    def get(self, request, format=None):
+        queryset = self.get_queryset()[3000:3100]
+        random_items = BoardGameSerializer(queryset, many=True, fields=('id', 'name'))
+        return Response(random_items.data)

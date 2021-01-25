@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthStore } from 'src/app/storemanagement/auth.store';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,16 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+  isLoggedIn = false;
 
   constructor(
-    private router: Router
+    private authService: AuthStore
   ) { }
 
   ngOnInit(): void {
+    this.authService.getIsLoggedIn.subscribe(isloggedIn => {
+      this.isLoggedIn = isloggedIn
+    });
   }
-
-  letsGo() {
-    this.router.navigate(['/register']);
-  }
-
 }

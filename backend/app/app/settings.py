@@ -24,7 +24,8 @@ def str2bool(v):
 DEBUG = str2bool(env.get('DEBUG'))
 
 ALLOWED_HOSTS = env.get('DJANGO_ALLOWED_HOSTS').split(' ')
-CORS_ORIGIN_WHITELIST = ['http://localhost:4200'] if env.get('DEBUG') else env.get('DJANGO_ALLOWED_HOSTS').split(' ')
+CORS_ORIGIN_WHITELIST = ['http://localhost:4200',
+                         'http://localhost'] if env.get('DEBUG') else env.get('DJANGO_ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.gzip.GZipMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -64,10 +66,16 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+        'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_PARSER_CLASSES': [
+        'djangorestframework_camel_case.parser.CamelCaseFormParser',
+        'djangorestframework_camel_case.parser.CamelCaseMultiPartParser',
         'rest_framework.parsers.JSONParser',
     ]
 }

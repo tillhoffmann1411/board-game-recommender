@@ -10,7 +10,7 @@ import { GameStore } from 'src/app/storemanagement/game.store';
 })
 export class DetailComponent implements OnInit {
   onlineGames: IBoardGame[] = GAMES;
-  game: IBoardGame | undefined;
+  game: IBoardGame;
 
   rating = 0;
 
@@ -21,21 +21,23 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.game = this.onlineGames.find(g => g.id === parseInt(params.id));
-    });
-
     this.gameStore.getRatings.subscribe(ratings => {
-      const userRate = ratings.find(rating => rating.gameId === this.game?.id)?.rating;
+      const userRate = ratings.find(rating => rating.game === this.game?.id)?.rating;
       this.rating = userRate ? userRate : 0;
     });
 
+    this.gameStore.getBoardGames.subscribe(games => {
+      this.route.queryParams.subscribe(params => {
+        this.game = games.find(g => g.id === parseInt(params.id))!;
+      });
+    });
+
     this.onlineGames = [...this.onlineGames].splice(0, 2);
+    document.querySelector('mat-sidenav-content')!.scrollTop = 0;
   }
 
   rate(rating: number) {
-    // TODO make hier rate update
-    this.rating = rating;
+    this.gameStore.sendRating({ game: this.game.id, rating });
   }
 
 }
