@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
-from django.db.models.fields.related import ForeignKey
+from django.db.models.fields.related import ForeignKey, ManyToManyField
+from django.contrib.auth.models import User
 
 
 class Author(models.Model):
@@ -43,10 +44,10 @@ class OnlineGame(models.Model):
     min_age = models.FloatField(blank=True, null=True)
 
     # Relations
-    author = ForeignKey(Author, on_delete=models.SET_NULL, blank=True, null=True)
-    publisher = ForeignKey(Publisher, on_delete=models.SET_NULL, blank=True, null=True)
-    game_mechanic = ForeignKey(GameMechanic, on_delete=models.SET_NULL, blank=True, null=True)
-    category = ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
+    author = ManyToManyField(Author)
+    publisher = ManyToManyField(Publisher)
+    game_mechanic = ManyToManyField(GameMechanic)
+    category = ManyToManyField(Category)
 
 
 class BoardGame(models.Model):
@@ -63,12 +64,14 @@ class BoardGame(models.Model):
     min_age = models.FloatField(blank=True, null=True)
 
     # Relations
-    author = ForeignKey(Author, on_delete=models.SET_NULL, blank=True, null=True)
-    publisher = ForeignKey(Publisher, on_delete=models.SET_NULL, blank=True, null=True)
-    game_mechanic = ForeignKey(GameMechanic, on_delete=models.SET_NULL, blank=True, null=True)
-    category = ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
+    author = ManyToManyField(Author)
+    publisher = ManyToManyField(Publisher)
+    game_mechanic = ManyToManyField(GameMechanic)
+    category = ManyToManyField(Category)
     # Similar Online Games
     similar_online_games = models.ManyToManyField(OnlineGame, through='SimilarBoardOnlineGame')
+    # Recommendations
+    user_recommendations = models.ManyToManyField(User, through='Recommendations')
 
     # BGG stuff
     bgg_id = models.FloatField(blank=True, null=True)
@@ -97,4 +100,9 @@ class BoardGame(models.Model):
 
 class SimilarBoardOnlineGame(models.Model):
     online_game = models.ForeignKey(OnlineGame, on_delete=models.CASCADE)
-    board_game = models.ForeignKey(BoardGame, on_delete=CASCADE)
+    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+
+
+class Recommendations(models.Model):
+    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

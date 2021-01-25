@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IBoardGame, GAMES } from 'src/app/models/game';
+import { IBoardGame } from 'src/app/models/game';
 import { GameStore } from 'src/app/storemanagement/game.store';
 
 @Component({
@@ -9,8 +9,9 @@ import { GameStore } from 'src/app/storemanagement/game.store';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  onlineGames: IBoardGame[] = GAMES;
+  onlineGames: IBoardGame[] = [];
   game: IBoardGame;
+  paramId: number;
 
   rating = 0;
 
@@ -26,10 +27,19 @@ export class DetailComponent implements OnInit {
       this.rating = userRate ? userRate : 0;
     });
 
+
+    this.route.queryParams.subscribe(params => {
+      if (params.id) {
+        this.paramId = params.id
+        this.gameStore.loadBoardGame(this.paramId);
+      }
+    });
     this.gameStore.getBoardGames.subscribe(games => {
-      this.route.queryParams.subscribe(params => {
-        this.game = games.find(g => g.id === parseInt(params.id))!;
-      });
+      if (this.paramId) {
+        this.game = games.find(g => {
+          return g.id == this.paramId;
+        })!;
+      }
     });
 
     this.onlineGames = [...this.onlineGames].splice(0, 2);

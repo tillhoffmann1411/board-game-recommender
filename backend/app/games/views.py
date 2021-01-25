@@ -10,8 +10,8 @@ from rest_framework.permissions import IsAuthenticated
 
 
 from .permissions import IsAdminOrReadOnly
-from .models import BoardGame
-from .serializers import BoardGameSerializer
+from .models import BoardGame, Recommendations
+from .serializers import BoardGameDetailSerializer, BoardGameSerializer, RecommendationSerializer
 
 # The serializer alone is not able to respond to an API request, that's why we need to implement a view
 
@@ -80,15 +80,13 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     # Write operations just for admins, GET for other authenticated users
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = BoardGame.objects.all()
-    serializer_class = BoardGameSerializer
+    serializer_class = BoardGameDetailSerializer
 
 
 class Recommendation(generics.ListAPIView):
-    serializer_class = BoardGameSerializer
-    queryset = BoardGame.objects.all()
+    serializer_class = RecommendationSerializer
+    queryset = Recommendations.objects.all()
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
-    def get(self, request, format=None):
-        queryset = self.get_queryset()[3000:3100]
-        random_items = BoardGameSerializer(queryset, many=True, fields=('id', 'name'))
-        return Response(random_items.data)
+    def get_queryset(self, *args, **kwargs):
+        return Recommendations.objects.all().filter(user=self.request.user)

@@ -19,7 +19,7 @@
 
   </section>
 
-  <section class="description-section row" *ngIf="game">
+  <section class="description-section row" *ngIf="game && game.description">
     <h2>Description</h2>
     <p class="long-description">{{ game.description }}</p>
     <div class="short-description">
@@ -34,7 +34,7 @@
     </div>
   </section>
 
-  <section class="game-section row">
+  <section class="game-section row" *ngIf="onlineGames.length > 0">
     <h2>Corresponding online games</h2>
     <div class="game-list">
       <app-game-card [game]="game" *ngFor="let game of onlineGames" [deactivateRating]="true"></app-game-card>

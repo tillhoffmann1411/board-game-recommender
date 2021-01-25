@@ -5,6 +5,10 @@ export namespace Game {
     static readonly type = '[Game] Get Board Games'
   }
 
+  export class getBoardGame {
+    static readonly type = '[Game] Get Board Game'
+  }
+
   export class getRecommendedBoardGames {
     static readonly type = '[Game] Get recommended Board Games'
   }
@@ -71,6 +75,24 @@ export namespace Game {
     constructor(public boardGames: IBoardGame[]) { }
   }
 
+  /**
+   * Load Board Games
+   */
+  export class LoadBoardGame {
+    static readonly type = '[Game] Load single Board Game';
+    constructor(public boardGameId: number) { }
+  }
+
+  export class LoadBoardGameError {
+    static readonly type = '[Game] Failed to load single Board Game';
+    constructor() { }
+  }
+
+  export class LoadBoardGameSuccess {
+    static readonly type = '[Game] Successful loaded single Board Game';
+    constructor(public boardGame: IBoardGame) { }
+  }
+
 
 
   /**
@@ -88,6 +110,6 @@ export namespace Game {
 
   export class LoadRecommendedBoardGamesSuccess {
     static readonly type = '[Game] Successful loaded recommended Board Games';
-    constructor(public recommendedBoardGameIds: { id: number, name: string }[]) { }
+    constructor(public recommendedBoardGameIds: { id: number, boardGame: number, user: number }[]) { }
   }
 }

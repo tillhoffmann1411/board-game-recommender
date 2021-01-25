@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IBoardGame, GAMES } from 'src/app/models/game';
+import { IBoardGame } from 'src/app/models/game';
 import { GameStore } from 'src/app/storemanagement/game.store';
 
 @Component({
