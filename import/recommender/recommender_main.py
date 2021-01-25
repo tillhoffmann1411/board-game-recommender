@@ -58,9 +58,9 @@ def evaluation_pipeline(result):
 if __name__ == "__main__":
     data = preparation_pipeline()
     result = modeling_pipeline(df=data,
-                               global_average=False,
+                               global_average=True,
                                game_average=False,
-                               user_average=True)
+                               user_average=False)
     evaluation_pipeline(result)
 
 
