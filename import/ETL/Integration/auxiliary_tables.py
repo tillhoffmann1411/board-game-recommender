@@ -259,6 +259,10 @@ def replace_old_ids_with_new_key_and_concatenate_mechanic_relation_tables():
                                                ignore_index=True, sort=False).sort_values(['game_key']).reset_index(
         drop=True)
 
+    # remove duplicates:
+    mechanics_df.drop_duplicates(inplace=True)
+    concat_mechanics_game_relation.drop_duplicates(inplace=True)
+
     # export mechanics_game_relation
     export_path_1 = '../Data/Joined/Results/Mechanic_Game_Relation.csv'
     export_df_to_csv(concat_mechanics_game_relation, export_path_1)
@@ -435,6 +439,10 @@ def replace_old_ids_with_new_key_and_concatenate_category_relation_tables():
     export_path_2 = '../Data/Joined/Results/Categories.csv'
     export_df_to_csv(categories_df, export_path_2)
 
+    # remove duplicates:
+    categories_df.drop_duplicates(inplace=True)
+    concat_categories_game_relation.drop_duplicates(inplace=True)
+
 
 def create_list_of_all_bga_publishers():
     # import bga publishers
@@ -564,6 +572,9 @@ def merge_bga_and_bgg_publishers():
 
     # add publisher key:
     publishers_df.insert(0, 'publisher_key', range(1, 1 + len(publishers_df)))
+
+    # remove duplicates:
+    publishers_df.drop_duplicates(inplace=True)
 
     # export publishers
     export_path = '../Data/Joined/Results/Publisher.csv'
@@ -706,6 +717,9 @@ def merge_bga_and_bgg_designers():
     # add designer key:
     designers_df.insert(0, 'designer_key', range(1, 1 + len(designers_df)))
 
+    # remove duplicates:
+    designers_df.drop_duplicates(inplace=True)
+
     # export designers
     export_path = '../Data/Joined/Results/Designer.csv'
     export_df_to_csv(designers_df, export_path)
@@ -757,6 +771,9 @@ def merge_bga_and_bgg_publisher_game_relation():
 
     # concat both dataframes:
     game_publisher_relation_combined = pd.concat([game_publisher_relation_bga, game_publisher_relation_bgg])
+
+    # remove duplicates:
+    game_publisher_relation_combined.drop_duplicates(inplace=True)
 
     # export game_publisher relation:
     export_path = '../Data/Joined/Results/Publisher_Game_Relation.csv'
@@ -823,9 +840,11 @@ def merge_bga_and_bgg_designer_game_relation():
                                            left_on='designer_name', right_on='bgg_designer_name')
     game_designer_relation_bgg = game_designer_relation_bgg[['game_key', 'designer_key']]
 
-
     # concat both dataframes:
     game_designer_relation_combined = pd.concat([game_designer_relation_bga, game_designer_relation_bgg])
+
+    # remove duplicates:
+    game_designer_relation_combined.drop_duplicates(inplace=True)
 
     # export game_designer relation:
     export_path = '../Data/Joined/Results/Designer_Game_Relation.csv'
@@ -860,6 +879,9 @@ def integrate_game_name_relation_tables():
 
     # Remove duplicates:
     print('Number of duplicate game names in GameNameTranslation table found and dropped: '+str(len(names_combined)-len(names_combined.drop_duplicates())))
+    names_combined.drop_duplicates(inplace=True)
+
+    # Drop duplicates:
     names_combined.drop_duplicates(inplace=True)
 
     # Export result:
