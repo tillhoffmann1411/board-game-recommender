@@ -11,7 +11,7 @@ from ETL.Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_
     create_list_of_ids_of_all_bga_games, create_id_list_of_included_games, clean_bga_game_information_scraper
 from ETL.Cleaning.BoardGameGeeks.clean_boardgamegeeks_data import clean_bgg_games, clean_bgg_reviews
 from ETL.Integration.bgg_and_bga_integration import integrate_boardgame_table, integrate_user_and_review_tables
-from ETL.API.bga_api import get_bga_game_information_from_api, get_bga_mechanics, get_bga_categories
+from ETL.API.bga_api import get_bga_game_information_from_api, get_bga_mechanics_from_api, get_bga_categories_from_api
 from datetime import datetime
 
 
@@ -50,8 +50,8 @@ def pipeline():
 
     if RUN_BGA_GAME_INFO_API_PIPELINE:
         # get_bga_game_information_from_api()
-        # get_bga_mechanics()
-        # get_bga_categories()
+        # get_bga_mechanics_from_api()
+        # get_bga_categories_from_api()
         clean_bga_api_game_information()
         create_id_list_of_included_games()
         print('BGA Game Info API Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))

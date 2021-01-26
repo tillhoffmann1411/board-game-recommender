@@ -94,3 +94,9 @@ class SimilarBoardOnlineGame(models.Model):
 class Recommendations(models.Model):
     board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class ItemSimilarityMatrix(models.Model):
+    game_one = models.IntegerField()
+    game_two = models.IntegerField()
+    similarity = models.FloatField()
