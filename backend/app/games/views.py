@@ -11,6 +11,7 @@ from django_pandas.io import read_frame
 from .permissions import IsAdminOrReadOnly
 from .models import BoardGame, Recommendations
 from .serializers import BoardGameDetailSerializer, BoardGameSerializer, RecommendationSerializer
+from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review
 from .recommender.similiar_users import *
 
@@ -93,14 +94,17 @@ class Recommendation(APIView):
         user_taste = UserTaste.objects.get(user=self.request.user)
         user_id = user_taste.id
 
-        # reviews = Review.objects.values_list('id', flat=True)       # Perform database query
-        # reviews_df = read_frame(reviews)
+        reviews_df = read_frame(Review.objects.all(), fieldnames=['game_id__id', 'rating', 'created_by_id__id'])
+        reviews_df = reviews_df.rename(columns={'game_id__id': 'game_id',
+                                                'rating': 'rating', 'created_by_id__id': 'created_by_id'})
 
-        query = str(Review.objects.all().query)
-        reviews_df = pd.read_sql_query(query, connection)
+        # query = str(Review.objects.all().query)
+        # reviews_df = pd.read_sql_query(query, connection)
 
         print(str(reviews_df.head()))  #
         print('user id: ' + str(user_id))  #
+        print('Data Length: ' + str(len(reviews_df)))
+        print('Data Usage: ' + str(reviews_df.memory_usage(index=True).sum()))
 
         # get all data to compare
         data = get_recommendation_data(reviews_df,  # link='./app/games/recommender/Reviews.csv',
