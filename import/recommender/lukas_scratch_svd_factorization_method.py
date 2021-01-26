@@ -684,7 +684,7 @@ def selfmade_KnnWithMeans_approach(target_ratings: pd.DataFrame):
     predictions = myKNN.predict_all_games()
     sorted_predictions = dict(sorted(predictions.items(), key=lambda item: item[1], reverse=True))
 
-    sorted_predictions_list = [{'game_key':k, 'estimate':v} for k, v in sorted_predictions.items()]
+    sorted_predictions_list = [{'game_key': k, 'estimate': v} for k, v in sorted_predictions.items()]
 
     print("--- %s seconds ---" % (time.time() - start_time))
     return sorted_predictions_list
@@ -700,8 +700,8 @@ def create_similarity_matrix():
     # build utility matrix:
     utility_matrix = df.pivot(index='game_key', columns='user_key', values='rating')
 
+    # create surprise algorithm object
     sim_option = {'name': 'pearson', 'user_based': False}
-
     algo = KNNWithMeans(sim_options=sim_option)
 
     # get data in a format surprise can work with:
@@ -713,7 +713,7 @@ def create_similarity_matrix():
     print('Number of users: ', trainset_full.n_users, '\n')
     print('Number of items: ', trainset_full.n_items, '\n')
 
-    # fit similarity matrix
+    # fit similarity matrix and calculate item means:
     algo.fit(trainset_full)
 
     # save similarity matrix and means from algo object to variable
