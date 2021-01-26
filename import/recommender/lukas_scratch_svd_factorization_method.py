@@ -31,7 +31,7 @@ Overcome sparcity: Use content based predictor first and then apply collaborativ
 
 
 def import_all_reviews():
-    import_path = 'C:/Users/lukas/PycharmProjects/board-game-recommender/import/Data/Joined/Results/Reviews.csv'
+    import_path = 'C:/Users/lukas/PycharmProjects/board-game-recommender/import/Data/Joined/Results/Reviews_Reduced.csv'
     df = pd.read_csv(import_path)
     # keep only important columns:
     df = df[['game_key', 'user_key', 'rating']]
@@ -400,8 +400,8 @@ def benchmark_different_algorithms():
 
     ## K-Nearest Neighbors - Item-Item
     sim_option = {'name': 'cosine', 'user_based': False}
-    k = 20
-    min_k = 2
+    k = 40
+    min_k = 5
 
     # 5) KNNBasic
     algo = KNNBasic(k=k, min_k=min_k, sim_options=sim_option)
@@ -759,7 +759,7 @@ def create_similarity_matrix():
 
 
 def main():
-    run_method = 9
+    run_method = 4
 
     if run_method == 1:
         svd_factorization()
