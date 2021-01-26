@@ -658,15 +658,15 @@ def selfmade_approach():
     pass
 
 
-def selfmade_KnnWithMeans_approach(target_user_key, target_ratings):
+def selfmade_KnnWithMeans_approach(target_user_key: int, target_ratings: pd.DataFrame):
     start_time = time.time()
-    # convert target_ratings dataframe to tuple:
+    # convert target_ratings dataframe to list of tuples:
     target_ratings = list(target_ratings.to_records(index=False))
 
     # variables:
     k = 40
     min_k = 5
-    sim_matrix = pd.read_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset.csv', index_col=0)
+    sim_matrix = pd.read_csv('../Data/Recommender/item-item-sim-matrix-surprise-full_dataset.csv_dataset.csv', index_col=0)
     sim_matrix_long = pd.read_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset-LONG_FORMAT.csv', index_col=0)
 
     # long sim_matrix to wide format:
@@ -675,7 +675,7 @@ def selfmade_KnnWithMeans_approach(target_user_key, target_ratings):
     # convert column names of sim_matrix to int:
     sim_matrix.columns = sim_matrix.columns.astype(int)
 
-    with open('../Data/Recommender/item-means-small_dataset.json') as fp:
+    with open('../Data/Recommender/item-means-full_dataset.json') as fp:
         # convert keys to int:
         item_means = {int(key): value for key, value in json.load(fp).items()}
 
@@ -683,41 +683,6 @@ def selfmade_KnnWithMeans_approach(target_user_key, target_ratings):
 
     predictions = myKNN.predict_all_games(user_key=target_user_key)
     sorted_predictions = dict(sorted(predictions.items(), key=lambda item: item[1], reverse=True))
-
-
-    ##### Compare Results with Surprise results. Delete this part later on!
-
-    # import reduced dataset:
-    df = import_reduced_reviews(import_path='../Data/temp_algos_DI/Reviews_Small.csv')
-
-    # get data in a format surprise can work with:
-    reader = Reader(rating_scale=(1, 10))
-    data = Dataset.load_from_df(df[['user_key', 'game_key', 'rating']], reader)
-
-    # Build full trainset:
-    fulltrainset = data.build_full_trainset()
-
-    print('Number of users: ', fulltrainset.n_users, '\n')
-    print('Number of items: ', fulltrainset.n_items, '\n')
-
-    # An example on how to save a list of inner and raw item id’s:
-    trainset_iids = list(fulltrainset.all_items())
-    iid_converter = lambda x: fulltrainset.to_raw_iid(x)
-    trainset_raw_iids = list(map(iid_converter, trainset_iids))
-
-
-    sim_option = {'name': 'pearson', 'user_based': False}
-    surpriseKNN = KNNWithMeans(k=k, min_k=min_k, sim_options=sim_option)
-
-    surpriseKNN.fit(fulltrainset)
-
-    # Estimate all items for a specific user:
-    list_of_all_items = trainset_raw_iids
-    target_predictions = []
-
-    for item in list_of_all_items:
-        single_prediction = surpriseKNN.predict(uid=target_user_key, iid=item)
-        target_predictions.append((single_prediction.uid, single_prediction.iid, single_prediction.est))
 
 
     print("--- %s seconds ---" % (time.time() - start_time))
@@ -793,7 +758,7 @@ def create_similarity_matrix():
 
 
 def main():
-    run_method = 9
+    run_method = 10
 
     if run_method == 1:
         svd_factorization()
