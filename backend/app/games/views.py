@@ -13,7 +13,9 @@ from .models import BoardGame, Recommendations
 from .serializers import BoardGameDetailSerializer, BoardGameSerializer, RecommendationSerializer
 from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review
+
 from .recommender.similiar_users import similiar_users
+from .recommender.knn_with_means_selfmade import selfmade_KnnWithMeans_approach
 
 
 class BoardGameList(generics.ListAPIView):
@@ -31,36 +33,31 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class RecommendationSimiliarUsers(APIView):
-    # serializer_class = RecommendationSerializer
-    # queryset = Recommendations.objects.all()
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
-        user_taste = UserTaste.objects.get(user=self.request.user)
+        user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
         user_id = user_taste.id
 
         reviews_df = read_frame(Review.objects.all(), fieldnames=['game_id__id', 'rating', 'created_by_id__id'])
         reviews_df = reviews_df.rename(columns={'game_id__id': 'game_id',
                                                 'rating': 'rating', 'created_by_id__id': 'created_by_id'})
 
-        print('Data Usage: ' + str(reviews_df.memory_usage(index=True).sum()))
-
         return Response(similiar_users(user_id, reviews_df))
 
 
 class RecommendationKNN(APIView):
-    # serializer_class = RecommendationSerializer
-    # queryset = Recommendations.objects.all()
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
-        user_taste = UserTaste.objects.get(user=self.request.user)
+        user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
         user_id = user_taste.id
 
-        user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
         reviews_from_user = Review.objects.all().filter(created_by=user_taste)
 
         reviews_from_user_df = read_frame(reviews_from_user, fieldnames=['game_id__id', 'rating'])
         reviews_from_user_df = reviews_from_user_df.rename(columns={'game_id__id': 'game_key', 'rating': 'rating'})
 
-        return Response(similiar_users(user_id, reviews_from_user_df))
+        print(str(reviews_from_user_df.head()))
+
+        return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))

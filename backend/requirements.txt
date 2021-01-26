@@ -13,4 +13,3 @@ gunicorn
 pandas
 numpy
 django-pandas
-surprise
