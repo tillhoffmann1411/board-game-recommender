@@ -6,13 +6,13 @@ from evaluation import *
 def preparation_pipeline():
     # get data from database
     df = get_recommendation_data(link='../Data/Joined/Results/Reviews.csv',
-                                 sample_number_rows=350_000,
-                                 random_state=41)  # default value is None
+                                 min_number_ratings_game=50,
+                                 min_number_ratings_user=10,
+                                 size_user_sample=100_000,
+                                 seed=None)  # None for random, int for comparison
 
     # prepare data
-    df = prepare_data(data=df,
-                      min_number_ratings_user=5,  # already filter in get_recommendation_data?
-                      min_number_ratings_game=5)
+    df = prepare_data(data=df)
 
     # split data
     data_split = make_train_test_split(data=df,
@@ -24,13 +24,10 @@ def preparation_pipeline():
 
 
 def modeling_pipeline(df, global_average, game_average, user_average):
-    # get new user name for recommendation
-    new_user = "Artax"  # "4Corners"  # from frontend?
-
     # get data from dict
     data_train = df['train_data']
+    data_original = df['original_data']
     delete_position = df['delete_position']
-    data = df['original_data']
 
     # prediction methods
     if global_average:
@@ -44,7 +41,7 @@ def modeling_pipeline(df, global_average, game_average, user_average):
 
     # create dict for return
     info = {'train_data': data_train,
-            'original_data': data,
+            'original_data': data_original,
             'delete_position': delete_position,
             'prediction': pred}
 
@@ -54,14 +51,13 @@ def modeling_pipeline(df, global_average, game_average, user_average):
 def evaluation_pipeline(result):
     calculate_rmse(result)
 
-
 if __name__ == "__main__":
     data = preparation_pipeline()
     result = modeling_pipeline(df=data,
                                global_average=True,
                                game_average=False,
                                user_average=False)
-    evaluation_pipeline(result)
+
 
 
 
