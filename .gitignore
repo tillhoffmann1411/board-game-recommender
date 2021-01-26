@@ -81,4 +81,5 @@ db-data
 
 # All csv and json files in Data
 /import/Data
+*Data
 geckodriver.log

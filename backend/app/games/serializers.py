@@ -65,9 +65,9 @@ class BoardGameDetailSerializer(BoardGameSerializer):
     # From: https://stackoverflow.com/questions/52169173/django-rest-framework-how-to-substitute-null-with-empty-string
     # This function helps to make Float values (-> NaN) JSON compatible
     def to_representation(self, instance):
-        my_fields = {'id', 'year_published', 'min_playtime', 'max_playtime',
+        my_fields = {'id', 'name', 'description', 'image_url', 'year_published', 'min_playtime', 'max_playtime',
                      'bga_price_us', 'min_number_of_players', 'max_number_of_players', 'min_age',
-                     'bgg_avg_rating', 'bga_avg_rating', 'bga_url', 'thumbnail_url', 'official_url'}
+                     'bgg_avg_rating', 'bga_avg_rating', 'bga_url', 'thumbnail_url', 'official_url', 'bga_rank', 'bgg_rank'}
         data = super().to_representation(instance)
         for field in my_fields:
             try:
