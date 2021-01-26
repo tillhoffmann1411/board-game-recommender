@@ -10,9 +10,16 @@
       <div>Playtime: {{ game.minPlaytime }} - {{ game.maxPlaytime }}</div>
       <div>Player: {{ game.minNumberOfPlayers }} - {{ game.maxNumberOfPlayers }}</div>
       <div>Age: {{ game.minAge }}+</div>
+      <div>Board Game Geek Rating: {{ game.bggRating }}</div>
+      <div>Board Game Geek Average Rating: {{ game.bggAvgRating }}</div>
+      <div>Board Game Atlas Rating: {{ game.bgaRating }}</div>
+      <div>Board Game Atlas Average Rating: {{ game.bgaAvgRating }}</div>
+      <div><a [href]="game.bgaUrl">Go to Board Game Atlas</a></div>
+      <div><a [href]="game.officialUrl">Go to the official Website</a></div>
     </div>
 
     <div class="actions col-2">
+      <div><button (click)="goToAmazon()">Amazon</button></div>
       <app-star-rating [numStars]="10" [rating]="rating" (rated)="rate($event)">
       </app-star-rating>
     </div>

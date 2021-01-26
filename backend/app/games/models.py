@@ -34,20 +34,8 @@ class OnlineGame(models.Model):
     # main
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=256)
-    description = models.TextField(blank=True, null=True)
     image_url = models.URLField(max_length=500, blank=True, null=True)
-    year_published = models.FloatField(blank=True, null=True)
-    min_playtime = models.FloatField(blank=True, null=True)
-    max_playtime = models.FloatField(blank=True, null=True)
-    min_number_of_players = models.FloatField(blank=True, null=True)
-    max_number_of_players = models.FloatField(blank=True, null=True)
-    min_age = models.FloatField(blank=True, null=True)
-
-    # Relations
-    author = ManyToManyField(Author)
-    publisher = ManyToManyField(Publisher)
-    game_mechanic = ManyToManyField(GameMechanic)
-    category = ManyToManyField(Category)
+    url = models.URLField(max_length=500, blank=True, null=True)
 
 
 class BoardGame(models.Model):

@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.8-slim
 
 ENV PATH="/scripts:${PATH}"
 
@@ -7,16 +7,16 @@ COPY ./requirements.txt /requirements.txt
 COPY ./scripts /scripts
 
 
-# Install python packages an remove temporary stuff
-RUN apk add bash vim
-RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers libffi-dev
-RUN apk add --no-cache postgresql-libs
-RUN apk add --no-cache --virtual .build-deps musl-dev postgresql-dev
+# Install python packages
+RUN apt-get update
+RUN apt-get install -y build-essential \
+  linux-libc-dev \
+  libffi-dev \
+  postgresql postgresql-contrib \
+  musl-dev
 
 RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
-
-RUN apk --purge del .build-deps .tmp
 
 
 RUN mkdir /app
@@ -29,11 +29,5 @@ RUN chmod +x /scripts/*
 RUN mkdir -p /vol/web/media
 # Static files for output - Frontend
 RUN mkdir -p /vol/web/static
-
-# Creating new user and switch to it
-RUN adduser -D user
-RUN chown -R user:user /vol
-RUN chmod -R 755 /vol/web
-USER user
 
 CMD ["entrypoint.sh"]
