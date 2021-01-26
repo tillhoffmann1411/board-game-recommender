@@ -50,7 +50,6 @@ venv
 # Python files
 *.pyc
 __pycache__
-__init__.py
 
 # Python Notebook dot files
 .ipynb*
