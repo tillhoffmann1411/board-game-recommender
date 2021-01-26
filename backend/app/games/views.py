@@ -30,7 +30,7 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BoardGameDetailSerializer
 
 
-class Recommendation(APIView):
+class RecommendationSimiliarUsers(APIView):
     # serializer_class = RecommendationSerializer
     # queryset = Recommendations.objects.all()
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
@@ -46,3 +46,21 @@ class Recommendation(APIView):
         print('Data Usage: ' + str(reviews_df.memory_usage(index=True).sum()))
 
         return Response(similiar_users(user_id, reviews_df))
+
+
+class RecommendationKNN(APIView):
+    # serializer_class = RecommendationSerializer
+    # queryset = Recommendations.objects.all()
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+
+    def get(self, *args, **kwargs):
+        user_taste = UserTaste.objects.get(user=self.request.user)
+        user_id = user_taste.id
+
+        user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
+        reviews_from_user = Review.objects.all().filter(created_by=user_taste)
+
+        reviews_from_user_df = read_frame(reviews_from_user, fieldnames=['game_id__id', 'rating'])
+        reviews_from_user_df = reviews_from_user_df.rename(columns={'game_id__id': 'game_key', 'rating': 'rating'})
+
+        return Response(similiar_users(user_id, reviews_from_user_df))
