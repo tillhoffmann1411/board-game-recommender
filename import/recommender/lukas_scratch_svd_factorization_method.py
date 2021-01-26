@@ -373,7 +373,7 @@ def benchmark_different_algorithms():
 
     results = []
     algorithms = [
-        'SVD\t\t\t\t\t\t', 'SlopeOne\t\t\t\t\t', 'CoClustering\t\t\t\t', 'NMF\t\t\t\t\t\t',
+        'SVD\t\t\t\t\t\t', 'SlopeOne\t\t\t\t', 'CoClustering\t\t\t', 'NMF\t\t\t\t\t\t',
         'KNN_Basic Item-Item\t\t', 'KNN_WithMeans Item-Item\t', 'KNN_WithZScore Item-Item',
         'KNN_Basic User-User\t\t', 'KNN_WithMeans User-User\t', 'KNN_WithZScore User-User'
     ]
