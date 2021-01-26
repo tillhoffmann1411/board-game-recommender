@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import gc
 
+from pandas.core.frame import DataFrame
+
 
 def get_recommendation_data(data, min_number_ratings_game, min_number_ratings_user, size_user_sample, seed):
     """ output:     pandas data frame """
