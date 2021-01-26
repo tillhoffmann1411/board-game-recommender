@@ -8,9 +8,6 @@ from pandas.core.frame import DataFrame
 
 def get_recommendation_data(data, min_number_ratings_game, min_number_ratings_user, size_user_sample, seed):
     """ output:     pandas data frame """
-    # get data
-    # data = pd.read_csv(link, usecols=['created_by_id', 'game_id', 'rating'], sep=',', header=0)
-
     # filter games by number of reviews and sample x unique user form data
     # keep only games with more than x reviews
     # print('Num Reviews: ' + str(len(data)))
@@ -135,12 +132,10 @@ def predict(data, threshold_min_number_ratings_per_game):
     return [sorted_pred, pred_info]
 
 
-def main():
-    # get user id - frontend
-    user_id = 4
+def similiar_users(user_id: int, data: pd.DataFrame, num_recommendations: int = 50):
 
     # get all data to compare
-    data = get_recommendation_data(link='./Reviews.csv',
+    data = get_recommendation_data(data,
                                    min_number_ratings_game=500,
                                    min_number_ratings_user=10,
                                    size_user_sample=5_000,
@@ -161,11 +156,4 @@ def main():
     # get average game rating from similar users
     sorted_pred, pred_info = predict(data,
                                      threshold_min_number_ratings_per_game=50)
-
-    # print('info about game predictions: \t', pred_info)
-
-    # send sorted_pred to frontend
-
-
-if __name__ == '__main__':
-    main()
+    return sorted_pred[:num_recommendations].to_dict(orient="records")
