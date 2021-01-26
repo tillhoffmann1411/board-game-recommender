@@ -70,9 +70,25 @@
   </section>
 
   <section class="game-section col-xl-10" *ngIf="!isLoading">
-    <div *ngFor="let game of games">
-      <app-game-card [game]="game" [activateDetails]="true">
-      </app-game-card>
+    <h2>People with the same taste as you play</h2>
+    <div class="game-row">
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of games"></app-game-card>
+    </div>
+  </section>
+
+
+  <section class="game-section col-xl-10" *ngIf="!isLoading">
+    <h2>Similar games to the ones you play so far</h2>
+    <div class="game-row">
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of games"></app-game-card>
+    </div>
+  </section>
+
+
+  <section class="game-section col-xl-10" *ngIf="!isLoading">
+    <h2>Top rated games on other plattforms</h2>
+    <div class="game-row">
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of games"></app-game-card>
     </div>
   </section>
 

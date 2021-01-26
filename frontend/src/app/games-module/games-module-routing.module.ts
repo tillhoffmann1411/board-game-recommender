@@ -6,9 +6,9 @@ import { QuestionnaireComponent } from './components/questionnaire/questionnaire
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 
 const routes: Routes = [
-  { path: '', component: QuestionnaireComponent },
   { path: 'recommendations', component: RecommendationComponent },
   { path: 'detail', component: DetailComponent },
+  { path: '', component: QuestionnaireComponent },
 ];
 
 @NgModule({

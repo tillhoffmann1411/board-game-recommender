@@ -1,7 +1,8 @@
 <div class="wrapper row">
 
   <section class="search-section row" *ngIf="!isLoading">
-    <h2>Give&nbsp;{{ (5 - ratings.length) < 0 ? 0 : 5 - ratings.length }}&nbsp;games you like or dislike</h2>
+    <h2 *ngIf="(5 - ratings.length) > 0">Give&nbsp;{{ (5 - ratings.length) < 0 ? 0 : 5 - ratings.length }}&nbsp;games
+        you like or dislike</h2>
         <div class="input-section col-xl-4">
           <label for="search">Search for games</label>
           <span class="input-line">

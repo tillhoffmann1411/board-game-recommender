@@ -23,6 +23,9 @@ export class GameStore {
   @Select(GameState.getRatings)
   public getRatings: Observable<IRating[]>;
 
+  @Select(GameState.isLoading)
+  public isLoading: Observable<boolean>;
+
 
   getBoardGamesSnapshot(): IBoardGame[] {
     return this.store.selectSnapshot<IGameState>(state => state).boardGames;
@@ -38,6 +41,10 @@ export class GameStore {
 
   loadBoardGames() {
     this.store.dispatch(new Game.LoadBoardGames());
+  }
+
+  loadBoardGame(id: number) {
+    this.store.dispatch(new Game.LoadBoardGame(id));
   }
 
   loadRecommendedBoardGames() {

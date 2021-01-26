@@ -1,17 +1,18 @@
-from django.db.models.base import Model
-from django.http import Http404
-import random
-from django.db.models import Max
-
-from rest_framework import generics, status
-from rest_framework.views import APIView
+from pandas.core import construction
 from rest_framework.response import Response
+from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+import pandas as pd
+from django.db import connection
 
+from django_pandas.io import read_frame
 
 from .permissions import IsAdminOrReadOnly
-from .models import BoardGame
-from .serializers import BoardGameSerializer
+from .models import BoardGame, Recommendations
+from .serializers import BoardGameDetailSerializer, BoardGameSerializer, RecommendationSerializer
+from accounts.models import UserTaste, Review
+from .recommender.similiar_users import *
 
 # The serializer alone is not able to respond to an API request, that's why we need to implement a view
 
@@ -80,15 +81,54 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     # Write operations just for admins, GET for other authenticated users
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = BoardGame.objects.all()
-    serializer_class = BoardGameSerializer
+    serializer_class = BoardGameDetailSerializer
 
 
-class Recommendation(generics.ListAPIView):
-    serializer_class = BoardGameSerializer
-    queryset = BoardGame.objects.all()
+class Recommendation(APIView):
+    # serializer_class = RecommendationSerializer
+    # queryset = Recommendations.objects.all()
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
-    def get(self, request, format=None):
-        queryset = self.get_queryset()[3000:3100]
-        random_items = BoardGameSerializer(queryset, many=True, fields=('id', 'name'))
-        return Response(random_items.data)
+    def get(self, *args, **kwargs):
+        user_taste = UserTaste.objects.get(user=self.request.user)
+        user_id = user_taste.id
+
+        # reviews = Review.objects.values_list('id', flat=True)       # Perform database query
+        # reviews_df = read_frame(reviews)
+
+        query = str(Review.objects.all().query)
+        reviews_df = pd.read_sql_query(query, connection)
+
+        print(str(reviews_df.head()))  #
+        print('user id: ' + str(user_id))  #
+
+        # get all data to compare
+        data = get_recommendation_data(reviews_df,  # link='./app/games/recommender/Reviews.csv',
+                                       min_number_ratings_game=1,
+                                       min_number_ratings_user=1,
+                                       size_user_sample=5_000_000,
+                                       seed=2352)  # if None random games
+
+        # create utility matrix
+        data = prepare_data(data=data)
+
+        # calculate user similarities
+        result_similarity, item_requested = calculate_centered_cosine_similarity(data=data,
+                                                                                 new_user=user_id)
+        # create most similar user group
+        data = prepare_prediction_data(data=data,
+                                       item_requested=item_requested,
+                                       similarities=result_similarity,
+                                       threshold_compare_best_n_percentage=0.2)
+
+        # get average game rating from similar users
+        sorted_pred, pred_info = predict(data,
+                                         threshold_min_number_ratings_per_game=50)
+
+        # print('info about game predictions: \t', pred_info)
+
+        sorted_pred = sorted_pred.to_frame().reset_index()
+        # pd.DataFrame({sorted_pred.index, sorted_pred})
+
+        return Response(sorted_pred[:50].to_dict(orient="records"))
+        # return Recommendations.objects.all().filter(user=self.request.user)

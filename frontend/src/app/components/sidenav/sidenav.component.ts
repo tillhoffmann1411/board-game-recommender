@@ -34,9 +34,6 @@ export class SidenavComponent implements OnInit {
 
     this.authService.getIsLoggedIn.subscribe(isloggedIn => {
       this.isLoggedIn = isloggedIn
-      if (this.isLoggedIn) {
-        this.router.navigate(['/games']);
-      }
     });
   }
 

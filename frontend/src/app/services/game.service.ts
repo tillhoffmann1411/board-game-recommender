@@ -17,8 +17,12 @@ export class GameHttpService {
     return this.http.get<IBoardGame[]>(this.baseUrl + '/games/').toPromise();
   }
 
-  getRecommendedBoardGames(): Promise<{ 'id': number, 'name': string }[]> {
-    return this.http.get<{ 'id': number, 'name': string }[]>(this.baseUrl + '/games/recommendation/').toPromise();
+  getBoardGame(id: number): Promise<IBoardGame> {
+    return this.http.get<IBoardGame>(this.baseUrl + '/games/' + id + '/').toPromise();
+  }
+
+  getRecommendedBoardGames(): Promise<{ gameId: number, 0: number }[]> {
+    return this.http.get<{ gameId: number, 0: number }[]>(this.baseUrl + '/games/recommendation/').toPromise();
   }
 
   sendRatings(rating: IRating): Promise<IRating> {
