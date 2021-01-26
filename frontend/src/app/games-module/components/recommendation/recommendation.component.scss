@@ -27,9 +27,10 @@
 
 .game-row {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
+  // overflow-x: auto;
+  flex-wrap: wrap;
   background: $background;
 
   ::-webkit-scrollbar {
@@ -73,14 +74,6 @@
         background: $background2;
         border-radius: 10px;
    }
-
-    .game-row {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      background: $background;
-    }
   }
 
 
