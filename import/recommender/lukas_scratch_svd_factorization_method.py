@@ -666,7 +666,7 @@ def selfmade_KnnWithMeans_approach(target_ratings: pd.DataFrame):
     # variables:
     k = 40
     min_k = 5
-    sim_matrix = pd.read_csv('../Data/Recommender/item-item-sim-matrix-surprise-full_dataset.csv_dataset.csv', index_col=0)
+    sim_matrix = pd.read_csv('../Data/Recommender/item-item-sim-matrix-surprise-full_dataset.csv', index_col=0)
     sim_matrix_long = pd.read_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset-LONG_FORMAT.csv', index_col=0)
 
     # long sim_matrix to wide format:
@@ -684,14 +684,15 @@ def selfmade_KnnWithMeans_approach(target_ratings: pd.DataFrame):
     predictions = myKNN.predict_all_games()
     sorted_predictions = dict(sorted(predictions.items(), key=lambda item: item[1], reverse=True))
 
+    sorted_predictions_list = [{'game_key':k, 'estimate':v} for k, v in sorted_predictions.items()]
 
     print("--- %s seconds ---" % (time.time() - start_time))
-    return sorted_predictions
+    return sorted_predictions_list
 
 
 def create_similarity_matrix():
     # import reviews:
-    import_path = '../Data/temp_algos_DI/Reviews_Small.csv'
+    import_path = '../Data/Joined/Results/Reviews_Reduced.csv'
     df = pd.read_csv(import_path)
     # keep only important columns:
     df = df[['game_key', 'user_key', 'rating']]
@@ -758,7 +759,7 @@ def create_similarity_matrix():
 
 
 def main():
-    run_method = 10
+    run_method = 9
 
     if run_method == 1:
         svd_factorization()
@@ -795,10 +796,10 @@ def main():
 
         # user_ratings = pd.DataFrame({'game_key': [100284, 100311, 105154, 100020, 100001], 'rating': [7, 8, 2, 4, 9]})
 
-        user_ratings = pd.DataFrame({'game_key': [100068, 100194, 100486], 'rating': [6, 9, 8]})
+        user_ratings = pd.DataFrame({'game_key': [100001, 100068, 100194, 100486], 'rating': [10, 6, 9, 8]})
 
         user_key = 126564
-        result = selfmade_KnnWithMeans_approach(user_key, user_ratings)
+        result = selfmade_KnnWithMeans_approach(user_ratings)
     elif run_method == 10:
         create_similarity_matrix()
 

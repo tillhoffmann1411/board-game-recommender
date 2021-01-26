@@ -26,5 +26,7 @@ def selfmade_KnnWithMeans_approach(target_user_key: int, target_ratings: pd.Data
     predictions = myKNN.predict_all_games(user_key=target_user_key)
     sorted_predictions = dict(sorted(predictions.items(), key=lambda item: item[1], reverse=True))
 
+    sorted_predictions_list = [{'game_key': k, 'estimate': v} for k, v in sorted_predictions.items()]
+
     print("--- %s seconds ---" % (time.time() - start_time))
-    return sorted_predictions
+    return sorted_predictions_list
