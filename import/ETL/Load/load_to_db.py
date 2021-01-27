@@ -105,6 +105,22 @@ def upload_categories_to_db():
 
     upload_dataframe(categories_df, 'games_category')
 
+    # import users csv:
+    categories_relation_df = pd.read_csv(
+        '../Data/Joined/Results/Category_Game_Relation.csv',
+        index_col=0,
+        dtype={
+            'game_key': int,
+            'category_key': int,
+        })
+    # rename a few columns:
+    categories_relation_df.rename(columns={'game_key': 'boardgame_id',
+                                  'category_key': 'category_id',
+                                  }, inplace=True)
+
+    upload_dataframe(categories_relation_df, 'games_boardgame_category')
+
+
 
 def upload_gamemechanic_to_db():
     # import users csv:
@@ -125,6 +141,21 @@ def upload_gamemechanic_to_db():
                                 }, inplace=True)
 
     upload_dataframe(mechanic_df, 'games_gamemechanic')
+
+    # import users csv:
+    mechanic_relation_df = pd.read_csv(
+        '../Data/Joined/Results/Mechanic_Game_Relation.csv',
+        index_col=0,
+        dtype={
+            'game_key': int,
+            'mechanic_key': int,
+        })
+    # rename a few columns:
+    mechanic_relation_df.rename(columns={'game_key': 'boardgame_id',
+                                           'mechanic_key': 'gamemechanic_id',
+                                           }, inplace=True)
+
+    upload_dataframe(mechanic_relation_df, 'games_boardgame_game_mechanic')
 
 
 def upload_publisher_to_db():
@@ -150,7 +181,26 @@ def upload_publisher_to_db():
                                  'publisher_url': 'url',
                                  }, inplace=True)
 
+    del publisher_df['publisher_bga_id']
+    del publisher_df['publisher_bgg_key']
+    del publisher_df['bgg_publisher_name']
+
     upload_dataframe(publisher_df, 'games_publisher')
+
+    # import users csv:
+    publisher_relation_df = pd.read_csv(
+        '../Data/Joined/Results/Publisher_Game_Relation.csv',
+        index_col=0,
+        dtype={
+            'game_key': int,
+            'publisher_key': int,
+        })
+    # rename a few columns:
+    publisher_relation_df.rename(columns={'game_key': 'boardgame_id',
+                                  'publisher_key': 'publisher_id',
+                                  }, inplace=True)
+
+    upload_dataframe(publisher_relation_df, 'games_boardgame_publisher')
 
 
 def upload_author_to_db():
@@ -159,17 +209,40 @@ def upload_author_to_db():
         '../Data/Joined/Results/Designer.csv',
         index_col=0,
         dtype={
-            'autho_key': int,
-            'name': str,
-            'bga_url': str
+            'designer_key': int,
+            'designer_name': str,
+            'designer_image_url': str,
+            'designer_url': str
         },
         keep_default_na=False)
 
     # rename a few columns:
-    author_df.rename(columns={'author_key': 'id'
+    author_df.rename(columns={'designer_key': 'id',
+                              'designer_name': 'name',
+                              'designer_image_url': 'image_url',
+                              'designer_url': 'url'
                               }, inplace=True)
 
+    del author_df['designer_bga_id']
+    del author_df['designer_bgg_key']
+    del author_df['bgg_designer_name']
+
     upload_dataframe(author_df, 'games_author')
+
+    # import users csv:
+    author_relation_df = pd.read_csv(
+        '../Data/Joined/Results/Designer_Game_Relation.csv',
+        index_col=0,
+        dtype={
+            'game_key': int,
+            'designer_key': int,
+        })
+    # rename a few columns:
+    author_relation_df.rename(columns={'game_key': 'boardgame_id',
+                                  'designer_key': 'author_id',
+                                  }, inplace=True)
+
+    upload_dataframe(author_relation_df, 'games_boardgame_author')
 
 
 def upload_online_games_to_db():

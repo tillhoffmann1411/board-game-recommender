@@ -11,8 +11,8 @@ def get_recommendation_data(data, min_number_ratings_game, min_number_ratings_us
     # filter games by number of reviews and sample x unique user form data
     # keep only games with more than x reviews
     # print('Num Reviews: ' + str(len(data)))
-    num_reviews_game = data.loc[:, 'game_id'].value_counts()
-    data = data[data.loc[:, 'game_id'].isin(num_reviews_game.index[num_reviews_game.gt(min_number_ratings_game)])]
+    num_reviews_game = data.loc[:, 'game_key'].value_counts()
+    data = data[data.loc[:, 'game_key'].isin(num_reviews_game.index[num_reviews_game.gt(min_number_ratings_game)])]
     # keep only user with more than x reviews
     num_reviews_user = data.loc[:, 'created_by_id'].value_counts()
     data = data[data.loc[:, 'created_by_id'].isin(num_reviews_user.index[num_reviews_user.gt(min_number_ratings_user)])]
@@ -30,10 +30,10 @@ def get_recommendation_data(data, min_number_ratings_game, min_number_ratings_us
 def prepare_data(data):
     """ output:     pandas data frame - utility matrix """
     # remove duplicates
-    data = data.drop_duplicates(subset=['created_by_id', 'game_id'], keep='last')
+    data = data.drop_duplicates(subset=['created_by_id', 'game_key'], keep='last')
 
     # create utility matrix
-    data_pivot = data.pivot(index='created_by_id', columns='game_id', values='rating')
+    data_pivot = data.pivot(index='created_by_id', columns='game_key', values='rating')
 
     # clean memory
     del data
