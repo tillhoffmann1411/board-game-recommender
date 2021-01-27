@@ -30,8 +30,26 @@ Overcome sparcity: Use content based predictor first and then apply collaborativ
 """
 
 
+def get_similarity_matrix(games_rated_by_target_user,
+                          path='../Data/Recommender/item-item-sim-matrix-surprise-small_dataset-LONG_FORMAT.csv'):
+    sim_matrix_long = pd.read_csv(path, index_col=0)
+
+    # long sim_matrix to wide format:
+    sim_matrix_wide = sim_matrix_long.pivot(index='game_key', columns='game_key_2', values='value')
+
+    # convert column names of sim_matrix to int:
+    sim_matrix_wide.columns = sim_matrix_wide.columns.astype(int)
+
+    ### this part will later be replaced by the SQL query, that takes care of this:
+    # extract only information for given items:
+    sim_matrix_wide = sim_matrix_wide[[games_rated_by_target_user]]
+
+
+    return sim_matrix_wide
+
+
 def import_all_reviews():
-    import_path = 'C:/Users/lukas/PycharmProjects/board-game-recommender/import/Data/Joined/Results/Reviews.csv'
+    import_path = 'C:/Users/lukas/PycharmProjects/board-game-recommender/import/Data/Joined/Results/Reviews_Reduced.csv'
     df = pd.read_csv(import_path)
     # keep only important columns:
     df = df[['game_key', 'user_key', 'rating']]
@@ -373,7 +391,7 @@ def benchmark_different_algorithms():
 
     results = []
     algorithms = [
-        'SVD\t\t\t\t\t\t', 'SlopeOne\t\t\t\t\t', 'CoClustering\t\t\t\t', 'NMF\t\t\t\t\t\t',
+        'SVD\t\t\t\t\t\t', 'SlopeOne\t\t\t\t', 'CoClustering\t\t\t', 'NMF\t\t\t\t\t\t',
         'KNN_Basic Item-Item\t\t', 'KNN_WithMeans Item-Item\t', 'KNN_WithZScore Item-Item',
         'KNN_Basic User-User\t\t', 'KNN_WithMeans User-User\t', 'KNN_WithZScore User-User'
     ]
@@ -400,8 +418,8 @@ def benchmark_different_algorithms():
 
     ## K-Nearest Neighbors - Item-Item
     sim_option = {'name': 'cosine', 'user_based': False}
-    k = 20
-    min_k = 2
+    k = 40
+    min_k = 5
 
     # 5) KNNBasic
     algo = KNNBasic(k=k, min_k=min_k, sim_options=sim_option)
@@ -658,22 +676,17 @@ def selfmade_approach():
     pass
 
 
-def selfmade_KnnWithMeans_approach(target_ratings: pd.DataFrame):
+def selfmade_KnnWithMeans_approach(target_ratings_df: pd.DataFrame):
     start_time = time.time()
     # convert target_ratings dataframe to list of tuples:
-    target_ratings = list(target_ratings.to_records(index=False))
+    target_ratings = list(target_ratings_df.to_records(index=False))
 
     # variables:
     k = 40
     min_k = 5
-    sim_matrix = pd.read_csv('../Data/Recommender/item-item-sim-matrix-surprise-full_dataset.csv', index_col=0)
-    sim_matrix_long = pd.read_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset-LONG_FORMAT.csv', index_col=0)
 
-    # long sim_matrix to wide format:
-    sim_matrix_wide = sim_matrix_long.pivot(index='game_key', columns='game_key_2', values='value')
-
-    # convert column names of sim_matrix to int:
-    sim_matrix.columns = sim_matrix.columns.astype(int)
+    # get similarity matrix:
+    sim_matrix = get_similarity_matrix(target_ratings_df['game_key'].tolist())
 
     with open('../Data/Recommender/item-means-full_dataset.json') as fp:
         # convert keys to int:
@@ -684,24 +697,25 @@ def selfmade_KnnWithMeans_approach(target_ratings: pd.DataFrame):
     predictions = myKNN.predict_all_games()
     sorted_predictions = dict(sorted(predictions.items(), key=lambda item: item[1], reverse=True))
 
-    sorted_predictions_list = [{'game_key':k, 'estimate':v} for k, v in sorted_predictions.items()]
+    sorted_predictions_list = [{'game_key': k, 'estimate': v} for k, v in sorted_predictions.items()]
 
     print("--- %s seconds ---" % (time.time() - start_time))
     return sorted_predictions_list
 
 
 def create_similarity_matrix():
+    start_time = time.time()
     # import reviews:
-    import_path = '../Data/Joined/Results/Reviews_Reduced.csv'
+    import_path = '../Data/Joined/Results/Reviews_Full.csv'
     df = pd.read_csv(import_path)
     # keep only important columns:
     df = df[['game_key', 'user_key', 'rating']]
 
     # build utility matrix:
-    utility_matrix = df.pivot(index='game_key', columns='user_key', values='rating')
+    # utility_matrix = df.pivot(index='game_key', columns='user_key', values='rating')
 
+    # create surprise algorithm object
     sim_option = {'name': 'pearson', 'user_based': False}
-
     algo = KNNWithMeans(sim_options=sim_option)
 
     # get data in a format surprise can work with:
@@ -713,7 +727,7 @@ def create_similarity_matrix():
     print('Number of users: ', trainset_full.n_users, '\n')
     print('Number of items: ', trainset_full.n_items, '\n')
 
-    # fit similarity matrix
+    # fit similarity matrix and calculate item means:
     algo.fit(trainset_full)
 
     # save similarity matrix and means from algo object to variable
@@ -728,7 +742,7 @@ def create_similarity_matrix():
     sim_matrix.columns = utility_matrix.index
 
     # export sim_matrix:
-    sim_matrix.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset.csv')
+    sim_matrix.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-full_dataset.csv')
 
     inner_2_raw_item_ids = algo.trainset._raw2inner_id_items
     # swap keys and values:
@@ -739,7 +753,7 @@ def create_similarity_matrix():
         item_means_raw_ids[inner_2_raw_item_ids[i]] = mean
 
     # export item means:
-    export_path = '../Data/Recommender/item-means-small_dataset.json'
+    export_path = '../Data/Recommender/item-means-full_dataset.json'
     with open(export_path, 'w') as fp:
         json.dump(item_means_raw_ids, fp, sort_keys=False, indent=4)
 
@@ -754,12 +768,12 @@ def create_similarity_matrix():
     sim_matrix_long = pd.melt(sim_matrix, id_vars='game_key', value_vars=column_names, var_name='game_key_2')
 
     # export long sim matrix:
-    sim_matrix_long.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset-LONG_FORMAT.csv')
+    sim_matrix_long.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-full_dataset-LONG_FORMAT.csv')
 
-
+    print("--- %s seconds ---" % (time.time() - start_time))
 
 def main():
-    run_method = 9
+    run_method = 10
 
     if run_method == 1:
         svd_factorization()
@@ -796,7 +810,7 @@ def main():
 
         # user_ratings = pd.DataFrame({'game_key': [100284, 100311, 105154, 100020, 100001], 'rating': [7, 8, 2, 4, 9]})
 
-        user_ratings = pd.DataFrame({'game_key': [100001, 100068, 100194, 100486], 'rating': [10, 6, 9, 8]})
+        user_ratings = pd.DataFrame({'game_key': [100001, 100068, 100194, 100486, 100002], 'rating': [10, 6, 9, 8, 7]})
 
         user_key = 126564
         result = selfmade_KnnWithMeans_approach(user_ratings)

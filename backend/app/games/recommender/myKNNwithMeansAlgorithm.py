@@ -50,4 +50,10 @@ class MyKnnWithMeans:
         except ZeroDivisionError:
             pass  # return mean
 
+        # make sure that estimate does not exceed the max_rating of 10:
+        if est > 10:
+            est = 10
+
+        return est
+
         return est

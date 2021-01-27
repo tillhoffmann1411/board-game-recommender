@@ -11,9 +11,9 @@ RUN_INTEGRATION_PIPELINE = False
 RUN_UPLOAD = True
 
 
-## Parameters for which users and games to keep in reviews:
+# Parameters for which users and games to keep in reviews:
 # Keep only games with >= ... reviews:
-MIN_REVIEWS_PER_GAME = 500
+MIN_REVIEWS_PER_GAME = 50
 
 # Keep only users with >= ... reviews:
 MIN_REVIEWS_PER_USER = 3
@@ -28,5 +28,3 @@ RUN_BOARD_GAME_SPIDER = True
 RUN_REVIEW_URL_CRAWLER = False
 RUN_RATING_SPIDER = False
 RUN_COMMENT_SPIDER = False
-
-

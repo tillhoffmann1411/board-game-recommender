@@ -439,25 +439,30 @@ def clean_reviews():
     all_reviews = all_reviews[all_reviews.user_key.isin(
         num_reviews_per_user.index[num_reviews_per_user.ge(MIN_REVIEWS_PER_USER)])]
 
-    # Track changes:
+    ## Track changes:
+    # Count reviews, games and users in reduced dataset:
     reviews_reduced_dataset = len(all_reviews)
     games_reduced_dataset = all_reviews['game_key'].nunique()
     users_reduced_dataset = all_reviews['user_key'].nunique()
 
+    # Calculate absolute number of dropped values:
     reviews_dropped_abs = reviews_full_dataset - reviews_reduced_dataset
     games_dropped_abs = games_full_dataset - games_reduced_dataset
     users_dropped_abs = users_full_dataset - users_reduced_dataset
 
+    # Calculate relative number of dropped values:
     reviews_dropped_rel = reviews_dropped_abs / reviews_full_dataset
     games_dropped_rel = games_dropped_abs / games_full_dataset
     users_dropped_rel = users_dropped_abs / users_full_dataset
 
+    # Create a nice table to visualize the results:
     table = [['Reviews', reviews_full_dataset, reviews_reduced_dataset, reviews_dropped_abs, reviews_dropped_rel],
             ['Games', games_full_dataset, games_reduced_dataset, games_dropped_abs, games_dropped_rel],
             ['Users', users_full_dataset, users_reduced_dataset, users_dropped_abs, users_dropped_rel]]
 
     print(tabulate(table, headers=['_', 'Count (full dataset)', 'Count (reduced dataset)', 'Num dropped (absolute)', 'Num dropped (relative)']))
 
+    # Calculate the size of the utility matrix, prior and after reducing the dataset:
     size_utility_matrix_full_dataset = games_full_dataset * users_full_dataset
     size_utility_matrix_reduced_dataset = games_reduced_dataset * users_reduced_dataset
 
@@ -468,7 +473,7 @@ def clean_reviews():
     print('Size of utility matrix reduced by: ' + str(100*(1-(size_utility_matrix_reduced_dataset/size_utility_matrix_full_dataset))) + ' %')
 
     # Export df:
-    export_df_to_csv(all_reviews, '../Data/Joined/Results/Reviews_Reduced.csv')
+    export_df_to_csv(all_reviews, '../Data/Joined/Results/Reviews_Full.csv')
 
 
 def find_closest_match(inp_string, ref_list, threshold=0.8):
