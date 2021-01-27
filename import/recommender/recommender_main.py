@@ -51,13 +51,10 @@ def modeling_pipeline(df, global_average, game_average, user_average):
 def evaluation_pipeline(result):
     calculate_rmse(result)
 
+
 if __name__ == "__main__":
     data = preparation_pipeline()
     result = modeling_pipeline(df=data,
                                global_average=True,
                                game_average=False,
                                user_average=False)
-
-
-
-
