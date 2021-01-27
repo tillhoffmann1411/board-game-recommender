@@ -2,8 +2,10 @@ import pandas as pd
 import numpy as np
 import re
 
+from ETL.globals import MIN_REVIEWS_PER_GAME, MIN_REVIEWS_PER_USER
 from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, export_df_to_csv, \
     import_pickle_to_dataframe, export_df_to_pickle
+from tabulate import tabulate
 
 # Threshold for matching game names. For jaccard scores lower than that threshold games are no longer matched.
 JACCARD_THRESHOLD_GAME_NAME = 0.301
@@ -288,7 +290,15 @@ def merge_game_information():
     # create key_csv that contains bga_game_id, bgg_game_id and game_key:
     key_df = games_df[['game_key', 'bga_game_id', 'bgg_game_id']]
 
-    # check if there are any duplicates
+    # check if there are any duplicates in game_df:
+    games_df_duplicates = len(games_df)-len(games_df.drop_duplicates())
+
+    if games_df_duplicates > 0:
+        print('Warning. ' + str(games_df_duplicates) + ' duplicates found in BoardGameTable: ')
+        games_df.drop_duplicates(inplace=True)
+        print('Duplicates removed!')
+
+    # check if there are any duplicates in key_df:
     count_duplicates_bgg = len(key_df[~key_df['bgg_game_id'].isnull()]) - len(
         key_df[~key_df['bgg_game_id'].isnull()].drop_duplicates(subset='bgg_game_id'))
     count_duplicates_bga = len(key_df[~key_df['bga_game_id'].isnull()]) - len(
@@ -298,6 +308,8 @@ def merge_game_information():
         print('Warning. Duplicates found: ')
         print('BGG_game_ids: ' + str(count_duplicates_bgg))
         print('BGA_game_ids: ' + str(count_duplicates_bga))
+        key_df.drop_duplicates(inplace=True)
+        print('Duplicates removed:')
 
     # export to csv:
     export_df_to_csv(games_df, '../Data/Joined/Results/BoardGames.csv')
@@ -394,8 +406,69 @@ def clean_reviews():
     new_columns = cols_to_order + (all_reviews.columns.drop(cols_to_order).tolist())
     all_reviews = all_reviews[new_columns]
 
+    # Drop text columns since we do not use them and they take away a lot of memory:
+    del all_reviews['review_text']
+
+    ## Take care of duplicates:
+    # check if there are any duplicates
+    count_duplicates = len(all_reviews)-len(all_reviews.drop_duplicates(subset=['game_key', 'user_key'], keep='first'))
+
+    if count_duplicates > 0:
+        print('Warning. Duplicates ' + str(count_duplicates) + ' found: ')
+
+        # remove duplicates:
+        all_reviews.drop_duplicates(subset=['game_key', 'user_key'], keep='first', inplace=True)
+        print('Found duplicates removed!')
+
+
+    ## Keep only reviews of users with a certain amount of ratings and reviews of games with >= ... ratings:
+    print('Removing reviews of games with less than ' + str(MIN_REVIEWS_PER_GAME) +
+          ' reviews and users with less than '+str(MIN_REVIEWS_PER_USER)+' reviews.')
+
+    reviews_full_dataset = len(all_reviews)
+    games_full_dataset = all_reviews['game_key'].nunique()
+    users_full_dataset = all_reviews['user_key'].nunique()
+
+    # keep only reviews of games with >= ... reviews:
+    num_reviews_per_game = all_reviews.game_key.value_counts()
+    all_reviews = all_reviews[all_reviews.game_key.isin(
+        num_reviews_per_game.index[num_reviews_per_game.ge(MIN_REVIEWS_PER_GAME)])]
+
+    # keep only reviews of users with >= ... reviews:
+    num_reviews_per_user = all_reviews.user_key.value_counts()
+    all_reviews = all_reviews[all_reviews.user_key.isin(
+        num_reviews_per_user.index[num_reviews_per_user.ge(MIN_REVIEWS_PER_USER)])]
+
+    # Track changes:
+    reviews_reduced_dataset = len(all_reviews)
+    games_reduced_dataset = all_reviews['game_key'].nunique()
+    users_reduced_dataset = all_reviews['user_key'].nunique()
+
+    reviews_dropped_abs = reviews_full_dataset - reviews_reduced_dataset
+    games_dropped_abs = games_full_dataset - games_reduced_dataset
+    users_dropped_abs = users_full_dataset - users_reduced_dataset
+
+    reviews_dropped_rel = reviews_dropped_abs / reviews_full_dataset
+    games_dropped_rel = games_dropped_abs / games_full_dataset
+    users_dropped_rel = users_dropped_abs / users_full_dataset
+
+    table = [['Reviews', reviews_full_dataset, reviews_reduced_dataset, reviews_dropped_abs, reviews_dropped_rel],
+            ['Games', games_full_dataset, games_reduced_dataset, games_dropped_abs, games_dropped_rel],
+            ['Users', users_full_dataset, users_reduced_dataset, users_dropped_abs, users_dropped_rel]]
+
+    print(tabulate(table, headers=['_', 'Count (full dataset)', 'Count (reduced dataset)', 'Num dropped (absolute)', 'Num dropped (relative)']))
+
+    size_utility_matrix_full_dataset = games_full_dataset * users_full_dataset
+    size_utility_matrix_reduced_dataset = games_reduced_dataset * users_reduced_dataset
+
+    print('Reviews dropped: ' + str(reviews_dropped_rel*100)+' %')
+    print('Utility matrix full dataset: ' + str(games_full_dataset) + ' * ' + str(users_full_dataset))
+    print('Utility matrix reduced dataset: ' + str(games_reduced_dataset) + ' * ' + str(users_reduced_dataset))
+
+    print('Size of utility matrix reduced by: ' + str(100*(1-(size_utility_matrix_reduced_dataset/size_utility_matrix_full_dataset))) + ' %')
+
     # Export df:
-    export_df_to_csv(all_reviews, '../Data/Joined/Results/Reviews.csv')
+    export_df_to_csv(all_reviews, '../Data/Joined/Results/Reviews_Reduced.csv')
 
 
 def find_closest_match(inp_string, ref_list, threshold=0.8):

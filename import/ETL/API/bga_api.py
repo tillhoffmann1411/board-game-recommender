@@ -128,7 +128,7 @@ def get_bga_reviews(ids):
     return data_list
 
 
-def get_bga_mechanics():
+def get_bga_mechanics_from_api():
     url = 'https://api.boardgameatlas.com/api/game/mechanics?'
     params = {'client_id': '16OTwjJZDB'}
 
@@ -150,7 +150,7 @@ def get_bga_mechanics():
     export_df_to_csv(mechanics_df, '../Data/BoardGameAtlas/Raw/API/Mechanics/all_bga_mechanics.csv')
 
 
-def get_bga_categories():
+def get_bga_categories_from_api():
     url = 'https://api.boardgameatlas.com/api/game/categories?'
     params = {'client_id': '16OTwjJZDB'}
 
