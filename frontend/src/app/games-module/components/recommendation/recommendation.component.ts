@@ -28,10 +28,10 @@ export class RecommendationComponent implements OnInit {
     this.isLoading = true;
     this.gameService.getBoardGames.subscribe(games => {
       this.gameService.getRecommendedBoardGames.subscribe(recommendations => {
-        if (games.length > 0 ||
-          recommendations.commonBased.length > 0 ||
-          recommendations.knn.length > 0 ||
-          recommendations.itemBased.length > 0) {
+        if (games.length > 0 &&
+          (recommendations.commonBased.length > 0 ||
+            recommendations.knn.length > 0 ||
+            recommendations.itemBased.length > 0)) {
           this.isLoading = false;
         }
         games.forEach(g => this.gameMap.set(g.id, g));
@@ -47,11 +47,15 @@ export class RecommendationComponent implements OnInit {
     const newList: IBoardGame[] = [];
     if (recommendations.length > 0) {
       for (let i = 0; i < 50; i++) {
-        const game = games.get(recommendations[i].gameKey);
-        if (game) {
-          newList.push(game);
+        if (recommendations[i]) {
+          const game = games.get(recommendations[i].gameKey);
+          if (game) {
+            newList.push(game);
+          }
+          continue;
+        } else {
+          break;
         }
-        continue;
       }
     }
     return newList;

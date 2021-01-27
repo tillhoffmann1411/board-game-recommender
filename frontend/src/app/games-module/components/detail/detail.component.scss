@@ -15,15 +15,71 @@
 
   .game-info {
     padding-left: 1rem;
+
+    .info-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .info-card {
+        padding: 0.5rem 1rem;
+        display: flex;
+        margin: 0.5rem;
+        flex-direction: column;
+        align-items: center;
+        background: $background2;
+        border-radius: 10px;
+        justify-content: center;
+      }
+    }
+
+    .external-container {
+      padding: 0.5rem 1rem;
+      display: flex;
+      margin: 0.75rem 0.5rem;
+      flex-direction: column;
+      background: $background2;
+      border-radius: 10px;
+      max-width: 20rem;
+
+      .title {
+        display: flex;
+        margin-bottom: 1rem;
+        img {
+          width: 3rem;
+        }
+        h3 {
+          margin: auto 1rem;
+        }
+      }
+
+      .info-row {
+        display: flex;
+        margin: 0.5rem;
+        mat-icon {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .link {
+    cursor: pointer;
   }
 
   .actions {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     margin: 1rem 0;
 
     mat-icon {
       font-size: 3rem;
+    }
+
+    .buttons {
+      margin-top: 1rem;
+      align-self: center;
     }
   }
 
@@ -80,6 +136,13 @@
 
   .top-section {
     padding: 2rem;
+    
+    .actions {
+      .buttons {
+        margin-top: 2rem;
+        align-self: flex-end;
+      }
+    }
   }
 
   .description-section {
@@ -93,5 +156,6 @@
       display: flex;
     }
   }
+
 
 }

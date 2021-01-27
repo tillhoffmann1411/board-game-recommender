@@ -6,24 +6,49 @@
     </div>
 
     <div class="game-info col-7">
-      <h1>{{ game.name }} ({{ game.yearPublished }})</h1>
-      <div *ngIf="game.minPlaytime">Playtime: {{ game.minPlaytime }} - {{ game.maxPlaytime }}</div>
-      <div *ngIf="game.minNumberOfPlayers">Player: {{ game.minNumberOfPlayers }} - {{ game.maxNumberOfPlayers }}</div>
-      <div *ngIf="game.minAge">Age: {{ game.minAge }}+</div>
-      <div *ngIf="game.bggRating">Board Game Geek Rating: {{ game.bggRating }}</div>
-      <div *ngIf="game.bggAvgRating">Board Game Geek Average Rating: {{ game.bggAvgRating }}</div>
-      <div *ngIf="game.bgaRating">Board Game Atlas Rating: {{ game.bgaRating }}</div>
-      <div *ngIf="game.bgaAvgRating">Board Game Atlas Average Rating: {{ game.bgaAvgRating }}</div>
-      <div *ngIf="game.bgaUrl && game.bgaUrl.length > 5"><a [href]="game.bgaUrl">Go to Board Game Atlas</a></div>
-      <div *ngIf="game.officialUrl && game.officialUrl.length > 5">
-        <a [href]="game.officialUrl">Go to the official Website</a>
+      <h1>{{ game.name }} <span *ngIf="game.yearPublished && game.yearPublished > 0">({{ game.yearPublished }})</span>
+      </h1>
+
+      <div class="info-list">
+        <div class="info-card" *ngFor="let info of gameInfos" [matTooltip]="info.description || ''"
+          (click)="clickOnInfo(info)" [ngClass]="{'link': info.link }">
+          <mat-icon>{{ info.icon }}</mat-icon>
+          <div class="text">{{ info.text }}</div>
+        </div>
       </div>
+
+      <div class="external-container" *ngIf="bgaInfos.length > 0">
+        <div class="title">
+          <img
+            src="https://image.winudf.com/v2/image1/Y29tLmF0bGFzYWxwaGEuYm9hcmRnYW1lYXRsYXNfaWNvbl8xNTYyODU4NjE4XzA4NA/icon.png?w=170&fakeurl=1"
+            alt="">
+          <h3>Board Game Atlas</h3>
+        </div>
+        <div class="info-row" *ngFor="let info of bgaInfos" [ngClass]="{'link': info.link }"
+          (click)="clickOnInfo(info)">
+          <mat-icon>{{ info.icon }}</mat-icon>
+          <span>{{ info.text }}</span>
+        </div>
+      </div>
+
+      <div class="external-container" *ngIf="bggInfos.length > 0">
+        <div class="title">
+          <img src="https://pbs.twimg.com/profile_images/1158829646370226176/A2xzJhSc_400x400.jpg" alt="">
+          <h3>Board Game Geek</h3>
+        </div>
+        <div class="info-row" *ngFor="let info of bggInfos" [ngClass]="{'link': info.link }"
+          (click)="clickOnInfo(info)">
+          <mat-icon>{{ info.icon }}</mat-icon>
+          <span>{{ info.text }}</span>
+        </div>
+      </div>
+
     </div>
 
     <div class="actions col-2">
-      <div><button (click)="goToAmazon()">Amazon</button></div>
       <app-star-rating [numStars]="10" [rating]="rating" (rated)="rate($event)">
       </app-star-rating>
+      <div class="buttons"><button class="primary" (click)="goToAmazon()">Amazon</button></div>
     </div>
 
   </section>

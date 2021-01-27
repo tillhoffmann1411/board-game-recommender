@@ -22,7 +22,7 @@ export class GameHttpService {
   }
 
   getRecommendedBoardGames(): Promise<IRecResponse[]> {
-    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/').toPromise();
+    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/common-based/').toPromise();
   }
 
   getRecommendedKNN(): Promise<IRecResponse[]> {

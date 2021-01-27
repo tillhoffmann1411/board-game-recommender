@@ -83,10 +83,10 @@
     </div>
   </section>
 
-  <section class="game-section col-xl-10" *ngIf="!isLoading && false">
+  <section class="game-section col-xl-10" *ngIf="!isLoading && itemBased.length > 0">
     <h2>Similar games to the ones you play so far</h2>
     <div class="game-row">
-      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of knn"></app-game-card>
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of itemBased"></app-game-card>
     </div>
   </section>
 

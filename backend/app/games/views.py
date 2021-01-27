@@ -61,3 +61,11 @@ class RecommendationKNN(APIView):
         print(str(reviews_from_user_df.head()))
 
         return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
+
+
+class RecommendationItemBased(APIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+
+    def get(self, *args, **kwargs):
+
+        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
