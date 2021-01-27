@@ -1,6 +1,7 @@
 # Press Umschalt+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 from ETL.Integration.auxiliary_tables import integrate_auxiliary_tables
+from ETL.Integration.onlinegames_tables_integration import integrate_onlinegames_tables
 from ETL.Load.load_to_db import upload_users_to_db, upload_board_games_to_db, upload_reviews_to_db, \
     upload_categories_to_db, \
     upload_gamemechanic_to_db, upload_publisher_to_db, upload_author_to_db, upload_online_games_to_db, \
@@ -67,9 +68,10 @@ def pipeline():
         print('BGG Cleaning Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
     if RUN_INTEGRATION_PIPELINE:
-        integrate_boardgame_table()
-        integrate_user_and_review_tables()
-        integrate_auxiliary_tables()
+        # integrate_boardgame_table()
+        # integrate_user_and_review_tables()
+        # integrate_auxiliary_tables()
+        integrate_onlinegames_tables()
         print('Integration pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
     if RUN_UPLOAD:
