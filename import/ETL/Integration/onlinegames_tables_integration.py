@@ -16,25 +16,65 @@ def integrate_online_games():
 
 def merge_online_games():
     # import all online game csvs to dataframes
+    yucata_scrape_filename = get_latest_version_of_file('../Data/Onlinegames/Yucata/Raw/Yucata_all_data_raw.csv')
+    yucata_scrape_df = pd.read_csv(yucata_scrape_filename, sep=';')
+    boardgamearena_scrape_filename = get_latest_version_of_file(
+        '../Data/Onlinegames/Boardgamearena/Raw/Boardgamearena_all_data_raw.csv')
+    boardgamearena_scrape_df = pd.read_csv(boardgamearena_scrape_filename, sep=';')
+    tabletopia_scrape_filename = get_latest_version_of_file(
+        '../Data/Tabletopia/Tabletopia/Raw/tabletopia_all_data_raw.csv')
+    tabletopia_scrape_df = pd.read_csv(tabletopia_scrape_filename, sep=',')
 
     # drop potential duplicates
+    yucata_scrape_df.drop_duplicates(inplace=True)
+    boardgamearena_scrape_df.drop_duplicates(inplace=True)
+    tabletopia_scrape_df.drop_duplicates(inplace=True)
 
     # rename columns
+    yucata_scrape_df.rename(columns={'YucataName': 'Name', 'YucataPlayers': 'yucata_players', 'YucataTime': 'playtime',
+                                     'YucataAuthor': 'yucata_author', 'YucataLink': 'Onlinegamelink', 'YucataBoardGameGeekIF': 'BGGID'}, inplace=True)
+    boardgamearena_scrape_df.rename(columns={'game_name_boardgamearena': 'Name', 'game_url_boardgamearena': 'Onlinegamelink'},
+                                    inplace=True)
+    tabletopia_scrape_df.rename(
+        columns={'game_name_tabletopia': 'Name', 'game_url_tabletopia': 'Onlinegamelink', 'bgg_link_tabletopia': 'bgg_url',
+                 }, inplace=True)
+
+    # Add origin of data as text
+    Origin = 'Yucata'
+    yucata_scrape_df['Origin'] = Origin
+    Origin = 'Boardgamearena'
+    boardgamearena_scrape_df['Origin'] = Origin
+    Origin = 'Tabletopia'
+    tabletopia_scrape_df['Origin'] = Origin
+
+    # Extract BGG ID from dfs
+    tabletopia_scrape_df['BGGID'] = tabletopia_scrape_df['bgg_url'].str.extract('e/(.+?)/')
+
+    # Set Delete unnecessary columns and rename all atrributes to be the same
+    yucata_scrape_df = yucata_scrape_df.drop(['yucata_players', 'playtime', 'YucataAge', 'yucata_author', 'YucataIllustrator', 'YucataPublisher', 'YucataDeveloper', 'YucataOnlinesince'], 1)
+    boardgamearena_scrape_df = boardgamearena_scrape_df.drop(columns=['number_players_boardgamearena', 'playing_time_boardgamearena', 'game_strategy_boardgamearena', 'game_interaction_boardgamearena', 'game_complexity_boardgamearena', 'game_luck_boardgamearena', 'rounds_played_boardgamearena', 'available_since_boardgamearena', 'version_boardgamearena', 'description_boardgamearena', 'author_name_boardgamearena', 'graphicer_name_boardgamearena', 'publisher_name_boardgamearena', 'basegame_release_year_boardgamearena', 'developer_name_boardgamearena'])
+    tabletopia_scrape_df = tabletopia_scrape_df.drop(columns=['player_min_age_tabletopia', 'number_players_tabletopia', 'playing_time_tabletopia', 'rating_tabletopia', 'designer_tabletopia', 'illustrator_tabletopia', 'publisher_tabletopia', 'author_tabletopia', 'genre_tabletopia', 'description_tabletopia', 'bgg_url'])
+
+
+
 
     # merge dataframes
-
-    # extract ids
+    onlinegames_merge_df = pd.DataFrame(columns=['Name', 'Onlinegamelink', 'Origin', 'BGGID'])
+    onlinegames_merge_df = onlinegames_merge_df.append(yucata_scrape_df)
+    onlinegames_merge_df = onlinegames_merge_df.append(boardgamearena_scrape_df)
+    onlinegames_merge_df = onlinegames_merge_df.append(tabletopia_scrape_df)
 
     # create primary keys
-
+    onlinegames_merge_df.insert(1, 'Onlinegamelink ID', range(1, 1 + len(onlinegames_merge_df)))
     # export dataframe
-
-    pass
+    export_path = '../Data/Onlinegames/Raw/Onlineboardgames_table_raw.csv'
+    onlinegames_merge_df.to_csv(export_path, na_rep='NULL', sep=';')
+   # export_df_to_csv(onlinegames_merge_df, export_path)
 
 
 def match_online_game_names_and_bgg_names():
     onlinegames_filename = get_latest_version_of_file(
-        '../Data/Onlinegames/Raw/Onlineboardgames_table_raw2.csv')
+        '../Data/Onlinegames/Raw/Onlineboardgames_table_raw.csv')
 
     onlinegames_df = pd.read_csv(onlinegames_filename, sep=';')
 
@@ -70,7 +110,7 @@ def match_online_game_names_and_bgg_names():
         )
 
     # drop entries that could not be matched:
-     match_list = [x for x in match_list if x['jaccard_score'] != '']
+    match_list = [x for x in match_list if x['jaccard_score'] != '']
 
     # add exact matches to match_list:
     match_list = match_list + exact_matches_list_of_dict
@@ -102,7 +142,14 @@ def match_online_game_names_and_bgg_names():
     ## export online games:
     # rename a few columns
     onlinegames_df.rename(columns={'Name': 'name', 'Onlinegamelink ID': 'online_game_id', 'Onlinegamelink': 'url',
-                                   'Origin': 'origin', 'BGGID': 'bgg_id' }, inplace=True)
+                                   'Origin': 'origin', 'BGGID': 'bgg_id'}, inplace=True)
+    onlinegames_df = onlinegames_df.drop(columns={'Unnamed: 0'})
+
+    # If bgg_id has to be int (Beware of nAn conversion!)
+    #onlinegames_df['bgg_id'] = onlinegames_df['bgg_id'].fillna(0.0).astype(int)
+    #onlinegames_df['bgg_id'] = onlinegames_df['bgg_id'].astype(int)
+
+
 
     # export result to csv:
     export_path = '../Data/Onlinegames/Processed/online_games.csv'
