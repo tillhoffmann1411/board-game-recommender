@@ -9,7 +9,30 @@ from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, exp
 JACCARD_THRESHOLD_GAME_NAME = 0.6
 
 
-def integrate_onlinegames_tables():
+def integrate_online_games():
+    merge_online_games()
+    match_online_game_names_and_bgg_names()
+
+
+def merge_online_games():
+    # import all online game csvs to dataframes
+
+    # drop potential duplicates
+
+    # rename columns
+
+    # merge dataframes
+
+    # extract ids
+
+    # create primary keys
+
+    # export dataframe
+
+    pass
+
+
+def match_online_game_names_and_bgg_names():
     onlinegames_filename = get_latest_version_of_file(
         '../Data/Onlinegames/Raw/Onlineboardgames_table_raw2.csv')
 
@@ -47,7 +70,7 @@ def integrate_onlinegames_tables():
         )
 
     # drop entries that could not be matched:
-    match_list = [x for x in match_list if x['jaccard_score'] != '']
+     match_list = [x for x in match_list if x['jaccard_score'] != '']
 
     # add exact matches to match_list:
     match_list = match_list + exact_matches_list_of_dict
