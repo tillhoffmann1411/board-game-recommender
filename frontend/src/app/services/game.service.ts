@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { IBoardGame, IRating } from '../models/game';
+import { IBoardGame, IRecResponse, IRating } from '../models/game';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,16 @@ export class GameHttpService {
     return this.http.get<IBoardGame>(this.baseUrl + '/games/' + id + '/').toPromise();
   }
 
-  getRecommendedBoardGames(): Promise<{ gameId: number, 0: number }[]> {
-    return this.http.get<{ gameId: number, 0: number }[]>(this.baseUrl + '/games/recommendation/').toPromise();
+  getRecommendedBoardGames(): Promise<IRecResponse[]> {
+    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/common-based/').toPromise();
+  }
+
+  getRecommendedKNN(): Promise<IRecResponse[]> {
+    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/knn/').toPromise();
+  }
+
+  getRecommendedItemBased(): Promise<IRecResponse[]> {
+    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/item-based/').toPromise();
   }
 
   sendRatings(rating: IRating): Promise<IRating> {

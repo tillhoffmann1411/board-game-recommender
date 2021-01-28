@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
   async login() {
     if (this.loginForm.valid) {
       await this.authService.login(this.loginForm.value.username, this.loginForm.value.password);
+      console.log('Navigate now!');
       this.router.navigate(['games']);
     } else {
       this.error = true;

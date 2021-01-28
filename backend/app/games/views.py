@@ -40,7 +40,7 @@ class RecommendationSimiliarUsers(APIView):
         user_id = user_taste.id
 
         reviews_df = read_frame(Review.objects.all(), fieldnames=['game_id__id', 'rating', 'created_by_id__id'])
-        reviews_df = reviews_df.rename(columns={'game_id__id': 'game_id',
+        reviews_df = reviews_df.rename(columns={'game_id__id': 'game_key',
                                                 'rating': 'rating', 'created_by_id__id': 'created_by_id'})
 
         return Response(similiar_users(user_id, reviews_df))
@@ -61,3 +61,11 @@ class RecommendationKNN(APIView):
         print(str(reviews_from_user_df.head()))
 
         return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
+
+
+class RecommendationItemBased(APIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+
+    def get(self, *args, **kwargs):
+
+        return Response([{'game_key': 100001, 'estimate': 9.999}, ])

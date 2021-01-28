@@ -82,7 +82,14 @@ def create_mean_best_n_games(data_games, user_id):
     return mean_best_games
 
 
-def get_cosine_similarity(x, y):
+def get_cosine_similarity(x, y):  #0.9982
+    '''  x and y are numpy arrays with values of query item and other item '''
+    # only compare nonzero values from query game - otherwise games will be similar because most features are 0
+    # get indices of zero values in query game
+    zero_indices = np.where(x == 0)[0]
+    x = np.delete(x, zero_indices)
+    y = np.delete(y, zero_indices)
+    # calculate cosine similarity
     numerator = np.dot(x, y)
     denominator = np.linalg.norm(x) * np.linalg.norm(y)
 
@@ -95,30 +102,33 @@ def get_cosine_similarity(x, y):
     return sim
 
 
-def get_recommendation(data_games, mean_best_games):
+def get_recommendations(data_games, mean_best_games):
     # append mean game to all games df
     mean_best_games = pd.DataFrame(mean_best_games).transpose()
     mean_best_games['name'] = 'mean_best_n_games'
     mean_best_games['game_key'] = 0
     data_games = data_games.append(mean_best_games, ignore_index=True)
 
+    # normalize columns which are not normalized yet
+    data_games.iloc[:, 2:6] = data_games.iloc[:, 2:6].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+
     # get mean item
     index = data_games[data_games['name'] == 'mean_best_n_games'].index
-    query_item = data_games.iloc[index, 2:]
-    query_item = query_item.to_numpy()
+    query_game = data_games.iloc[index, 2:]
+    query_game = query_game.to_numpy()[0]
 
     # compute cosine similarities
     similarities = []
     for i in range(len(data_games['name'])):
 
-        # skip the query item
+        # skip the query game
         if i != index:
-            # iterate over items
-            other_item = data_games.iloc[i, 2:]
-            other_item = other_item.to_numpy()
+            # iterate over games
+            other_game = data_games.iloc[i, 2:]
+            other_game = other_game.to_numpy()
 
-            # compute cosine similarity between both items
-            sim = get_cosine_similarity(query_item, other_item)
+            # compute cosine similarity between both games
+            sim = get_cosine_similarity(query_game, other_game)
 
             # save results on list
             similarities.append((data_games['name'][i], sim))
@@ -143,7 +153,7 @@ def main():
     mean_best_games = create_mean_best_n_games(data_games=df, user_id=user_id)
 
     # calculate similarity
-    similarities = get_recommendation(data_games=df, mean_best_games=mean_best_games)
+    similarities = get_recommendations(data_games=df, mean_best_games=mean_best_games)
 
     print(similarities)
 

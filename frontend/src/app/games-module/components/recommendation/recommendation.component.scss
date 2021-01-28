@@ -10,7 +10,6 @@
 }
 
 .filter {
-  display: none;
   .num-input {
     display: flex;
     align-self: center;
@@ -25,22 +24,26 @@
   margin: 1rem 0;
 }
 
-.game-row {
-  display: flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
-  // overflow-x: auto;
-  flex-wrap: wrap;
-  background: $background;
-
-  ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+.game-section {
+  h2 {
+    padding: 0 0.5rem;
   }
-  /* Optional: show position indicator in red */
-  ::-webkit-scrollbar-thumb {
-      background: transparent;
- }
+  .game-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    background: $background;
+  
+    ::-webkit-scrollbar {
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    /* Optional: show position indicator in red */
+    ::-webkit-scrollbar-thumb {
+        background: transparent;
+   }
+  }
 }
 
 

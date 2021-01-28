@@ -1,9 +1,19 @@
 export interface IGameState {
   boardGames: IBoardGame[];
-  recommendedBoardGames: IBoardGame[];
+  recommendedBoardGames: {
+    commonBased: IRecResponse[],
+    knn: IRecResponse[],
+    itemBased: IRecResponse[]
+  };
   ratings: IRating[];
   isLoading: boolean;
   error: string;
+}
+
+export interface IRecResponse {
+  gameKey: number,
+  estimate?: number,
+  0?: number
 }
 
 export interface IBoardGame {
@@ -60,16 +70,19 @@ export interface IRating {
 export interface IAuthor {
   id: string;
   name: string;
-  bgaUrl?: string;
-}
-
-export interface ICategories {
-  id: number;
-  name: string;
+  url?: string;
+  imageUrl?: string;
 }
 
 export interface IPublisher {
   id: string;
+  name: string;
+  url?: string;
+  imageUrl?: string;
+}
+
+export interface ICategories {
+  id: number;
   name: string;
   bgaUrl?: string;
 }
@@ -77,4 +90,5 @@ export interface IPublisher {
 export interface IGameMechanic {
   id: number;
   name: string;
+  bgaUrl?: string;
 }

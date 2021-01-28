@@ -69,28 +69,34 @@
     </mat-expansion-panel>
   </section>
 
-  <section class="game-section col-xl-12" *ngIf="!isLoading">
-    <!-- <h2>People with the same taste as you play</h2> -->
+  <section class="game-section col-xl-10" *ngIf="!isLoading && knn.length > 0">
+    <h2>Our recommendation for you</h2>
     <div class="game-row">
-      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of games"></app-game-card>
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of knn"></app-game-card>
     </div>
   </section>
 
+  <section class="game-section col-xl-10" *ngIf="!isLoading && commonBased.length > 0">
+    <h2>People with the same taste as you play</h2>
+    <div class="game-row">
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of commonBased"></app-game-card>
+    </div>
+  </section>
 
-  <!-- <section class="game-section col-xl-10" *ngIf="!isLoading">
+  <section class="game-section col-xl-10" *ngIf="!isLoading && itemBased.length > 0">
     <h2>Similar games to the ones you play so far</h2>
     <div class="game-row">
-      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of games"></app-game-card>
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of itemBased"></app-game-card>
     </div>
   </section>
 
 
-  <section class="game-section col-xl-10" *ngIf="!isLoading">
+  <section class="game-section col-xl-10" *ngIf="!isLoading && false">
     <h2>Top rated games on other plattforms</h2>
     <div class="game-row">
-      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of games"></app-game-card>
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of knn"></app-game-card>
     </div>
-  </section> -->
+  </section>
 
   <section class="loading" *ngIf="isLoading">
     <h2>We are looking for games you will love!</h2>

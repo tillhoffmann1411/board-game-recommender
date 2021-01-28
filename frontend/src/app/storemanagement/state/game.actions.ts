@@ -1,4 +1,4 @@
-import { IBoardGame, IGameState, IRating } from 'src/app/models/game';
+import { IBoardGame, IRecResponse, IRating } from 'src/app/models/game';
 
 export namespace Game {
   export class getBoardGames {
@@ -110,6 +110,45 @@ export namespace Game {
 
   export class LoadRecommendedBoardGamesSuccess {
     static readonly type = '[Game] Successful loaded recommended Board Games';
-    constructor(public recommendedBoardGameIds: { gameId: number, 0: number }[]) { }
+    constructor(public recommendedBoardGameIds: IRecResponse[]) { }
   }
+
+  /**
+   * Load recommended Board Games
+   */
+  export class LoadRecommendationKNN {
+    static readonly type = '[Game] Load recommended KNN Board Games';
+    constructor() { }
+  }
+
+  export class LoadRecommendationKNNError {
+    static readonly type = '[Game] Failed to load KNN recommended Board Games';
+    constructor() { }
+  }
+
+  export class LoadRecommendationKNNSuccess {
+    static readonly type = '[Game] Successful loaded KNN recommended Board Games';
+    constructor(public knnIds: IRecResponse[]) { }
+  }
+
+
+  /**
+   * Load recommended Board Games
+   */
+  export class LoadRecommendationItemBased {
+    static readonly type = '[Game] Load recommended ItemBased Board Games';
+    constructor() { }
+  }
+
+  export class LoadRecommendationItemBasedError {
+    static readonly type = '[Game] Failed to load ItemBased recommended Board Games';
+    constructor() { }
+  }
+
+  export class LoadRecommendationItemBasedSuccess {
+    static readonly type = '[Game] Successful loaded ItemBased recommended Board Games';
+    constructor(public recIds: IRecResponse[]) { }
+  }
+
+
 }
