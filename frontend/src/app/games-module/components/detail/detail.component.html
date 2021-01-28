@@ -56,16 +56,13 @@
   <section class="description-section row" *ngIf="game && game.description">
     <h2>Description</h2>
     <p class="long-description">{{ game.description }}</p>
-    <div class="short-description">
-      <mat-expansion-panel class="mat-elevation-z0">
-        <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="30px">
-          <mat-panel-title>
-            <div>{{ game.description }}</div>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+
+    <details class="short-description">
+      <summary>{{ game.description }}</summary>
+      <p class="content">
         {{ game.description }}
-      </mat-expansion-panel>
-    </div>
+      </p>
+    </details>
   </section>
 
   <section class="game-section row" *ngIf="onlineGames.length > 0">
