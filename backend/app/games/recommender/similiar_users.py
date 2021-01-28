@@ -135,9 +135,9 @@ def predict(data, threshold_min_number_ratings_per_game):
 def similiar_users(user_id: int, data: pd.DataFrame, num_recommendations: int = 50):
     # get all data to compare
     data = get_recommendation_data(data,
-                                   min_number_ratings_game=5,
-                                   min_number_ratings_user=4,
-                                   size_user_sample=5_000_000,
+                                   min_number_ratings_game=1000,
+                                   min_number_ratings_user=5,
+                                   size_user_sample=5_000,
                                    seed=2352)  # if None random games
 
     # create utility matrix

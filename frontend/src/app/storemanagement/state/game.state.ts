@@ -137,8 +137,8 @@ export class GameState {
   @Action(Game.LoadBoardGamesSuccess)
   loadBoardGamesSuccess(ctx: StateContext<IGameState>, { boardGames }: Game.LoadBoardGamesSuccess) {
     this.store.dispatch(new Game.LoadRecommendedBoardGames())
-    this.store.dispatch(new Game.LoadRecommendationKNN())
-    this.store.dispatch(new Game.LoadRecommendationItemBased())
+    // this.store.dispatch(new Game.LoadRecommendationKNN())
+    // this.store.dispatch(new Game.LoadRecommendationItemBased())
 
     let joinedGames: IBoardGame[] = []
     if (ctx.getState().boardGames.length > 0) {
