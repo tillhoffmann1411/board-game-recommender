@@ -34,10 +34,6 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.gameStore.getRatings.subscribe(ratings => {
-      const userRate = ratings.find(rating => rating.game === this.game?.id)?.rating;
-      this.rating = userRate ? userRate : 0;
-    });
     this.route.queryParams.subscribe(params => {
       if (params.id) {
         this.paramId = params.id
@@ -50,6 +46,10 @@ export class DetailComponent implements OnInit {
           return g.id == this.paramId;
         })!;
       }
+      this.gameStore.getRatings.subscribe(ratings => {
+        const userRate = ratings.find(rating => rating.game === this.game?.id)?.rating;
+        this.rating = userRate ? userRate : 0;
+      });
       this.createGameInfos();
     });
 
