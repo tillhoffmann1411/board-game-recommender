@@ -152,7 +152,7 @@ def upload_gamemechanic_to_db():
         })
     # rename a few columns:
     mechanic_relation_df.rename(columns={'game_key': 'boardgame_id',
-                                           'mechanic_key': 'gamemechanic_id',
+                                           'mechanic_key': 'mechanic_id',
                                            }, inplace=True)
 
     upload_dataframe(mechanic_relation_df, 'games_boardgamemechanic')
@@ -163,15 +163,6 @@ def upload_publisher_to_db():
     publisher_df = pd.read_csv(
         '../Data/Joined/Results/Publisher.csv',
         index_col=0,
-        dtype={
-            'publisher_key': int,
-            'publisher_name': str,
-            'publisher_image_url': str,
-            'publisher_url': str,
-            'publisher_bga_id': str,
-            'publisher_bgg_key': int,
-            'bgg_publisher_name': str,
-        },
         keep_default_na=False)
 
     # rename a few columns:

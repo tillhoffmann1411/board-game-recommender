@@ -59,8 +59,8 @@ class RecommendationKNN(APIView):
         reviews_from_user_df = reviews_from_user_df.rename(columns={'game_id__id': 'game_key', 'rating': 'rating'})
 
         print(str(reviews_from_user_df.head()))
-
-        return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
+        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
+        # return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
 
 
 class RecommendationItemBased(APIView):
