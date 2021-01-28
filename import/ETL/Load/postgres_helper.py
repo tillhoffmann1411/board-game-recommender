@@ -66,7 +66,7 @@ class PostgresWrapper:
         assert isinstance(batchsize, int)
         assert isinstance(truncate_table, bool)
         assert isinstance(commit, bool)
-
+        print('--- Load data into ' + table + ' table ---')
         if truncate_table:
             print("delete rows from " + table + "...")
             with self.connection.cursor() as cursor:

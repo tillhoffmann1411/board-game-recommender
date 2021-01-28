@@ -52,10 +52,10 @@ class BoardGame(models.Model):
     min_age = models.FloatField(blank=True, null=True)
 
     # Relations
-    author = ManyToManyField(Author)
-    publisher = ManyToManyField(Publisher)
-    game_mechanic = ManyToManyField(GameMechanic)
-    category = ManyToManyField(Category)
+    author = ManyToManyField(Author, through='BoardgameAuthor')
+    publisher = ManyToManyField(Publisher, through='BoardgamePublisher')
+    game_mechanic = ManyToManyField(GameMechanic, through='BoardgameMechanic')
+    category = ManyToManyField(Category, through='BoardgameCategory')
     # Similar Online Games
     similar_online_games = models.ManyToManyField(OnlineGame, through='SimilarBoardOnlineGame')
     # Recommendations
@@ -100,3 +100,23 @@ class ItemSimilarityMatrix(models.Model):
     game_one = models.IntegerField()
     game_two = models.IntegerField()
     similarity = models.FloatField()
+
+
+class BoardgameAuthor(models.Model):
+    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+
+
+class BoardgamePublisher(models.Model):
+    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
+
+
+class BoardgameMechanic(models.Model):
+    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    mechanic = models.ForeignKey(GameMechanic, on_delete=models.CASCADE)
+
+
+class BoardgameCategory(models.Model):
+    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)

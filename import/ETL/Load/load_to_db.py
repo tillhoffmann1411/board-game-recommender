@@ -62,7 +62,7 @@ def upload_board_games_to_db():
 def upload_reviews_to_db():
     # import users csv:
     reviews_df = pd.read_csv(
-        '../Data/Joined/Results/Reviews.csv',
+        '../Data/Joined/Results/Reviews_Reduced.csv',
         index_col=0,
         dtype={
             'game_key': int,
