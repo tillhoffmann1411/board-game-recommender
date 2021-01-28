@@ -118,7 +118,7 @@ def upload_categories_to_db():
                                   'category_key': 'category_id',
                                   }, inplace=True)
 
-    upload_dataframe(categories_relation_df, 'games_boardgame_category')
+    upload_dataframe(categories_relation_df, 'games_boardgamecategory')
 
 
 
@@ -155,7 +155,7 @@ def upload_gamemechanic_to_db():
                                            'mechanic_key': 'gamemechanic_id',
                                            }, inplace=True)
 
-    upload_dataframe(mechanic_relation_df, 'games_boardgame_game_mechanic')
+    upload_dataframe(mechanic_relation_df, 'games_boardgamemechanic')
 
 
 def upload_publisher_to_db():
@@ -200,7 +200,7 @@ def upload_publisher_to_db():
                                   'publisher_key': 'publisher_id',
                                   }, inplace=True)
 
-    upload_dataframe(publisher_relation_df, 'games_boardgame_publisher')
+    upload_dataframe(publisher_relation_df, 'games_boardgamepublisher')
 
 
 def upload_author_to_db():
@@ -242,7 +242,7 @@ def upload_author_to_db():
                                   'designer_key': 'author_id',
                                   }, inplace=True)
 
-    upload_dataframe(author_relation_df, 'games_boardgame_author')
+    upload_dataframe(author_relation_df, 'games_boardgameauthor')
 
 
 def upload_online_games_to_db():

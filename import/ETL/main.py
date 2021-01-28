@@ -81,9 +81,9 @@ def pipeline():
 
         # upload_categories_to_db()
         upload_gamemechanic_to_db()
-        # upload_publisher_to_db()
-        # upload_author_to_db()
-        
+        upload_publisher_to_db()
+        upload_author_to_db()
+
         # upload_online_games_to_db()
         # upload_similarboardonlinegame_to_db()
 

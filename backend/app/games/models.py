@@ -103,20 +103,20 @@ class ItemSimilarityMatrix(models.Model):
 
 
 class BoardgameAuthor(models.Model):
-    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    boardgame = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
 
 class BoardgamePublisher(models.Model):
-    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    boardgame = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
 
 
 class BoardgameMechanic(models.Model):
-    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    boardgame = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
     mechanic = models.ForeignKey(GameMechanic, on_delete=models.CASCADE)
 
 
 class BoardgameCategory(models.Model):
-    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
+    boardgame = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
