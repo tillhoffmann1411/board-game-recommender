@@ -22,7 +22,7 @@ def merge_online_games():
         '../Data/Onlinegames/Boardgamearena/Raw/Boardgamearena_all_data_raw.csv')
     boardgamearena_scrape_df = pd.read_csv(boardgamearena_scrape_filename, sep=';')
     tabletopia_scrape_filename = get_latest_version_of_file(
-        '../Data/Tabletopia/Tabletopia/Raw/tabletopia_all_data_raw.csv')
+        '../Data/Onlinegames/Tabletopia/Raw/tabletopia_all_data_raw.csv')
     tabletopia_scrape_df = pd.read_csv(tabletopia_scrape_filename, sep=',')
 
     # drop potential duplicates
