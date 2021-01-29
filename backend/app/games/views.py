@@ -14,7 +14,8 @@ from .serializers import BoardGameDetailSerializer, BoardGameSerializer, Recomme
 from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review
 
-from .recommender.similiar_users import similiar_users
+from .recommender.similar_users import similiar_users
+# from .recommender.similar_users import similiar_items
 from .recommender.knn_with_means_selfmade import selfmade_KnnWithMeans_approach
 
 
@@ -67,5 +68,6 @@ class RecommendationItemBased(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
+        # Call here similiar items function
 
         return Response([{'game_key': 100001, 'estimate': 9.999}, ])
