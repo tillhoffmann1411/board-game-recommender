@@ -31,7 +31,7 @@ Overcome sparcity: Use content based predictor first and then apply collaborativ
 
 
 def get_similarity_matrix(games_rated_by_target_user,
-                          path='../Data/Recommender/item-item-sim-matrix-surprise-small_dataset-LONG_FORMAT.csv'):
+                          path='../Data/Recommender/item-item-sim-matrix-surprise-reduced_dataset-LONG_FORMAT.csv'):
     sim_matrix_long = pd.read_csv(path, index_col=0)
 
     # long sim_matrix to wide format:
@@ -706,7 +706,7 @@ def selfmade_KnnWithMeans_approach(target_ratings_df: pd.DataFrame):
 def create_similarity_matrix():
     start_time = time.time()
     # import reviews:
-    import_path = '../Data/Joined/Results/Reviews_Full.csv'
+    import_path = '../Data/Joined/Results/Reviews_Reduced.csv'
     df = pd.read_csv(import_path)
     # keep only important columns:
     df = df[['game_key', 'user_key', 'rating']]
@@ -729,6 +729,7 @@ def create_similarity_matrix():
 
     # fit similarity matrix and calculate item means:
     algo.fit(trainset_full)
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     # save similarity matrix and means from algo object to variable
     sim_matrix = algo.sim
@@ -738,25 +739,26 @@ def create_similarity_matrix():
     sim_matrix = pd.DataFrame(sim_matrix)
 
     # replace inner ids with raw ids:
-    sim_matrix.index = utility_matrix.index
-    sim_matrix.columns = utility_matrix.index
+    raw_2_inner_ids = trainset_full._raw2inner_id_items
+    # swap keys and values:
+    inner_2_raw_item_ids = dict((v, k) for k, v in raw_2_inner_ids.items())
+
+    # replace inner ids in sim_matrix index and columns by game_keys:
+    sim_matrix = sim_matrix.rename(index=inner_2_raw_item_ids)
+    sim_matrix = sim_matrix.rename(columns=inner_2_raw_item_ids)
 
     # export sim_matrix:
-    sim_matrix.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-full_dataset.csv')
+    sim_matrix.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-Reduced_dataset.csv')
 
-    inner_2_raw_item_ids = algo.trainset._raw2inner_id_items
-    # swap keys and values:
-    inner_2_raw_item_ids = dict((v, k) for k, v in inner_2_raw_item_ids.items())
     # convert item means from inner to raw:
     item_means_raw_ids = {}
     for i, mean in enumerate(item_means):
         item_means_raw_ids[inner_2_raw_item_ids[i]] = mean
 
     # export item means:
-    export_path = '../Data/Recommender/item-means-full_dataset.json'
+    export_path = '../Data/Recommender/item-means-Reduced_dataset.json'
     with open(export_path, 'w') as fp:
         json.dump(item_means_raw_ids, fp, sort_keys=False, indent=4)
-
 
 
     ## create sim matrix in long format:
@@ -765,15 +767,18 @@ def create_similarity_matrix():
     sim_matrix.reset_index(level=0, inplace=True)
 
     # convert df from wide to long:
-    sim_matrix_long = pd.melt(sim_matrix, id_vars='game_key', value_vars=column_names, var_name='game_key_2')
+    sim_matrix_long = pd.melt(sim_matrix, id_vars='index', value_vars=column_names, var_name='game_key_2')
+    sim_matrix_long.rename(columns={'index': 'game_key'})
 
     # export long sim matrix:
-    sim_matrix_long.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-full_dataset-LONG_FORMAT.csv')
+    sim_matrix_long.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-Reduced_dataset-LONG_FORMAT.csv')
 
     print("--- %s seconds ---" % (time.time() - start_time))
+    print('function end reached')
+
 
 def main():
-    run_method = 10
+    run_method = 9
 
     if run_method == 1:
         svd_factorization()

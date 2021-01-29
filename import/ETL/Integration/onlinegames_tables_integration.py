@@ -22,7 +22,7 @@ def merge_online_games():
         '../Data/Onlinegames/Boardgamearena/Raw/Boardgamearena_all_data_raw.csv')
     boardgamearena_scrape_df = pd.read_csv(boardgamearena_scrape_filename, sep=';')
     tabletopia_scrape_filename = get_latest_version_of_file(
-        '../Data/Onlinegames/Tabletopia/Raw/tabletopia_all_data_raw.csv')
+        '../Data/Tabletopia/Tabletopia/Raw/tabletopia_all_data_raw.csv')
     tabletopia_scrape_df = pd.read_csv(tabletopia_scrape_filename, sep=',')
 
     # drop potential duplicates
@@ -56,8 +56,6 @@ def merge_online_games():
     tabletopia_scrape_df = tabletopia_scrape_df.drop(columns=['player_min_age_tabletopia', 'number_players_tabletopia', 'playing_time_tabletopia', 'rating_tabletopia', 'designer_tabletopia', 'illustrator_tabletopia', 'publisher_tabletopia', 'author_tabletopia', 'genre_tabletopia', 'description_tabletopia', 'bgg_url'])
 
 
-
-
     # merge dataframes
     onlinegames_merge_df = pd.DataFrame(columns=['Name', 'Onlinegamelink', 'Origin', 'BGGID'])
     onlinegames_merge_df = onlinegames_merge_df.append(yucata_scrape_df)
@@ -65,11 +63,12 @@ def merge_online_games():
     onlinegames_merge_df = onlinegames_merge_df.append(tabletopia_scrape_df)
 
     # create primary keys
-    onlinegames_merge_df.insert(1, 'Onlinegamelink ID', range(1, 1 + len(onlinegames_merge_df)))
+    onlinegames_merge_df.insert(0, 'Onlinegamelink ID', range(1, 1 + len(onlinegames_merge_df)))
+
     # export dataframe
     export_path = '../Data/Onlinegames/Raw/Onlineboardgames_table_raw.csv'
     onlinegames_merge_df.to_csv(export_path, na_rep='NULL', sep=';')
-   # export_df_to_csv(onlinegames_merge_df, export_path)
+
 
 
 def match_online_game_names_and_bgg_names():
@@ -128,8 +127,7 @@ def match_online_game_names_and_bgg_names():
     merge_2['BGGID'] = merge_2['bgg_game_id']
 
     # keep only columns from original online games df:
-    # Also cut off automatically inserted indexing column
-    merge_2 = merge_2.iloc[:, 1:6]
+    merge_2 = merge_2[['Onlinegamelink ID', 'Name', 'Onlinegamelink', 'Origin', 'BGGID']]
 
     # create a temp_df that contains all games out of the online games df that were not matched in the process
     # (the ones that had been matched previously and the ones that could not be matched in the process)
@@ -150,7 +148,8 @@ def match_online_game_names_and_bgg_names():
     #onlinegames_df['bgg_id'] = onlinegames_df['bgg_id'].fillna(0.0).astype(int)
     #onlinegames_df['bgg_id'] = onlinegames_df['bgg_id'].astype(int)
 
-
+    # drop online games without bgg_id:
+    onlinegames_df = onlinegames_df[~onlinegames_df['bgg_id'].isna()]
 
     # export result to csv:
     export_path = '../Data/Onlinegames/Processed/online_games.csv'

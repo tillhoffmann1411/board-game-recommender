@@ -5,7 +5,7 @@ import re
 from ETL.globals import MIN_REVIEWS_PER_GAME, MIN_REVIEWS_PER_USER
 from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, export_df_to_csv, \
     import_pickle_to_dataframe, export_df_to_pickle
-# from tabulate import tabulate
+from tabulate import tabulate
 
 # Threshold for matching game names. For jaccard scores lower than that threshold games are no longer matched.
 JACCARD_THRESHOLD_GAME_NAME = 0.301
@@ -362,8 +362,8 @@ def extract_users():
     bgg_users = users_df[users_df['review_origin'] == 'bgg']
     sum_bgg_users = len(bgg_users)
     print('User count:')
-    print('BoardGameGeeks users: ' + str(sum_bga_users))
-    print('BoardGameAtlas users: ' + str(sum_bgg_users))
+    print('BoardGameAtlas users: ' + str(sum_bga_users))
+    print('BoardGameGeeks users: ' + str(sum_bgg_users))
 
     # Add average rating column to user df:
     users_df['avg_rating'] = all_reviews.groupby(['user_name', 'review_origin'], as_index=False).agg({'rating': 'mean'})['rating']
@@ -473,7 +473,7 @@ def clean_reviews():
     print('Size of utility matrix reduced by: ' + str(100*(1-(size_utility_matrix_reduced_dataset/size_utility_matrix_full_dataset))) + ' %')
 
     # Export df:
-    export_df_to_csv(all_reviews, '../Data/Joined/Results/Reviews_Full.csv')
+    export_df_to_csv(all_reviews, '../Data/Joined/Results/Reviews_Reduced.csv')
 
 
 def find_closest_match(inp_string, ref_list, threshold=0.8):
