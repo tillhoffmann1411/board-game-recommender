@@ -1,4 +1,4 @@
-import { IBoardGame, IRecResponse, IRating } from 'src/app/models/game';
+import { IBoardGame, IRecResponse, IRating, IOnlineGame } from 'src/app/models/game';
 
 export namespace Game {
   export class getBoardGames {
@@ -80,7 +80,7 @@ export namespace Game {
    */
   export class LoadBoardGame {
     static readonly type = '[Game] Load single Board Game';
-    constructor(public boardGameId: number) { }
+    constructor(public boardGameId: number, public bggId?: number) { }
   }
 
   export class LoadBoardGameError {

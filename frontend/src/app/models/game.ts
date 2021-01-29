@@ -35,27 +35,19 @@ export interface IBoardGame {
   thumbnailUrl?: string;
   bgaUrl?: string;
   author?: IAuthor[];
-  categories?: ICategories[];
-  gameMechanic?: IGameMechanic[];
+  categories?: ICategory[];
+  gameMechanic?: IMechanic[];
   publisher?: IPublisher[];
+  onlineGames?: IOnlineGame[];
 }
 
 
 export interface IOnlineGame {
   id: number;
   name: string;
-  description: string;
-  imageUrl?: string;
-  yearPublished?: number;
-  minPlaytime?: number;
-  maxPlaytime?: number;
-  minNumberOfPlayers?: number;
-  maxNumberOfPlayers?: number;
-  minAge?: number;
-  author?: IAuthor[];
-  categories?: ICategories[];
-  gameMechanic?: IGameMechanic[];
-  publisher?: IPublisher[];
+  origin: string;
+  url: string;
+  bggId: string
 }
 
 export interface IRating {
@@ -81,13 +73,13 @@ export interface IPublisher {
   imageUrl?: string;
 }
 
-export interface ICategories {
+export interface ICategory {
   id: number;
   name: string;
   bgaUrl?: string;
 }
 
-export interface IGameMechanic {
+export interface IMechanic {
   id: number;
   name: string;
   bgaUrl?: string;

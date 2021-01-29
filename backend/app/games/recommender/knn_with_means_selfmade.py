@@ -33,7 +33,7 @@ def selfmade_KnnWithMeans_approach(target_user_key: int, target_ratings: pd.Data
     sorted_predictions_list = [{'game_key': k, 'estimate': v} for k, v in sorted_predictions.items()]
 
     print("--- %s seconds ---" % (time.time() - start_time))
-    return sorted_predictions_list
+    return sorted_predictions_list[:50]
 
 
 def create_similarity_matrix():
@@ -89,8 +89,7 @@ def create_similarity_matrix():
     with open(export_path, 'w') as fp:
         json.dump(item_means_raw_ids, fp, sort_keys=False, indent=4)
 
-
-    ## create sim matrix in long format:
+    # create sim matrix in long format:
     # get index as column:
     column_names = list(sim_matrix.columns.values)
     sim_matrix.reset_index(level=0, inplace=True)
@@ -102,4 +101,3 @@ def create_similarity_matrix():
     sim_matrix_long.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset-LONG_FORMAT.csv')
 
     # todo: export long sim matrix to database:
-

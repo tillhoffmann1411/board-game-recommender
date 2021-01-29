@@ -36,7 +36,7 @@ class OnlineGame(models.Model):
     name = models.CharField(max_length=256)
     url = models.URLField(max_length=500, blank=True, null=True)
     origin = models.CharField(max_length=256, blank=True, null=True)
-    bgg_id = models.FloatField(blank=True, null=True)
+    bgg_id = models.IntegerField(blank=True, null=True)
 
 
 class BoardGame(models.Model):

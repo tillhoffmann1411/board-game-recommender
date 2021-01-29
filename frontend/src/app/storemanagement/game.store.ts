@@ -42,8 +42,8 @@ export class GameStore {
     this.store.dispatch(new Game.LoadBoardGames());
   }
 
-  loadBoardGame(id: number) {
-    this.store.dispatch(new Game.LoadBoardGame(id));
+  loadBoardGame(id: number, bggId?: number) {
+    this.store.dispatch(new Game.LoadBoardGame(id, bggId));
   }
 
   loadRecommendedBoardGames() {

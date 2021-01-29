@@ -137,8 +137,8 @@ export class GameState {
   @Action(Game.LoadBoardGamesSuccess)
   loadBoardGamesSuccess(ctx: StateContext<IGameState>, { boardGames }: Game.LoadBoardGamesSuccess) {
     this.store.dispatch(new Game.LoadRecommendedBoardGames())
-    // this.store.dispatch(new Game.LoadRecommendationKNN())
-    // this.store.dispatch(new Game.LoadRecommendationItemBased())
+    this.store.dispatch(new Game.LoadRecommendationKNN())
+    this.store.dispatch(new Game.LoadRecommendationItemBased())
 
     let joinedGames: IBoardGame[] = []
     if (ctx.getState().boardGames.length > 0) {
@@ -162,8 +162,11 @@ export class GameState {
    * Load single Board Game
    */
   @Action(Game.LoadBoardGame)
-  loadBoardGame(ctx: StateContext<IGameState>, { boardGameId }: Game.LoadBoardGame) {
-    this.gameService.getBoardGame(boardGameId).then(res => {
+  loadBoardGame(ctx: StateContext<IGameState>, { boardGameId, bggId }: Game.LoadBoardGame) {
+    this.gameService.getBoardGame(boardGameId).then(async res => {
+      if (bggId) {
+        this.store.dispatch(new Game.LoadBoardGameSuccess({ ...res, onlineGames: [await this.gameService.getOnlineGame(bggId)] }))
+      }
       if (res.id) {
         this.store.dispatch(new Game.LoadBoardGameSuccess(res))
       } else {

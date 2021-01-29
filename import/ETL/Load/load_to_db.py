@@ -238,18 +238,16 @@ def upload_author_to_db():
 
 def upload_online_games_to_db():
     # import boardgame csv:
-    board_game_df = pd.read_csv(
-        '../Data/Joined/Integration',
+    online_game_df = pd.read_csv(
+        '../Data/Onlinegames/Processed/online_games.csv',
         index_col=0)
 
     # rename a few columns:
-    board_game_df.rename(columns={'game_key': 'id',
-                                  'game_description': 'description',
-                                  'min_players': 'min_number_of_players',
-                                  'max_players': 'max_number_of_players',
-                                  }, inplace=True)
+    # board_game_df.rename(inplace=True)
 
-    upload_dataframe(board_game_df, 'games_onlinegame')
+    del online_game_df['online_game_id']
+
+    upload_dataframe(online_game_df, 'games_onlinegame')
 
 
 

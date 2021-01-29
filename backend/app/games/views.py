@@ -9,8 +9,8 @@ from django.db import connection
 from django_pandas.io import read_frame
 
 from .permissions import IsAdminOrReadOnly
-from .models import BoardGame, Recommendations
-from .serializers import BoardGameDetailSerializer, BoardGameSerializer, RecommendationSerializer
+from .models import Author, BoardGame, Category, GameMechanic, OnlineGame, Publisher, Recommendations
+from .serializers import AuthorSerializer, BoardGameDetailSerializer, BoardGameSerializer, CategorySerializer, MechanicSerializer, OnlineGameSerializer, PublisherSerializer, RecommendationSerializer
 from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review
 
@@ -33,7 +33,7 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BoardGameDetailSerializer
 
 
-class RecommendationSimiliarUsers(APIView):
+class RecommendationCommonBased(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
@@ -41,9 +41,9 @@ class RecommendationSimiliarUsers(APIView):
         user_id = user_taste.id
 
         reviews_df = read_frame(Review.objects.all(), fieldnames=['game_id__id', 'rating', 'created_by_id__id'])
-        reviews_df = reviews_df.rename(columns={'game_id__id': 'game_key',
-                                                'rating': 'rating', 'created_by_id__id': 'created_by_id'})
+        reviews_df = reviews_df.rename(columns={'game_id__id': 'game_key', 'created_by_id__id': 'created_by_id'})
 
+        print(str(reviews_df.head()))
         return Response(similiar_users(user_id, reviews_df))
 
 
@@ -59,9 +59,7 @@ class RecommendationKNN(APIView):
         reviews_from_user_df = read_frame(reviews_from_user, fieldnames=['game_id__id', 'rating'])
         reviews_from_user_df = reviews_from_user_df.rename(columns={'game_id__id': 'game_key', 'rating': 'rating'})
 
-        print(str(reviews_from_user_df.head()))
-        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
-        # return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
+        return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
 
 
 class RecommendationItemBased(APIView):
@@ -71,3 +69,43 @@ class RecommendationItemBased(APIView):
         # Call here similiar items function
 
         return Response([{'game_key': 100001, 'estimate': 9.999}, ])
+
+
+class RecommendationPopularity(APIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+
+    def get(self, *args, **kwargs):
+        # Call here similiar items function
+
+        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
+
+
+class CategoryList(generics.ListAPIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class MechanicList(generics.ListAPIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    queryset = GameMechanic.objects.all()
+    serializer_class = MechanicSerializer
+
+
+class AuthorList(generics.ListAPIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+
+
+class PublisherList(generics.ListAPIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    queryset = Publisher.objects.all()
+    serializer_class = PublisherSerializer
+
+
+class OnlineGameDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = OnlineGameSerializer
+    queryset = OnlineGame.objects.all()
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    lookup_field = 'bgg_id'
