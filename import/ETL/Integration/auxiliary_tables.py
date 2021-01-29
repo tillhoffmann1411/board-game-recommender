@@ -431,6 +431,10 @@ def replace_old_ids_with_new_key_and_concatenate_category_relation_tables():
                                                 ignore_index=True, sort=False).sort_values(['game_key']).reset_index(
         drop=True)
 
+    # remove duplicates:
+    categories_df.drop_duplicates(inplace=True)
+    concat_categories_game_relation.drop_duplicates(inplace=True)
+
     # export categories_game_relation
     export_path_1 = '../Data/Joined/Results/Category_Game_Relation.csv'
     export_df_to_csv(concat_categories_game_relation, export_path_1)
@@ -439,9 +443,7 @@ def replace_old_ids_with_new_key_and_concatenate_category_relation_tables():
     export_path_2 = '../Data/Joined/Results/Categories.csv'
     export_df_to_csv(categories_df, export_path_2)
 
-    # remove duplicates:
-    categories_df.drop_duplicates(inplace=True)
-    concat_categories_game_relation.drop_duplicates(inplace=True)
+
 
 
 def create_list_of_all_bga_publishers():
@@ -565,6 +567,8 @@ def merge_bga_and_bgg_publishers():
 
     # 3)
     bgg_no_matches = bgg_publishers_df[~bgg_publishers_df['bgg_publisher_name'].isin(all_matches_bgg)]
+    # add publishers column:
+    bgg_no_matches['publisher_name'] = bgg_no_matches['bgg_publisher_name']
 
     # 4) Create large dataframe by concatenating all dataframes:
     # size: 473 [1a] + 7 [1b] + 25 [2] + 5928 [3] = 6433
@@ -709,6 +713,8 @@ def merge_bga_and_bgg_designers():
 
     # 3)
     bgg_no_matches = bgg_designers_df[~bgg_designers_df['bgg_designer_name'].isin(all_matches_bgg)]
+    # add designers column:
+    bgg_no_matches['designer_name'] = bgg_no_matches['bgg_designer_name']
 
     # 4) Create large dataframe by concatenating all dataframes:
     # size: 473 [1a] + 7 [1b] + 25 [2] + 5928 [3] = 6433
@@ -719,6 +725,8 @@ def merge_bga_and_bgg_designers():
 
     # remove duplicates:
     designers_df.drop_duplicates(inplace=True)
+
+
 
     # export designers
     export_path = '../Data/Joined/Results/Designer.csv'
@@ -821,12 +829,12 @@ def merge_bga_and_bgg_designer_game_relation():
 
     # replace bga game ids with game keys
     game_designer_relation_bga = pd.merge(left=game_designer_relation_bga, right=game_keys,
-                                           left_on='game_id', right_on='bga_game_id')
+                                          left_on='game_id', right_on='bga_game_id')
     game_designer_relation_bga = game_designer_relation_bga[['game_key', 'designer_id']]
 
     # replace designer_bga_id with designer_key
     game_designer_relation_bga = pd.merge(left=designers, right=game_designer_relation_bga,
-                                           left_on='designer_bga_id', right_on='designer_id')
+                                          left_on='designer_bga_id', right_on='designer_id')
     game_designer_relation_bga = game_designer_relation_bga[['game_key', 'designer_key']]
 
 
