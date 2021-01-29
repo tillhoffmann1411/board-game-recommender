@@ -128,7 +128,8 @@ def match_online_game_names_and_bgg_names():
     merge_2['BGGID'] = merge_2['bgg_game_id']
 
     # keep only columns from original online games df:
-    merge_2 = merge_2.iloc[:, 0:5]
+    # Also cut off automatically inserted indexing column
+    merge_2 = merge_2.iloc[:, 1:6]
 
     # create a temp_df that contains all games out of the online games df that were not matched in the process
     # (the ones that had been matched previously and the ones that could not be matched in the process)
