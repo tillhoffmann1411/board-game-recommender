@@ -252,17 +252,6 @@ def upload_online_games_to_db():
     upload_dataframe(board_game_df, 'games_onlinegame')
 
 
-def upload_similarboardonlinegame_to_db():
-    # import boardgame csv:
-    similar_df = pd.read_csv(
-        '../Data/Joined/Integration',
-        index_col=0)
-
-    # rename a few columns:
-    similar_df.rename(columns={'key': 'id'}, inplace=True)
-
-    upload_dataframe(similar_df, 'games_boardgame')
-
 
 def upload_dataframe(df: pd.DataFrame, table: str, batchsize: int = 1000):
     # create instance of Postgres Wrapper:
