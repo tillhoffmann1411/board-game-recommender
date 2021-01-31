@@ -31,10 +31,13 @@ Overcome sparcity: Use content based predictor first and then apply collaborativ
 
 
 def get_similarity_matrix(games_rated_by_target_user,
-                          path='../Data/Recommender/item-item-sim-matrix-surprise-reduced_dataset-LONG_FORMAT.csv'):
+                          path='../Data/Recommender/item-item-sim-matrix-surprise-Reduced_dataset-LONG_FORMAT.csv'):
+    # import sim_matrix in long format from csv:
     sim_matrix_long = pd.read_csv(path)
+
     # remove first column (unnamed):
     sim_matrix_long.drop(sim_matrix_long.columns[0], axis=1, inplace=True)
+
     # rename first column:
     sim_matrix_long.rename(columns={'index': 'game_key'}, inplace=True)
 
@@ -677,7 +680,7 @@ def selfmade_approach():
     pass
 
 
-def selfmade_KnnWithMeans_approach(target_ratings_df: pd.DataFrame):
+def get_KNN_predictions(target_ratings_df: pd.DataFrame):
     start_time = time.time()
     # convert target_ratings dataframe to list of tuples:
     target_ratings = list(target_ratings_df.to_records(index=False))
@@ -687,8 +690,7 @@ def selfmade_KnnWithMeans_approach(target_ratings_df: pd.DataFrame):
     min_k = 5
 
     # get similarity matrix:
-    sim_matrix = get_similarity_matrix(target_ratings_df['game_key'].tolist(),
-                                       path='../Data/Recommender/item-item-sim-matrix-surprise-Reduced_dataset-LONG_FORMAT.csv')
+    sim_matrix = get_similarity_matrix(target_ratings_df['game_key'].tolist())
 
     with open('../Data/Recommender/item-means-reduced_dataset.json') as fp:
         # convert keys to int:
@@ -798,7 +800,7 @@ def main():
         selfmade_approach()
     elif run_method == 9:
         user_ratings = pd.DataFrame({'game_key': [100001, 100002, 100003, 100004, 100006], 'rating': [2, 3, 7, 8, 4]})
-        result = selfmade_KnnWithMeans_approach(user_ratings)
+        result = get_KNN_predictions(user_ratings)
     elif run_method == 10:
         create_similarity_matrix()
 

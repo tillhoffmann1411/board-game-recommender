@@ -37,14 +37,14 @@ def selfmade_KnnWithMeans_approach(target_user_key: int, target_ratings: pd.Data
 
 
 def create_similarity_matrix():
+    start_time = time.time()
+
     # import reviews:
     import_path = '../Data/Joined/Results/Reviews_Reduced.csv'
     df = pd.read_csv(import_path)
+
     # keep only important columns:
     df = df[['game_key', 'user_key', 'rating']]
-
-    # build utility matrix:
-    utility_matrix = df.pivot(index='game_key', columns='user_key', values='rating')
 
     # create surprise algorithm object
     sim_option = {'name': 'pearson', 'user_based': False}
@@ -61,6 +61,7 @@ def create_similarity_matrix():
 
     # fit similarity matrix and calculate item means:
     algo.fit(trainset_full)
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     # save similarity matrix and means from algo object to variable
     sim_matrix = algo.sim
@@ -70,34 +71,39 @@ def create_similarity_matrix():
     sim_matrix = pd.DataFrame(sim_matrix)
 
     # replace inner ids with raw ids:
-    sim_matrix.index = utility_matrix.index
-    sim_matrix.columns = utility_matrix.index
-
-    # export sim_matrix:
-    sim_matrix.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset.csv')
-
-    inner_2_raw_item_ids = algo.trainset._raw2inner_id_items
+    raw_2_inner_ids = trainset_full._raw2inner_id_items
     # swap keys and values:
-    inner_2_raw_item_ids = dict((v, k) for k, v in inner_2_raw_item_ids.items())
+    inner_2_raw_item_ids = dict((v, k) for k, v in raw_2_inner_ids.items())
+
+    # replace inner ids in sim_matrix index and columns by game_keys:
+    sim_matrix = sim_matrix.rename(index=inner_2_raw_item_ids)
+    sim_matrix = sim_matrix.rename(columns=inner_2_raw_item_ids)
+
     # convert item means from inner to raw:
     item_means_raw_ids = {}
     for i, mean in enumerate(item_means):
         item_means_raw_ids[inner_2_raw_item_ids[i]] = mean
 
     # export item means:
-    export_path = '../Data/Recommender/item-means-small_dataset.json'
+    export_path = '../Data/Recommender/item-means-Reduced_dataset.json'
     with open(export_path, 'w') as fp:
         json.dump(item_means_raw_ids, fp, sort_keys=False, indent=4)
 
-    # create sim matrix in long format:
+    # TODO: export item means to DB instead of CSV!
+
+    ## create sim matrix in long format:
     # get index as column:
     column_names = list(sim_matrix.columns.values)
     sim_matrix.reset_index(level=0, inplace=True)
 
     # convert df from wide to long:
-    sim_matrix_long = pd.melt(sim_matrix, id_vars='game_key', value_vars=column_names, var_name='game_key_2')
+    sim_matrix_long = pd.melt(sim_matrix, id_vars='index', value_vars=column_names, var_name='game_key_2')
+    sim_matrix_long.rename(columns={'index': 'game_key'})
 
     # export long sim matrix:
-    sim_matrix_long.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-small_dataset-LONG_FORMAT.csv')
+    sim_matrix_long.to_csv('../Data/Recommender/item-item-sim-matrix-surprise-Reduced_dataset-LONG_FORMAT.csv')
 
-    # todo: export long sim matrix to database:
+    # TODO: export sim matrix to DB instead of CSV!
+
+    print("--- %s seconds ---" % (time.time() - start_time))
+    print('function end reached')
