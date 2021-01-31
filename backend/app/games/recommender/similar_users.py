@@ -12,12 +12,8 @@ def get_recommendation_data(data, min_number_ratings_game):
     """ output: pandas data frame """
     # filter games by number of reviews and sample x unique user form data
     # keep only games with more than x reviews
-    print(data.head())
-    print(data.shape)
     num_reviews_game = data.loc[:, 'game_key'].value_counts()
     data = data[data.loc[:, 'game_key'].isin(num_reviews_game.index[num_reviews_game.gt(min_number_ratings_game)])]
-    print(data.head())
-    print(data.shape)
     return data
 
 

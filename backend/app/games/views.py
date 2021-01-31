@@ -11,11 +11,12 @@ from django_pandas.io import read_frame
 from .permissions import IsAdminOrReadOnly
 from .models import Author, BoardGame, Category, GameMechanic, OnlineGame, Publisher, Recommendations
 from .serializers import AuthorSerializer, BoardGameDetailSerializer, BoardGameSerializer, CategorySerializer, MechanicSerializer, OnlineGameSerializer, PublisherSerializer, RecommendationSerializer
+
 from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review
 
 from .recommender.similar_users import similiar_users
-# from .recommender.similar_users import similiar_items
+from .recommender.recommend_popular_games import popular_games
 from .recommender.knn_with_means_selfmade import selfmade_KnnWithMeans_approach
 
 
@@ -97,9 +98,12 @@ class RecommendationPopularity(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
-        # Call here similiar items function
+        boardgames_df = read_frame(BoardGame.objects.all(), fieldnames=[
+                                   'id', 'name', 'bgg_num_ratings', 'bga_num_ratings', 'bgg_avg_rating'])
+        boardgames_df = boardgames_df.rename(columns={'id': 'game_key', 'bgg_num_ratings': 'bgg_num_user_ratings',
+                                                      'bga_num_ratings': 'bga_num_user_ratings', 'bgg_avg_rating': 'bgg_average_user_rating'})
 
-        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
+        return Response(popular_games(boardgames_df))
 
 
 class CategoryList(generics.ListAPIView):
