@@ -40,11 +40,33 @@ class RecommendationCommonBased(APIView):
         user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
         user_id = user_taste.id
 
-        reviews_df = read_frame(Review.objects.all(), fieldnames=['game_id__id', 'rating', 'created_by_id__id'])
-        reviews_df = reviews_df.rename(columns={'game_id__id': 'game_key', 'created_by_id__id': 'created_by_id'})
+        cursor = connection.cursor()
+        cursor.execute('''
+            select created_by_id, game_id, rating 
+            from accounts_review ar
+            where created_by_id  in (
+                select created_by_id
+                from accounts_review
+                group by created_by_id
+                having count(created_by_id) >= 10
+                order by random()
+                limit 5000)
+        ''')
+        reviews = cursor.fetchall()
 
-        print(str(reviews_df.head()))
-        return Response(similiar_users(user_id, reviews_df))
+        reviews_df = pd.DataFrame.from_records(reviews)
+        reviews_df = reviews_df.rename(columns={0: 'created_by_id', 1: 'game_key', 2: 'rating'})
+
+        combined_reviews_df = reviews_df
+
+        if int(user_id) not in reviews_df['created_by_id'].values:
+            reviews_user_df = read_frame(Review.objects.filter(created_by=user_taste),
+                                         fieldnames=['game_id__id', 'created_by__id', 'rating'])
+            reviews_user_df = reviews_user_df.rename(
+                columns={'created_by__id': 'created_by_id', 'game_id__id': 'game_key', 'rating': 'rating'})
+            combined_reviews_df = pd.concat([reviews_df, reviews_user_df], ignore_index=True)
+
+        return Response(similiar_users(user_id, combined_reviews_df))
 
 
 class RecommendationKNN(APIView):
