@@ -32,7 +32,11 @@ Overcome sparcity: Use content based predictor first and then apply collaborativ
 
 def get_similarity_matrix(games_rated_by_target_user,
                           path='../Data/Recommender/item-item-sim-matrix-surprise-reduced_dataset-LONG_FORMAT.csv'):
-    sim_matrix_long = pd.read_csv(path, index_col=0)
+    sim_matrix_long = pd.read_csv(path)
+    # remove first column (unnamed):
+    sim_matrix_long.drop(sim_matrix_long.columns[0], axis=1, inplace=True)
+    # rename first column:
+    sim_matrix_long.rename(columns={'index': 'game_key'}, inplace=True)
 
     # long sim_matrix to wide format:
     sim_matrix_wide = sim_matrix_long.pivot(index='game_key', columns='game_key_2', values='value')
@@ -42,8 +46,7 @@ def get_similarity_matrix(games_rated_by_target_user,
 
     ### this part will later be replaced by the SQL query, that takes care of this:
     # extract only information for given items:
-    sim_matrix_wide = sim_matrix_wide[[games_rated_by_target_user]]
-
+    sim_matrix_wide = sim_matrix_wide[games_rated_by_target_user]
 
     return sim_matrix_wide
 
@@ -354,8 +357,6 @@ def collaborative_filtering_using_surprise():
 
     # Estimate for a specific user a specific item:
     single_item_single_user_prediction = algo.predict(uid=target_user_key, iid=100010, verbose=True)
-
-    efg
 
     # Estimate all items for a specific user:
     list_of_all_items = trainset_raw_iids
@@ -686,9 +687,10 @@ def selfmade_KnnWithMeans_approach(target_ratings_df: pd.DataFrame):
     min_k = 5
 
     # get similarity matrix:
-    sim_matrix = get_similarity_matrix(target_ratings_df['game_key'].tolist())
+    sim_matrix = get_similarity_matrix(target_ratings_df['game_key'].tolist(),
+                                       path='../Data/Recommender/item-item-sim-matrix-surprise-Reduced_dataset-LONG_FORMAT.csv')
 
-    with open('../Data/Recommender/item-means-full_dataset.json') as fp:
+    with open('../Data/Recommender/item-means-reduced_dataset.json') as fp:
         # convert keys to int:
         item_means = {int(key): value for key, value in json.load(fp).items()}
 
@@ -705,14 +707,13 @@ def selfmade_KnnWithMeans_approach(target_ratings_df: pd.DataFrame):
 
 def create_similarity_matrix():
     start_time = time.time()
+
     # import reviews:
     import_path = '../Data/Joined/Results/Reviews_Reduced.csv'
     df = pd.read_csv(import_path)
+
     # keep only important columns:
     df = df[['game_key', 'user_key', 'rating']]
-
-    # build utility matrix:
-    # utility_matrix = df.pivot(index='game_key', columns='user_key', values='rating')
 
     # create surprise algorithm object
     sim_option = {'name': 'pearson', 'user_based': False}
@@ -760,7 +761,6 @@ def create_similarity_matrix():
     with open(export_path, 'w') as fp:
         json.dump(item_means_raw_ids, fp, sort_keys=False, indent=4)
 
-
     ## create sim matrix in long format:
     # get index as column:
     column_names = list(sim_matrix.columns.values)
@@ -797,27 +797,7 @@ def main():
     elif run_method == 8:
         selfmade_approach()
     elif run_method == 9:
-        # user_ratings = [
-        #     (100284, 7),
-        #     (100311, 8),
-        #     (105154, 2),
-        #     (100020, 4),
-        #     (100001, 9),
-        #     (100277, 7),
-        #     (100002, 7),
-        #     (100003, 7),
-        #     (100004, 7),
-        #     (100005, 7),
-        #     (100006, 7),
-        #     (100007, 7),
-        #     (100008, 7),
-        # ]
-
-        # user_ratings = pd.DataFrame({'game_key': [100284, 100311, 105154, 100020, 100001], 'rating': [7, 8, 2, 4, 9]})
-
-        user_ratings = pd.DataFrame({'game_key': [100001, 100068, 100194, 100486, 100002], 'rating': [10, 6, 9, 8, 7]})
-
-        user_key = 126564
+        user_ratings = pd.DataFrame({'game_key': [100001, 100002, 100003, 100004, 100006], 'rating': [2, 3, 7, 8, 4]})
         result = selfmade_KnnWithMeans_approach(user_ratings)
     elif run_method == 10:
         create_similarity_matrix()
