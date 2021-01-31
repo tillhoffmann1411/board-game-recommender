@@ -5,7 +5,7 @@ import re
 from ETL.globals import MIN_REVIEWS_PER_GAME, MIN_REVIEWS_PER_USER
 from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, export_df_to_csv, \
     import_pickle_to_dataframe, export_df_to_pickle
-# from tabulate import tabulate
+from tabulate import tabulate
 
 # Threshold for matching game names. For jaccard scores lower than that threshold games are no longer matched.
 JACCARD_THRESHOLD_GAME_NAME = 0.301
