@@ -2,6 +2,7 @@ import json
 import time
 import pandas as pd
 from .myKNNwithMeansAlgorithm import MyKnnWithMeans
+import os
 
 from django_pandas.io import read_frame
 from django.db import connection
@@ -20,7 +21,8 @@ def selfmade_KnnWithMeans_approach(target_ratings_df: pd.DataFrame):
     # get similarity matrix:
     sim_matrix = get_similarity_matrix_from_db(target_ratings_df['game_key'].tolist())
 
-    with open('app/games/recommender/Data/item-means-reduced_dataset.json') as fp:
+    path = os.path.dirname(os.path.abspath(__file__)) + '/item-means-reduced_dataset.json'
+    with open(path) as fp:
         # convert keys to int:
         item_means = {int(key): value for key, value in json.load(fp).items()}
 
