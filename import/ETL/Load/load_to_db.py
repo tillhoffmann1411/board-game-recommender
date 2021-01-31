@@ -115,11 +115,10 @@ def upload_categories_to_db():
         })
     # rename a few columns:
     categories_relation_df.rename(columns={'game_key': 'boardgame_id',
-                                  'category_key': 'category_id',
-                                  }, inplace=True)
+                                           'category_key': 'category_id',
+                                           }, inplace=True)
 
     upload_dataframe(categories_relation_df, 'games_boardgamecategory')
-
 
 
 def upload_gamemechanic_to_db():
@@ -152,8 +151,8 @@ def upload_gamemechanic_to_db():
         })
     # rename a few columns:
     mechanic_relation_df.rename(columns={'game_key': 'boardgame_id',
-                                           'mechanic_key': 'mechanic_id',
-                                           }, inplace=True)
+                                         'mechanic_key': 'mechanic_id',
+                                         }, inplace=True)
 
     upload_dataframe(mechanic_relation_df, 'games_boardgamemechanic')
 
@@ -188,8 +187,8 @@ def upload_publisher_to_db():
         })
     # rename a few columns:
     publisher_relation_df.rename(columns={'game_key': 'boardgame_id',
-                                  'publisher_key': 'publisher_id',
-                                  }, inplace=True)
+                                          'publisher_key': 'publisher_id',
+                                          }, inplace=True)
 
     upload_dataframe(publisher_relation_df, 'games_boardgamepublisher')
 
@@ -230,8 +229,8 @@ def upload_author_to_db():
         })
     # rename a few columns:
     author_relation_df.rename(columns={'game_key': 'boardgame_id',
-                                  'designer_key': 'author_id',
-                                  }, inplace=True)
+                                       'designer_key': 'author_id',
+                                       }, inplace=True)
 
     upload_dataframe(author_relation_df, 'games_boardgameauthor')
 
@@ -249,6 +248,21 @@ def upload_online_games_to_db():
 
     upload_dataframe(online_game_df, 'games_onlinegame')
 
+
+def upload_similarity_matrix_to_db():
+    # import matrix csv:
+    matrix_df = pd.read_csv(
+        '../Data/Recommender/item-item-sim-matrix-surprise-Reduced_dataset-LONG_FORMAT.csv')
+    matrix_df.drop(matrix_df.columns[0], axis=1, inplace=True)
+
+    # rename a few columns:
+    matrix_df.rename(columns={'index': 'game_one',
+                              'game_key_2': 'game_two',
+                              'value': 'similarity'
+                              },
+                     inplace=True)
+
+    upload_dataframe(matrix_df, 'games_itemsimilaritymatrix', batchsize=10000)
 
 
 def upload_dataframe(df: pd.DataFrame, table: str, batchsize: int = 1000):

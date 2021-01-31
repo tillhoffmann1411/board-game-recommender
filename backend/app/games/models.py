@@ -91,8 +91,8 @@ class Recommendations(models.Model):
 
 
 class ItemSimilarityMatrix(models.Model):
-    game_one = models.IntegerField()
-    game_two = models.IntegerField()
+    game_one = models.FloatField()
+    game_two = models.FloatField()
     similarity = models.FloatField()
 
 
