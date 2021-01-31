@@ -75,14 +75,13 @@ class RecommendationKNN(APIView):
 
     def get(self, *args, **kwargs):
         user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
-        user_id = user_taste.id
 
         reviews_from_user = Review.objects.all().filter(created_by=user_taste)
 
         reviews_from_user_df = read_frame(reviews_from_user, fieldnames=['game_id__id', 'rating'])
         reviews_from_user_df = reviews_from_user_df.rename(columns={'game_id__id': 'game_key', 'rating': 'rating'})
 
-        return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
+        return Response(selfmade_KnnWithMeans_approach(reviews_from_user_df))
 
 
 class RecommendationItemBased(APIView):

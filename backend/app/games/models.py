@@ -95,6 +95,9 @@ class ItemSimilarityMatrix(models.Model):
     game_two = models.FloatField()
     similarity = models.FloatField()
 
+    class Meta:
+        indexes = [models.Index(fields=['game_one'])]
+
 
 class BoardgameAuthor(models.Model):
     boardgame = models.ForeignKey(BoardGame, on_delete=models.CASCADE)

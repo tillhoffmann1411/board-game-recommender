@@ -9,25 +9,22 @@ class MyKnnWithMeans:
         self.target_user_ratings = target_user_ratings
         self.item_means = item_means
 
-
-    def predict_all_games(self, user_key):
+    def predict_all_games(self):
         all_games = [k for k, _ in self.item_means.items()]
         games_with_rating = [x[0] for x in self.target_user_ratings]
         games_to_predict = list(set(all_games)-set(games_with_rating))
 
         predictions = {}
         for game in games_to_predict:
-            single_pred = self.predict_single_game(user_key, game)
+            single_pred = self.predict_single_game(game)
             predictions[game] = single_pred
 
         return predictions
 
-
-    def predict_single_game(self, user_key, game_key):
+    def predict_single_game(self, game_key):
         x = game_key
-        y = user_key
 
-        neighbors = [(x2, self.sim_matrix.loc[x, x2], r) for (x2, r) in self.target_user_ratings]
+        neighbors = [(x2, self.sim_matrix.loc[x2, x], r) for (x2, r) in self.target_user_ratings]
 
         # keep k games with highest ratings:
         k_neighbors = heapq.nlargest(self.k, neighbors, key=lambda t: t[1])
