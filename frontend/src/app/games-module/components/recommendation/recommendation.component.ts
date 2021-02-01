@@ -84,9 +84,9 @@ export class RecommendationComponent implements OnInit {
       if (
         game.minAge && game.minAge >= this.minAge &&
         game.minNumberOfPlayers && game.minNumberOfPlayers >= this.player.min &&
-        game.maxNumberOfPlayers && game.maxNumberOfPlayers <= this.player.max &&
+        (this.player.max === 0 || (game.maxNumberOfPlayers && game.maxNumberOfPlayers <= this.player.max)) &&
         game.minPlaytime && game.minPlaytime >= this.time.min &&
-        game.maxPlaytime && game.maxPlaytime <= this.time.max
+        (this.time.max === 0 || (game.maxPlaytime && game.maxPlaytime <= this.time.max))
       ) {
         filteredGames.set(id, game);
       }

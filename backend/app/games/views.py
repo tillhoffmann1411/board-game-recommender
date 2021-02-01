@@ -18,6 +18,7 @@ from accounts.models import UserTaste, Review
 from .recommender.similar_users import similiar_users
 from .recommender.recommend_popular_games import popular_games
 from .recommender.knn_selfmade import selfmade_KnnWithMeans_approach
+from .recommender.recommend_similar_games import similar_games
 
 
 class BoardGameList(generics.ListAPIView):
@@ -88,9 +89,15 @@ class RecommendationItemBased(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
-        # Call here similiar items function
+        user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
+        user_id = user_taste.id
 
-        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
+        reviews_user_df = read_frame(Review.objects.filter(created_by=user_taste),
+                                     fieldnames=['game_id__id', 'created_by__id', 'rating'])
+        reviews_user_df = reviews_user_df.rename(
+            columns={'created_by__id': 'user_key', 'game_id__id': 'game_key', 'rating': 'rating'})
+
+        return Response(similar_games(user_id, reviews_user_df))
 
 
 class RecommendationPopularity(APIView):

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { AuthStore } from '../../storemanagement/auth.store';
 import { Router } from '@angular/router';
-import { GameStore } from 'src/app/storemanagement/game.store';
 
 @Component({
   selector: 'app-login',
@@ -32,13 +31,17 @@ export class LoginComponent implements OnInit {
         this.error = true;
       }
     });
+
+    this.authService.getIsLoggedIn.subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.router.navigate(['games']);
+      }
+    });
   }
 
-  async login() {
+  login() {
     if (this.loginForm.valid) {
-      await this.authService.login(this.loginForm.value.username, this.loginForm.value.password);
-      console.log('Navigate now!');
-      this.router.navigate(['games']);
+      this.authService.login(this.loginForm.value.username, this.loginForm.value.password);
     } else {
       this.error = true;
     }
