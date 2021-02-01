@@ -17,7 +17,7 @@ export class RecommendationComponent implements OnInit {
   gameMap: Map<number, IBoardGame> = new Map();
 
   isLoading = false;
-  largeScreen = document.body.clientWidth > 768;
+  largeScreen = document.body.clientWidth >= 992;
 
   minAge = 0;
   player: { min: number, max: number } = { min: 0, max: 0 };
@@ -30,7 +30,7 @@ export class RecommendationComponent implements OnInit {
 
   ngOnInit(): void {
     window.addEventListener('resize', (event) => {
-      this.largeScreen = document.body.clientWidth > 768;
+      this.largeScreen = document.body.clientWidth >= 992;
     });
     this.isLoading = true;
     this.gameService.getBoardGames.subscribe(games => {
