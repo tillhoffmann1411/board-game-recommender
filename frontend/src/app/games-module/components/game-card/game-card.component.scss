@@ -1,13 +1,13 @@
 .card {
   display: flex;
   flex-direction: column;
-  margin: 1rem 0.5rem;
-  width: 18rem;
+  width: 10rem;
+
 }
 
 img {
-  width: 16rem;
-  height: 16rem;
+  width: 9rem;
+  height: 9rem;
   margin: 0 auto;
   border-radius: 10px;
   box-shadow:  0px 0px 15px #afafaf;
@@ -15,6 +15,7 @@ img {
 
 .name {
   text-align: center;
+  font-size: 0.95rem;
 }
 
 .rating {
@@ -37,5 +38,15 @@ img {
 @media only screen and (min-width: 768px) {
   .card {
     margin: 1rem;
+    width: 18rem;
+  }
+
+  img {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .name {
+    font-size: 1rem;
   }
 }

@@ -23,6 +23,10 @@ export class AppComponent implements OnInit {
       if (this.isLoggedIn) {
         this.gameStore.loadBoardGames();
         this.gameStore.loadRatings();
+        this.gameStore.loadRecommendedCommonBased();
+        this.gameStore.loadRecommendedItemBased();
+        this.gameStore.loadRecommendedKNN();
+        this.gameStore.loadRecommendedPopularity();
       }
     });
   }

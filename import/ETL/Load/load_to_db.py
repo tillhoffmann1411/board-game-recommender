@@ -262,7 +262,7 @@ def upload_similarity_matrix_to_db():
                               },
                      inplace=True)
 
-    upload_dataframe(matrix_df, 'games_itemsimilaritymatrix', batchsize=10000)
+    upload_dataframe(matrix_df, 'games_itemsimilaritymatrix', batchsize=100000)
 
 
 def upload_dataframe(df: pd.DataFrame, table: str, batchsize: int = 1000):

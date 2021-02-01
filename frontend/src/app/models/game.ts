@@ -1,11 +1,15 @@
 export interface IGameState {
   boardGames: IBoardGame[];
-  recommendedBoardGames: {
-    commonBased: IRecResponse[],
-    knn: IRecResponse[],
-    itemBased: IRecResponse[]
-  };
   ratings: IRating[];
+  isLoading: boolean;
+  error: string;
+}
+
+export interface IRecommenderState {
+  commonBased: IRecResponse[],
+  knn: IRecResponse[],
+  itemBased: IRecResponse[],
+  popularity: IRecResponse[],
   isLoading: boolean;
   error: string;
 }

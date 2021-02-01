@@ -21,7 +21,7 @@ export class GameHttpService {
     return this.http.get<IBoardGame>(this.baseUrl + '/games/' + id + '/').toPromise();
   }
 
-  getRecommendedBoardGames(): Promise<IRecResponse[]> {
+  getRecommendedCommonBased(): Promise<IRecResponse[]> {
     return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/common-based/').toPromise();
   }
 
@@ -31,6 +31,10 @@ export class GameHttpService {
 
   getRecommendedItemBased(): Promise<IRecResponse[]> {
     return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/item-based/').toPromise();
+  }
+
+  getRecommendedPopularity(): Promise<IRecResponse[]> {
+    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/popularity/').toPromise();
   }
 
   sendRatings(rating: IRating): Promise<IRating> {

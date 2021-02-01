@@ -6,11 +6,6 @@ import { Game } from './game.actions';
 
 const DEFAULTS: IGameState = {
   boardGames: [],
-  recommendedBoardGames: {
-    commonBased: [],
-    knn: [],
-    itemBased: []
-  },
   ratings: [],
   isLoading: false,
   error: ''
@@ -31,11 +26,6 @@ export class GameState {
   @Selector()
   static getBoardGames(state: IGameState) {
     return state.boardGames;
-  }
-
-  @Selector()
-  static getRecommendedBoardGames(state: IGameState) {
-    return state.recommendedBoardGames;
   }
 
   @Selector()
@@ -136,10 +126,6 @@ export class GameState {
 
   @Action(Game.LoadBoardGamesSuccess)
   loadBoardGamesSuccess(ctx: StateContext<IGameState>, { boardGames }: Game.LoadBoardGamesSuccess) {
-    this.store.dispatch(new Game.LoadRecommendedBoardGames())
-    this.store.dispatch(new Game.LoadRecommendationKNN())
-    this.store.dispatch(new Game.LoadRecommendationItemBased())
-
     let joinedGames: IBoardGame[] = []
     if (ctx.getState().boardGames.length > 0) {
       const bgMap: Map<number, IBoardGame> = new Map();
@@ -195,87 +181,4 @@ export class GameState {
   loadBoardGameError(ctx: StateContext<IGameState>) {
     ctx.setState({ ...ctx.getState(), error: 'Error by loading games.' });
   }
-
-
-  /**
-   * Load Board Game Recommendations
-   */
-  @Action(Game.LoadRecommendedBoardGames)
-  loadRecommendedBoardGames(ctx: StateContext<IGameState>) {
-    this.gameService.getRecommendedBoardGames().then(res => {
-      if (Array.isArray(res)) {
-        this.store.dispatch(new Game.LoadRecommendedBoardGamesSuccess(res))
-      } else {
-        this.store.dispatch(new Game.LoadRecommendedBoardGamesError());
-      }
-    }).catch(() => {
-      this.store.dispatch(new Game.LoadRecommendedBoardGamesError());
-    });
-  }
-
-  @Action(Game.LoadRecommendedBoardGamesSuccess)
-  loadRecommendedBoardGamesSuccess(ctx: StateContext<IGameState>, { recommendedBoardGameIds }: Game.LoadRecommendedBoardGamesSuccess) {
-    ctx.patchState({ recommendedBoardGames: { ...ctx.getState().recommendedBoardGames, commonBased: recommendedBoardGameIds } });
-  }
-
-  @Action(Game.LoadRecommendedBoardGamesError)
-  loadRecommendedBoardGamesError(ctx: StateContext<IGameState>) {
-    ctx.setState({ ...ctx.getState(), error: 'Error by loading recommended games.' });
-  }
-
-
-  /**
-   * Load Board Game Recommendations
-   */
-  @Action(Game.LoadRecommendationKNN)
-  loadRecommendationKNN(ctx: StateContext<IGameState>) {
-    this.gameService.getRecommendedKNN().then(res => {
-      if (Array.isArray(res)) {
-        this.store.dispatch(new Game.LoadRecommendationKNNSuccess(res))
-      } else {
-        this.store.dispatch(new Game.LoadRecommendationKNNError());
-      }
-    }).catch(() => {
-      this.store.dispatch(new Game.LoadRecommendationKNNError());
-    });
-  }
-
-  @Action(Game.LoadRecommendationKNNSuccess)
-  loadRecommendationKNNSuccess(ctx: StateContext<IGameState>, { knnIds }: Game.LoadRecommendationKNNSuccess) {
-    ctx.patchState({ recommendedBoardGames: { ...ctx.getState().recommendedBoardGames, knn: knnIds } });
-  }
-
-  @Action(Game.LoadRecommendationKNNError)
-  loadRecommendationKNNError(ctx: StateContext<IGameState>) {
-    ctx.setState({ ...ctx.getState(), error: 'Error by loading knn recommended games.' });
-  }
-
-
-
-  /**
-   * Load Board Game Recommendations
-   */
-  @Action(Game.LoadRecommendationItemBased)
-  loadRecommendationItemBased(ctx: StateContext<IGameState>) {
-    this.gameService.getRecommendedItemBased().then(res => {
-      if (Array.isArray(res)) {
-        this.store.dispatch(new Game.LoadRecommendationItemBasedSuccess(res))
-      } else {
-        this.store.dispatch(new Game.LoadRecommendationItemBasedError());
-      }
-    }).catch(() => {
-      this.store.dispatch(new Game.LoadRecommendationItemBasedError());
-    });
-  }
-
-  @Action(Game.LoadRecommendationItemBasedSuccess)
-  loadRecommendationItemBasedSuccess(ctx: StateContext<IGameState>, { recIds }: Game.LoadRecommendationItemBasedSuccess) {
-    ctx.patchState({ recommendedBoardGames: { ...ctx.getState().recommendedBoardGames, itemBased: recIds } });
-  }
-
-  @Action(Game.LoadRecommendationItemBasedError)
-  loadRecommendationItemBasedError(ctx: StateContext<IGameState>) {
-    ctx.setState({ ...ctx.getState(), error: 'Error by loading item based recommended games.' });
-  }
-
 }
