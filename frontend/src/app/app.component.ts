@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthStore } from './storemanagement/auth.store';
 import { GameStore } from './storemanagement/game.store';
 
@@ -28,10 +27,10 @@ export class AppComponent implements OnInit {
 
     this.gameStore.getRatings.subscribe(ratings => {
       if (ratings.length >= 5) {
-        this.gameStore.loadRecommendedCommonBased();
-        this.gameStore.loadRecommendedItemBased();
-        this.gameStore.loadRecommendedKNN();
         this.gameStore.loadRecommendedPopularity();
+        this.gameStore.loadRecommendedKNN();
+        this.gameStore.loadRecommendedItemBased();
+        this.gameStore.loadRecommendedCommonBased();
       }
     })
   }
