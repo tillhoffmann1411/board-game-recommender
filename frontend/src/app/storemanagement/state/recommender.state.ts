@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { IRecommenderState } from 'src/app/models/game';
-import { GameHttpService } from 'src/app/services/game.service';
+import { RecommendationHttpService } from 'src/app/services/recommendation.service';
 import { Recommender } from './recommender.actions';
 
 const DEFAULTS: IRecommenderState = {
@@ -21,7 +21,7 @@ const DEFAULTS: IRecommenderState = {
 export class RecommenderState {
 
   constructor(
-    private gameService: GameHttpService,
+    private recommendationService: RecommendationHttpService,
     private store: Store,
   ) { }
 
@@ -42,7 +42,7 @@ export class RecommenderState {
    */
   @Action(Recommender.LoadRecommendationCommonBased)
   loadRecommendedBoardGames(ctx: StateContext<IRecommenderState>) {
-    this.gameService.getRecommendedCommonBased().then(res => {
+    this.recommendationService.getRecommendedCommonBased().then(res => {
       if (Array.isArray(res)) {
         this.store.dispatch(new Recommender.LoadRecommendationCommonBasedSuccess(res))
       } else {
@@ -69,7 +69,7 @@ export class RecommenderState {
    */
   @Action(Recommender.LoadRecommendationKNN)
   loadRecommendationKNN(ctx: StateContext<IRecommenderState>) {
-    this.gameService.getRecommendedKNN().then(res => {
+    this.recommendationService.getRecommendedKNN().then(res => {
       if (Array.isArray(res)) {
         this.store.dispatch(new Recommender.LoadRecommendationKNNSuccess(res))
       } else {
@@ -97,7 +97,7 @@ export class RecommenderState {
    */
   @Action(Recommender.LoadRecommendationItemBased)
   loadRecommendationItemBased(ctx: StateContext<IRecommenderState>) {
-    this.gameService.getRecommendedItemBased().then(res => {
+    this.recommendationService.getRecommendedItemBased().then(res => {
       if (Array.isArray(res)) {
         this.store.dispatch(new Recommender.LoadRecommendationItemBasedSuccess(res))
       } else {
@@ -124,7 +124,7 @@ export class RecommenderState {
    */
   @Action(Recommender.LoadRecommendationPopularity)
   loadRecommendationPopularity(ctx: StateContext<IRecommenderState>) {
-    this.gameService.getRecommendedPopularity().then(res => {
+    this.recommendationService.getRecommendedPopularity().then(res => {
       if (Array.isArray(res)) {
         this.store.dispatch(new Recommender.LoadRecommendationPopularitySuccess(res))
       } else {

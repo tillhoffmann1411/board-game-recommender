@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
       if (this.isLoggedIn) {
         this.gameStore.loadBoardGames();
         this.gameStore.loadRatings();
+        this.gameStore.loadGameAdvancedInfo();
       }
     });
 

@@ -1,6 +1,14 @@
+import { IAuth } from './auth';
+
 export interface IGameState {
   boardGames: IBoardGame[];
   ratings: IRating[];
+  advancedInfos: {
+    categories: ICategory[];
+    mechanics: IMechanic[];
+    authors: IAuthor[];
+    publishers: IPublisher[];
+  };
   isLoading: boolean;
   error: string;
 }
@@ -31,15 +39,17 @@ export interface IBoardGame {
   minNumberOfPlayers?: number;
   maxNumberOfPlayers?: number;
   minAge?: number;
+  bggId?: number;
   bggAvgRating?: number;
   bgaAvgRating?: number;
   bggRating?: number;
+  bgaId?: string;
   bgaRating?: number;
   officialUrl?: string;
   thumbnailUrl?: string;
   bgaUrl?: string;
   author?: IAuthor[];
-  categories?: ICategory[];
+  category?: ICategory[];
   gameMechanic?: IMechanic[];
   publisher?: IPublisher[];
   onlineGames?: IOnlineGame[];

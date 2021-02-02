@@ -22,7 +22,9 @@
           <img
             src="https://image.winudf.com/v2/image1/Y29tLmF0bGFzYWxwaGEuYm9hcmRnYW1lYXRsYXNfaWNvbl8xNTYyODU4NjE4XzA4NA/icon.png?w=170&fakeurl=1"
             alt="">
-          <h3>Board Game Atlas</h3>
+          <span class="text">
+            Board Game Atlas
+          </span>
         </div>
         <div class="info-row" *ngFor="let info of bgaInfos" [ngClass]="{'link': info.link }"
           (click)="clickOnInfo(info)">
@@ -34,12 +36,29 @@
       <div class="external-container" *ngIf="bggInfos.length > 0">
         <div class="title">
           <img src="https://pbs.twimg.com/profile_images/1158829646370226176/A2xzJhSc_400x400.jpg" alt="">
-          <h3>Board Game Geek</h3>
+          <span class="text">
+            Board Game Geek
+          </span>
         </div>
         <div class="info-row" *ngFor="let info of bggInfos" [ngClass]="{'link': info.link }"
           (click)="clickOnInfo(info)">
           <mat-icon>{{ info.icon }}</mat-icon>
           <span>{{ info.text }}</span>
+        </div>
+      </div>
+
+
+      <div class="external-container" *ngIf="game?.onlineGames?.length > 0">
+        <div class="title">
+          <div class="text">
+            Play this game online!
+          </div>
+        </div>
+        <div class="info-row link" *ngFor="let onlinegame of game.onlineGames" (click)="clickOnOnlinegame(onlinegame)">
+          <img class="online-game"
+            [src]="onlinegame.origin === 'Yucata' ? 'https://www.yucata.de/bundles/images/Logo.jpg' : 'https://steamcdn-a.akamaihd.net/steam/apps/402560/logo.png?t=1596691394'"
+            alt="">
+          <span>Play {{ onlinegame.name }} on {{ onlinegame.origin }}</span>
         </div>
       </div>
 
@@ -53,23 +72,66 @@
 
   </section>
 
-  <section class="description-section row" *ngIf="game && game.description">
-    <h2>Description</h2>
-    <p class="long-description">{{ game.description }}</p>
-
+  <section class="info-section row" *ngIf="game">
     <details class="short-description">
-      <summary>{{ game.description }}</summary>
+      <summary>Categories, Designers, Game Mechanics and Publisher</summary>
+      <div class="content">
+
+
+        <div class="info-row" *ngIf="game.author">
+          <img *ngFor="let author of game.author" [src]="author.imageUrl" alt="" class="hide hide-on-s hide-on-xs">
+          <div>Designers:</div>
+          <div class="chip-row">
+            <span class="chip" *ngFor="let author of game.author">
+              {{ author.name }}
+            </span>
+          </div>
+        </div>
+
+        <div class="info-row" *ngIf="game.category">
+          <div>Categories:</div>
+          <div class="chip-row">
+            <span class="chip" *ngFor="let category of game.category">
+              {{ category.name }}
+            </span>
+          </div>
+        </div>
+
+        <div class="info-row" *ngIf="game.gameMechanic">
+          <div>Game Mechanics:</div>
+          <div class="chip-row">
+            <span class="chip" *ngFor="let mechanic of game.gameMechanic">
+              {{ mechanic.name }}
+            </span>
+          </div>
+        </div>
+
+
+        <div class="info-row" *ngIf="game.publisher">
+          <div>Publisher:</div>
+          <div class="chip-row">
+            <span class="chip" *ngFor="let publisher of game.publisher">
+              {{ publisher.name }}
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </details>
+  </section>
+
+  <section class="description-section row" *ngIf="game && game.description">
+    <div class="hide hide-on-s hide-on-xs">
+      <h2>Description</h2>
+      <p>{{ game.description }}</p>
+    </div>
+
+    <details class="hide-on-l hide-on-xl">
+      <summary>Description</summary>
       <p class="content">
         {{ game.description }}
       </p>
     </details>
-  </section>
-
-  <section class="game-section row" *ngIf="onlineGames.length > 0">
-    <h2>Corresponding online games</h2>
-    <div class="game-list">
-      <app-game-card [game]="game" *ngFor="let game of onlineGames" [deactivateRating]="true"></app-game-card>
-    </div>
   </section>
 
 </div>
