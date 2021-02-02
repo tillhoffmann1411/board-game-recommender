@@ -48,6 +48,8 @@ def clean_bgg_games():
         ]
     df.drop(columns_to_remove, axis=1, inplace=True)
 
+    df['description'] = df['description'].replace('&#10;', '')
+    df['description'] = df['description'].replace('&quot;', '')
 
     # rename columns:
     df.rename(columns={

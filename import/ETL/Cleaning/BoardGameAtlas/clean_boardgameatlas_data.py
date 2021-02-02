@@ -361,6 +361,10 @@ def clean_bga_api_game_information():
     # create dataframe:
     game_information_df = pd.DataFrame.from_dict(data)
 
+    # Delete badly encoded symbols
+    game_information_df['description_preview'] = game_information_df['description_preview'].replace('&#10;', '')
+    game_information_df['description_preview'] = game_information_df['description_preview'].replace('&quot;', '')
+
     # rename a few columns:
     game_information_df.rename(columns={
         'id': 'bga_game_id',
