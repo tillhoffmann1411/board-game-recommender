@@ -16,6 +16,11 @@ class MyKnnWithMeans:
         self.target_user_ratings = target_user_ratings
         self.item_means = item_means
 
+        # check if games in target ratings exist in sim_matrix
+        # if not remove them:
+        for rating_tuple in list(target_user_ratings):
+            if rating_tuple[0] not in self.sim_matrix:
+                target_user_ratings.remove(rating_tuple)
 
     def predict_all_games(self):
         all_games = [k for k, _ in self.item_means.items()]

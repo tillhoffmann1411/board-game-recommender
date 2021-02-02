@@ -41,11 +41,14 @@ def get_similarity_matrix(games_rated_by_target_user,
     # rename first column:
     sim_matrix_long.rename(columns={'index': 'game_key'}, inplace=True)
 
+    start_time = time.time()
     # long sim_matrix to wide format:
     sim_matrix_wide = sim_matrix_long.pivot(index='game_key', columns='game_key_2', values='value')
+    print("--- %s seconds ---" % (time.time() - start_time))
 
     # convert column names of sim_matrix to int:
     sim_matrix_wide.columns = sim_matrix_wide.columns.astype(int)
+
 
     ### this part will later be replaced by the SQL query, that takes care of this:
     # extract only information for given items:
@@ -799,7 +802,8 @@ def main():
     elif run_method == 8:
         selfmade_approach()
     elif run_method == 9:
-        user_ratings = pd.DataFrame({'game_key': [100001, 100002, 100003, 100004, 100006], 'rating': [2, 3, 7, 8, 4]})
+        user_ratings = pd.DataFrame({'game_key': [100001, 100007, 100003, 100006, 100005, 100013, 100011, 100008, 100004, 100002, 123],
+                                     'rating': [8, 10, 4, 8, 2, 10, 6, 8, 6, 10, 8]})
         result = get_KNN_predictions(user_ratings)
     elif run_method == 10:
         create_similarity_matrix()
