@@ -778,7 +778,7 @@ def create_similarity_matrix():
 
 
 def main():
-    run_method = 10
+    run_method = 9
 
     if run_method == 1:
         svd_factorization()

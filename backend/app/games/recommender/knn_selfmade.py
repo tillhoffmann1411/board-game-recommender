@@ -37,8 +37,9 @@ def selfmade_KnnWithMeans_approach(target_ratings_df: pd.DataFrame):
 
 
 def get_similarity_matrix_from_db(games_rated_by_target_user):
-    # TODO: import of sim_matrix from DB
-
+    # Import similarity matrix of games rated by our target user
+    # example: let's say he rated 10 games
+    # in this case the similarity matrix will contain 10*4000 = 40000 rows:
     sim_matrix_long = read_frame(ItemSimilarityMatrix.objects.filter(game_one__in=games_rated_by_target_user))
     sim_matrix_long = sim_matrix_long.rename(
         columns={'game_one': 'game_key', 'game_two': 'game_key_2', 'similarity': 'value'}
@@ -60,6 +61,13 @@ class MyKnnWithMeans:
         self.sim_matrix = sim_matrix
         self.target_user_ratings = target_user_ratings
         self.item_means = item_means
+
+        # check if games in target ratings exist in sim_matrix
+        # if not remove them:
+        for rating_tuple in list(target_user_ratings):
+            if rating_tuple[0] not in self.sim_matrix:
+                target_user_ratings.remove(rating_tuple)
+
 
     def predict_all_games(self):
         all_games = [k for k, _ in self.item_means.items()]
