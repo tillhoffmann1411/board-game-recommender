@@ -11,12 +11,14 @@ from django_pandas.io import read_frame
 from .permissions import IsAdminOrReadOnly
 from .models import Author, BoardGame, Category, GameMechanic, OnlineGame, Publisher, Recommendations
 from .serializers import AuthorSerializer, BoardGameDetailSerializer, BoardGameSerializer, CategorySerializer, MechanicSerializer, OnlineGameSerializer, PublisherSerializer, RecommendationSerializer
+
 from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review
 
 from .recommender.similar_users import similiar_users
-# from .recommender.similar_users import similiar_items
-from .recommender.knn_with_means_selfmade import selfmade_KnnWithMeans_approach
+from .recommender.recommend_popular_games import popular_games
+from .recommender.knn_selfmade import selfmade_KnnWithMeans_approach
+from .recommender.recommend_similar_games import similar_games
 
 
 class BoardGameList(generics.ListAPIView):
@@ -74,32 +76,40 @@ class RecommendationKNN(APIView):
 
     def get(self, *args, **kwargs):
         user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
-        user_id = user_taste.id
 
         reviews_from_user = Review.objects.all().filter(created_by=user_taste)
 
         reviews_from_user_df = read_frame(reviews_from_user, fieldnames=['game_id__id', 'rating'])
         reviews_from_user_df = reviews_from_user_df.rename(columns={'game_id__id': 'game_key', 'rating': 'rating'})
 
-        return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
+        return Response(selfmade_KnnWithMeans_approach(reviews_from_user_df))
 
 
 class RecommendationItemBased(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
-        # Call here similiar items function
+        user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
+        user_id = user_taste.id
 
-        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
+        reviews_user_df = read_frame(Review.objects.filter(created_by=user_taste),
+                                     fieldnames=['game_id__id', 'created_by__id', 'rating'])
+        reviews_user_df = reviews_user_df.rename(
+            columns={'created_by__id': 'user_key', 'game_id__id': 'game_key', 'rating': 'rating'})
+
+        return Response(similar_games(user_id, reviews_user_df))
 
 
 class RecommendationPopularity(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
-        # Call here similiar items function
+        boardgames_df = read_frame(BoardGame.objects.all(), fieldnames=[
+                                   'id', 'name', 'bgg_num_ratings', 'bga_num_ratings', 'bgg_avg_rating'])
+        boardgames_df = boardgames_df.rename(columns={'id': 'game_key', 'bgg_num_ratings': 'bgg_num_user_ratings',
+                                                      'bga_num_ratings': 'bga_num_user_ratings', 'bgg_avg_rating': 'bgg_average_user_rating'})
 
-        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
+        return Response(popular_games(boardgames_df))
 
 
 class CategoryList(generics.ListAPIView):

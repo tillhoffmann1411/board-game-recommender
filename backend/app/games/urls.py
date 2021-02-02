@@ -7,7 +7,7 @@ urlpatterns = [
     url('recommendation/knn/', views.RecommendationKNN.as_view()),
     url('recommendation/item-based/', views.RecommendationItemBased.as_view()),
     url('recommendation/common-based/', views.RecommendationCommonBased.as_view()),
-    url('recommendation/popularity/', views.RecommendationCommonBased.as_view()),
+    url('recommendation/popularity/', views.RecommendationPopularity.as_view()),
 
     url('category/', views.CategoryList.as_view()),
     url('mechanic/', views.MechanicList.as_view()),

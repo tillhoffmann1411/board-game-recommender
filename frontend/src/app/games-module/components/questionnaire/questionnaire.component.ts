@@ -23,12 +23,12 @@ export class QuestionnaireComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private gameService: GameStore,
+    private gameStore: GameStore,
   ) { }
 
   ngOnInit(): void {
-    this.gameService.getRatings.subscribe(ratings => this.ratings = ratings);
-    this.gameService.getBoardGames.subscribe(games => {
+    this.gameStore.getRatings.subscribe(ratings => this.ratings = ratings);
+    this.gameStore.getBoardGames.subscribe(games => {
       if (games.length > 0) {
         this.isLoading = false;
       }
@@ -48,6 +48,10 @@ export class QuestionnaireComponent implements OnInit {
 
   next() {
     this.router.navigate(['recommendations'], { relativeTo: this.route });
+    this.gameStore.loadRecommendedCommonBased();
+    this.gameStore.loadRecommendedItemBased();
+    this.gameStore.loadRecommendedKNN();
+    this.gameStore.loadRecommendedPopularity();
   }
 
   /**

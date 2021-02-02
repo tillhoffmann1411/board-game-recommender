@@ -28,7 +28,7 @@ class BoardGameSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = BoardGame
         fields = ('id', 'name', 'image_url', 'min_playtime', 'max_playtime', 'min_number_of_players',
-                  'max_number_of_players', 'min_age', 'category')
+                  'max_number_of_players', 'min_age')
 
     # Unused fields:    'reddit_all_time_count', 'author', 'category', 'game_mechanic', 'publisher',
     #                   'bga_rank_trending', 'bga_rank', 'bgg_average_wight', 'bga_num_ratings', 'bga_id',

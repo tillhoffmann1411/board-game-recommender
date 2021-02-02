@@ -1,39 +1,11 @@
 <div class="wrapper row">
 
-  <section class="filter-section col-xl-2">
-    <mat-expansion-panel class="filter mat-elevation-z0" [expanded]="largeScreen" [disabled]="isLoading">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Filter
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-      <div class="filter">
-        <div class="filter-actions">
-          <button class="button primary" (click)="filter()">
-            <mat-icon>filter_alt</mat-icon>
-            Filter
-          </button>
-        </div>
-
-        <div class="input-section">
-          <label for="category">Category</label>
-          <mat-select #category class="input">
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
-          </mat-select>
-        </div>
-
-        <div class="input-section">
-          <label for="mechanic">Game mechanic</label>
-          <mat-select #mechanic class="input">
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
-          </mat-select>
-        </div>
-
+  <section class="filter-section">
+    <details class="filter col-l-2 col-xl-2" [open]="largeScreen">
+      <summary>
+        Filter
+      </summary>
+      <div class="content filter">
         <div class="input-section">
           <label for="age">Min Age</label>
           <div class="num-input">
@@ -65,37 +37,43 @@
             <input type="number" min="1" max="1000" #age class="input" [(ngModel)]="time.max" />
           </div>
         </div>
-      </div>
 
-    </mat-expansion-panel>
+        <div class="filter-actions">
+          <button class="button primary" (click)="filter()">
+            <mat-icon>filter_alt</mat-icon>
+            Filter
+          </button>
+        </div>
+      </div>
+    </details>
   </section>
 
-  <section class="game-section col-xl-10" *ngIf="!isLoading && knn.length > 0">
-    <h2>Our recommendation for you</h2>
+  <section class="game-section col-l-10" *ngIf="!isLoading && knn.length > 0">
+    <h2>Top Picks for you</h2>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of knn"></app-game-card>
     </div>
   </section>
 
-  <section class="game-section col-xl-10" *ngIf="!isLoading && commonBased.length > 0">
-    <h2>People with the same taste as you play</h2>
+  <section class="game-section col-l-10" *ngIf="!isLoading && commonBased.length > 0">
+    <h2>People like you play</h2>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of commonBased"></app-game-card>
     </div>
   </section>
 
-  <section class="game-section col-xl-10" *ngIf="!isLoading && itemBased.length > 0">
-    <h2>Similar games to the ones you play so far</h2>
+  <section class="game-section col-l-10" *ngIf="!isLoading && itemBased.length > 0">
+    <h2>Suits your taste</h2>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of itemBased"></app-game-card>
     </div>
   </section>
 
 
-  <section class="game-section col-xl-10" *ngIf="!isLoading && false">
-    <h2>Top rated games on other plattforms</h2>
+  <section class="game-section col-l-10" *ngIf="!isLoading">
+    <h2>Trending</h2>
     <div class="game-row">
-      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of knn"></app-game-card>
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of popularity"></app-game-card>
     </div>
   </section>
 

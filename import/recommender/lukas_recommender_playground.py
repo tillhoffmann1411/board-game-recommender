@@ -1,16 +1,11 @@
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 from surprise import Reader, Dataset, SVD, NMF, accuracy, KNNWithMeans, KNNBasic, KNNWithZScore, CoClustering, SlopeOne, \
     dump
 from surprise.model_selection import train_test_split, cross_validate
-from surprise.trainset import Trainset
-from numpy import count_nonzero
-from collections import defaultdict
+
 from sklearn.metrics.pairwise import pairwise_distances, cosine_similarity
 import time
-import heapq
 import json
 
 from recommender.myKNNwithMeansAlgorithm import MyKnnWithMeans
@@ -783,7 +778,7 @@ def create_similarity_matrix():
 
 
 def main():
-    run_method = 9
+    run_method = 10
 
     if run_method == 1:
         svd_factorization()
