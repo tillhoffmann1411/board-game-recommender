@@ -49,21 +49,21 @@
   </section>
 
   <section class="game-section col-l-10" *ngIf="!isLoading && knn.length > 0">
-    <h2>Top Picks for you</h2>
+    <h1>Top Picks for you</h1>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of knn"></app-game-card>
     </div>
   </section>
 
   <section class="game-section col-l-10" *ngIf="!isLoading && commonBased.length > 0">
-    <h2>People like you play</h2>
+    <h1>Users similar to you also liked</h1>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of commonBased"></app-game-card>
     </div>
   </section>
 
   <section class="game-section col-l-10" *ngIf="!isLoading && itemBased.length > 0">
-    <h2>Suits your taste</h2>
+    <h1>Games similar to your favorite games</h1>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of itemBased"></app-game-card>
     </div>
@@ -71,7 +71,7 @@
 
 
   <section class="game-section col-l-10" *ngIf="!isLoading">
-    <h2>Trending</h2>
+    <h1>Trending</h1>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of popularity"></app-game-card>
     </div>

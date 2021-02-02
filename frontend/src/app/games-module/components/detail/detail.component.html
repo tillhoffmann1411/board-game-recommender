@@ -48,7 +48,7 @@
       </div>
 
 
-      <div class="external-container" *ngIf="game?.onlineGames?.length > 0">
+      <div class="external-container" *ngIf="game && game.onlineGames && game.onlineGames.length > 0">
         <div class="title">
           <div class="text">
             Play this game online!
