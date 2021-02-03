@@ -13,17 +13,13 @@ export class UserRatingsComponent implements OnInit {
   allGames: Map<number, IBoardGame> = new Map();
   ratedGames: IBoardGame[];
   ratings: IRating[] = [];
-  user: string = '';
 
   constructor(
-    private gameStore: GameStore,
-    private authStore: AuthStore
+    private gameStore: GameStore
   ) { }
 
   ngOnInit(): void {
     this.gameStore.isLoading.subscribe(isLoading => this.isLoading = isLoading);
-
-    this.user = this.authStore.getUserSnapshot().username;
 
     this.gameStore.getRatings.subscribe(ratings => this.ratings = ratings);
     this.gameStore.getBoardGames.subscribe(games => {
