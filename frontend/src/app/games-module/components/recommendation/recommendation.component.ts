@@ -20,7 +20,7 @@ export class RecommendationComponent implements OnInit {
   isLoadingRecommendations = false;
   largeScreen = document.body.clientWidth >= 992;
 
-  minAge = 0;
+  maxAge = 0;
   player: { min: number, max: number } = { min: 0, max: 0 };
   time: { min: number, max: number } = { min: 0, max: 0 };
 
@@ -75,11 +75,11 @@ export class RecommendationComponent implements OnInit {
   }
 
   minusMinAge() {
-    this.minAge = this.minAge < 0 ? -1 : this.minAge - 1;
+    this.maxAge = this.maxAge < 0 ? -1 : this.maxAge - 1;
   }
 
   plusMinAge() {
-    this.minAge = this.minAge > 99 ? 100 : this.minAge + 1;
+    this.maxAge = this.maxAge > 99 ? 100 : this.maxAge + 1;
   }
 
   refresh() {
@@ -89,15 +89,22 @@ export class RecommendationComponent implements OnInit {
     this.gameStore.loadRecommendedCommonBased();
   }
 
+  resetFilter() {
+    this.maxAge = 0;
+    this.player = { min: 0, max: 0 };
+    this.time = { min: 0, max: 0 };
+    this.filter();
+  }
+
   filter() {
     const filteredGames: Map<number, IBoardGame> = new Map();
     this.gameMap.forEach((game, id) => {
       if (
-        game.minAge && game.minAge >= this.minAge &&
-        game.minNumberOfPlayers && game.minNumberOfPlayers >= this.player.min &&
-        (this.player.max === 0 || (game.maxNumberOfPlayers && game.maxNumberOfPlayers <= this.player.max)) &&
-        game.minPlaytime && game.minPlaytime >= this.time.min &&
-        (this.time.max === 0 || (game.maxPlaytime && game.maxPlaytime <= this.time.max))
+        (this.maxAge === 0 || (game.minAge && game.minAge <= this.maxAge)) &&
+        (this.player.min === 0 || (game.minNumberOfPlayers && game.minNumberOfPlayers >= this.player.min && game.minNumberOfPlayers <= this.player.max)) &&
+        (this.player.max === 0 || (game.maxNumberOfPlayers && game.maxNumberOfPlayers <= this.player.max && game.maxNumberOfPlayers >= this.player.min)) &&
+        (this.time.min === 0 || (game.minPlaytime && game.minPlaytime >= this.time.min && game.minPlaytime <= this.player.max)) &&
+        (this.time.max === 0 || (game.maxPlaytime && game.maxPlaytime <= this.time.max && game.maxPlaytime >= this.time.min))
       ) {
         filteredGames.set(id, game);
       }

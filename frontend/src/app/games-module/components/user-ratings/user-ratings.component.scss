@@ -1,0 +1,30 @@
+@import "../../../../colors.scss";
+
+.wrapper {
+  margin-top: 4rem;
+}
+
+.game-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    padding: 2rem;
+  }
+
+  .game-list {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
