@@ -1,6 +1,6 @@
 <div class="wrapper row">
 
-  <section class="top-section row" *ngIf="game">
+  <section class="top-section row" *ngIf="game && !isLoading">
     <div class="image col-3">
       <img [src]="game.imageUrl" [alt]="game.name">
     </div>
@@ -72,7 +72,8 @@
 
   </section>
 
-  <section class="info-section row" *ngIf="game">
+  <section class="info-section row"
+    *ngIf="game && !isLoading && (game.author || game.category || game.gameMechanic || game.publisher)">
     <details class="short-description">
       <summary>Categories, Designers, Game Mechanics and Publisher</summary>
       <div class="content">
@@ -120,7 +121,7 @@
     </details>
   </section>
 
-  <section class="description-section row" *ngIf="game && game.description">
+  <section class="description-section row" *ngIf="game && game.description && !isLoading">
     <div class="hide hide-on-s hide-on-xs">
       <h2>Description</h2>
       <p>{{ game.description }}</p>
@@ -132,6 +133,11 @@
         {{ game.description }}
       </p>
     </details>
+  </section>
+
+  <section class="loading" *ngIf="isLoading">
+    <h2>Loading the game details</h2>
+    <app-loading></app-loading>
   </section>
 
 </div>

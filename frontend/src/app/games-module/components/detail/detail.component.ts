@@ -27,6 +27,8 @@ export class DetailComponent implements OnInit {
 
   rating = 0;
 
+  isLoading = true;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -34,6 +36,8 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.gameStore.isLoadingDetails.subscribe(isLoading => this.isLoading = isLoading);
+
     this.route.queryParams.subscribe(params => {
       if (params.id) {
         this.paramId = params.id

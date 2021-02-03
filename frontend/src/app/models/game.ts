@@ -8,6 +8,7 @@ export interface IGameState {
     publishers: IPublisher[];
   };
   isLoading: boolean;
+  isLoadingDetails: boolean;
   error: string;
 }
 
