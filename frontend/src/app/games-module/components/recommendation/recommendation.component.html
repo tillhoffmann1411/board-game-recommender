@@ -48,6 +48,15 @@
     </details>
   </section>
 
+  <section class="col-l-10 action-section" *ngIf="!isLoading">
+    <div class="tooltip"
+      [matTooltip]="isLoadingRecommendations ? 'Loading all your recommendations...' : 'Refresh recommendations!'">
+      <button class="primary" [disabled]="isLoadingRecommendations" (click)="refresh()">
+        <mat-icon>autorenew</mat-icon>
+      </button>
+    </div>
+  </section>
+
   <section class="game-section col-l-10" *ngIf="!isLoading && knn.length > 0">
     <h1>Top Picks for you</h1>
     <div class="game-row">

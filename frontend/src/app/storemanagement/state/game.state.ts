@@ -164,10 +164,8 @@ export class GameState {
       if (res && res.bggId) {
         try {
           const games = await this.gameService.getOnlineGame(res.bggId);
-          console.log('online games:', games);
           this.store.dispatch(new Game.LoadBoardGameSuccess({ ...res, onlineGames: [games] }));
         } catch (error) {
-          console.log('dispatch only game')
           this.store.dispatch(new Game.LoadBoardGameSuccess(res));
         }
       } else {

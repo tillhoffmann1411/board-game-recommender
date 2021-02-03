@@ -18,6 +18,7 @@ export class QuestionnaireComponent implements OnInit {
   filteredGames: Observable<IBoardGame[]>;
   ratings: IRating[] = [];
   isLoading = true;
+  isLoadingRecommendations = false;
 
 
   constructor(
@@ -28,6 +29,7 @@ export class QuestionnaireComponent implements OnInit {
 
   ngOnInit(): void {
     this.gameStore.getRatings.subscribe(ratings => this.ratings = ratings);
+    this.gameStore.isLoadingRecommendations.subscribe(isLoading => this.isLoadingRecommendations = isLoading);
     this.gameStore.getBoardGames.subscribe(games => {
       if (games.length > 0) {
         this.isLoading = false;
@@ -48,10 +50,12 @@ export class QuestionnaireComponent implements OnInit {
 
   next() {
     this.router.navigate(['recommendations'], { relativeTo: this.route });
-    this.gameStore.loadRecommendedCommonBased();
-    this.gameStore.loadRecommendedItemBased();
-    this.gameStore.loadRecommendedKNN();
-    this.gameStore.loadRecommendedPopularity();
+    if (!this.isLoadingRecommendations) {
+      this.gameStore.loadRecommendedCommonBased();
+      this.gameStore.loadRecommendedItemBased();
+      this.gameStore.loadRecommendedKNN();
+      this.gameStore.loadRecommendedPopularity();
+    }
   }
 
   /**

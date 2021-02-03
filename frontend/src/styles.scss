@@ -130,6 +130,10 @@ button:disabled,
 button[disabled]{
   background-color: #cccccc;
   color: #868686;
+  cursor: auto;
+  &:active {
+    transform: scale(1);
+  }
 }
 
 

@@ -17,6 +17,7 @@ export class RecommendationComponent implements OnInit {
   gameMap: Map<number, IBoardGame> = new Map();
 
   isLoading = false;
+  isLoadingRecommendations = false;
   largeScreen = document.body.clientWidth >= 992;
 
   minAge = 0;
@@ -25,23 +26,27 @@ export class RecommendationComponent implements OnInit {
 
 
   constructor(
-    private gameService: GameStore,
+    private gameStore: GameStore,
   ) { }
 
   ngOnInit(): void {
     window.addEventListener('resize', (event) => {
       this.largeScreen = document.body.clientWidth >= 992;
     });
-    this.isLoading = true;
-    this.gameService.getBoardGames.subscribe(games => {
-      this.gameService.getRecommendedBoardGames.subscribe(recommendations => {
+    this.gameStore.isLoading.subscribe(isLoading => this.isLoading = isLoading);
+    this.gameStore.isLoadingRecommendations.subscribe(isLoading => this.isLoadingRecommendations = isLoading);
+
+    this.gameStore.getBoardGames.subscribe(games => {
+      this.gameStore.getRecommendedBoardGames.subscribe(recommendations => {
+
         if (games.length > 0 &&
           (recommendations.commonBased.length > 0 ||
             recommendations.knn.length > 0 ||
             recommendations.itemBased.length > 0)) {
-          this.isLoading = false;
         }
+
         games.forEach(g => this.gameMap.set(g.id, g));
+
         this.recommendations = recommendations;
         this.commonBased = this.getGameListFromKeys(recommendations.commonBased, this.gameMap);
         this.knn = this.getGameListFromKeys(recommendations.knn, this.gameMap);
@@ -77,8 +82,14 @@ export class RecommendationComponent implements OnInit {
     this.minAge = this.minAge > 99 ? 100 : this.minAge + 1;
   }
 
+  refresh() {
+    this.gameStore.loadRecommendedPopularity();
+    this.gameStore.loadRecommendedKNN();
+    this.gameStore.loadRecommendedItemBased();
+    this.gameStore.loadRecommendedCommonBased();
+  }
+
   filter() {
-    console.log(this.minAge, this.player, this.time);
     const filteredGames: Map<number, IBoardGame> = new Map();
     this.gameMap.forEach((game, id) => {
       if (

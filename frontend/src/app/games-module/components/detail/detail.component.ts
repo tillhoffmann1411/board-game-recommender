@@ -45,7 +45,6 @@ export class DetailComponent implements OnInit {
         this.game = games.find(g => {
           return g.id == this.paramId;
         })!;
-        console.log(this.game);
       }
       this.gameStore.getRatings.subscribe(ratings => {
         const userRate = ratings.find(rating => rating.game === this.game?.id)?.rating;

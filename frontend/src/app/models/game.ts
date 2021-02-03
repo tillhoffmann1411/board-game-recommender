@@ -1,5 +1,3 @@
-import { IAuth } from './auth';
-
 export interface IGameState {
   boardGames: IBoardGame[];
   ratings: IRating[];
