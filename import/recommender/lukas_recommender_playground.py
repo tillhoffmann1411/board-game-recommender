@@ -126,7 +126,7 @@ def export_reviews(df):
     df.to_csv(export_path)
 
 
-def import_reduced_reviews(import_path='C:/Users/lukas/OneDrive/Desktop/Reviews_Reduced.csv'):
+def import_reduced_reviews(import_path='../Data/Joined/Results/Reviews_Reduced.csv'):
     df = pd.read_csv(import_path)
     # drop index col:
     df.drop(df.columns[0], axis=1, inplace=True)
@@ -797,8 +797,8 @@ def main():
     elif run_method == 8:
         selfmade_approach()
     elif run_method == 9:
-        user_ratings = pd.DataFrame({'game_key': [100001, 100007, 100003, 100006, 100005, 100013, 100011, 100008, 100004, 100002, 123],
-                                     'rating': [8, 10, 4, 8, 2, 10, 6, 8, 6, 10, 8]})
+        user_ratings = pd.DataFrame({'game_key': [100001, 100007, 100003, 100006, 100005, 100013, 100011, 100008, 100004, 100002],
+                                     'rating': [8, 10, 4, 8, 2, 10, 6, 8, 6, 10]})
         result = get_KNN_predictions(user_ratings)
     elif run_method == 10:
         create_similarity_matrix()
