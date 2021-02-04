@@ -1,8 +1,8 @@
 <div class="wrapper row">
 
   <section class="search-section row" *ngIf="!isLoading">
-    <h2 *ngIf="(5 - ratings.length) > 0">Give&nbsp;{{ (5 - ratings.length) < 0 ? 0 : 5 - ratings.length }}&nbsp;games
-        you like or dislike</h2>
+    <h2 *ngIf="(5 - ratings.length) > 0">Rate&nbsp;{{ (5 - ratings.length) < 0 ? 0 : 5 - ratings.length }}&nbsp; more
+        games that you like or dislike</h2>
         <div class="input-section col-xl-4">
           <label for="search">Search for games</label>
           <span class="input-line">
@@ -23,14 +23,15 @@
   <section class="game-list row">
     <ng-container *ngIf="!isLoading">
       <div *ngFor="let game of filteredGames | async">
-        <app-game-card [game]="game" [rating]="getRatingForGame(game.id)">
+        <app-game-card [game]="game" [rating]="getRatingForGame(game.id)" [activateDetails]="true"
+          [activateRating]="true">
         </app-game-card>
       </div>
     </ng-container>
   </section>
 
   <section class="loading" *ngIf="isLoading">
-    <h2>Give us a second, we are loading all the greate games.</h2>
+    <h2>Give us a second, we are loading all the great games.</h2>
     <app-loading></app-loading>
   </section>
 

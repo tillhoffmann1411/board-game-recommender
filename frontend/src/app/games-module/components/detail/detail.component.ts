@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IBoardGame } from 'src/app/models/game';
+import { IAuthor, IBoardGame, ICategory, IMechanic, IOnlineGame, IPublisher } from 'src/app/models/game';
 import { GameStore } from 'src/app/storemanagement/game.store';
 
 interface IInfo {
@@ -27,6 +27,8 @@ export class DetailComponent implements OnInit {
 
   rating = 0;
 
+  isLoading = true;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -34,6 +36,8 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.gameStore.isLoadingDetails.subscribe(isLoading => this.isLoading = isLoading);
+
     this.route.queryParams.subscribe(params => {
       if (params.id) {
         this.paramId = params.id
@@ -64,6 +68,11 @@ export class DetailComponent implements OnInit {
 
   goToAmazon() {
     window.open('https://www.amazon.com/s?k=' + this.game.name, '_blank');
+  }
+
+  clickOnOnlinegame(onlineGame: IOnlineGame) {
+    const url = onlineGame.origin === 'Yucata' ? 'https://' + onlineGame.url : onlineGame.url;
+    window.open(url, '_blank');
   }
 
   clickOnInfo(info: IInfo) {
@@ -112,5 +121,4 @@ export class DetailComponent implements OnInit {
       }
     }
   }
-
 }

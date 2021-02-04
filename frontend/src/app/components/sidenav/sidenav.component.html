@@ -21,6 +21,11 @@
     <mat-icon>insights</mat-icon><span class="nav-caption">Rate games</span>
   </a>
 
+  <a mat-list-item routerLink="/games/user-ratings">
+    <mat-icon>stars</mat-icon>
+    <span class="nav-caption">Your Ratings</span>
+  </a>
+
   <a mat-list-item routerLink="/" (click)="logout()" *ngIf="isLoggedIn">
     <mat-icon>power_settings_new</mat-icon><span class="nav-caption">Logout</span>
   </a>

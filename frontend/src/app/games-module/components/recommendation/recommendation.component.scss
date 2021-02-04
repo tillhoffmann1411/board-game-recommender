@@ -16,10 +16,18 @@
   }
 }
 
+.action-section {
+  text-align: center;
+  margin: 0.5rem 0;
+  .tooltip {
+    display: inline-flex;
+  }
+}
+
 
 .game-section {
   margin-bottom: 0.3rem;
-  h2 {
+  h1 {
     padding: 0 0.5rem;
   }
   .game-row {
@@ -58,6 +66,13 @@
 
   .filter-section {
     padding: 1rem 0;
+  }
+
+  .action-section {
+    text-align: left;
+    float: right;
+    padding: 1rem;
+    margin: 0;
   }
 
   .game-section {

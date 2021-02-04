@@ -7,13 +7,13 @@
       </summary>
       <div class="content filter">
         <div class="input-section">
-          <label for="age">Min Age</label>
+          <label for="age">Max Age</label>
           <div class="num-input">
             <button mat-icon-button color="primary" (click)="minusMinAge()">
               <mat-icon>remove</mat-icon>
             </button>
-            <input name="minAge" type="number" min="0" max="99" #age class="input"
-              [(ngModel)]="minAge < 0 ? undefined : minAge" />
+            <input name="maxAge" type="number" min="0" max="99" #age class="input"
+              [(ngModel)]="maxAge < 0 ? undefined : maxAge" />
             <button mat-icon-button color="primary" (click)="plusMinAge()">
               <mat-icon>add</mat-icon>
             </button>
@@ -43,27 +43,39 @@
             <mat-icon>filter_alt</mat-icon>
             Filter
           </button>
+          <button (click)="resetFilter()" [matTooltip]="'Remove all Filters'">
+            <mat-icon>delete</mat-icon>
+          </button>
         </div>
       </div>
     </details>
   </section>
 
+  <section class="col-l-10 action-section" *ngIf="!isLoading">
+    <div class="tooltip"
+      [matTooltip]="isLoadingRecommendations ? 'Loading all your recommendations...' : 'Refresh recommendations!'">
+      <button class="primary" [disabled]="isLoadingRecommendations" (click)="refresh()">
+        <mat-icon>autorenew</mat-icon>
+      </button>
+    </div>
+  </section>
+
   <section class="game-section col-l-10" *ngIf="!isLoading && knn.length > 0">
-    <h2>Top Picks for you</h2>
+    <h1>Top Picks for you</h1>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of knn"></app-game-card>
     </div>
   </section>
 
   <section class="game-section col-l-10" *ngIf="!isLoading && commonBased.length > 0">
-    <h2>People like you play</h2>
+    <h1>Users similar to you also liked</h1>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of commonBased"></app-game-card>
     </div>
   </section>
 
   <section class="game-section col-l-10" *ngIf="!isLoading && itemBased.length > 0">
-    <h2>Suits your taste</h2>
+    <h1>Games similar to your favorite games</h1>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of itemBased"></app-game-card>
     </div>
@@ -71,7 +83,7 @@
 
 
   <section class="game-section col-l-10" *ngIf="!isLoading">
-    <h2>Trending</h2>
+    <h1>Trending</h1>
     <div class="game-row">
       <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of popularity"></app-game-card>
     </div>

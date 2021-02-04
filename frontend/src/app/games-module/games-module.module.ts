@@ -8,6 +8,7 @@ import { QuestionnaireComponent } from './components/questionnaire/questionnaire
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { UserRatingsComponent } from './components/user-ratings/user-ratings.component';
 
 
 
@@ -16,7 +17,8 @@ import { DetailComponent } from './components/detail/detail.component';
     QuestionnaireComponent,
     GameCardComponent,
     RecommendationComponent,
-    DetailComponent
+    DetailComponent,
+    UserRatingsComponent
   ],
   imports: [
     CommonModule,

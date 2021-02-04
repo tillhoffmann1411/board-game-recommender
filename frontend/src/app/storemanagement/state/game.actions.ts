@@ -80,7 +80,7 @@ export namespace Game {
    */
   export class LoadBoardGame {
     static readonly type = '[Game] Load single Board Game';
-    constructor(public boardGameId: number, public bggId?: number) { }
+    constructor(public boardGameId: number) { }
   }
 
   export class LoadBoardGameError {
@@ -91,5 +91,35 @@ export namespace Game {
   export class LoadBoardGameSuccess {
     static readonly type = '[Game] Successful loaded single Board Game';
     constructor(public boardGame: IBoardGame) { }
+  }
+
+  /**
+ * Load Generics
+ */
+  export class LoadCategories {
+    static readonly type = '[Game] Load categories';
+    constructor() { }
+  }
+  export class LoadMechanics {
+    static readonly type = '[Game] Load mechanics';
+    constructor() { }
+  }
+  export class LoadAuthors {
+    static readonly type = '[Game] Load authors';
+    constructor() { }
+  }
+  export class LoadPublishers {
+    static readonly type = '[Game] Load publishers';
+    constructor() { }
+  }
+
+  export class LoadGenericError {
+    static readonly type = '[Game] Failed to load generic';
+    constructor(public kind: 'categories' | 'mechanics' | 'authors' | 'publishers') { }
+  }
+
+  export class LoadGenericSuccess {
+    static readonly type = '[Game] Successful loaded generic';
+    constructor(public res: any[], public kind: 'categories' | 'mechanics' | 'authors' | 'publishers') { }
   }
 }

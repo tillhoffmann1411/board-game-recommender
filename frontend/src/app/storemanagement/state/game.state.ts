@@ -7,7 +7,14 @@ import { Game } from './game.actions';
 const DEFAULTS: IGameState = {
   boardGames: [],
   ratings: [],
+  advancedInfos: {
+    categories: [],
+    mechanics: [],
+    authors: [],
+    publishers: [],
+  },
   isLoading: false,
+  isLoadingDetails: false,
   error: ''
 }
 
@@ -36,6 +43,16 @@ export class GameState {
   @Selector()
   static isLoading(state: IGameState) {
     return state.isLoading;
+  }
+
+  @Selector()
+  static isLoadingDetails(state: IGameState) {
+    return state.isLoadingDetails;
+  }
+
+  @Selector()
+  static getAdvancedInfos(state: IGameState) {
+    return state.advancedInfos;
   }
 
 
@@ -148,13 +165,16 @@ export class GameState {
    * Load single Board Game
    */
   @Action(Game.LoadBoardGame)
-  loadBoardGame(ctx: StateContext<IGameState>, { boardGameId, bggId }: Game.LoadBoardGame) {
+  loadBoardGame(ctx: StateContext<IGameState>, { boardGameId }: Game.LoadBoardGame) {
+    ctx.patchState({ isLoadingDetails: true });
     this.gameService.getBoardGame(boardGameId).then(async res => {
-      if (bggId) {
-        this.store.dispatch(new Game.LoadBoardGameSuccess({ ...res, onlineGames: [await this.gameService.getOnlineGame(bggId)] }))
-      }
-      if (res.id) {
-        this.store.dispatch(new Game.LoadBoardGameSuccess(res))
+      if (res && res.bggId) {
+        try {
+          const games = await this.gameService.getOnlineGame(res.bggId);
+          this.store.dispatch(new Game.LoadBoardGameSuccess({ ...res, onlineGames: [games] }));
+        } catch (error) {
+          this.store.dispatch(new Game.LoadBoardGameSuccess(res));
+        }
       } else {
         this.store.dispatch(new Game.LoadBoardGameError());
       }
@@ -174,11 +194,57 @@ export class GameState {
         boardGames.push(game.id === boardGame.id ? boardGame : game);
       });
     }
+    ctx.patchState({ isLoadingDetails: false });
     ctx.setState({ ...ctx.getState(), boardGames });
   }
 
   @Action(Game.LoadBoardGameError)
   loadBoardGameError(ctx: StateContext<IGameState>) {
+    ctx.patchState({ isLoadingDetails: false });
     ctx.setState({ ...ctx.getState(), error: 'Error by loading games.' });
+  }
+
+
+
+  /**
+   * Load Categories
+   */
+  @Action(Game.LoadCategories)
+  loadCategories(ctx: StateContext<IGameState>) {
+    this.loadGeneric(this.gameService.getCategories(), 'categories');
+  }
+  @Action(Game.LoadAuthors)
+  loadAuthors(ctx: StateContext<IGameState>) {
+    this.loadGeneric(this.gameService.getAuthors(), 'authors');
+  }
+  @Action(Game.LoadMechanics)
+  loadMechanics(ctx: StateContext<IGameState>) {
+    this.loadGeneric(this.gameService.getMechanics(), 'mechanics');
+  }
+  @Action(Game.LoadPublishers)
+  loadPublishers(ctx: StateContext<IGameState>) {
+    this.loadGeneric(this.gameService.getPublishers(), 'publishers');
+  }
+
+  loadGeneric(httpCallback: Promise<any[]>, kind: 'categories' | 'mechanics' | 'authors' | 'publishers') {
+    httpCallback.then(res => {
+      if (res) {
+        this.store.dispatch(new Game.LoadGenericSuccess(res, kind))
+      } else {
+        this.store.dispatch(new Game.LoadGenericError(kind));
+      }
+    }).catch(() => {
+      this.store.dispatch(new Game.LoadGenericError(kind));
+    });
+  }
+
+  @Action(Game.LoadGenericSuccess)
+  loadGenericSuccess(ctx: StateContext<IGameState>, { res, kind }: Game.LoadGenericSuccess) {
+    ctx.patchState({ [kind]: res });
+  }
+
+  @Action(Game.LoadGenericError)
+  loadGenericError(ctx: StateContext<IGameState>, { kind }: Game.LoadGenericError) {
+    ctx.setState({ ...ctx.getState(), error: 'Error by loading ' + kind });
   }
 }

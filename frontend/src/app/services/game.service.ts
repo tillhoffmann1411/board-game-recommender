@@ -21,22 +21,6 @@ export class GameHttpService {
     return this.http.get<IBoardGame>(this.baseUrl + '/games/' + id + '/').toPromise();
   }
 
-  getRecommendedCommonBased(): Promise<IRecResponse[]> {
-    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/common-based/').toPromise();
-  }
-
-  getRecommendedKNN(): Promise<IRecResponse[]> {
-    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/knn/').toPromise();
-  }
-
-  getRecommendedItemBased(): Promise<IRecResponse[]> {
-    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/item-based/').toPromise();
-  }
-
-  getRecommendedPopularity(): Promise<IRecResponse[]> {
-    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/popularity/').toPromise();
-  }
-
   sendRatings(rating: IRating): Promise<IRating> {
     return this.http.post<IRating>(this.baseUrl + '/user/review/', rating).toPromise();
   }
