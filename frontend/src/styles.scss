@@ -95,7 +95,6 @@ button {
   border-radius: 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-left: 10px;
   white-space: nowrap;
 
   .mat-icon {
@@ -130,6 +129,10 @@ button:disabled,
 button[disabled]{
   background-color: #cccccc;
   color: #868686;
+  cursor: auto;
+  &:active {
+    transform: scale(1);
+  }
 }
 
 

@@ -1,5 +1,3 @@
-import { IAuth } from './auth';
-
 export interface IGameState {
   boardGames: IBoardGame[];
   ratings: IRating[];
@@ -10,6 +8,7 @@ export interface IGameState {
     publishers: IPublisher[];
   };
   isLoading: boolean;
+  isLoadingDetails: boolean;
   error: string;
 }
 

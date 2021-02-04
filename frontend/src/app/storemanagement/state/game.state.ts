@@ -14,6 +14,7 @@ const DEFAULTS: IGameState = {
     publishers: [],
   },
   isLoading: false,
+  isLoadingDetails: false,
   error: ''
 }
 
@@ -42,6 +43,11 @@ export class GameState {
   @Selector()
   static isLoading(state: IGameState) {
     return state.isLoading;
+  }
+
+  @Selector()
+  static isLoadingDetails(state: IGameState) {
+    return state.isLoadingDetails;
   }
 
   @Selector()
@@ -160,14 +166,13 @@ export class GameState {
    */
   @Action(Game.LoadBoardGame)
   loadBoardGame(ctx: StateContext<IGameState>, { boardGameId }: Game.LoadBoardGame) {
+    ctx.patchState({ isLoadingDetails: true });
     this.gameService.getBoardGame(boardGameId).then(async res => {
       if (res && res.bggId) {
         try {
           const games = await this.gameService.getOnlineGame(res.bggId);
-          console.log('online games:', games);
           this.store.dispatch(new Game.LoadBoardGameSuccess({ ...res, onlineGames: [games] }));
         } catch (error) {
-          console.log('dispatch only game')
           this.store.dispatch(new Game.LoadBoardGameSuccess(res));
         }
       } else {
@@ -189,11 +194,13 @@ export class GameState {
         boardGames.push(game.id === boardGame.id ? boardGame : game);
       });
     }
+    ctx.patchState({ isLoadingDetails: false });
     ctx.setState({ ...ctx.getState(), boardGames });
   }
 
   @Action(Game.LoadBoardGameError)
   loadBoardGameError(ctx: StateContext<IGameState>) {
+    ctx.patchState({ isLoadingDetails: false });
     ctx.setState({ ...ctx.getState(), error: 'Error by loading games.' });
   }
 

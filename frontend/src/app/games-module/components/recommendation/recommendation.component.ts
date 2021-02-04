@@ -17,31 +17,36 @@ export class RecommendationComponent implements OnInit {
   gameMap: Map<number, IBoardGame> = new Map();
 
   isLoading = false;
+  isLoadingRecommendations = false;
   largeScreen = document.body.clientWidth >= 992;
 
-  minAge = 0;
+  maxAge = 0;
   player: { min: number, max: number } = { min: 0, max: 0 };
   time: { min: number, max: number } = { min: 0, max: 0 };
 
 
   constructor(
-    private gameService: GameStore,
+    private gameStore: GameStore,
   ) { }
 
   ngOnInit(): void {
     window.addEventListener('resize', (event) => {
       this.largeScreen = document.body.clientWidth >= 992;
     });
-    this.isLoading = true;
-    this.gameService.getBoardGames.subscribe(games => {
-      this.gameService.getRecommendedBoardGames.subscribe(recommendations => {
+    this.gameStore.isLoading.subscribe(isLoading => this.isLoading = isLoading);
+    this.gameStore.isLoadingRecommendations.subscribe(isLoading => this.isLoadingRecommendations = isLoading);
+
+    this.gameStore.getBoardGames.subscribe(games => {
+      this.gameStore.getRecommendedBoardGames.subscribe(recommendations => {
+
         if (games.length > 0 &&
           (recommendations.commonBased.length > 0 ||
             recommendations.knn.length > 0 ||
             recommendations.itemBased.length > 0)) {
-          this.isLoading = false;
         }
+
         games.forEach(g => this.gameMap.set(g.id, g));
+
         this.recommendations = recommendations;
         this.commonBased = this.getGameListFromKeys(recommendations.commonBased, this.gameMap);
         this.knn = this.getGameListFromKeys(recommendations.knn, this.gameMap);
@@ -70,23 +75,36 @@ export class RecommendationComponent implements OnInit {
   }
 
   minusMinAge() {
-    this.minAge = this.minAge < 0 ? -1 : this.minAge - 1;
+    this.maxAge = this.maxAge < 0 ? -1 : this.maxAge - 1;
   }
 
   plusMinAge() {
-    this.minAge = this.minAge > 99 ? 100 : this.minAge + 1;
+    this.maxAge = this.maxAge > 99 ? 100 : this.maxAge + 1;
+  }
+
+  refresh() {
+    this.gameStore.loadRecommendedPopularity();
+    this.gameStore.loadRecommendedKNN();
+    this.gameStore.loadRecommendedItemBased();
+    this.gameStore.loadRecommendedCommonBased();
+  }
+
+  resetFilter() {
+    this.maxAge = 0;
+    this.player = { min: 0, max: 0 };
+    this.time = { min: 0, max: 0 };
+    this.filter();
   }
 
   filter() {
-    console.log(this.minAge, this.player, this.time);
     const filteredGames: Map<number, IBoardGame> = new Map();
     this.gameMap.forEach((game, id) => {
       if (
-        game.minAge && game.minAge >= this.minAge &&
-        game.minNumberOfPlayers && game.minNumberOfPlayers >= this.player.min &&
-        (this.player.max === 0 || (game.maxNumberOfPlayers && game.maxNumberOfPlayers <= this.player.max)) &&
-        game.minPlaytime && game.minPlaytime >= this.time.min &&
-        (this.time.max === 0 || (game.maxPlaytime && game.maxPlaytime <= this.time.max))
+        (this.maxAge === 0 || (game.minAge && game.minAge <= this.maxAge)) &&
+        (this.player.min === 0 || (game.minNumberOfPlayers && game.minNumberOfPlayers >= this.player.min && game.minNumberOfPlayers <= this.player.max)) &&
+        (this.player.max === 0 || (game.maxNumberOfPlayers && game.maxNumberOfPlayers <= this.player.max && game.maxNumberOfPlayers >= this.player.min)) &&
+        (this.time.min === 0 || (game.minPlaytime && game.minPlaytime >= this.time.min && game.minPlaytime <= this.player.max)) &&
+        (this.time.max === 0 || (game.maxPlaytime && game.maxPlaytime <= this.time.max && game.maxPlaytime >= this.time.min))
       ) {
         filteredGames.set(id, game);
       }

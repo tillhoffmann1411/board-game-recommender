@@ -19,6 +19,10 @@ const DEFAULTS: IRecommenderState = {
 })
 @Injectable()
 export class RecommenderState {
+  loadingCommon = false;
+  loadingItem = false;
+  loadingPopularity = false;
+  loadingKNN = false
 
   constructor(
     private recommendationService: RecommendationHttpService,
@@ -35,13 +39,13 @@ export class RecommenderState {
     return state.isLoading;
   }
 
-
-
   /**
    * Load common based Recommendations
    */
   @Action(Recommender.LoadRecommendationCommonBased)
   loadRecommendedBoardGames(ctx: StateContext<IRecommenderState>) {
+    this.loadingCommon = true;
+    ctx.patchState({ isLoading: this._getIsLoading() });
     this.recommendationService.getRecommendedCommonBased().then(res => {
       if (Array.isArray(res)) {
         this.store.dispatch(new Recommender.LoadRecommendationCommonBasedSuccess(res))
@@ -55,12 +59,14 @@ export class RecommenderState {
 
   @Action(Recommender.LoadRecommendationCommonBasedSuccess)
   loadRecommendedBoardGamesSuccess(ctx: StateContext<IRecommenderState>, { recommendedBoardGameIds }: Recommender.LoadRecommendationCommonBasedSuccess) {
-    ctx.patchState({ commonBased: recommendedBoardGameIds });
+    this.loadingCommon = false;
+    ctx.patchState({ commonBased: recommendedBoardGameIds, isLoading: this._getIsLoading() });
   }
 
   @Action(Recommender.LoadRecommendationCommonBasedError)
   loadRecommendedBoardGamesError(ctx: StateContext<IRecommenderState>) {
-    ctx.setState({ ...ctx.getState(), error: 'Error by loading common based recommended games.' });
+    this.loadingCommon = false;
+    ctx.setState({ ...ctx.getState(), error: 'Error by loading common based recommended games.', isLoading: this._getIsLoading() });
   }
 
 
@@ -69,6 +75,8 @@ export class RecommenderState {
    */
   @Action(Recommender.LoadRecommendationKNN)
   loadRecommendationKNN(ctx: StateContext<IRecommenderState>) {
+    this.loadingKNN = true;
+    ctx.patchState({ isLoading: this._getIsLoading() });
     this.recommendationService.getRecommendedKNN().then(res => {
       if (Array.isArray(res)) {
         this.store.dispatch(new Recommender.LoadRecommendationKNNSuccess(res))
@@ -82,12 +90,14 @@ export class RecommenderState {
 
   @Action(Recommender.LoadRecommendationKNNSuccess)
   loadRecommendationKNNSuccess(ctx: StateContext<IRecommenderState>, { knnIds }: Recommender.LoadRecommendationKNNSuccess) {
-    ctx.patchState({ knn: knnIds });
+    this.loadingKNN = false;
+    ctx.patchState({ knn: knnIds, isLoading: this._getIsLoading() });
   }
 
   @Action(Recommender.LoadRecommendationKNNError)
   loadRecommendationKNNError(ctx: StateContext<IRecommenderState>) {
-    ctx.setState({ ...ctx.getState(), error: 'Error by loading knn recommended games.' });
+    this.loadingKNN = false;
+    ctx.setState({ ...ctx.getState(), error: 'Error by loading knn recommended games.', isLoading: this._getIsLoading() });
   }
 
 
@@ -97,6 +107,8 @@ export class RecommenderState {
    */
   @Action(Recommender.LoadRecommendationItemBased)
   loadRecommendationItemBased(ctx: StateContext<IRecommenderState>) {
+    this.loadingItem = true;
+    ctx.patchState({ isLoading: this._getIsLoading() });
     this.recommendationService.getRecommendedItemBased().then(res => {
       if (Array.isArray(res)) {
         this.store.dispatch(new Recommender.LoadRecommendationItemBasedSuccess(res))
@@ -110,12 +122,14 @@ export class RecommenderState {
 
   @Action(Recommender.LoadRecommendationItemBasedSuccess)
   loadRecommendationItemBasedSuccess(ctx: StateContext<IRecommenderState>, { recIds }: Recommender.LoadRecommendationItemBasedSuccess) {
-    ctx.patchState({ itemBased: recIds });
+    this.loadingItem = false;
+    ctx.patchState({ itemBased: recIds, isLoading: this._getIsLoading() });
   }
 
   @Action(Recommender.LoadRecommendationItemBasedError)
   loadRecommendationItemBasedError(ctx: StateContext<IRecommenderState>) {
-    ctx.setState({ ...ctx.getState(), error: 'Error by loading item based recommended games.' });
+    this.loadingItem = false;
+    ctx.setState({ ...ctx.getState(), error: 'Error by loading item based recommended games.', isLoading: this._getIsLoading() });
   }
 
 
@@ -124,6 +138,8 @@ export class RecommenderState {
    */
   @Action(Recommender.LoadRecommendationPopularity)
   loadRecommendationPopularity(ctx: StateContext<IRecommenderState>) {
+    this.loadingPopularity = true;
+    ctx.patchState({ isLoading: this._getIsLoading() });
     this.recommendationService.getRecommendedPopularity().then(res => {
       if (Array.isArray(res)) {
         this.store.dispatch(new Recommender.LoadRecommendationPopularitySuccess(res))
@@ -137,12 +153,18 @@ export class RecommenderState {
 
   @Action(Recommender.LoadRecommendationPopularitySuccess)
   loadRecommendationPopularitySuccess(ctx: StateContext<IRecommenderState>, { recIds }: Recommender.LoadRecommendationPopularitySuccess) {
-    ctx.patchState({ popularity: recIds });
+    this.loadingPopularity = false;
+    ctx.patchState({ popularity: recIds, isLoading: this._getIsLoading() });
   }
 
   @Action(Recommender.LoadRecommendationPopularityError)
   loadRecommendationPopularityError(ctx: StateContext<IRecommenderState>) {
-    ctx.setState({ ...ctx.getState(), error: 'Error by loading Popularity recommended games.' });
+    this.loadingPopularity = false;
+    ctx.setState({ ...ctx.getState(), error: 'Error by loading Popularity recommended games.', isLoading: this._getIsLoading() });
+  }
+
+  private _getIsLoading(): boolean {
+    return this.loadingCommon || this.loadingItem || this.loadingPopularity || this.loadingKNN;
   }
 
 }

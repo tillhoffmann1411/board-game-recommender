@@ -27,6 +27,12 @@ export class GameStore {
   @Select(GameState.isLoading)
   public isLoading: Observable<boolean>;
 
+  @Select(GameState.isLoadingDetails)
+  public isLoadingDetails: Observable<boolean>;
+
+  @Select(RecommenderState.isLoading)
+  public isLoadingRecommendations: Observable<boolean>;
+
   @Select(GameState.getAdvancedInfos)
   public getAdvancedInfos: Observable<IGameState['advancedInfos']>;
 

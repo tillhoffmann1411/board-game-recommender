@@ -27,6 +27,8 @@ export class DetailComponent implements OnInit {
 
   rating = 0;
 
+  isLoading = true;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -34,6 +36,8 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.gameStore.isLoadingDetails.subscribe(isLoading => this.isLoading = isLoading);
+
     this.route.queryParams.subscribe(params => {
       if (params.id) {
         this.paramId = params.id
@@ -45,7 +49,6 @@ export class DetailComponent implements OnInit {
         this.game = games.find(g => {
           return g.id == this.paramId;
         })!;
-        console.log(this.game);
       }
       this.gameStore.getRatings.subscribe(ratings => {
         const userRate = ratings.find(rating => rating.game === this.game?.id)?.rating;

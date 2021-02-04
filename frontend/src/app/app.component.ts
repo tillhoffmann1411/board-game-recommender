@@ -10,6 +10,7 @@ import { GameStore } from './storemanagement/game.store';
 export class AppComponent implements OnInit {
   title = 'board-game-recommender';
   isLoggedIn = false;
+  loadedInitialRecommendations = false;
 
   constructor(
     private authService: AuthStore,
@@ -27,12 +28,13 @@ export class AppComponent implements OnInit {
     });
 
     this.gameStore.getRatings.subscribe(ratings => {
-      if (ratings.length >= 5) {
+      if (ratings.length >= 5 && !this.loadedInitialRecommendations) {
+        this.loadedInitialRecommendations = true;
         this.gameStore.loadRecommendedPopularity();
         this.gameStore.loadRecommendedKNN();
         this.gameStore.loadRecommendedItemBased();
         this.gameStore.loadRecommendedCommonBased();
       }
-    })
+    });
   }
 }

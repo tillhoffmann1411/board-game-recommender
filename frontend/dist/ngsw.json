@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1612295996618,
+  "timestamp": 1612391727424,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,15 +11,15 @@
         "ignoreVary": true
       },
       "urls": [
-        "/5.315c2f158fd268c4267a.js",
+        "/5.f806bf625345f68edc88.js",
         "/favicon.ico",
         "/index.html",
         "/lottie-web.be8f45a906c5061bae97.js",
-        "/main.78e95f632a49a1b2e9cd.js",
+        "/main.7fde6271df3565571c09.js",
         "/manifest.webmanifest",
         "/polyfills.a88c71f8c22a8253ff66.js",
-        "/runtime.09f21643fb1fd322e6ee.js",
-        "/styles.d5a4c6d47ff5c444e787.css"
+        "/runtime.ffcd7c1f51f130e46224.js",
+        "/styles.f0cd32e8ab809497fb2b.css"
       ],
       "patterns": []
     },
@@ -103,7 +103,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/5.315c2f158fd268c4267a.js": "996511e25f8cf465b987989247c1a573ae1e9aa5",
+    "/5.f806bf625345f68edc88.js": "9812fdfe716a4f66f001ea010f6e296ba6daba81",
     "/assets/fonts/Black/Montserrat-Black.woff": "faf30fd3c3a82d2ce82a8aa6e828d43ab366a53d",
     "/assets/fonts/Black/Montserrat-Black.woff2": "aee56f3b5cc0f426ce241a6ae87439d4ce4ca2a2",
     "/assets/fonts/Black/Montserrat-BlackItalic.woff": "63e2fe667f4eb69bb6fa6d5c61bd8598e77e298b",
@@ -171,13 +171,13 @@
     "/assets/images/loading-dice.json": "b9d48da1be495b8a78a830478191f97faec494b8",
     "/assets/scss/modules/_fonts.scss": "184f8126fb3cd7a3034fdbcb471c6b92d29a8b77",
     "/favicon.ico": "842330c87812448eb6e3df330e04ca35fcbdbe15",
-    "/index.html": "98d4ee4185fb8c78afe794f26b928d52abfbe94f",
+    "/index.html": "fe120edac879eefef508925479d30ed922941e20",
     "/lottie-web.be8f45a906c5061bae97.js": "248a5badd9c3912d1988a166fdfd6004a31a18f4",
-    "/main.78e95f632a49a1b2e9cd.js": "f56a7c2e0f47f5a9eb7631a4744afc191b9eacd5",
+    "/main.7fde6271df3565571c09.js": "df89fd682c920fdf5a3d58708d14fe79f9e4065d",
     "/manifest.webmanifest": "6d84acd71a47bd8b0995c9cb4bdf887dfc892001",
     "/polyfills.a88c71f8c22a8253ff66.js": "b6380ed034569010e4ec859b66fbc7c7132365a3",
-    "/runtime.09f21643fb1fd322e6ee.js": "dd35ff75902185518efb57486ab5395b6b30be0a",
-    "/styles.d5a4c6d47ff5c444e787.css": "49cad741f6b430f611cd28cdd184cb692f02597f"
+    "/runtime.ffcd7c1f51f130e46224.js": "c64b674d37d91753f4db1dcdee9352dfeca1dedf",
+    "/styles.f0cd32e8ab809497fb2b.css": "605460ca670f7e2662a7e0f3fcd2edf02f0460d3"
   },
   "navigationUrls": [
     {
