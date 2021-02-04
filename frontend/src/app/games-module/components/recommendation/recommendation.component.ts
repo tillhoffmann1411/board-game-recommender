@@ -20,7 +20,7 @@ export class RecommendationComponent implements OnInit {
   isLoadingRecommendations = false;
   largeScreen = document.body.clientWidth >= 992;
 
-  maxAge = 0;
+  minimumAge = 0;
   player: { min: number, max: number } = { min: 0, max: 0 };
   time: { min: number, max: number } = { min: 0, max: 0 };
 
@@ -75,11 +75,11 @@ export class RecommendationComponent implements OnInit {
   }
 
   minusMinAge() {
-    this.maxAge = this.maxAge < 0 ? -1 : this.maxAge - 1;
+    this.minimumAge = this.minimumAge < 0 ? -1 : this.minimumAge - 1;
   }
 
   plusMinAge() {
-    this.maxAge = this.maxAge > 99 ? 100 : this.maxAge + 1;
+    this.minimumAge = this.minimumAge > 99 ? 100 : this.minimumAge + 1;
   }
 
   refresh() {
@@ -90,7 +90,7 @@ export class RecommendationComponent implements OnInit {
   }
 
   resetFilter() {
-    this.maxAge = 0;
+    this.minimumAge = 0;
     this.player = { min: 0, max: 0 };
     this.time = { min: 0, max: 0 };
     this.filter();
@@ -100,7 +100,7 @@ export class RecommendationComponent implements OnInit {
     const filteredGames: Map<number, IBoardGame> = new Map();
     this.gameMap.forEach((game, id) => {
       if (
-        (this.maxAge === 0 || (game.minAge && game.minAge <= this.maxAge)) &&
+        (this.minimumAge === 0 || (game.minAge && game.minAge >= this.minimumAge)) &&
         (this.player.min === 0 || (game.minNumberOfPlayers && game.minNumberOfPlayers >= this.player.min && game.minNumberOfPlayers <= this.player.max)) &&
         (this.player.max === 0 || (game.maxNumberOfPlayers && game.maxNumberOfPlayers <= this.player.max && game.maxNumberOfPlayers >= this.player.min)) &&
         (this.time.min === 0 || (game.minPlaytime && game.minPlaytime >= this.time.min && game.minPlaytime <= this.player.max)) &&
