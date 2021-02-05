@@ -67,7 +67,10 @@
     <div class="actions col-2">
       <app-star-rating [numStars]="10" [rating]="rating" (rated)="rate($event)">
       </app-star-rating>
-      <div class="buttons"><button class="primary" (click)="goToAmazon()">Amazon</button></div>
+      <div class="buttons">
+        <button class="primary" (click)="removeRating()" [disabled]="!userRate">Remove Rating</button>
+        <button class="primary" (click)="goToAmazon()">Amazon</button>
+      </div>
     </div>
 
   </section>

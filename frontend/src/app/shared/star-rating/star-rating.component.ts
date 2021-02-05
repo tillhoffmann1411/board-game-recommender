@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-star-rating',
   templateUrl: './star-rating.component.html',
   styleUrls: ['./star-rating.component.scss']
 })
-export class StarRatingComponent implements OnInit {
+export class StarRatingComponent implements OnInit, OnChanges {
   @Input() numStars: number = 5;
   @Input() rating: number | undefined;
 
@@ -16,11 +16,13 @@ export class StarRatingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.rating = this.rating && this.rating < 0 ? 0 : this.rating;
-    this.numStars = this.numStars < 0 ? 5 : this.numStars;
-
-    this.buildStars();
+    this._rebuild();
   }
+
+  ngOnChanges() {
+    this._rebuild();
+  }
+
 
   rate(starIndex: number) {
     this.rating = starIndex + 1;
@@ -36,4 +38,9 @@ export class StarRatingComponent implements OnInit {
     }
   }
 
+  private _rebuild() {
+    this.rating = this.rating && this.rating <= 0 ? 0 : this.rating;
+    this.numStars = this.numStars < 0 ? 5 : this.numStars;
+    this.buildStars();
+  }
 }

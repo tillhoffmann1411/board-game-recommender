@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IAuthor, IBoardGame, ICategory, IMechanic, IOnlineGame, IPublisher } from 'src/app/models/game';
+import { IAuthor, IBoardGame, ICategory, IMechanic, IOnlineGame, IPublisher, IRating } from 'src/app/models/game';
 import { GameStore } from 'src/app/storemanagement/game.store';
 
 interface IInfo {
@@ -26,6 +26,7 @@ export class DetailComponent implements OnInit {
   bggInfos: IInfo[] = [];
 
   rating = 0;
+  userRate: IRating | undefined;
 
   isLoading = true;
 
@@ -50,16 +51,16 @@ export class DetailComponent implements OnInit {
           return g.id == this.paramId;
         })!;
       }
-      this.gameStore.getRatings.subscribe(ratings => {
-        const userRate = ratings.find(rating => rating.game === this.game?.id)?.rating;
-        this.rating = userRate ? userRate : 0;
-      });
       this.createGameInfos();
+    });
+    this.gameStore.getRatings.subscribe(ratings => {
+      this.userRate = ratings.find(rating => rating.game === this.game?.id);
+      this.rating = this.userRate ? this.userRate.rating : 0;
+      console.log('User rating:', this.userRate);
+      console.log('New ratings: ', this.rating)
     });
 
     this.onlineGames = [...this.onlineGames].splice(0, 2);
-    document.querySelector('mat-sidenav-content')!.scrollTop = 0;
-
   }
 
   rate(rating: number) {
@@ -81,6 +82,11 @@ export class DetailComponent implements OnInit {
     }
   }
 
+  removeRating() {
+    if (this.userRate?.id) {
+      this.gameStore.deleteRating(this.userRate.id);
+    }
+  }
 
   createGameInfos() {
     if (this.game) {

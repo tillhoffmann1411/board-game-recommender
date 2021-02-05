@@ -83,4 +83,8 @@ export class GameStore {
   sendRating(rating: IRating) {
     this.store.dispatch(new Game.SendRating(rating));
   }
+
+  deleteRating(ratingId: number) {
+    this.store.dispatch(new Game.DeleteRating(ratingId));
+  }
 }

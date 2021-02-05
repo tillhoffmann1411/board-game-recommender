@@ -38,6 +38,24 @@ export namespace Game {
   }
 
   /**
+   * Delete User Ratings
+   */
+  export class DeleteRating {
+    static readonly type = '[Game] Delete user rating';
+    constructor(public ratingId: number) { }
+  }
+
+  export class DeleteRatingError {
+    static readonly type = '[Game] Failed to Delete user rating';
+    constructor() { }
+  }
+
+  export class DeleteRatingSuccess {
+    static readonly type = '[Game] Successful Delete user rating';
+    constructor(public ratingId: number) { }
+  }
+
+  /**
    * Load User Ratings
    */
   export class LoadRatings {
@@ -94,8 +112,8 @@ export namespace Game {
   }
 
   /**
- * Load Generics
- */
+  * Load Generics
+  */
   export class LoadCategories {
     static readonly type = '[Game] Load categories';
     constructor() { }

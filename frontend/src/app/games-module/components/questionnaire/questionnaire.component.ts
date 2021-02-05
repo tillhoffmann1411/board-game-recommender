@@ -43,7 +43,8 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   getRatingForGame(gameId: number): undefined | number {
-    return this.ratings.find(r => r.game === gameId)?.rating;
+    const review = this.ratings.find(r => r.game === gameId);
+    return review ? review.rating : 0;
   }
 
   next() {

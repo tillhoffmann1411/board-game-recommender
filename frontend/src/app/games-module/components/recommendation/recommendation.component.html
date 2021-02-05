@@ -12,8 +12,8 @@
             <button mat-icon-button color="primary" (click)="minusMinAge()">
               <mat-icon>remove</mat-icon>
             </button>
-            <input name="maxAge" type="number" min="0" max="99" #age class="input"
-              [(ngModel)]="maxAge < 0 ? undefined : maxAge" />
+            <input name="minimumAge" type="number" min="0" max="99" #age class="input"
+              [(ngModel)]="minimumAge < 0 ? undefined : minimumAge" />
             <button mat-icon-button color="primary" (click)="plusMinAge()">
               <mat-icon>add</mat-icon>
             </button>

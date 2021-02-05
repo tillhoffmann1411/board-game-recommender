@@ -10,7 +10,7 @@ from games.models import BoardGame
 
 from .models import Review, UserTaste
 from .serializers import ReviewSerializer, UserSerializer
-from .permissions import IsOwner, IsYourProfile
+from .permissions import IsOwner, IsYourReview
 
 
 class UserDetail(APIView):
@@ -44,7 +44,7 @@ class UserDetail(APIView):
 class ReviewList(generics.ListCreateAPIView):
     queryset = Review.objects.all().select_related('rating', 'game_id', 'created_at')
     serializer_class = ReviewSerializer
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, IsYourReview)
 
     def perform_create(self, serializer):
         user_taste = UserTaste.objects.get(user=self.request.user)
@@ -60,9 +60,5 @@ class ReviewList(generics.ListCreateAPIView):
 
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ReviewSerializer
-    permission_classes = (IsOwner, )
-    lookup_url_kwarg = 'review_id'
-
-    def get_queryset(self):
-        review = self.kwargs['review_id']
-        return Review.objects.filter(id=review)
+    permission_classes = (IsAuthenticated, IsYourReview)
+    queryset = Review.objects.all()
