@@ -2,20 +2,82 @@
   <div class="flare corner hide-on-xs hide-on-s">
     <img src="./../../assets/images/flare-corner.svg" alt="">
   </div>
-  <!-- <div class="flare dots hide-on-xs hide-on-s">
+  <div class="flare dots hide-on-xs hide-on-s">
     <img src="./../../assets/images/flare-three-dot.svg" alt="">
   </div>
   <div class="flare long hide-on-xs hide-on-s">
     <img src="./../../assets/images/flare-long.svg" alt="">
-  </div> -->
-  <div class="row">
+  </div>
+  <div class="row top">
     <div class="hide-on-s hide-on-xs col-1 col-l-2"></div>
     <div class="slogan col-7 col-l-5">
       Find new Board Games you will love!
       <div>
-        <button class="primary button" [routerLink]="isLoggedIn ? '/games' : '/register'">Lets Go!</button>
+        <button class="primary button" [routerLink]="isLoggedIn ? '/games' : '/register'">Let's Go!</button>
       </div>
     </div>
     <img class="image col-4 col-l-6 hide-on-xs hide-on-s" src="../../../assets/images/game-illustration.png" alt="">
   </div>
+
+
+
+  <div class="info">
+    <div class="col-4 info-container">
+      <div class="icon">
+        <h1>What is Boreg?</h1>
+      </div>
+      <div class="content">
+        Boreg rrecommends board games that you really like. All you have to do is tell us 5 games you either like or
+        dislike and we will do the rest.
+      </div>
+    </div>
+
+    <div class="col-4 info-container">
+      <div class="icon">
+        <img src="../../../assets/icons/favicon.svg" alt="">
+        <h1>Why Boreg?</h1>
+      </div>
+      <div class="content">
+        <div class="list-item">
+          <mat-icon>check_circle_outline</mat-icon><span class="item-text">Easy to use</span>
+        </div>
+        <div class="list-item">
+          <mat-icon>check_circle_outline</mat-icon><span class="item-text">University project</span>
+        </div>
+        <div class="list-item">
+          <mat-icon>check_circle_outline</mat-icon><span class="item-text">The best recommendations you can find
+            online</span>
+        </div>
+        <div class="list-item">
+          <mat-icon>check_circle_outline</mat-icon><span class="item-text">Play our recommendations also online</span>
+        </div>
+        <div class="list-item">
+          <mat-icon>check_circle_outline</mat-icon><span class="item-text">Open Source</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 info-container">
+      <div class="icon">
+        <mat-icon>coronavirus</mat-icon>
+        <h1>How to play during Corona?</h1>
+      </div>
+      <div class="content">
+        We show you options to play our recommendations <b>online</b>!
+      </div>
+    </div>
+
+    <div class="col-4 info-container">
+      <div class="icon">
+        <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="">
+        <h1>Visit us on GitHub!</h1>
+      </div>
+      <div class="content">
+        Get in contact with us on GitHub.
+        <br>
+        <a href="https://github.com/tillhoffmann1411/board-game-recommender">Go to GitHub</a>
+      </div>
+    </div>
+  </div>
+
 </div>
