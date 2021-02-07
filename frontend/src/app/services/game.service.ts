@@ -29,6 +29,9 @@ export class GameHttpService {
     return this.http.get<IRating[]>(this.baseUrl + '/user/review/').toPromise();
   }
 
+  deleteRating(ratingId: number): Promise<void> {
+    return this.http.delete<void>(this.baseUrl + '/user/review/' + ratingId + '/').toPromise();
+  }
 
   getCategories(): Promise<ICategory[]> {
     return this.http.get<ICategory[]>(this.baseUrl + '/games/category/').toPromise();

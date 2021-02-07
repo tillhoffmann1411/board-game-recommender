@@ -9,8 +9,8 @@ from django.db import connection
 from django_pandas.io import read_frame
 
 from .permissions import IsAdminOrReadOnly
-from .models import Author, BoardGame, Category, GameMechanic, OnlineGame, Publisher, Recommendations
-from .serializers import AuthorSerializer, BoardGameDetailSerializer, BoardGameSerializer, CategorySerializer, MechanicSerializer, OnlineGameSerializer, PublisherSerializer, RecommendationSerializer
+from .models import Author, BoardGame, Category, GameMechanic, OnlineGame, Publisher
+from .serializers import AuthorSerializer, BoardGameDetailSerializer, BoardGameSerializer, CategorySerializer, MechanicSerializer, OnlineGameSerializer, PublisherSerializer
 
 from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review

@@ -1,5 +1,5 @@
 <div class="star-row">
-  <span *ngFor="let star of stars; let i = index" class="star" [ngClass]="rating && rating === 0 ? 'neutral' : ''">
+  <span *ngFor="let star of stars; let i = index" class="star" [ngClass]="rating === 0 ? 'neutral' : ''">
     <mat-icon (click)="rate(i)">{{star}}</mat-icon>
   </span>
 </div>

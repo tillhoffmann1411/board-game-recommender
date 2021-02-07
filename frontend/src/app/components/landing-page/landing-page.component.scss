@@ -1,6 +1,10 @@
+@import '../../../colors.scss';
+
 .container {
   height: 100%;
-  .row {
+  margin-bottom: 3rem;
+
+  .top {
     height: 100%;
     display: flex;
     align-items: center;
@@ -42,5 +46,45 @@
     right: 0;
     z-index: -1;
     top: 45rem;
+  }
+
+
+
+  .info {
+    margin: 1rem;
+    display: grid;
+    place-items: center;
+
+    .info-container {
+      margin: 1rem 0.2rem;
+      padding: 0.5rem;
+      border-radius: 10px;
+      background-color: $background2;
+
+      .content {
+        font-size: 1.3rem;
+        margin-left: 2rem;
+
+        .list-item {
+          display: flex;
+
+          .item-text {
+            margin-left: 0.2rem;
+          }
+        }
+      }
+
+      .icon {
+        display: flex;
+        .mat-icon, img {
+          height: 3rem;
+          width: 3rem;
+          font-size: 3rem;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+
   }
 }

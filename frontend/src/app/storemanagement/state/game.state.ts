@@ -65,7 +65,7 @@ export class GameState {
   sendRating(ctx: StateContext<IGameState>, { rating }: Game.SendRating) {
     this.gameService.sendRatings(rating).then(res => {
       if (res) {
-        this.store.dispatch(new Game.SendRatingSuccess(rating))
+        this.store.dispatch(new Game.SendRatingSuccess(res))
       } else {
         this.store.dispatch(new Game.SendRatingError());
       }
@@ -76,16 +76,16 @@ export class GameState {
 
   @Action(Game.SendRatingSuccess)
   sendRatingSuccess(ctx: StateContext<IGameState>, { rating }: Game.SendRatingSuccess) {
-    const oldRatings = new Map<number, number>();
+    const oldRatings = new Map<number, IRating>();
 
     ctx.getState().ratings.forEach(rating => {
-      oldRatings.set(rating.game, rating.rating);
+      oldRatings.set(rating.game, rating);
     });
-    oldRatings.set(rating.game, rating.rating);
+    oldRatings.set(rating.game, rating);
 
     const newRatings: IRating[] = [];
-    oldRatings.forEach((rating, game) => {
-      newRatings.push({ game, rating });
+    oldRatings.forEach((review) => {
+      newRatings.push(review);
     });
     ctx.setState({ ...ctx.getState(), ratings: newRatings });
   }
@@ -94,6 +94,33 @@ export class GameState {
   sendRatingError(ctx: StateContext<IGameState>) {
     ctx.setState({ ...ctx.getState(), error: 'Error by sending ratings.' });
   }
+
+
+  /**
+   * send Ratings
+   */
+  @Action(Game.DeleteRating)
+  deleteRating(ctx: StateContext<IGameState>, { ratingId }: Game.DeleteRating) {
+    this.gameService.deleteRating(ratingId).then(() => {
+      this.store.dispatch(new Game.DeleteRatingSuccess(ratingId))
+    }).catch(() => {
+      this.store.dispatch(new Game.DeleteRatingError());
+    });
+  }
+
+  @Action(Game.DeleteRatingSuccess)
+  deleteRatingSuccess(ctx: StateContext<IGameState>, { ratingId }: Game.DeleteRatingSuccess) {
+    console.log('before: ', ctx.getState().ratings)
+    const newRatings = ctx.getState().ratings.filter(r => r.id !== ratingId)
+    console.log('after: ', newRatings)
+    ctx.setState({ ...ctx.getState(), ratings: newRatings });
+  }
+
+  @Action(Game.DeleteRatingError)
+  deleteRatingError(ctx: StateContext<IGameState>) {
+    ctx.setState({ ...ctx.getState(), error: 'Error by sending ratings.' });
+  }
+
 
 
   /**
