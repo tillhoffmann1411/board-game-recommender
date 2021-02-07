@@ -17,7 +17,7 @@ interface IInfo {
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  onlineGames: IBoardGame[] = [];
+  onlineGames: IOnlineGame[] = [];
   game: IBoardGame;
   paramId: number;
 
@@ -85,6 +85,19 @@ export class DetailComponent implements OnInit {
   removeRating() {
     if (this.userRate?.id) {
       this.gameStore.deleteRating(this.userRate.id);
+    }
+  }
+
+  getOnlineGameIcon(origin: 'Tabletopia' | 'Yucata' | 'Boardgamearena'): string {
+    switch (origin) {
+      case 'Tabletopia':
+        return 'https://steamcdn-a.akamaihd.net/steam/apps/402560/logo.png?t=1596691394';
+      case 'Yucata':
+        return 'https://www.yucata.de/bundles/images/Logo.jpg';
+      case 'Boardgamearena':
+        return 'http://x.boardgamearena.net/data/newsimg/logo2016.png';
+      default:
+        return 'https://files.softicons.com/download/game-icons/brain-games-icons-by-quizanswers/png/512x512/Board-Games.png';
     }
   }
 

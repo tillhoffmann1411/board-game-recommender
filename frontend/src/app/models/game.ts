@@ -58,7 +58,7 @@ export interface IBoardGame {
 export interface IOnlineGame {
   id: number;
   name: string;
-  origin: string;
+  origin: 'Tabletopia' | 'Yucata' | 'Boardgamearena';
   url: string;
   bggId: string
 }
