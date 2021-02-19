@@ -6,8 +6,8 @@ from evaluation import *
 def preparation_pipeline():
     # get data from database
     df = get_recommendation_data(link='../Data/Joined/Results/Reviews.csv',
-                                 min_number_ratings_game=50,
-                                 min_number_ratings_user=10,
+                                 min_number_ratings_game=500,
+                                 min_number_ratings_user=5,
                                  size_user_sample=100_000,
                                  seed=None)  # None for random, int for comparison
 
@@ -55,6 +55,7 @@ def evaluation_pipeline(result):
 if __name__ == "__main__":
     data = preparation_pipeline()
     result = modeling_pipeline(df=data,
-                               global_average=True,
-                               game_average=False,
+                               global_average=False,
+                               game_average=True,
                                user_average=False)
+    evaluation_pipeline(result=result)
