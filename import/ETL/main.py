@@ -68,9 +68,9 @@ def pipeline():
         print('BGG Cleaning Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
     if RUN_INTEGRATION_PIPELINE:
-        integrate_boardgame_table()
-        integrate_user_and_review_tables()
-        integrate_auxiliary_tables()
+        # integrate_boardgame_table()
+        # integrate_user_and_review_tables()
+        # integrate_auxiliary_tables()
         integrate_online_games()
         print('Integration pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
@@ -79,14 +79,14 @@ def pipeline():
         # upload_board_games_to_db()
         # upload_reviews_to_db()
 
-        # upload_categories_to_db()
-        # upload_gamemechanic_to_db()
-        # upload_publisher_to_db()
-        # upload_author_to_db()
+        upload_categories_to_db()
+        upload_gamemechanic_to_db()
+        upload_publisher_to_db()
+        upload_author_to_db()
 
         # upload_online_games_to_db()
 
-        upload_similarity_matrix_to_db()
+        # upload_similarity_matrix_to_db()
         pass
 
         # Press the green button in the gutter to run the script.

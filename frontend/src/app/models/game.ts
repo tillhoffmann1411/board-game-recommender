@@ -1,11 +1,22 @@
 export interface IGameState {
   boardGames: IBoardGame[];
-  recommendedBoardGames: {
-    commonBased: IRecResponse[],
-    knn: IRecResponse[],
-    itemBased: IRecResponse[]
-  };
   ratings: IRating[];
+  advancedInfos: {
+    categories: ICategory[];
+    mechanics: IMechanic[];
+    authors: IAuthor[];
+    publishers: IPublisher[];
+  };
+  isLoading: boolean;
+  isLoadingDetails: boolean;
+  error: string;
+}
+
+export interface IRecommenderState {
+  commonBased: IRecResponse[],
+  knn: IRecResponse[],
+  itemBased: IRecResponse[],
+  popularity: IRecResponse[],
   isLoading: boolean;
   error: string;
 }
@@ -27,15 +38,17 @@ export interface IBoardGame {
   minNumberOfPlayers?: number;
   maxNumberOfPlayers?: number;
   minAge?: number;
+  bggId?: number;
   bggAvgRating?: number;
   bgaAvgRating?: number;
   bggRating?: number;
+  bgaId?: string;
   bgaRating?: number;
   officialUrl?: string;
   thumbnailUrl?: string;
   bgaUrl?: string;
   author?: IAuthor[];
-  categories?: ICategory[];
+  category?: ICategory[];
   gameMechanic?: IMechanic[];
   publisher?: IPublisher[];
   onlineGames?: IOnlineGame[];
@@ -45,7 +58,7 @@ export interface IBoardGame {
 export interface IOnlineGame {
   id: number;
   name: string;
-  origin: string;
+  origin: 'Tabletopia' | 'Yucata' | 'Boardgamearena';
   url: string;
   bggId: string
 }

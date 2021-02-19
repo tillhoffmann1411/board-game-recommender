@@ -16,7 +16,7 @@ COMPARISONS = 0
 
 def integrate_boardgame_table():
     # match bga and bgg boardgames by applying the set-based similarity function jaccard on the boardgame names.
-    match_game_names()
+    # match_game_names()
 
     # merge the bga and bgg game information datasets by using the game matches identified in the previous step
     merge_game_information()
@@ -310,6 +310,45 @@ def merge_game_information():
         print('BGA_game_ids: ' + str(count_duplicates_bga))
         key_df.drop_duplicates(inplace=True)
         print('Duplicates removed:')
+
+    # Fix badly encoded symbols
+    # Insert quotation marks
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&quot;', '\'')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&rdquo;', '\'')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&rsquo;', '\'')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&ldquo;', '\'')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&amp;', '&')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&eacute;', 'e')
+
+    # Insert Umlaute
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&auml;', 'ä')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&Uuml;', 'ü')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&uuml;', 'ü')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&ouml;', 'ö')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&szlig;', 'ß')
+
+    # Insert dashes & non-breaking space
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&ndash;', '-')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&mdash;', '-')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&nbsp;', ' ')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&times;', 'x')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&shy;', '-')
+
+    # Kick html charackters
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&#...;', '')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&#..;', ' ')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'&#.;', '')
+
+    games_df['game_description'] = games_df['game_description'].str.replace(r'.....;', '')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'....;', '')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'...;', '')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'..;', '')
+    games_df['game_description'] = games_df['game_description'].str.replace(r'.;', '')
+
+    # Remove double semicolon and double spaces
+    games_df['game_description'] = games_df['game_description'].str.replace(r';;', ' ')
+    games_df['game_description'] = games_df['game_description'].str.replace(' +', ' ')
+    games_df['game_description'] = games_df['game_description'].str.strip()
 
     # export to csv:
     export_df_to_csv(games_df, '../Data/Joined/Results/BoardGames.csv')

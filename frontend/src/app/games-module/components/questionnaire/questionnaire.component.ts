@@ -18,20 +18,20 @@ export class QuestionnaireComponent implements OnInit {
   filteredGames: Observable<IBoardGame[]>;
   ratings: IRating[] = [];
   isLoading = true;
+  isLoadingRecommendations = false;
 
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private gameService: GameStore,
+    private gameStore: GameStore,
   ) { }
 
   ngOnInit(): void {
-    this.gameService.getRatings.subscribe(ratings => this.ratings = ratings);
-    this.gameService.getBoardGames.subscribe(games => {
-      if (games.length > 0) {
-        this.isLoading = false;
-      }
+    this.gameStore.getRatings.subscribe(ratings => this.ratings = ratings);
+    this.gameStore.isLoadingRecommendations.subscribe(isLoading => this.isLoadingRecommendations = isLoading);
+    this.gameStore.isLoading.subscribe(isLoading => this.isLoading = isLoading);
+    this.gameStore.getBoardGames.subscribe(games => {
       this.games = games;
 
       this.filteredGames = this.searchControl.valueChanges.pipe(
@@ -43,11 +43,18 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   getRatingForGame(gameId: number): undefined | number {
-    return this.ratings.find(r => r.game === gameId)?.rating;
+    const review = this.ratings.find(r => r.game === gameId);
+    return review ? review.rating : 0;
   }
 
   next() {
     this.router.navigate(['recommendations'], { relativeTo: this.route });
+    if (!this.isLoadingRecommendations) {
+      this.gameStore.loadRecommendedCommonBased();
+      this.gameStore.loadRecommendedItemBased();
+      this.gameStore.loadRecommendedKNN();
+      this.gameStore.loadRecommendedPopularity();
+    }
   }
 
   /**

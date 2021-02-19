@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IBoardGame } from 'src/app/models/game';
+import { IAuthor, IBoardGame, ICategory, IMechanic, IOnlineGame, IPublisher, IRating } from 'src/app/models/game';
 import { GameStore } from 'src/app/storemanagement/game.store';
 
 interface IInfo {
@@ -17,7 +17,7 @@ interface IInfo {
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  onlineGames: IBoardGame[] = [];
+  onlineGames: IOnlineGame[] = [];
   game: IBoardGame;
   paramId: number;
 
@@ -26,6 +26,9 @@ export class DetailComponent implements OnInit {
   bggInfos: IInfo[] = [];
 
   rating = 0;
+  userRate: IRating | undefined;
+
+  isLoading = true;
 
   constructor(
     private router: Router,
@@ -34,6 +37,8 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.gameStore.isLoadingDetails.subscribe(isLoading => this.isLoading = isLoading);
+
     this.route.queryParams.subscribe(params => {
       if (params.id) {
         this.paramId = params.id
@@ -46,16 +51,16 @@ export class DetailComponent implements OnInit {
           return g.id == this.paramId;
         })!;
       }
-      this.gameStore.getRatings.subscribe(ratings => {
-        const userRate = ratings.find(rating => rating.game === this.game?.id)?.rating;
-        this.rating = userRate ? userRate : 0;
-      });
       this.createGameInfos();
+    });
+    this.gameStore.getRatings.subscribe(ratings => {
+      this.userRate = ratings.find(rating => rating.game === this.game?.id);
+      this.rating = this.userRate ? this.userRate.rating : 0;
+      console.log('User rating:', this.userRate);
+      console.log('New ratings: ', this.rating)
     });
 
     this.onlineGames = [...this.onlineGames].splice(0, 2);
-    document.querySelector('mat-sidenav-content')!.scrollTop = 0;
-
   }
 
   rate(rating: number) {
@@ -66,12 +71,35 @@ export class DetailComponent implements OnInit {
     window.open('https://www.amazon.com/s?k=' + this.game.name, '_blank');
   }
 
+  clickOnOnlinegame(onlineGame: IOnlineGame) {
+    const url = onlineGame.origin === 'Yucata' ? 'https://' + onlineGame.url : onlineGame.url;
+    window.open(url, '_blank');
+  }
+
   clickOnInfo(info: IInfo) {
     if (info.link) {
       window.open(info.link, '_blank');
     }
   }
 
+  removeRating() {
+    if (this.userRate?.id) {
+      this.gameStore.deleteRating(this.userRate.id);
+    }
+  }
+
+  getOnlineGameIcon(origin: 'Tabletopia' | 'Yucata' | 'Boardgamearena'): string {
+    switch (origin) {
+      case 'Tabletopia':
+        return 'https://steamcdn-a.akamaihd.net/steam/apps/402560/logo.png?t=1596691394';
+      case 'Yucata':
+        return 'https://www.yucata.de/bundles/images/Logo.jpg';
+      case 'Boardgamearena':
+        return 'http://x.boardgamearena.net/data/newsimg/logo2016.png';
+      default:
+        return 'https://files.softicons.com/download/game-icons/brain-games-icons-by-quizanswers/png/512x512/Board-Games.png';
+    }
+  }
 
   createGameInfos() {
     if (this.game) {
@@ -112,5 +140,4 @@ export class DetailComponent implements OnInit {
       }
     }
   }
-
 }

@@ -12,7 +12,7 @@ export class GameCardComponent implements OnInit {
   @Input() game: IBoardGame;
   @Input() rating: number | undefined;
   @Input() activateDetails = false;
-  @Input() deactivateRating = false;
+  @Input() activateRating = false;
 
   @Output() rated = new EventEmitter();
 

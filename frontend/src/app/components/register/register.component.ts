@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: AuthStore,
+    private authStore: AuthStore,
     private router: Router,
   ) { }
 
@@ -26,21 +26,28 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('', [Validators.email]),
       password: new FormControl('', Validators.required),
     });
-  }
 
-  async register() {
-    if (this.registerForm.valid) {
-      try {
-        await this.userService.register(
-          this.registerForm.value.username,
-          this.registerForm.value.password,
-          this.registerForm.value.email
-        );
-        this.router.navigate(['games']);
-        this.error = false;
-      } catch (error) {
+    this.authStore.getError.subscribe(error => {
+      if (error) {
+        console.error(error);
         this.error = true;
       }
+    });
+
+    this.authStore.getIsLoggedIn.subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.router.navigate(['games']);
+      }
+    })
+  }
+
+  register() {
+    if (this.registerForm.valid) {
+      this.authStore.register(
+        this.registerForm.value.username,
+        this.registerForm.value.password,
+        this.registerForm.value.email
+      );
     } else {
       this.error = true;
     }

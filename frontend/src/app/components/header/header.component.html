@@ -1,6 +1,6 @@
 <mat-toolbar>
 
-  <div class="hide hide-on-l hide-on-xl">
+  <div class="hide-on-l hide-on-xl">
     <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -10,7 +10,7 @@
     <img src="../../../assets/icons/boreg.svg" alt="Boreg">
   </section>
 
-  <section class="la-user-section hide-on-xs hide-on-s">
+  <section class="la-user-section hide-on-xs hide-on-s hide">
     <ul class="navigation-items">
       <li>
         <button routerLink="/register" *ngIf="!isLoggedIn && this.route && this.route.url !== '/register'">Create
@@ -29,9 +29,19 @@
       </li>
 
       <li>
-        <button routerLink="/" (click)="logout()" *ngIf="isLoggedIn">
-          <mat-icon matTooltip="Logout">power_settings_new</mat-icon>
+        <button [matMenuTriggerFor]="menu" class="secondary" *ngIf="isLoggedIn">
+          <mat-icon>account_circle</mat-icon>
         </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item routerLink="/games/user-ratings">
+            <mat-icon>stars</mat-icon>
+            <span>Your Ratings</span>
+          </button>
+          <button mat-menu-item routerLink="/" (click)="logout()">
+            <mat-icon matTooltip="Logout">power_settings_new</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
       </li>
     </ul>
   </section>

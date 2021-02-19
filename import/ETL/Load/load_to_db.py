@@ -244,6 +244,8 @@ def upload_online_games_to_db():
     # rename a few columns:
     # board_game_df.rename(inplace=True)
 
+    online_game_df['bgg_id'] = online_game_df['bgg_id'].astype(int)
+
     del online_game_df['online_game_id']
 
     upload_dataframe(online_game_df, 'games_onlinegame')
@@ -262,7 +264,7 @@ def upload_similarity_matrix_to_db():
                               },
                      inplace=True)
 
-    upload_dataframe(matrix_df, 'games_itemsimilaritymatrix', batchsize=10000)
+    upload_dataframe(matrix_df, 'games_itemsimilaritymatrix', batchsize=100000)
 
 
 def upload_dataframe(df: pd.DataFrame, table: str, batchsize: int = 1000):

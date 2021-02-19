@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthStore } from './storemanagement/auth.store';
 import { GameStore } from './storemanagement/game.store';
 
@@ -11,6 +10,7 @@ import { GameStore } from './storemanagement/game.store';
 export class AppComponent implements OnInit {
   title = 'board-game-recommender';
   isLoggedIn = false;
+  loadedInitialRecommendations = false;
 
   constructor(
     private authService: AuthStore,
@@ -23,6 +23,17 @@ export class AppComponent implements OnInit {
       if (this.isLoggedIn) {
         this.gameStore.loadBoardGames();
         this.gameStore.loadRatings();
+        this.gameStore.loadGameAdvancedInfo();
+      }
+    });
+
+    this.gameStore.getRatings.subscribe(ratings => {
+      if (ratings.length >= 5 && !this.loadedInitialRecommendations) {
+        this.loadedInitialRecommendations = true;
+        this.gameStore.loadRecommendedPopularity();
+        this.gameStore.loadRecommendedKNN();
+        this.gameStore.loadRecommendedItemBased();
+        this.gameStore.loadRecommendedCommonBased();
       }
     });
   }

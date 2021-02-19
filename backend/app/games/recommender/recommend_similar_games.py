@@ -1,73 +1,7 @@
 import pandas as pd
 import numpy as np
 import time
-
-
-def get_data():
-    # get games
-    data_games = pd.read_csv('../Data/Joined/Results/BoardGames.csv',
-                             usecols=['game_key', 'name', 'min_players', 'max_players',
-                                      'min_playtime', 'max_playtime', 'bgg_average_weight'], index_col=False)
-    # get game characteristics
-    data_category = pd.read_csv('../Data/Joined/Results/Category_Game_Relation.csv', usecols=['game_key', 'category_key'])
-    # get game mechanics
-    data_mechanics = pd.read_csv('../Data/Joined/Results/Mechanic_Game_Relation.csv', usecols=['game_key', 'mechanic_key'])
-
-    return data_games, data_category, data_mechanics
-
-
-def prepare_data(data_games, data_category, data_mechanics):
-    # prepare data
-    max_mec_key = max(data_mechanics['mechanic_key'])
-    data_mechanics['mechanic_key'] = 'mec_' + data_mechanics['mechanic_key'].astype(str)
-    max_cat_key = max(data_category['category_key'])
-    data_category['category_key'] = 'cat_' + data_category['category_key'].astype(str)
-
-    # fill missing values with mean
-    data_games['min_players'] = data_games['min_players'].fillna(data_games['min_players'].mean())
-    data_games['max_players'] = data_games['max_players'].fillna(data_games['max_players'].mean())
-    data_games['min_playtime'] = data_games['min_playtime'].fillna(data_games['min_playtime'].mean())
-    data_games['max_playtime'] = data_games['max_playtime'].fillna(data_games['max_playtime'].mean())
-    data_games['bgg_average_weight'] = data_games['bgg_average_weight'].fillna(data_games['bgg_average_weight'].mean())
-
-    # merge data
-    data_category = (data_category.groupby('game_key')['category_key'].apply(lambda x: list(set(x))).reset_index())
-    data_mechanics = (data_mechanics.groupby('game_key')['mechanic_key'].apply(lambda x: list(set(x))).reset_index())
-    data_games = data_games.merge(data_category, left_on='game_key', right_on='game_key')
-    data_games = data_games.merge(data_mechanics, left_on='game_key', right_on='game_key')
-    data_games['category_key'] = [','.join(map(str, l)) for l in data_games['category_key']]
-    data_games['mechanic_key'] = [','.join(map(str, l)) for l in data_games['mechanic_key']]
-
-    # one hot encode cat and mec
-    game_category_characteristics = list(range(max_cat_key))
-    game_category_characteristics = ['cat_' + str(elem) for elem in game_category_characteristics]
-    game_mechanic_characteristics = list(range(max_mec_key))
-    game_mechanic_characteristics = ['mec_' + str(elem) for elem in game_mechanic_characteristics]
-    for cat in game_category_characteristics:
-        data_games[cat] = data_games['category_key'].apply(extract_category, args=(cat,))
-    for mec in game_mechanic_characteristics:
-        data_games[mec] = data_games['mechanic_key'].apply(extract_category, args=(mec,))
-
-    # delete useless columns
-    del data_games['category_key']
-    del data_games['mechanic_key']
-
-    return data_games
-
-
-def extract_category(categories, cat):
-    print('one hot encode for:', cat)
-
-    # categories without values
-    if pd.isna(categories):
-        return 0
-
-    # split list and
-    categories_list = categories.split(",")
-    if cat in categories_list:
-        return 1
-    else:
-        return 0
+import os
 
 
 def create_bool_cat_and_mec(data):
@@ -86,10 +20,9 @@ def create_bool_cat_and_mec(data):
     return data
 
 
-def create_mean_best_n_games(data_games, user_id):
+def create_mean_best_n_games(data_games, user_id, data_user: pd.DataFrame):
     # get best n rated games of user - here frontend can only query data from user of interest
-    data_user = pd.read_csv('../Data/Joined/Results/Reviews.csv', usecols=['user_key', 'game_key', 'rating'],
-                            sep=',', header=0)
+    # data_user = pd.read_csv('../Data/Joined/Results/Reviews.csv', usecols=['user_key', 'game_key', 'rating'], sep=',', header=0)
     data_user = data_user[data_user['user_key'] == user_id]
     # get already rated games
     already_rated_games = data_user['game_key'].to_list()
@@ -156,8 +89,8 @@ def get_recommendations(data_games, mean_best_games, already_rated_games):
     weight_game_difficulty = 0.1
     weight_cat = 0.5
     weight_mec = 0.2
-    weights = np.array([weight_number_players/2]*2 + [weight_time/2]*2 + [weight_game_difficulty/1]*1 + \
-              [weight_cat/131]*131 + [weight_mec/229]*229)
+    weights = np.array([weight_number_players/2]*2 + [weight_time/2]*2 + [weight_game_difficulty/1]*1 +
+                       [weight_cat/131]*131 + [weight_mec/229]*229)
 
     # compute cosine similarities
     similarities = []
@@ -175,40 +108,25 @@ def get_recommendations(data_games, mean_best_games, already_rated_games):
             # dont save already rated games
             if data_games['game_key'][i] not in already_rated_games:
                 # save results on list
-                similarities.append((data_games['game_key'][i], data_games['name'][i], sim))
+                similarities.append({'game_key': data_games['game_key'][i], 'name': data_games['name'][i], 'estimate': sim})
 
     # sort pairs
-    sorted_similarities = sorted(similarities, key=lambda x: x[2], reverse=True)
+    sorted_similarities = sorted(similarities, key=lambda x: x['estimate'], reverse=True)
 
     return sorted_similarities
 
 
-def main():
-
-    ## get data
-    #game_data, category_data, mechanics_data = get_data()
-
-    ## prepare data - one hot encode
-    #df = prepare_data(data_games=game_data, data_category=category_data, data_mechanics=mechanics_data)
-
-    # save data
-    #df.to_csv('/Users/maxmaiberger/Downloads/one_hot_df.csv', index=False)
+def similar_games(user_id: int, user_reviews_df: pd.DataFrame, num_recommendations: int = 50):
     # get saved data
-    df = pd.read_csv('/Users/maxmaiberger/Downloads/one_hot_df.csv')
+    path = os.path.dirname(os.path.abspath(__file__)) + '/similar_games_one_hot_df.csv'
+    df = pd.read_csv(path)
 
-    # get user id - frontend
-    user_id = 195001  # 121709 - few games  # 195001 - many games
     # create mean of best rated games
-    mean_best_games, already_rated_games = create_mean_best_n_games(data_games=df, user_id=user_id)
-    start_time = time.time()
+    mean_best_games, already_rated_games = create_mean_best_n_games(
+        data_games=df, user_id=user_id, data_user=user_reviews_df)
 
     # calculate similarity
     similarities = get_recommendations(data_games=df, mean_best_games=mean_best_games,
                                        already_rated_games=already_rated_games)
-    print(similarities)
-    end_time = time.time()
-    print(end_time-start_time)
 
-
-if __name__ == '__main__':
-    main()
+    return similarities[:num_recommendations]
