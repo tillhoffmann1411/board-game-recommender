@@ -1,7 +1,12 @@
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
+
 def calculate_rmse(result):
+    '''
+    This function will calculate the mse and rmse of the before used approach.
+    '''
+
     # get data from dict
     data_prediction = result['prediction']
     data_original = result['original_data']

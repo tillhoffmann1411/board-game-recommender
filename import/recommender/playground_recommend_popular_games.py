@@ -1,3 +1,7 @@
+# This script was used as a playground for the popularity score. Deeper explanations of the functions
+# are implemented in the frontend. Have a look there.
+
+
 import pandas as pd
 
 

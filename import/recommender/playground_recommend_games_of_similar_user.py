@@ -1,4 +1,7 @@
-# get similar games
+# This script was used as a playground for the collaborative filtering approach. Deeper explanations of the functions
+# are implemented in the frontend.Have a look there.
+
+
 import pandas as pd
 import numpy as np
 import gc
