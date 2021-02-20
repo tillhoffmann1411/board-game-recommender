@@ -14,6 +14,7 @@ from ETL.Cleaning.BoardGameGeeks.clean_boardgamegeeks_data import clean_bgg_game
 from ETL.Integration.bgg_and_bga_integration import integrate_boardgame_table, integrate_user_and_review_tables
 from ETL.API.bga_api import get_bga_game_information_from_api, get_bga_mechanics_from_api, get_bga_categories_from_api
 from datetime import datetime
+from ETL.Scraper.scraper_tabletopia.tabletopia_scraper_main import *
 
 
 def pipeline():
@@ -36,6 +37,9 @@ def pipeline():
     4)  Kaggle Dataset BGG: Reviews
         4.1: Clean BGG GameInformation and create "auxiliary tables" for publishers, designers, categories and mechanics
         4.2: Clean BGG Reviews
+
+        added:
+        SCRAPER: Tabletopia
 
     5)  Integration:
         5.1: Integrate BGA and BGG boardgame table by matching game names
@@ -66,6 +70,9 @@ def pipeline():
         clean_bgg_games()
         clean_bgg_reviews()
         print('BGG Cleaning Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
+
+    if RUN_SCRAPER_TABLETOPIA:
+        run_tabletopia_scraper()
 
     if RUN_INTEGRATION_PIPELINE:
         # integrate_boardgame_table()

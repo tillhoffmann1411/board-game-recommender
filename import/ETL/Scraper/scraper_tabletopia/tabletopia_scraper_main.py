@@ -187,7 +187,7 @@ def get_game_information(links, save_csv=True):
         print("done!")
 
 
-if __name__ == "__main__":
+def run_tabletopia_scraper():
     # get all links to game information
     link_list = get_game_links(save_list=False)
     # get game information from each link
