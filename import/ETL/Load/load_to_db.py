@@ -244,6 +244,8 @@ def upload_online_games_to_db():
     # rename a few columns:
     # board_game_df.rename(inplace=True)
 
+    online_game_df['bgg_id'] = online_game_df['bgg_id'].astype(int)
+
     del online_game_df['online_game_id']
 
     upload_dataframe(online_game_df, 'games_onlinegame')

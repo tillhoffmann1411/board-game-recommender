@@ -1,8 +1,12 @@
-import pandas as pd
 import numpy as np
 
 
 def global_average_prediction(data):
+    '''
+    This function will take the prepared data and calculate the global average over all games and user and uses it as
+    a prediction.
+    '''
+
     #  get number of nonzero values (number of ratings)
     number_ratings = sum(data.count(axis=0))
     # get sum of all column sums
@@ -18,6 +22,10 @@ def global_average_prediction(data):
 
 
 def game_average_prediction(data):
+    '''
+    This function will take the prepared data and calculate the average for each game and uses it as a prediction
+    for all user that have not rated the game.
+    '''
     # count ratings per game column
     count_ratings = data.count(axis=0)
     # sum ratings per game column
@@ -36,6 +44,10 @@ def game_average_prediction(data):
 
 
 def user_average_prediction(data):
+    '''
+    This function will take the prepared data and calculate the average for each user and uses it as a prediction
+    for all his unrated games.
+    '''
     # count ratings per user column
     count_ratings = data.count(axis=1)
     # sum ratings per user column
@@ -45,7 +57,7 @@ def user_average_prediction(data):
     user_average = sum_ratings / count_ratings
     # set average of NaN to 0
     user_average[np.isnan(user_average)] = 0
-    print('---game average: ', user_average)
+    print('---user average: ', user_average)
     # set user average for NaN
     data = data.T.fillna(user_average).T
 

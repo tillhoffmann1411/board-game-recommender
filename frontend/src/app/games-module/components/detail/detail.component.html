@@ -55,9 +55,7 @@
           </div>
         </div>
         <div class="info-row link" *ngFor="let onlinegame of game.onlineGames" (click)="clickOnOnlinegame(onlinegame)">
-          <img class="online-game"
-            [src]="onlinegame.origin === 'Yucata' ? 'https://www.yucata.de/bundles/images/Logo.jpg' : 'https://steamcdn-a.akamaihd.net/steam/apps/402560/logo.png?t=1596691394'"
-            alt="">
+          <img class="online-game" [src]="getOnlineGameIcon(onlinegame.origin)" alt="">
           <span>Play {{ onlinegame.name }} on {{ onlinegame.origin }}</span>
         </div>
       </div>
