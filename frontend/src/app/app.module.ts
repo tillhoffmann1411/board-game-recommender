@@ -26,6 +26,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GameState } from './storemanagement/state/game.state';
 import { httpInterceptorProviders } from './middlewares';
+import { RecommenderState } from './storemanagement/state/recommender.state';
 
 
 export function playerFactory() {
@@ -50,7 +51,7 @@ export function playerFactory() {
     AppRoutingModule,
     HttpClientModule,
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsModule.forRoot([AuthState, GameState], { developmentMode: true }),
+    NgxsModule.forRoot([AuthState, GameState, RecommenderState], { developmentMode: !environment.production }),
     BrowserAnimationsModule,
     AngularSvgIconModule.forRoot(),
     LottieModule.forRoot({ player: playerFactory }),

@@ -9,14 +9,16 @@ from django.db import connection
 from django_pandas.io import read_frame
 
 from .permissions import IsAdminOrReadOnly
-from .models import BoardGame, Recommendations
-from .serializers import BoardGameDetailSerializer, BoardGameSerializer, RecommendationSerializer
+from .models import Author, BoardGame, Category, GameMechanic, OnlineGame, Publisher
+from .serializers import AuthorSerializer, BoardGameDetailSerializer, BoardGameSerializer, CategorySerializer, MechanicSerializer, OnlineGameSerializer, PublisherSerializer
+
 from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review
 
 from .recommender.similar_users import similiar_users
-# from .recommender.similar_users import similiar_items
-from .recommender.knn_with_means_selfmade import selfmade_KnnWithMeans_approach
+from .recommender.recommend_popular_games import popular_games
+from .recommender.knn_selfmade import selfmade_KnnWithMeans_approach
+from .recommender.recommend_similar_games import similar_games
 
 
 class BoardGameList(generics.ListAPIView):
@@ -33,18 +35,40 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BoardGameDetailSerializer
 
 
-class RecommendationSimiliarUsers(APIView):
+class RecommendationCommonBased(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
         user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
         user_id = user_taste.id
 
-        reviews_df = read_frame(Review.objects.all(), fieldnames=['game_id__id', 'rating', 'created_by_id__id'])
-        reviews_df = reviews_df.rename(columns={'game_id__id': 'game_key',
-                                                'rating': 'rating', 'created_by_id__id': 'created_by_id'})
+        cursor = connection.cursor()
+        cursor.execute('''
+            select created_by_id, game_id, rating 
+            from accounts_review ar
+            where created_by_id  in (
+                select created_by_id
+                from accounts_review
+                group by created_by_id
+                having count(created_by_id) >= 10
+                order by random()
+                limit 5000)
+        ''')
+        reviews = cursor.fetchall()
 
-        return Response(similiar_users(user_id, reviews_df))
+        reviews_df = pd.DataFrame.from_records(reviews)
+        reviews_df = reviews_df.rename(columns={0: 'created_by_id', 1: 'game_key', 2: 'rating'})
+
+        combined_reviews_df = reviews_df
+
+        if int(user_id) not in reviews_df['created_by_id'].values:
+            reviews_user_df = read_frame(Review.objects.filter(created_by=user_taste),
+                                         fieldnames=['game_id__id', 'created_by__id', 'rating'])
+            reviews_user_df = reviews_user_df.rename(
+                columns={'created_by__id': 'created_by_id', 'game_id__id': 'game_key', 'rating': 'rating'})
+            combined_reviews_df = pd.concat([reviews_df, reviews_user_df], ignore_index=True)
+
+        return Response(similiar_users(user_id, combined_reviews_df))
 
 
 class RecommendationKNN(APIView):
@@ -52,22 +76,68 @@ class RecommendationKNN(APIView):
 
     def get(self, *args, **kwargs):
         user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
-        user_id = user_taste.id
 
         reviews_from_user = Review.objects.all().filter(created_by=user_taste)
 
         reviews_from_user_df = read_frame(reviews_from_user, fieldnames=['game_id__id', 'rating'])
         reviews_from_user_df = reviews_from_user_df.rename(columns={'game_id__id': 'game_key', 'rating': 'rating'})
 
-        print(str(reviews_from_user_df.head()))
-        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
-        # return Response(selfmade_KnnWithMeans_approach(user_id, reviews_from_user_df))
+        return Response(selfmade_KnnWithMeans_approach(reviews_from_user_df))
 
 
 class RecommendationItemBased(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
     def get(self, *args, **kwargs):
-        # Call here similiar items function
+        user_taste = generics.get_object_or_404(UserTaste, user=self.request.user)
+        user_id = user_taste.id
 
-        return Response([{'game_key': 100001, 'estimate': 9.999}, ])
+        reviews_user_df = read_frame(Review.objects.filter(created_by=user_taste),
+                                     fieldnames=['game_id__id', 'created_by__id', 'rating'])
+        reviews_user_df = reviews_user_df.rename(
+            columns={'created_by__id': 'user_key', 'game_id__id': 'game_key', 'rating': 'rating'})
+
+        return Response(similar_games(user_id, reviews_user_df))
+
+
+class RecommendationPopularity(APIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+
+    def get(self, *args, **kwargs):
+        boardgames_df = read_frame(BoardGame.objects.all(), fieldnames=[
+                                   'id', 'name', 'bgg_num_ratings', 'bga_num_ratings', 'bgg_avg_rating'])
+        boardgames_df = boardgames_df.rename(columns={'id': 'game_key', 'bgg_num_ratings': 'bgg_num_user_ratings',
+                                                      'bga_num_ratings': 'bga_num_user_ratings', 'bgg_avg_rating': 'bgg_average_user_rating'})
+
+        return Response(popular_games(boardgames_df))
+
+
+class CategoryList(generics.ListAPIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class MechanicList(generics.ListAPIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    queryset = GameMechanic.objects.all()
+    serializer_class = MechanicSerializer
+
+
+class AuthorList(generics.ListAPIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+
+
+class PublisherList(generics.ListAPIView):
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    queryset = Publisher.objects.all()
+    serializer_class = PublisherSerializer
+
+
+class OnlineGameDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = OnlineGameSerializer
+    queryset = OnlineGame.objects.all()
+    permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
+    lookup_field = 'bgg_id'

@@ -14,6 +14,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 import { LoadingComponent } from './loading/loading.component';
@@ -41,6 +42,7 @@ import { LottieModule } from 'ngx-lottie';
     MatPaginatorModule,
     LottieModule,
     MatSelectModule,
+    MatMenuModule,
   ],
   exports: [
     MatSidenavModule,
@@ -57,6 +59,7 @@ import { LottieModule } from 'ngx-lottie';
     MatPaginatorModule,
     LoadingComponent,
     MatSelectModule,
+    MatMenuModule,
   ],
 })
 export class MaterialModule { }

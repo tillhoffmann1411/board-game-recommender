@@ -1,8 +1,9 @@
 <div class="card">
   <img [src]="game.imageUrl" [alt]="game.name" [ngClass]="activateDetails ? 'activatedDetails' : ''"
     (click)="activateDetails && openDetails()">
-  <app-star-rating *ngIf="!activateDetails && !deactivateRating" class="rating" [numStars]="10" [rating]="rating"
-    (rated)="rate($event)">
-  </app-star-rating>
-  <h2 class="name">{{ game.name }}</h2>
+  <ng-container *ngIf="activateRating">
+    <app-star-rating class="rating" [numStars]="10" [rating]="rating" (rated)="rate($event)">
+    </app-star-rating>
+  </ng-container>
+  <div class="name">{{ game.name }}</div>
 </div>

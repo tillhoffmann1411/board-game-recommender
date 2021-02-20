@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { IBoardGame, IRecResponse, IRating } from '../models/game';
+import { IBoardGame, IRecResponse, IRating, ICategory, IMechanic, IAuthor, IPublisher, IOnlineGame } from '../models/game';
 
 @Injectable({
   providedIn: 'root'
@@ -21,18 +21,6 @@ export class GameHttpService {
     return this.http.get<IBoardGame>(this.baseUrl + '/games/' + id + '/').toPromise();
   }
 
-  getRecommendedBoardGames(): Promise<IRecResponse[]> {
-    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/common-based/').toPromise();
-  }
-
-  getRecommendedKNN(): Promise<IRecResponse[]> {
-    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/knn/').toPromise();
-  }
-
-  getRecommendedItemBased(): Promise<IRecResponse[]> {
-    return this.http.get<IRecResponse[]>(this.baseUrl + '/games/recommendation/item-based/').toPromise();
-  }
-
   sendRatings(rating: IRating): Promise<IRating> {
     return this.http.post<IRating>(this.baseUrl + '/user/review/', rating).toPromise();
   }
@@ -40,4 +28,29 @@ export class GameHttpService {
   getRatings(): Promise<IRating[]> {
     return this.http.get<IRating[]>(this.baseUrl + '/user/review/').toPromise();
   }
+
+  deleteRating(ratingId: number): Promise<void> {
+    return this.http.delete<void>(this.baseUrl + '/user/review/' + ratingId + '/').toPromise();
+  }
+
+  getCategories(): Promise<ICategory[]> {
+    return this.http.get<ICategory[]>(this.baseUrl + '/games/category/').toPromise();
+  }
+
+  getMechanics(): Promise<IMechanic[]> {
+    return this.http.get<IMechanic[]>(this.baseUrl + '/games/mechanic/').toPromise();
+  }
+
+  getAuthors(): Promise<IAuthor[]> {
+    return this.http.get<IAuthor[]>(this.baseUrl + '/games/author/').toPromise();
+  }
+
+  getPublishers(): Promise<IPublisher[]> {
+    return this.http.get<IPublisher[]>(this.baseUrl + '/games/publisher/').toPromise();
+  }
+
+  getOnlineGame(bggid: number): Promise<IOnlineGame> {
+    return this.http.get<IOnlineGame>(this.baseUrl + '/games/online-game/' + bggid + '/').toPromise();
+  }
+
 }

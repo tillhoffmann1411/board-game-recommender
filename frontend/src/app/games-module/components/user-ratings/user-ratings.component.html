@@ -1,0 +1,17 @@
+<div class="wrapper row">
+  <h1>These are all your ratings: </h1>
+  <section class="game-list row">
+    <ng-container *ngIf="!isLoading">
+      <div *ngFor="let game of ratedGames">
+        <app-game-card [game]="game" [rating]="getRatingForGame(game.id)" [activateDetails]="true"
+          [activateRating]="true">
+        </app-game-card>
+      </div>
+    </ng-container>
+  </section>
+
+  <section class="loading" *ngIf="isLoading">
+    <h2>Give us a second, we are loading all the great games.</h2>
+    <app-loading></app-loading>
+  </section>
+</div>

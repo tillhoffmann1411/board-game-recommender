@@ -4,28 +4,30 @@
   margin-top: 4rem;
 }
 
-::ng-deep .mat-expansion-panel-content > .mat-expansion-panel-body, mat-expansion-panel, .mat-expansion-panel, .mat-expansion-panel-header:hover {
-  border-radius: 10px;
-  background-color: $background2;
-}
-
 .filter {
+  padding: 0.2rem;
   .num-input {
-    display: flex;
     align-self: center;
-    flex-direction: row;
-    align-items: center;
     font-weight: 500;
+  }
+  .filter-actions {
+    text-align: center;
+    margin: 1rem 0;
   }
 }
 
-.filter-actions {
+.action-section {
   text-align: center;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+  .tooltip {
+    display: inline-flex;
+  }
 }
 
+
 .game-section {
-  h2 {
+  margin-bottom: 0.3rem;
+  h1 {
     padding: 0 0.5rem;
   }
   .game-row {
@@ -38,10 +40,12 @@
     ::-webkit-scrollbar {
       width: 0px;  /* Remove scrollbar space */
       background: transparent;  /* Optional: just make scrollbar invisible */
+      height: 0.5rem;
     }
     /* Optional: show position indicator in red */
     ::-webkit-scrollbar-thumb {
-        background: transparent;
+      background: $background2;
+      border-radius: 10px;
    }
   }
 }
@@ -55,13 +59,20 @@
 }
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .wrapper {
     padding: 1rem;
   }
 
   .filter-section {
     padding: 1rem 0;
+  }
+
+  .action-section {
+    text-align: left;
+    float: right;
+    padding: 1rem;
+    margin: 0;
   }
 
   .game-section {
@@ -79,8 +90,26 @@
    }
   }
 
+  .filter-section {
+    details {
+      position: fixed;
+    }
+    .filter {
+      .num-input {
+        font-weight: 500;
+        align-items: baseline;
+        display: flex;
+      }
+    }
+  }
 
-  .mat-expansion-panel-header {
-    display: none;
+  details {
+    summary {
+      display: none;
+    }
+    
+    .content {
+      border-radius: 10px;
+    }
   }
 }

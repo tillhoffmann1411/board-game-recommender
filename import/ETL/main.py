@@ -5,8 +5,7 @@ from ETL.Integration.auxiliary_tables import integrate_auxiliary_tables
 from ETL.Integration.onlinegames_tables_integration import integrate_online_games
 from ETL.Load.load_to_db import upload_users_to_db, upload_board_games_to_db, upload_reviews_to_db, \
     upload_categories_to_db, \
-    upload_gamemechanic_to_db, upload_publisher_to_db, upload_author_to_db, upload_online_games_to_db, \
-    upload_similarboardonlinegame_to_db
+    upload_gamemechanic_to_db, upload_publisher_to_db, upload_author_to_db, upload_online_games_to_db, upload_similarity_matrix_to_db
 from ETL.globals import *
 from ETL.Cleaning.BoardGameAtlas.clean_boardgameatlas_data import clean_bga_api_review_data, \
     clean_bga_api_game_information, \
@@ -69,9 +68,9 @@ def pipeline():
         print('BGG Cleaning Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
     if RUN_INTEGRATION_PIPELINE:
-        integrate_boardgame_table()
-        integrate_user_and_review_tables()
-        integrate_auxiliary_tables()
+        # integrate_boardgame_table()
+        # integrate_user_and_review_tables()
+        # integrate_auxiliary_tables()
         integrate_online_games()
         print('Integration pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
@@ -80,13 +79,15 @@ def pipeline():
         # upload_board_games_to_db()
         # upload_reviews_to_db()
 
-        # upload_categories_to_db()
-        # upload_gamemechanic_to_db()
-        # upload_publisher_to_db()
+        upload_categories_to_db()
+        upload_gamemechanic_to_db()
+        upload_publisher_to_db()
         upload_author_to_db()
 
         # upload_online_games_to_db()
-        # upload_similarboardonlinegame_to_db()
+
+        # upload_similarity_matrix_to_db()
+        pass
 
         # Press the green button in the gutter to run the script.
 if __name__ == '__main__':

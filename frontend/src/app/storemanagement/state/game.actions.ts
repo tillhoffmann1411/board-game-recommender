@@ -1,4 +1,4 @@
-import { IBoardGame, IRecResponse, IRating } from 'src/app/models/game';
+import { IBoardGame, IRecResponse, IRating, IOnlineGame } from 'src/app/models/game';
 
 export namespace Game {
   export class getBoardGames {
@@ -35,6 +35,24 @@ export namespace Game {
   export class SendRatingSuccess {
     static readonly type = '[Game] Successful sended user rating';
     constructor(public rating: IRating) { }
+  }
+
+  /**
+   * Delete User Ratings
+   */
+  export class DeleteRating {
+    static readonly type = '[Game] Delete user rating';
+    constructor(public ratingId: number) { }
+  }
+
+  export class DeleteRatingError {
+    static readonly type = '[Game] Failed to Delete user rating';
+    constructor() { }
+  }
+
+  export class DeleteRatingSuccess {
+    static readonly type = '[Game] Successful Delete user rating';
+    constructor(public ratingId: number) { }
   }
 
   /**
@@ -93,62 +111,33 @@ export namespace Game {
     constructor(public boardGame: IBoardGame) { }
   }
 
-
-
   /**
-   * Load recommended Board Games
-   */
-  export class LoadRecommendedBoardGames {
-    static readonly type = '[Game] Load recommended Board Games';
+  * Load Generics
+  */
+  export class LoadCategories {
+    static readonly type = '[Game] Load categories';
+    constructor() { }
+  }
+  export class LoadMechanics {
+    static readonly type = '[Game] Load mechanics';
+    constructor() { }
+  }
+  export class LoadAuthors {
+    static readonly type = '[Game] Load authors';
+    constructor() { }
+  }
+  export class LoadPublishers {
+    static readonly type = '[Game] Load publishers';
     constructor() { }
   }
 
-  export class LoadRecommendedBoardGamesError {
-    static readonly type = '[Game] Failed to load recommended Board Games';
-    constructor() { }
+  export class LoadGenericError {
+    static readonly type = '[Game] Failed to load generic';
+    constructor(public kind: 'categories' | 'mechanics' | 'authors' | 'publishers') { }
   }
 
-  export class LoadRecommendedBoardGamesSuccess {
-    static readonly type = '[Game] Successful loaded recommended Board Games';
-    constructor(public recommendedBoardGameIds: IRecResponse[]) { }
+  export class LoadGenericSuccess {
+    static readonly type = '[Game] Successful loaded generic';
+    constructor(public res: any[], public kind: 'categories' | 'mechanics' | 'authors' | 'publishers') { }
   }
-
-  /**
-   * Load recommended Board Games
-   */
-  export class LoadRecommendationKNN {
-    static readonly type = '[Game] Load recommended KNN Board Games';
-    constructor() { }
-  }
-
-  export class LoadRecommendationKNNError {
-    static readonly type = '[Game] Failed to load KNN recommended Board Games';
-    constructor() { }
-  }
-
-  export class LoadRecommendationKNNSuccess {
-    static readonly type = '[Game] Successful loaded KNN recommended Board Games';
-    constructor(public knnIds: IRecResponse[]) { }
-  }
-
-
-  /**
-   * Load recommended Board Games
-   */
-  export class LoadRecommendationItemBased {
-    static readonly type = '[Game] Load recommended ItemBased Board Games';
-    constructor() { }
-  }
-
-  export class LoadRecommendationItemBasedError {
-    static readonly type = '[Game] Failed to load ItemBased recommended Board Games';
-    constructor() { }
-  }
-
-  export class LoadRecommendationItemBasedSuccess {
-    static readonly type = '[Game] Successful loaded ItemBased recommended Board Games';
-    constructor(public recIds: IRecResponse[]) { }
-  }
-
-
 }

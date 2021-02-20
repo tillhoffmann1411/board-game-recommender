@@ -8,24 +8,12 @@ from pandas.core.frame import DataFrame
 # TODO Max Maiberger
 
 
-def get_recommendation_data(data, min_number_ratings_game, min_number_ratings_user, size_user_sample, seed):
+def get_recommendation_data(data, min_number_ratings_game):
     """ output: pandas data frame """
     # filter games by number of reviews and sample x unique user form data
     # keep only games with more than x reviews
-    # print('Num Reviews: ' + str(len(data)))
     num_reviews_game = data.loc[:, 'game_key'].value_counts()
     data = data[data.loc[:, 'game_key'].isin(num_reviews_game.index[num_reviews_game.gt(min_number_ratings_game)])]
-    # keep only user with more than x reviews
-    num_reviews_user = data.loc[:, 'created_by_id'].value_counts()
-    data = data[data.loc[:, 'created_by_id'].isin(num_reviews_user.index[num_reviews_user.gt(min_number_ratings_user)])]
-    # take only sample of users
-    user_sample = pd.Series(data['created_by_id'].unique())
-    # user_sample = user_sample.sample(n=size_user_sample, replace=False, random_state=seed)
-    user_sample = user_sample.tolist()
-    data = data[data.created_by_id.isin(user_sample)]
-
-    # print('---data shape: ', data.shape)
-
     return data
 
 
@@ -136,11 +124,7 @@ def predict(data, threshold_min_number_ratings_per_game):
 
 def similiar_users(user_id: int, data: pd.DataFrame, num_recommendations: int = 50):
     # get all data to compare
-    data = get_recommendation_data(data,
-                                   min_number_ratings_game=500,
-                                   min_number_ratings_user=10,
-                                   size_user_sample=5_000,
-                                   seed=2352)  # if None random games
+    data = get_recommendation_data(data, min_number_ratings_game=50)
 
     # create utility matrix
     data = prepare_data(data=data)

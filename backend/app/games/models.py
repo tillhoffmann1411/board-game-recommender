@@ -34,8 +34,9 @@ class OnlineGame(models.Model):
     # main
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=256)
-    image_url = models.URLField(max_length=500, blank=True, null=True)
     url = models.URLField(max_length=500, blank=True, null=True)
+    origin = models.CharField(max_length=256, blank=True, null=True)
+    bgg_id = models.IntegerField(blank=True, null=True)
 
 
 class BoardGame(models.Model):
@@ -56,8 +57,6 @@ class BoardGame(models.Model):
     publisher = ManyToManyField(Publisher, through='BoardgamePublisher')
     game_mechanic = ManyToManyField(GameMechanic, through='BoardgameMechanic')
     category = ManyToManyField(Category, through='BoardgameCategory')
-    # Similar Online Games
-    similar_online_games = models.ManyToManyField(OnlineGame, through='SimilarBoardOnlineGame')
     # Recommendations
     user_recommendations = models.ManyToManyField(User, through='Recommendations')
 
@@ -86,20 +85,18 @@ class BoardGame(models.Model):
     reddit_all_time_count = models.FloatField(blank=True, null=True)
 
 
-class SimilarBoardOnlineGame(models.Model):
-    online_game = models.ForeignKey(OnlineGame, on_delete=models.CASCADE)
-    board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
-
-
 class Recommendations(models.Model):
     board_game = models.ForeignKey(BoardGame, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class ItemSimilarityMatrix(models.Model):
-    game_one = models.IntegerField()
-    game_two = models.IntegerField()
+    game_one = models.FloatField()
+    game_two = models.FloatField()
     similarity = models.FloatField()
+
+    class Meta:
+        indexes = [models.Index(fields=['game_one'])]
 
 
 class BoardgameAuthor(models.Model):
