@@ -9,11 +9,6 @@ from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, exp
 JACCARD_THRESHOLD_GAME_NAME = 0.6
 
 
-def integrate_online_games():
-    merge_online_games()
-    match_online_game_names_and_bgg_names()
-
-
 def merge_online_games():
     # import all online game csvs to dataframes
     yucata_scrape_filename = get_latest_version_of_file('../Data/Onlinegames/Yucata/Raw/Yucata_all_data_raw.csv')

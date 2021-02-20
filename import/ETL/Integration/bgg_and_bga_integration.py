@@ -8,7 +8,7 @@ from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, exp
 from tabulate import tabulate
 
 # Threshold for matching game names. For jaccard scores lower than that threshold games are no longer matched.
-JACCARD_THRESHOLD_GAME_NAME = 0.301
+JACCARD_THRESHOLD_GAME_NAME = 0.2
 
 # Counting the number of comparisons when applying our similarity function to game names.
 COMPARISONS = 0
@@ -16,7 +16,7 @@ COMPARISONS = 0
 
 def integrate_boardgame_table():
     # match bga and bgg boardgames by applying the set-based similarity function jaccard on the boardgame names.
-    # match_game_names()
+    match_game_names()
 
     # merge the bga and bgg game information datasets by using the game matches identified in the previous step
     merge_game_information()
@@ -159,7 +159,7 @@ def match_game_names():
     # turn list of dictionaries back to data frame:
     jaccard_matches_df = pd.DataFrame(bga_list_matches)
 
-    # just for debugging:
+    # just for debugging and inspecting results:
     analyse_df = pd.DataFrame(bga_list_matches)
     analyse_df = analyse_df[analyse_df['jaccard_score'] != '']
     analyse_df = analyse_df[['name', 'match', 'jaccard_score']]
@@ -210,7 +210,7 @@ def merge_game_information():
     For the matched games there are three types of columns:
         a) columns that exist in both datasets but we only need to keep one of them (conflicting attributes):
             (e.g. name, year_published, min_players, ...)
-            In this case we chose to keep the bgg columns! This means that we also
+            In this case we chose to keep the bgg columns!
         b) columns that exist in both datasets but we want to keep both:
             (e.g. bga_game_id/bgg_game_id, num_user_ratings, average_user_rating, bga_rank/bgg_rank, ...)
         c) columns that exist only in the bgg dataset:
@@ -334,7 +334,7 @@ def merge_game_information():
     games_df['game_description'] = games_df['game_description'].str.replace(r'&times;', 'x')
     games_df['game_description'] = games_df['game_description'].str.replace(r'&shy;', '-')
 
-    # Kick html charackters
+    # Kick html characters
     games_df['game_description'] = games_df['game_description'].str.replace(r'&#...;', '')
     games_df['game_description'] = games_df['game_description'].str.replace(r'&#..;', ' ')
     games_df['game_description'] = games_df['game_description'].str.replace(r'&#.;', '')
@@ -546,13 +546,13 @@ def ngrams(string, n=3):
 
     # remove common words like 'edition','first','second','third:
     remove_words = ['edition', 'first', 'second', 'third', '2nd', 'deluxe', 'game', 'board', 'card', 'anniversary',
-                    'classic', 'collector', 'strategy', '3rd', '4th', '5th', 'third', 'fourth', 'fifth']
+                    'classic', 'collector', 'strategy', '3rd', '4th', '5th', 'third', 'fourth', 'fifth', 'the']
 
     # split words so that words like 'expEDITION' do not get removed:
     string_words = string.split()
     result_words = [word for word in string_words if word.lower() not in remove_words]
     string = ' '.join(result_words)
-
+    string = string.strip()
 
     # add prefix and suffix '##': Uno -> ##Uno##
     # 3-grams: [##U,#Un,Uno,no#,o##]
