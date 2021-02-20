@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import re
 
-from ETL.Integration.bgg_and_bga_integration import find_closest_match
+from ETL.Integration.bgg_and_bga_integration import find_match
 from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, export_df_to_csv, \
     import_pickle_to_dataframe, export_df_to_pickle
 
@@ -98,7 +98,7 @@ def match_online_game_names_and_bgg_names():
     match_list = []
 
     for name in subset_onlinegame_names_without_BGGID:
-        match = find_closest_match(name, subset_bgg_df_names, JACCARD_THRESHOLD_GAME_NAME)
+        match = find_match(name, subset_bgg_df_names, JACCARD_THRESHOLD_GAME_NAME)
         match_list.append(
             {'online_name': name, 'bgg_name': match['name'], 'jaccard_score': match['jaccard_score']}
         )

@@ -92,12 +92,16 @@ def etl_pipeline():
     if RUN_SCRAPE_ONLINE_GAMES_PIPELINE:
 
         ##### HIER ONLINE GAMES SCRAPER FUNKTIONEN EINFÜGEN #####
+        # 1) Tabletopia Games
+        # 2) Scrape BoardGameArena Games
+        # 3) Scrape Yucata Games
+        #########################################################
 
         print('Scrape Online Games Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
 
     if RUN_INTEGRATE_OFFLINE_GAMES_PIPELINE:
-        # integrate_boardgame_table()
+        integrate_boardgame_table()
         # integrate_user_and_review_tables()
         # integrate_auxiliary_tables()
         print('Offline Games Integration Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))

@@ -29,10 +29,10 @@ def parameter_tuning():
     https://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNWithMeans
 
 
-    As a result we sticked to the following parameters:
+    As a result we chose the following parameters in our production environment:
     (1) Pearson correlation (centred cosine similarity)
     (2) k = 40
-    (3) min-k = 5
+    (3) min_k = 5
 
 
     [*] Actually the similarity options include another parameter that determines whether we use item-item or user-user similarities.
