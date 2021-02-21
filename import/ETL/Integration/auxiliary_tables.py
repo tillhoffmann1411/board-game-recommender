@@ -5,7 +5,7 @@ import json
 import glob
 from datetime import datetime
 
-from ETL.Integration.bgg_and_bga_integration import find_closest_match
+from ETL.Integration.bgg_and_bga_integration import find_match
 from ETL.helper import import_json_to_dataframe, export_df_to_json, export_df_to_csv, \
     get_latest_version_of_file, get_bga_publishers
 
@@ -172,7 +172,7 @@ def match_and_merge_bga_and_bgg_mechanics():
     # match mechanics:
     mecha_list = []
     for bga_mechanic in bga_mechanics_names:
-        match = find_closest_match(bga_mechanic, bgg_mechanics_names, mechanic_jaccard_threshold)
+        match = find_match(bga_mechanic, bgg_mechanics_names, mechanic_jaccard_threshold)
         mecha_list.append(
             {'bga_name': bga_mechanic, 'bgg_name': match['name'], 'jaccard_score': match['jaccard_score']})
 
@@ -344,7 +344,7 @@ def match_and_merge_bga_and_bgg_categories():
     # match categories:
     mecha_list = []
     for bga_category in bga_categories_names:
-        match = find_closest_match(bga_category, bgg_categories_names, category_jaccard_threshold)
+        match = find_match(bga_category, bgg_categories_names, category_jaccard_threshold)
         mecha_list.append(
             {'bga_name': bga_category, 'bgg_name': match['name'], 'jaccard_score': match['jaccard_score']})
 
@@ -520,7 +520,7 @@ def merge_bga_and_bgg_publishers():
     # jaccard matching for names that could not be matched exactly
     matches = []
     for bga_publisher in bga_names_not_matched_list:
-        match = find_closest_match(bga_publisher, bgg_names_not_matched_list, JACCARD_THRESHOLD_PUBLISHERS)
+        match = find_match(bga_publisher, bgg_names_not_matched_list, JACCARD_THRESHOLD_PUBLISHERS)
         matches.append(
             {'bga_name': bga_publisher, 'bgg_name': match['name'], 'jaccard_score': match['jaccard_score']})
 
@@ -666,7 +666,7 @@ def merge_bga_and_bgg_designers():
     # jaccard matching for names that could not be matched exactly
     matches = []
     for bga_designer in bga_names_not_matched_list:
-        match = find_closest_match(bga_designer, bgg_names_not_matched_list, JACCARD_THRESHOLD_DESIGNERS)
+        match = find_match(bga_designer, bgg_names_not_matched_list, JACCARD_THRESHOLD_DESIGNERS)
         matches.append(
             {'bga_name': bga_designer, 'bgg_name': match['name'], 'jaccard_score': match['jaccard_score']})
 

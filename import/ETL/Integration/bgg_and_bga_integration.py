@@ -8,7 +8,7 @@ from ETL.helper import import_json_to_dataframe, get_latest_version_of_file, exp
 from tabulate import tabulate
 
 # Threshold for matching game names. For jaccard scores lower than that threshold games are no longer matched.
-JACCARD_THRESHOLD_GAME_NAME = 0.301
+JACCARD_THRESHOLD_GAME_NAME = 0.2
 
 # Counting the number of comparisons when applying our similarity function to game names.
 COMPARISONS = 0
@@ -16,7 +16,7 @@ COMPARISONS = 0
 
 def integrate_boardgame_table():
     # match bga and bgg boardgames by applying the set-based similarity function jaccard on the boardgame names.
-    # match_game_names()
+    match_game_names()
 
     # merge the bga and bgg game information datasets by using the game matches identified in the previous step
     merge_game_information()
@@ -38,7 +38,7 @@ def match_game_names():
     This function matches bga and bgg boardgames based on their game names and the year in which they were published.
     This is how it works:
     - We calculate n-grams with n=3 for each boardgamename.
-    - By removing stopwords that appear in many games, but that do not add much meaning to the game title we ensure
+    - By removing stopwords that appear in many games that don't add much meaning to the game title we can
     reduce the number of false-positives and false-negatives.
     Examples: the stopwords 'board' and 'game' are removed:
         bga_name = '7 Wonders'
@@ -54,14 +54,19 @@ def match_game_names():
 
     Scalability Challenge:
     - However, there is one issue with that strategy: Computing the jaccard similarity requires comparisons of
-    ca. 8,000 bga games and ca. 19,000 bgg games. The quadratic complexity requires a veeery long run time.
+    ca. 8,000 bga games and ca. 19,000 bgg games [ O(n) = n^2 ]. Comparing all bga_games and all bgg_games
+    would lead to an extremely long run time, which we want to avoid.
     -> 8,000 x 19,000 = 152,000,000 comparisons.
 
     Therefore we adjusted our approach:
-    1) First, we find game names that match exactly. We can subtract these games from the their datasets to decrease
+    1) First, we find games that can be matched exactly. By this we mean games that have exactly the same name in both
+     datasets. Since there are some games with duplicate game names that do not refer to the same game, we also include
+     the year of publication. Therefore only games with exactly the same name and exactly the same year of publication
+     are matched in this step. We can then subtract these games from the their datasets to decrease
     the sizes of games that have to be compared to: ca. 3,000 bga games and ca. 15,000 bgg games.
     -> 3,000 x 15,000 = 45,000,000 (complexity reduced by ~70%)
-    2) This is still quite a lot of comparisons. However, we made another observation. In the set of games that could
+    2) This is still quite a lot of comparisons. However, we made another observation. We also tried matching games
+    by only their game_name (not also taking the year_published into consideration). In the set of games that could
     be matched exactly, in almost all cases the publish years are the same, which makes sense obviously.
     3) Therefore we can further reduce complexity by grouping by publish years and comparing only games that have
     the same publish year. To make sure we don't lose games because the publish years deviate by one year, we also
@@ -71,6 +76,7 @@ def match_game_names():
     comparisons by 98%.
     """
 
+    # Import bgg and bga data:
     bgg_filename = get_latest_version_of_file(
         '../Data/BoardGameGeeks/Processed/GameInformation/01_BGG_Game_Information_*.csv')
     bgg_df = pd.read_csv(bgg_filename, index_col=0)
@@ -80,71 +86,88 @@ def match_game_names():
     bga_df = import_json_to_dataframe(bga_filename)
     bga_names = bga_df['name'].tolist()
 
+    # Create lists with bga and bgg ids:
     bgg_ids = bgg_df['bgg_game_id'].tolist()
     bga_ids = bga_df['bga_game_id'].tolist()
 
-    # get duplicate names:
+    # Check duplicate names:
     bgg_duplicate_names = set([x for x in bgg_names if bgg_names.count(x) > 1])
     bga_duplicate_names = set([x for x in bga_names if bga_names.count(x) > 1])
 
-    # find exact matches:
-    exact_matches = list(set(bga_names).intersection(bgg_names))
+    ## find exact matches (game_name, year_published):
+    exact_matches_join_df = pd.merge(left=bgg_df, right=bga_df,
+                                     left_on=['name', 'year_published'], right_on=['name', 'year_published'])
 
-    # subtract exact matches from datasets:
-    subset_bgg_df = bgg_df[~bgg_df['name'].isin(exact_matches)]
-    subset_bga_df = bga_df[~bga_df['name'].isin(exact_matches)]
+    # create list of ids of exactly matched games:
+    exact_matches_bgg_ids = exact_matches_join_df['bgg_game_id'].tolist()
+    exact_matches_bga_ids = exact_matches_join_df['bga_game_id'].tolist()
+
+    # subtract exact matches from datasets to reduce their size:
+    subset_bgg_df = bgg_df[~bgg_df['bgg_game_id'].isin(exact_matches_bgg_ids)]
+    subset_bga_df = bga_df[~bga_df['bga_game_id'].isin(exact_matches_bga_ids)]
     subset_bgg_df.rename(columns={'year_published': 'year_published_bgg'}, inplace=True)
     subset_bga_df.rename(columns={'year_published': 'year_published_bga'}, inplace=True)
 
-    # observation: in almost all cases year_published is the same in both datasets:
-    # this helps reducing the amount of names that have to be compared by a lot by grouping by year_published!
 
-    # extract years from bga dataset:
-    # a lot of type casting due to unexpected errors with float and set
+    ## In the next part we now want to apply name matching. Our first task is to find candidates so that we don't
+    ## have to compare all games from one dataset with all games from the other dataset. We do so by grouping by
+    ## their year of publication.
+    ## First, we need some preprocessing steps so that we can actually set up our candidates:
+
+    # Extract years from bga dataset:
+    # A lot of type casting due to unexpected errors with float and set
     all_years = subset_bga_df['year_published_bga'].dropna().tolist()
     all_years = list(map(int, all_years))
     years = list(set(all_years))
     years.sort(reverse=True)
 
-    # drop NA's from name matching:
-    print('Dropped ' + str(
-        subset_bgg_df['year_published_bgg'].isna().sum()) + ' rows from bga_dataset from name_matching')
-    print('Dropped ' + str(
-        subset_bga_df['year_published_bga'].isna().sum()) + ' rows from bgg_dataset from name_matching')
+    # Do not apply name matching to games where to publish_year is missing:
+    print('Dropped ' + str(subset_bgg_df['year_published_bgg'].isna().sum()) +
+          ' rows from bga_dataset from name_matching')
+    print('Dropped ' + str(subset_bga_df['year_published_bga'].isna().sum()) +
+          ' rows from bgg_dataset from name_matching')
     subset_bgg_df.dropna(inplace=True)
     subset_bga_df.dropna(inplace=True)
 
     # strip of '.0' at the end of each year by converting to int: 2018.0 -> 2018
     subset_bga_df["year_published_bga"] = subset_bga_df["year_published_bga"].astype(int)
 
-    # create dictionary to group all bgg games by their year of publication
+    # create a dictionary to group all bgg games by their year of publication
     # during the name matching process we will only compare the names of games with the same publication year
     bgg_dic_grouped_by_year = {}
     bga_dic_grouped_by_year = {}
 
+    # fill the previously created dictionaries that include all the games that were published in a certain year
     for year in years:
         bgg_dic_grouped_by_year[year] = subset_bgg_df[subset_bgg_df['year_published_bgg'] == year].to_dict('records')
         bga_dic_grouped_by_year[year] = subset_bga_df[subset_bga_df['year_published_bga'] == year].to_dict('records')
 
+
+    ## Now we get to the interesting part:
+    ## We iterate over all bga_games which we found no exact bgg_matches for. We then create a list with potential
+    ## candidates including all bgg_games that were published in the same year or one year before or after.
+    ## For these candidates we then apply name_matching using the jaccard similarity.
     for year in years:
         for bga_game in bga_dic_grouped_by_year[year]:
             input_string = bga_game['name']
 
-            ref_list = []
-            # create ref_list with all bgg games that were published in the same year as the bga_game:
+            candidate_list = []
+            # create candidate_list with all bgg games that were published in the same year as the bga_game:
             for bgg_game in bgg_dic_grouped_by_year[year]:
-                ref_list.append(bgg_game['name'])
+                candidate_list.append(bgg_game['name'])
 
             # also check bgg games that were published in the previous year and one year later:
             if year+1 in bgg_dic_grouped_by_year:
                 for bgg_game in bgg_dic_grouped_by_year[year+1]:
-                    ref_list.append(bgg_game['name'])
+                    candidate_list.append(bgg_game['name'])
             if year-1 in bgg_dic_grouped_by_year:
                 for bgg_game in bgg_dic_grouped_by_year[year-1]:
-                    ref_list.append(bgg_game['name'])
+                    candidate_list.append(bgg_game['name'])
 
-
-            match = find_closest_match(input_string, ref_list, JACCARD_THRESHOLD_GAME_NAME)
+            # Try to match the input_string (target BGA Game name) one of the games in the candidate_list (bgg games).
+            # The match with the highest jaccard similarity is returned. If there is no match, or the Jaccard threshold
+            # can not be exceeded then an empty string is returned.
+            match = find_match(input_string, candidate_list, JACCARD_THRESHOLD_GAME_NAME)
             bga_game['match'] = match['name']
             bga_game['jaccard_score'] = match['jaccard_score']
 
@@ -159,29 +182,20 @@ def match_game_names():
     # turn list of dictionaries back to data frame:
     jaccard_matches_df = pd.DataFrame(bga_list_matches)
 
-    # just for debugging:
+    # just for debugging and inspecting results:
     analyse_df = pd.DataFrame(bga_list_matches)
     analyse_df = analyse_df[analyse_df['jaccard_score'] != '']
     analyse_df = analyse_df[['name', 'match', 'jaccard_score']]
     analyse_df = analyse_df.sort_values('jaccard_score', ascending=False)
 
-    # 1) Create DF containing BGA and BGG IDs of games that could be matched exactly by name and year_published
-    # 2) Create DF containing BGA and BGG IDs of games that could be matched by string matching (jaccard method)
+
+    ## We have now succesfully found a large number of games that could be matched. All that's left to do is
+    #  creating a dataframe that contains the matched BGA and BGG IDs. We do so in three steps:
+    # 1) Prepare DF containing BGA and BGG IDs of games that could be matched exactly by name and year_published
+    # 2) Prepare DF containing BGA and BGG IDs of games that could be matched by string matching (jaccard method)
     # 3) Concatenate both data frames
 
     # 1) Exact matches
-    # Create dataframes containing only the ids of the games that could be matched exactly
-    exact_matches_bgg_df = bgg_df[bgg_df['name'].isin(exact_matches)]
-    exact_matches_bga_df = bga_df[bga_df['name'].isin(exact_matches)]
-
-    # Keep only name, year_published and id columns
-    exact_matches_bgg_df = exact_matches_bgg_df[['bgg_game_id', 'name', 'year_published']]
-    exact_matches_bga_df = exact_matches_bga_df[['bga_game_id', 'name', 'year_published']]
-
-    # Create join:
-    exact_matches_join_df = pd.merge(left=exact_matches_bgg_df, right=exact_matches_bga_df,
-                                     left_on=['name', 'year_published'], right_on=['name', 'year_published'])
-
     # Keep only ID columns:
     exact_matches_join_df = exact_matches_join_df[['bgg_game_id', 'bga_game_id']]
 
@@ -210,7 +224,7 @@ def merge_game_information():
     For the matched games there are three types of columns:
         a) columns that exist in both datasets but we only need to keep one of them (conflicting attributes):
             (e.g. name, year_published, min_players, ...)
-            In this case we chose to keep the bgg columns! This means that we also
+            In this case we chose to keep the bgg columns!
         b) columns that exist in both datasets but we want to keep both:
             (e.g. bga_game_id/bgg_game_id, num_user_ratings, average_user_rating, bga_rank/bgg_rank, ...)
         c) columns that exist only in the bgg dataset:
@@ -334,7 +348,7 @@ def merge_game_information():
     games_df['game_description'] = games_df['game_description'].str.replace(r'&times;', 'x')
     games_df['game_description'] = games_df['game_description'].str.replace(r'&shy;', '-')
 
-    # Kick html charackters
+    # Kick html characters
     games_df['game_description'] = games_df['game_description'].str.replace(r'&#...;', '')
     games_df['game_description'] = games_df['game_description'].str.replace(r'&#..;', ' ')
     games_df['game_description'] = games_df['game_description'].str.replace(r'&#.;', '')
@@ -515,14 +529,22 @@ def clean_reviews():
     export_df_to_csv(all_reviews, '../Data/Joined/Results/Reviews_Reduced.csv')
 
 
-def find_closest_match(inp_string, ref_list, threshold=0.8):
+def find_match(inp_string, ref_list, threshold=0.8):
+    """
+    Returns the element in the ref_list that is most similar to the inp_string by calculating the jaccard similarity
+    for each element in the ref_list. If the match with the highest score does not exceed a threshold and empty
+    match and jaccard_score is returned.
+    """
     # return empty string if ref_list is empty
     if not ref_list:
         return {'name': '', 'jaccard_score': ''}
 
     jaccard_similarities = []
+
+    # creates the ngrams for the inp_string
     ngrams_input_str = ngrams(inp_string)
 
+    # iterates over all elements in the ref_list and calculates the jaccard similarity for each candidate
     for ref_string in ref_list:
         temp = jaccard_similarity(ngrams_input_str, ngrams(ref_string))
         jaccard_similarities.append(temp)
@@ -542,22 +564,31 @@ def find_closest_match(inp_string, ref_list, threshold=0.8):
 
 
 def ngrams(string, n=3):
+    """
+    Returns a list containing the n-grams of the passed string.
+    Punctuation marks as well as stopwords are removed. Also a "##" prefix and suffix is added as suggested in
+    Chapter 03 - Finding Similar Items in J. Lescovec, A. Rajaraman, J.D. Ullman - Mining of Massive Data Sets (2019).
+    http://www.mmds.org/
+    """
+
+    # removes punctuation marks:
     string = re.sub(r'[,-./:!?)(\']|\sBD', r'', string)
 
     # remove common words like 'edition','first','second','third:
     remove_words = ['edition', 'first', 'second', 'third', '2nd', 'deluxe', 'game', 'board', 'card', 'anniversary',
-                    'classic', 'collector', 'strategy', '3rd', '4th', '5th', 'third', 'fourth', 'fifth']
+                    'classic', 'collector', 'strategy', '3rd', '4th', '5th', 'third', 'fourth', 'fifth', 'the']
 
     # split words so that words like 'expEDITION' do not get removed:
     string_words = string.split()
     result_words = [word for word in string_words if word.lower() not in remove_words]
     string = ' '.join(result_words)
-
+    string = string.strip()
 
     # add prefix and suffix '##': Uno -> ##Uno##
     # 3-grams: [##U,#Un,Uno,no#,o##]
     string = '##' + string + '##'
 
+    # last two lines based on this blog: https://albertauyeung.github.io/2018/06/03/generating-ngrams.html
     ngrams = zip(*[string[i:] for i in range(n)])
     return [''.join(ngram) for ngram in ngrams]
 

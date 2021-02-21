@@ -388,7 +388,12 @@ def clean_bga_api_game_information():
 
 
 
-def create_id_list_of_included_games():
+def create_id_list_of_included_bga_games():
+    """
+    Extracts ids of bga games previously obtained from bga api and create a JSON file containing the IDs.
+    This list will later be used for the BGA Review API requests.
+    """
+
     # import file that contains information on bga_games
     # since the exact filename is unknown, we have to find file and its latest version first:
     filename = get_latest_version_of_file('../Data/BoardGameAtlas/Processed/API/01_BGA_Game_Information_*.json')
@@ -409,7 +414,7 @@ def get_ids_of_included_games():
 
     # if file doesn't exist call function to create it:
     if not os.path.isfile(filename):
-        create_id_list_of_included_games()
+        create_id_list_of_included_bga_games()
 
     # import data
     ids_df = import_json_to_dataframe(filename)
