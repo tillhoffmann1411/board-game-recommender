@@ -10,9 +10,10 @@ from games.models import BoardGame
 
 from .models import Review, UserTaste
 from .serializers import ReviewSerializer, UserSerializer
-from .permissions import IsOwner, IsYourReview
+from .permissions import IsYourReview
 
 
+# View for read, write and delete operations on an user
 class UserDetail(APIView):
     permission_classes = (IsAuthenticated, )
 
@@ -41,6 +42,7 @@ class UserDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+# View for read and write operations
 class ReviewList(generics.ListCreateAPIView):
     queryset = Review.objects.all().select_related('rating', 'game_id', 'created_at')
     serializer_class = ReviewSerializer
@@ -58,6 +60,7 @@ class ReviewList(generics.ListCreateAPIView):
         return Review.objects.all().filter(created_by=user_taste)
 
 
+# View mainly for deleting a single rating
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ReviewSerializer
     permission_classes = (IsAuthenticated, IsYourReview)
