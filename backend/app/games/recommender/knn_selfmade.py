@@ -55,7 +55,29 @@ def get_similarity_matrix_from_db(games_rated_by_target_user):
 
 
 class MyKnnWithMeans:
-    def __init__(self, sim_matrix, target_user_ratings, item_means, k=40, min_k=1):
+    def __init__(self, sim_matrix, target_user_ratings, item_means, k=40, min_k=5):
+        """
+        Function requires 5 different parameters which are explained below:
+
+        1. k:
+            The maximum number of neighbors to take into account for computing the weighted adjusted ratings. In our case
+            the k games rated by the target user that are most similar to the game we are trying to predict.
+            We focus on this parameter below.
+        2. min_k:
+            The minimum number of neighbors to take into account for computing the weighted adjusted ratings. If less
+            than min_k neighbors are available, meaning that not enough games have been rated by the user, that have a
+            similarity of >= 0 the prediction is equal to the average rating for the particular game.
+        3. sim_matrix:
+            An item-item based similarity matrix that contains the similarities of games the user has already rated to all
+            other games.
+        4. min_k:
+            The minimum number of neighbors to take into account for computing the weighted adjusted ratings. If less
+            than min_k neighbors are available, meaning that not enough games have been rated by the user (that have a
+            similarity of >= 0) the prediction is equal to the average rating for the particular game.
+        5. item_means:
+            Contains the average ratings of each item, in our case the overall average rating for each game.
+
+        """
         self.k = k
         self.min_k = min_k
         self.sim_matrix = sim_matrix
@@ -70,11 +92,15 @@ class MyKnnWithMeans:
 
 
     def predict_all_games(self):
+        # get all games
         all_games = [k for k, _ in self.item_means.items()]
+        # get games the target user has already rated
         games_with_rating = [x[0] for x in self.target_user_ratings]
+        # get all games the user has not yet rated
         games_to_predict = list(set(all_games)-set(games_with_rating))
 
         predictions = {}
+        # itterate over the game the target user has not yet rated and get an estimate for each game
         for game in games_to_predict:
             single_pred = self.predict_single_game(game)
             predictions[game] = single_pred
@@ -84,14 +110,17 @@ class MyKnnWithMeans:
     def predict_single_game(self, game_key):
         x = game_key
 
+        # get similarities of target game (the game we want to get a prediction for) to the games the user has already rated
         neighbors = [(x2, self.sim_matrix.loc[x2, x], r) for (x2, r) in self.target_user_ratings]
 
-        # keep k games with highest ratings:
+        # keep only k games with highest ratings:
         k_neighbors = heapq.nlargest(self.k, neighbors, key=lambda t: t[1])
 
+        # initilaize the estimation with the overall average rating for the target game
         est = self.item_means[x]
 
-        # compute weighted average
+        # adjust initial estimate by computing weighted average of games the user has already rated
+        # similarity scores serve as weights
         sum_sim = sum_ratings = actual_k = 0
         for (nb, sim, r) in k_neighbors:
             if sim > 0:
@@ -99,9 +128,12 @@ class MyKnnWithMeans:
                 sum_ratings += sim * (r - self.item_means[nb])
                 actual_k += 1
 
+        # If less than min_k neighbors are available, meaning that not enough games have been rated by the user
+        # (that have a similarity of >= 0) the prediction is equal to the average rating for the particular game.
         if actual_k < self.min_k:
             sum_ratings = 0
 
+        # Compute estimate
         try:
             est += sum_ratings / sum_sim
         except ZeroDivisionError:
