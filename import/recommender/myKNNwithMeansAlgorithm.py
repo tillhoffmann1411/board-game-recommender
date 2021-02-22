@@ -9,7 +9,7 @@ import heapq
 
 
 class MyKnnWithMeans:
-    def __init__(self, sim_matrix, target_user_ratings, item_means, k=40, min_k=1):
+    def __init__(self, sim_matrix, target_user_ratings, item_means, k=3, min_k=1):
         self.k = k
         self.min_k = min_k
         self.sim_matrix = sim_matrix
@@ -38,9 +38,10 @@ class MyKnnWithMeans:
     def predict_single_game(self, game_key):
         x = game_key
 
+        # get similarities of the games the user has already rated to the target game:
         neighbors = [(x2, self.sim_matrix.loc[x, x2], r) for (x2, r) in self.target_user_ratings]
 
-        # keep k games with highest ratings:
+        # keep k games that are most similar to the target game:
         k_neighbors = heapq.nlargest(self.k, neighbors, key=lambda t: t[1])
 
         est = self.item_means[x]
@@ -52,9 +53,6 @@ class MyKnnWithMeans:
                 sum_sim += sim
                 sum_ratings += sim * (r - self.item_means[nb])
                 actual_k += 1
-
-        if actual_k < self.min_k:
-            sum_ratings = 0
 
         try:
             est += sum_ratings / sum_sim

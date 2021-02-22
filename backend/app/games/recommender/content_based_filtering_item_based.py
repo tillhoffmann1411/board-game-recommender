@@ -1,10 +1,15 @@
 import pandas as pd
 import numpy as np
-import time
 import os
 
 
 def create_bool_cat_and_mec(data):
+    '''
+    this function takes the artificial game information and manipulates the categories and mechanics so that only four
+    categories and mechanics are chosen. When creating an artificial game, it should be similar to the characteristics
+    of real games. A real game has in average four categories and four mechanics. This manipulation is done here. Output
+    is the manipulated artificial game with only four categories and four mechanics.
+    '''
     # manipulate categories
     n_values_to_change_cat = 4  # number of categories a mean game
     data.iloc[-1:, 7:137] = data.iloc[-1:, 7:137].\
@@ -21,6 +26,15 @@ def create_bool_cat_and_mec(data):
 
 
 def create_mean_best_n_games(data_games, user_id, data_user: pd.DataFrame):
+    '''
+    this function selects the n best rated games of an user and creates an artificial game out of them by calculating
+    the mean.
+
+    data_games: before prepared data
+    user_id:    user_id of user to create artificial game for
+    data_user:  reviews of user we want to create artificial game for
+    '''
+
     # get best n rated games of user - here frontend can only query data from user of interest
     # data_user = pd.read_csv('../Data/Joined/Results/Reviews.csv', usecols=['user_key', 'game_key', 'rating'], sep=',', header=0)
     data_user = data_user[data_user['user_key'] == user_id]
@@ -41,12 +55,15 @@ def create_mean_best_n_games(data_games, user_id, data_user: pd.DataFrame):
 
 
 def get_cosine_similarity(x, y, weights):
-    '''  x and y are numpy arrays with values of query item and other item '''
-    # only compare nonzero values from query game - otherwise games will be similar because most features are 0
-    # get indices of zero values in query game
-    #zero_indices = np.where(x == 0)[0]
-    #x = np.delete(x, zero_indices)
-    #y = np.delete(y, zero_indices)
+    '''
+    this function calculates the cosine similarity between the arrays x and y. Furthermore, the function is able to
+    weight the features so that no feature is dominating the similarity calculation.
+
+    x:  array with item ratings of frontend user
+    y:  array with item ratings of other user to compare
+    weights:    array with weights for the features
+
+    '''
 
     # calculate weighted features
     x = x * weights
@@ -66,6 +83,14 @@ def get_cosine_similarity(x, y, weights):
 
 
 def get_recommendations(data_games, mean_best_games, already_rated_games):
+    '''
+    this function calculates the similarity between the artificial game and all other games.
+
+    data_games:             before prepared data
+    mean_best_games:        artificial game characteristics
+    already_rated_games:    list with game_keys of already rated games by the user
+    '''
+
     # append mean game to all games df
     mean_best_games = pd.DataFrame(mean_best_games).transpose()
     mean_best_games['name'] = 'mean_best_n_games'
@@ -117,16 +142,29 @@ def get_recommendations(data_games, mean_best_games, already_rated_games):
 
 
 def similar_games(user_id: int, user_reviews_df: pd.DataFrame, num_recommendations: int = 50):
+    '''
+    content based filtering approach on item basis:
+    this function is the main function for the content based filtering approach on item basis. The following steps are
+    performed in this function:
+
+    1. Load the already prepared data with game characteristics
+    2. create an artificial game out of the best rated games of an user
+    3. calculate the similarity between the artificial game and all other games
+    4. recommend games which are most similar to artificial game
+    '''
+
     # get saved data
     path = os.path.dirname(os.path.abspath(__file__)) + '/similar_games_one_hot_df.csv'
     df = pd.read_csv(path)
 
     # create mean of best rated games
-    mean_best_games, already_rated_games = create_mean_best_n_games(
-        data_games=df, user_id=user_id, data_user=user_reviews_df)
+    mean_best_games, already_rated_games = create_mean_best_n_games(data_games=df,
+                                                                    user_id=user_id,
+                                                                    data_user=user_reviews_df)
 
     # calculate similarity
-    similarities = get_recommendations(data_games=df, mean_best_games=mean_best_games,
+    similarities = get_recommendations(data_games=df,
+                                       mean_best_games=mean_best_games,
                                        already_rated_games=already_rated_games)
 
     return similarities[:num_recommendations]

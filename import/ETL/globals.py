@@ -1,14 +1,14 @@
 #####################
-# Global variables: #
+# ETL pipeline variables: #
 #####################
 
 # Booleans for main pipeline to decide which functions to call:
-RUN_PIPELINE_BGA_SPIDER = False
-RUN_BGA_GAME_INFO_API_PIPELINE = False
-RUN_BGA_REVIEWS_API_PIPELINE = False
-RUN_BGG_CLEANING_PIPELINE = False
-RUN_INTEGRATION_PIPELINE = False
-RUN_UPLOAD = True
+RUN_BGA_PIPELINE = False
+RUN_BGG_PIPELINE = False
+RUN_SCRAPE_ONLINE_GAMES_PIPELINE = False
+RUN_INTEGRATE_OFFLINE_GAMES_PIPELINE = True
+RUN_INTEGRATE_ONLINE_GAMES_PIPELINE = False
+RUN_UPLOAD = False
 
 # Parameters for which users and games to keep in reviews:
 # Keep only games with >= ... reviews:

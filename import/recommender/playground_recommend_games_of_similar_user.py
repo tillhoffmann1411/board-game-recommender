@@ -1,7 +1,11 @@
-# get similar games
+# This script was used as a playground for the collaborative filtering approach. Deeper explanations of the functions
+# are implemented in the frontend. Have a look there.
+
+
 import pandas as pd
 import numpy as np
 import gc
+import time
 
 
 def get_recommendation_data(link, min_number_ratings_game, min_number_ratings_user, size_user_sample, seed):
@@ -135,12 +139,12 @@ def predict(data, threshold_min_number_ratings_per_game):
 def main():
     # get user id - frontend
     user_id = 50
-
+    start = time.time()
     # get all data to compare
     data = get_recommendation_data(link='../Data/Joined/Results/Reviews.csv',
                                    min_number_ratings_game=500,
                                    min_number_ratings_user=10,
-                                   size_user_sample=5_000,
+                                   size_user_sample=10_000,
                                    seed=2352)  # if None random games
 
     # create utility matrix
@@ -160,7 +164,8 @@ def main():
                                      threshold_min_number_ratings_per_game=50)
 
     print('info about game predictions: \t', pred_info)
-
+    end_time = time.time()
+    print(end_time-start)
     # send sorted_pred to frontend
 
 
