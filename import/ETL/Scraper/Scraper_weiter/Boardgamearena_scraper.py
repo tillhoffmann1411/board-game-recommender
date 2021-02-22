@@ -4,33 +4,29 @@ import time
 import csv
 import os
 
-path = 'C:\\Users\\Benjamin\\Documents\\GitHub\\board-game-recommender\\import\\Data\\Boardgamearena\\Raw'
-
+# This part of code is to make folders and files under Windows to store the scraped data
+path = '/import/Data/Boardgamearena/Raw'
 try:
     os.mkdir(path)
 except OSError:
     print("Creation of the directory %s failed" % path)
 else:
     print("Successfully created the directory %s " % path)
-filename = 'C:\\Users\\Benjamin\\Documents\\GitHub\\board-game-recommender\\import\\Data\\Boardgamearena\\Raw\\test.txt'
+filename = '/import/Data/Boardgamearena/Raw/test.txt'
 if os.path.exists(filename):
     append_write = 'a'  # append if already exists
 else:
     append_write = 'w'  # make a new file if not
+pathdata = '/import/Data/Boardgamearena/Raw'
+datafilename = '/import/Data/Boardgamearena/Boardgamearena_all_raw'
 
-highscore = open(filename, append_write)
-highscore.write('Fucking finally')
-highscore.close()
-
-pathdata = 'C:\\Users\\Benjamin\\Documents\\GitHub\\board-game-recommender\\import\\Data\\Boardgamearena\\Raw'
-datafilename = 'C:\\Users\\Benjamin\\Documents\\GitHub\\board-game-recommender\\import\\Data\\Boardgamearena\\Boardgamearena_all_raw'
-
-
+#Make a list that appends new unique links
 def unique(link_list):
     unique_link_list = []
     for x in link_list:
         if x not in unique_link_list:
             unique_link_list.append(x)
+
 
 def get_game_links(save_list=True, elem=None):
     """
@@ -40,8 +36,7 @@ def get_game_links(save_list=True, elem=None):
         3. save all links as csv
     """
 
-    # create webdriver
-    #  binary = FirefoxBinary(C:\Program Files\Mozilla Firefox\firefox.exe)
+    # create webdriver for Firefox
     driver = webdriver.Firefox()
     driver.get("https://de.boardgamearena.com/gamelist?section=all")
     time.sleep(2)
@@ -68,15 +63,11 @@ def get_game_links(save_list=True, elem=None):
 
     print("len link_list", len(link_list))
     driver.close()
-
+    # remove irritating links with bad text (acutes and carons)
     link_list.remove('https://de.boardgamearena.com/gamepanel?game=tzolkin')
     link_list.remove('https://de.boardgamearena.com/gamepanel?game=k2')
     link_list.remove('https://de.boardgamearena.com/gamepanel?game=koryo')
     unique(link_list)
-
-
-
-    # removing irritating links (fucking czech and their stupid acutes and carons)
 
     # save info as csv
     print(link_list)
@@ -243,7 +234,7 @@ def get_game_information(links, save_csv=True):
                     dict_writer = csv.DictWriter(output_file, keys)
                     dict_writer.writeheader()
                     dict_writer.writerows(dict_list)
-        print("Fettich!")
+        print("Scraping process has finished")
 
 
 if __name__ == "__main__":
