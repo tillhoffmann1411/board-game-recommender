@@ -1,3 +1,7 @@
+# This script was used as a playground for the content based filtering approach. Deeper explanations of the functions
+# are implemented in the frontend. Have a look there.
+
+
 import pandas as pd
 import numpy as np
 import time

@@ -52,8 +52,7 @@ def get_similarity_matrix(games_rated_by_target_user,
     return sim_matrix_wide
 
 
-def import_all_reviews():
-    import_path = 'C:/Users/lukas/PycharmProjects/board-game-recommender/import/Data/Joined/Results/Reviews_Reduced.csv'
+def import_all_reviews(import_path = 'C:/Users/lukas/PycharmProjects/board-game-recommender/import/Data/Joined/Results/Reviews_Reduced.csv'):
     df = pd.read_csv(import_path)
     # keep only important columns:
     df = df[['game_key', 'user_key', 'rating']]
@@ -103,7 +102,7 @@ def reduce_reviews2(df):
 
     # take only sample of users: 100000
     users_sample = pd.Series(df['user_key'].unique())
-    users_sample = users_sample.sample(n=100000, replace=False)
+    users_sample = users_sample.sample(n=10000, replace=False)
     users_sample = users_sample.tolist()
     df = df[df.user_key.isin(users_sample)]
 
@@ -122,11 +121,11 @@ def reduce_reviews2(df):
 
 
 def export_reviews(df):
-    export_path = 'C:/Users/lukas/OneDrive/Desktop/Reviews_Reduced.csv'
+    export_path = '../Data/Joined/Results/Reviews_Reduced_SMALL.csv'
     df.to_csv(export_path)
 
 
-def import_reduced_reviews(import_path='C:/Users/lukas/OneDrive/Desktop/Reviews_Reduced.csv'):
+def import_reduced_reviews(import_path='../Data/Joined/Results/Reviews_Reduced.csv'):
     df = pd.read_csv(import_path)
     # drop index col:
     df.drop(df.columns[0], axis=1, inplace=True)
@@ -378,7 +377,7 @@ def collaborative_filtering_using_surprise():
 
 def benchmark_different_algorithms():
     # import reduced dataset:
-    df = import_reduced_reviews()
+    df = import_reduced_reviews('C:/Users/lukas/OneDrive/Desktop/Reviews_Reduced.csv')
 
     # check for duplicates:
     duplicates = len(df) - len(df.drop_duplicates(subset=['game_key', 'user_key']))
@@ -461,8 +460,6 @@ def benchmark_different_algorithms():
     for algorithm, result in zip(algorithms, results):
         print(algorithm + '\t \t RMSE Score: \t' + str(result['test_rmse'].mean()) + '\t\t Fit-Time: ' + str(
             result['fit_time']) + '\t\t Train-Time: ' + str(result['test_time']))
-
-    print('test')
 
 
 def create_selfmade_item_item_cosine_similarity_matrix():
@@ -694,10 +691,12 @@ def get_KNN_predictions(target_ratings_df: pd.DataFrame):
         # convert keys to int:
         item_means = {int(key): value for key, value in json.load(fp).items()}
 
-    myKNN = MyKnnWithMeans(sim_matrix, target_ratings, item_means, k, min_k)
+    myKNN = MyKnnWithMeans(sim_matrix, target_ratings, item_means, 3, 1)
 
     predictions = myKNN.predict_all_games()
-    sorted_predictions = dict(sorted(predictions.items(), key=lambda item: item[1], reverse=True))
+    sorted_predictions = dict(sorted(predictions.items(),
+                                     key=lambda item: item[1],
+                                     reverse=True))
 
     sorted_predictions_list = [{'game_key': k, 'estimate': v} for k, v in sorted_predictions.items()]
 
@@ -778,7 +777,7 @@ def create_similarity_matrix():
 
 
 def main():
-    run_method = 9
+    run_method = 1
 
     if run_method == 1:
         svd_factorization()
@@ -797,11 +796,12 @@ def main():
     elif run_method == 8:
         selfmade_approach()
     elif run_method == 9:
-        user_ratings = pd.DataFrame({'game_key': [100001, 100007, 100003, 100006, 100005, 100013, 100011, 100008, 100004, 100002, 123],
-                                     'rating': [8, 10, 4, 8, 2, 10, 6, 8, 6, 10, 8]})
+        user_ratings = pd.DataFrame({'game_key': [100001, 100007, 100003, 100006, 100005, 100013, 100011, 100008, 100004, 100002],
+                                     'rating': [8, 10, 4, 8, 2, 10, 6, 8, 6, 10]})
         result = get_KNN_predictions(user_ratings)
     elif run_method == 10:
         create_similarity_matrix()
 
 
-main()
+if __name__ == '__main__':
+    main()

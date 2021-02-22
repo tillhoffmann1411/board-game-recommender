@@ -1,10 +1,13 @@
-
-# Questions Monday:
-# - what approaches should we try?
-# - how many approaches should we try?
-# - is this true: first step - measure similarity of user, second step - calculate prediction based on similar users
-
-# Questions Group:
+# This script was our first playground for testing recommender and get a feeling of how we have to implement them if we
+# are writing them on our own. To get an overview the (main) script will do the following:
+#   1. get recommendation data
+#   2. get new user name for recommendation
+#   3. prepare data
+#   4. split data (train, test)
+#   5. calculate user similarities
+#   6. calculate baseline rating
+#   7. prepare data for prediction
+#   8. predict (can also use other models) - average rating in user group
 
 
 import pandas as pd
