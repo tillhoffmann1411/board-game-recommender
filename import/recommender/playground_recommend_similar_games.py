@@ -12,7 +12,7 @@ def get_data():
     data_games = pd.read_csv('../Data/Joined/Results/BoardGames.csv',
                              usecols=['game_key', 'name', 'min_players', 'max_players',
                                       'min_playtime', 'max_playtime', 'bgg_average_weight'], index_col=False)
-    # get game characteristics
+    # get game categories
     data_category = pd.read_csv('../Data/Joined/Results/Category_Game_Relation.csv', usecols=['game_key', 'category_key'])
     # get game mechanics
     data_mechanics = pd.read_csv('../Data/Joined/Results/Mechanic_Game_Relation.csv', usecols=['game_key', 'mechanic_key'])
@@ -66,7 +66,7 @@ def extract_category(categories, cat):
     if pd.isna(categories):
         return 0
 
-    # split list and
+    # split list
     categories_list = categories.split(",")
     if cat in categories_list:
         return 1
@@ -167,7 +167,7 @@ def get_recommendations(data_games, mean_best_games, already_rated_games):
     similarities = []
     for i in range(len(data_games['name'])):
 
-        # skip the query game
+        # skip query game
         if i != index:
             # iterate over games
             other_game = data_games.iloc[i, 2:]

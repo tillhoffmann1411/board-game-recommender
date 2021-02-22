@@ -15,10 +15,10 @@ from .serializers import AuthorSerializer, BoardGameDetailSerializer, BoardGameS
 from accounts.serializers import ReviewSerializer
 from accounts.models import UserTaste, Review
 
-from .recommender.similar_users import similiar_users
-from .recommender.recommend_popular_games import popular_games
+from .recommender.collaborative_filtering_user_based import similiar_users
+from .recommender.popularity_score import popular_games
 from .recommender.knn_selfmade import selfmade_KnnWithMeans_approach
-from .recommender.recommend_similar_games import similar_games
+from .recommender.content_based_filtering_item_based import similar_games
 
 
 class BoardGameList(generics.ListAPIView):
@@ -44,7 +44,7 @@ class RecommendationCommonBased(APIView):
 
         cursor = connection.cursor()
         cursor.execute('''
-            select created_by_id, game_id, rating 
+            select created_by_id, game_id, rating
             from accounts_review ar
             where created_by_id  in (
                 select created_by_id

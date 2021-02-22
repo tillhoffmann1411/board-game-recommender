@@ -10,7 +10,7 @@
 #   3. evaluation_pipeline
 #       - evaluate predictions
 #
-# To get deeper insights have a look at our function descriptions.
+# To get deeper insights have a look at our function descriptions and general comments.
 
 
 from baseline_preparation import *
@@ -87,7 +87,11 @@ def evaluation_pipeline(result):
     calculate_rmse(result)
 
 
-if __name__ == "__main__":
+def main():
+    '''
+    This function will call the three different pipelines prepatation, modeling and evaluation on the top level.
+    '''
+
     # prepataion
     data = preparation_pipeline()
     # modeling
@@ -97,3 +101,7 @@ if __name__ == "__main__":
                                user_average=False)
     # evaluation
     evaluation_pipeline(result=result)
+
+
+if __name__ == "__main__":
+    main()
