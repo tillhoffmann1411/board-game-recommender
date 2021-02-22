@@ -37,22 +37,22 @@ def benchmark_different_algorithms():
     # 1) SVD
     algo = SVD()
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     # 2) Slope One
     algo = SlopeOne()
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     # 3) CoClustering
     algo = CoClustering()
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     # 4) NMF
     algo = NMF()
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     ## K-Nearest Neighbors - Item-Item
     sim_option = {'name': 'cosine', 'user_based': False}
@@ -62,17 +62,17 @@ def benchmark_different_algorithms():
     # 5) KNNBasic
     algo = KNNBasic(k=k, min_k=min_k, sim_options=sim_option)
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     # 6) KNNWithMeans
     algo = KNNWithMeans(k=k, min_k=min_k, sim_options=sim_option)
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     # 7) KNNWithZScore
     algo = KNNWithZScore(k=k, min_k=min_k, sim_options=sim_option)
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     ## K-Nearest Neighbors - User - User
     sim_option = {'name': 'cosine', 'user_based': True}
@@ -82,17 +82,17 @@ def benchmark_different_algorithms():
     # 8) KNNBasic
     algo = KNNBasic(k=k, min_k=min_k, sim_options=sim_option)
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     # 9) KNNWithMeans
     algo = KNNWithMeans(k=k, min_k=min_k, sim_options=sim_option)
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     # 10) KNNWithZScore
     algo = KNNWithZScore(k=k, min_k=min_k, sim_options=sim_option)
     results.append(
-        cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+        cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
     for algorithm, result in zip(algorithms, results):
         print(algorithm + '\t \t RMSE Score: \t' + str(result['test_rmse'].mean()) + '\t\t Fit-Time: ' + str(

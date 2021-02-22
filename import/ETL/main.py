@@ -91,12 +91,10 @@ def etl_pipeline():
 
 
     if RUN_SCRAPE_ONLINE_GAMES_PIPELINE:
-        ##### HIER ONLINE GAMES SCRAPER FUNKTIONEN EINFÜGEN #####
-        # 1) Tabletopia Games
+        #Scrape Tabletopia Games
         run_tabletopia_scraper()
-        # 2) Scrape BoardGameArena Games
-        # 3) Scrape Yucata Games
-        #########################################################
+        #Scrape BoardGameArena Games
+        #Scrape Yucata Games
 
         print('Scrape Online Games Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
