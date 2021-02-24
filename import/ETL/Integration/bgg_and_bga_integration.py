@@ -221,10 +221,11 @@ def merge_game_information():
     '''
     Function merges the boardgames of the previously matched games.
 
-    For the matched games there are three types of columns:
-        a) columns that exist in both datasets but we only need to keep one of them (conflicting attributes):
+    For the matched games there are four types of columns:
+        a) columns that exist in both datasets but we only need to keep one of them (can include conflicting values):
             (e.g. name, year_published, min_players, ...)
-            In this case we chose to keep the bgg columns!
+            In this case we chose to keep the bgg columns! ["trust-your-friends" avoidance strategy as in case of
+            conflicting values we keep values based on which data source they come from]
         b) columns that exist in both datasets but we want to keep both:
             (e.g. bga_game_id/bgg_game_id, num_user_ratings, average_user_rating, bga_rank/bgg_rank, ...)
         c) columns that exist only in the bgg dataset:
