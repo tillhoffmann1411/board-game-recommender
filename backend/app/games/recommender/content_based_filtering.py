@@ -5,10 +5,10 @@ import os
 
 def create_bool_cat_and_mec(data):
     '''
-    this function takes the artificial game information and manipulates the categories and mechanics so that only four
-    categories and mechanics are chosen. When creating an artificial game, it should be similar to the characteristics
+    this function takes the user profile information and manipulates the categories and mechanics so that only four
+    categories and mechanics are chosen. When creating an user profile, it should be similar to the characteristics
     of real games. A real game has in average four categories and four mechanics. This manipulation is done here. Output
-    is the manipulated artificial game with only four categories and four mechanics.
+    is the manipulated user profile with only four categories and four mechanics.
     '''
     # manipulate categories
     n_values_to_change_cat = 4  # number of categories a mean game
@@ -27,12 +27,12 @@ def create_bool_cat_and_mec(data):
 
 def create_mean_best_n_games(data_games, user_id, data_user: pd.DataFrame):
     '''
-    this function selects the n best rated games of an user and creates an artificial game out of them by calculating
+    this function selects the n best rated games of an user and creates an user profile out of them by calculating
     the mean.
 
     data_games: before prepared data
-    user_id:    user_id of user to create artificial game for
-    data_user:  reviews of user we want to create artificial game for
+    user_id:    user_id of user to create user profile for
+    data_user:  reviews of user we want to create user profile for
     '''
 
     # get best n rated games of user - here frontend can only query data from user of interest
@@ -84,10 +84,10 @@ def get_cosine_similarity(x, y, weights):
 
 def get_recommendations(data_games, mean_best_games, already_rated_games):
     '''
-    this function calculates the similarity between the artificial game and all other games.
+    this function calculates the similarity between the user profile and all other games.
 
     data_games:             before prepared data
-    mean_best_games:        artificial game characteristics
+    mean_best_games:        user profile characteristics
     already_rated_games:    list with game_keys of already rated games by the user
     '''
 
@@ -148,9 +148,9 @@ def similar_games(user_id: int, user_reviews_df: pd.DataFrame, num_recommendatio
     performed in this function:
 
     1. Load the already prepared data with game characteristics
-    2. create an artificial game out of the best rated games of an user
-    3. calculate the similarity between the artificial game and all other games
-    4. recommend games which are most similar to artificial game
+    2. create an user profile out of the best rated games of an user
+    3. calculate the similarity between the user profile and all other games
+    4. recommend games which are most similar to user profile
     '''
 
     # get saved data

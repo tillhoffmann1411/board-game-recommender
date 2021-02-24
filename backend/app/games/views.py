@@ -18,7 +18,7 @@ from accounts.models import UserTaste, Review
 from .recommender.collaborative_filtering_user_based import similiar_users
 from .recommender.popularity_score import popular_games
 from .recommender.knn_selfmade import selfmade_KnnWithMeans_approach
-from .recommender.content_based_filtering_item_based import similar_games
+from .recommender.content_based_filtering import similar_games
 
 
 class BoardGameList(generics.ListAPIView):

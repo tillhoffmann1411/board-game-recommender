@@ -142,7 +142,7 @@ def main():
     start = time.time()
     # get all data to compare
     data = get_recommendation_data(link='../Data/Joined/Results/Reviews.csv',
-                                   min_number_ratings_game=500,
+                                   min_number_ratings_game=1,
                                    min_number_ratings_user=10,
                                    size_user_sample=10_000,
                                    seed=2352)  # if None random games
