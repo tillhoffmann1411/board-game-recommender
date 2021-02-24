@@ -21,6 +21,7 @@ from .recommender.knn_selfmade import selfmade_KnnWithMeans_approach
 from .recommender.content_based_filtering import similar_games
 
 
+# View that lists all board games
 class BoardGameList(generics.ListAPIView):
     # Write operations just for admins, GET for other authenticated users
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
@@ -28,6 +29,7 @@ class BoardGameList(generics.ListAPIView):
     serializer_class = BoardGameSerializer
 
 
+# View that returns all details for a single board game
 class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     # Write operations just for admins, GET for other authenticated users
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
@@ -35,6 +37,7 @@ class BoardGameDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BoardGameDetailSerializer
 
 
+# View that that triggers and returns the results of the common based recommender
 class RecommendationCommonBased(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
@@ -71,6 +74,7 @@ class RecommendationCommonBased(APIView):
         return Response(similiar_users(user_id, combined_reviews_df))
 
 
+# View that that triggers and returns the results of the k nearest neighbors recommender
 class RecommendationKNN(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
@@ -85,6 +89,7 @@ class RecommendationKNN(APIView):
         return Response(selfmade_KnnWithMeans_approach(reviews_from_user_df))
 
 
+# View that that triggers and returns the results of the item based recommender
 class RecommendationItemBased(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
@@ -100,6 +105,7 @@ class RecommendationItemBased(APIView):
         return Response(similar_games(user_id, reviews_user_df))
 
 
+# View that that triggers and returns the results of the popularity recommender
 class RecommendationPopularity(APIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
 
@@ -112,30 +118,35 @@ class RecommendationPopularity(APIView):
         return Response(popular_games(boardgames_df))
 
 
+# View that that returns all categories
 class CategoryList(generics.ListAPIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 
+# View that that returns all mechanics
 class MechanicList(generics.ListAPIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = GameMechanic.objects.all()
     serializer_class = MechanicSerializer
 
 
+# View that that returns all authors
 class AuthorList(generics.ListAPIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
 
 
+# View that that returns all publishers
 class PublisherList(generics.ListAPIView):
     permission_classes = (IsAdminOrReadOnly, IsAuthenticated,)
     queryset = Publisher.objects.all()
     serializer_class = PublisherSerializer
 
 
+# View that that returns all online games for a given board game
 class OnlineGameDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = OnlineGameSerializer
     queryset = OnlineGame.objects.all()

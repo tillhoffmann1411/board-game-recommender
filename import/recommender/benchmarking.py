@@ -34,7 +34,7 @@ def benchmark_different_algorithms():
         'KNN_Basic User-User\t\t', 'KNN_WithMeans User-User\t', 'KNN_WithZScore User-User'
     ]
 
-    # 1) SVD
+    # 1) SVD (Single Value Decomposition)
     algo = SVD()
     results.append(
         cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))

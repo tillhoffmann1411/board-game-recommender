@@ -13,12 +13,12 @@ def parameter_tuning():
 
 
     1. Sim options:
-        We can decide between using the naive cosine similarity, pearson similarity (centred cosine similarity)
+        We can decide between using the standard (naive) cosine similarity, pearson correlation (centred cosine similarity)
         or MSD (mean squared differences). Since the pearson similarity outperforms the others we stick to it.
     2. The min_k parameter:
         The minimum number of neighbors to take into account for computing the weighted adjusted ratings. If less
         than min_k neighbors are available, meaning that not enough games have been rated by the user, that have a
-        similarity of >= 0 the prediction is equal to the average rating for the particular game.
+        similarity of >= 0, the prediction is equal to the average rating for the particular game.
     3. The k parameter:
         The maximum number of neighbors to take into account for computing the weighted adjusted ratings. In our case
         the k games rated by the target user that are most similar to the game we are trying to predict.
@@ -56,11 +56,11 @@ def parameter_tuning():
 
     results = []
 
-    sim_option = {'name': 'cosine', 'user_based': False}
+    sim_option = {'name': 'pearson', 'user_based': False}
     min_k = 5
 
     # try out different parameters for k:
-    k_parameter = list(range(10, 80, 10))
+    k_parameter = list(range(10, 200, 10))
     min_k_parameter = [1, 5, 10]
 
     # Cross validate:
@@ -68,11 +68,11 @@ def parameter_tuning():
         for min_k in min_k_parameter:
             algo = KNNWithMeans(k=k, min_k=min_k, sim_options=sim_option)
             results.append(
-                cross_validate(algo, data, measures=['RMSE'], cv=3, return_train_measures=True, n_jobs=-3, verbose=True))
+                cross_validate(algo, data, measures=['RMSE'], cv=5, return_train_measures=True, n_jobs=-3, verbose=True))
 
-
+    # Print results:
     for i, result in enumerate(results):
-        print('k = ' + str(k_parameter[i]) + '\t \t RMSE Score: \t' + str(result['test_rmse'].mean()) + '\t\t Fit-Time: ' + str(
+        print('k = ' + str(k_parameter[i//len(min_k_parameter)]) + '\t \t' + 'min_k = ' + str(min_k_parameter[i % len(min_k_parameter)]) + '\t \t RMSE Score: \t' + str(result['test_rmse'].mean()) + '\t\t Fit-Time: ' + str(
             result['fit_time']) + '\t\t Train-Time: ' + str(result['test_time']))
 
 

@@ -7,6 +7,4 @@ urlpatterns = [
     url(r'^review/', views.ReviewList.as_view()),
 
     url(r'^', views.UserDetail.as_view()),
-    # url(r'^', views.UserList.as_view()),
-
 ]
