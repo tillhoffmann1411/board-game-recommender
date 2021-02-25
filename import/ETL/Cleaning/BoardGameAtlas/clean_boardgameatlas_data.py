@@ -196,8 +196,14 @@ def clean_bga_api_review_data():
     # import data
     df = import_json_to_dataframe('../Data/BoardGameAtlas/Processed/API/bga_all_reviews_for_games_with_more_than_2_reviews.json')
 
-    # double the ratings columns to adjust the scale
-    df['rating'] *= 2
+    # remove reviews with a rating < 1: these ratings are actually errors since the rating scale goes from 1 - 5
+    # and not 0 - 5 when rating games on boardgameatlas.com.
+    df = df[df['rating'] >= 1]
+
+    # adjust ratings so that they correspond to a scale from 1-10 instead of 1-5:
+    # a BGA rating of 1 should result in a 1 on the new scale:  1 * 2.25 - 1.25 =  2.25 - 1.25 =  1
+    # a BGA rating of 5 should result in a 10 on the new scale: 5 * 2.25 - 1.25 = 11.25 - 1.25 = 10
+    df['rating'] = 2.25 * df['rating'] - 1.25
 
     # drop column review_title
     del df['review_title']

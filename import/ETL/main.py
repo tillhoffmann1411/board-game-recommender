@@ -68,13 +68,13 @@ def etl_pipeline():
     if RUN_BGA_PIPELINE:
         ### BGA Scraper: ###
         # runSpider()
-        create_list_of_ids_of_all_bga_games()
+        # create_list_of_ids_of_all_bga_games()
         print('Scraper Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
         ### BGA API - Board Games: ###
         # get_bga_game_information_from_api()
-        clean_bga_api_game_information()
-        create_id_list_of_included_bga_games()
+        # clean_bga_api_game_information()
+        # create_id_list_of_included_bga_games()
         # get_bga_mechanics_from_api()
         # get_bga_categories_from_api()
         print('BGA Board Games API Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
@@ -86,7 +86,7 @@ def etl_pipeline():
 
 
     if RUN_BGG_PIPELINE:
-        clean_bgg_games()
+        # clean_bgg_games()
         clean_bgg_reviews()
         print('BGG Cleaning Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
