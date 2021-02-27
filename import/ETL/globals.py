@@ -3,7 +3,7 @@
 #####################
 
 # Booleans for main pipeline to decide which functions to call:
-RUN_BGA_PIPELINE = False
+RUN_BGA_PIPELINE = True
 RUN_BGG_PIPELINE = False
 RUN_SCRAPE_ONLINE_GAMES_PIPELINE = False
 RUN_INTEGRATE_OFFLINE_GAMES_PIPELINE = True

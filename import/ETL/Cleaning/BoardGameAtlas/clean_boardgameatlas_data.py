@@ -380,8 +380,8 @@ def clean_bga_api_game_information():
         'price': 'bga_price_us_dollar'
     }, inplace=True)
 
-    # double the avg rating scores so they fit the bgg rating scale:
-    game_information_df['bga_average_user_rating'] *= 2
+    # adjust the avg rating scores so that they fit the bgg rating scale (1-10):
+    game_information_df['bga_average_user_rating'] *= 2.25 * game_information_df['bga_average_user_rating']  - 1.25
 
     # Export all 6 dataframes:
     path = '../Data/BoardGameAtlas/Processed/API/'
