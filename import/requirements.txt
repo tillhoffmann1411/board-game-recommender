@@ -1,5 +1,5 @@
 itemadapter==0.2.0
-scrapy_splash==0.7.2
+scrapy_splash==0.8.0
 numpy==1.19.2
 Scrapy==2.4.1
 requests==2.24.0
