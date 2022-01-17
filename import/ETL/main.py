@@ -122,7 +122,7 @@ def etl_pipeline():
         upload_publisher_to_db()
         upload_author_to_db()
 
-        # upload_online_games_to_db()
+        upload_online_games_to_db()
 
 
         # Press the green button in the gutter to run the script.

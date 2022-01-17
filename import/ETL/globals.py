@@ -6,9 +6,9 @@
 RUN_BGA_PIPELINE = False
 RUN_BGG_PIPELINE = False
 RUN_SCRAPE_ONLINE_GAMES_PIPELINE = False
-RUN_INTEGRATE_OFFLINE_GAMES_PIPELINE = True
+RUN_INTEGRATE_OFFLINE_GAMES_PIPELINE = False
 RUN_INTEGRATE_ONLINE_GAMES_PIPELINE = False
-RUN_UPLOAD = False
+RUN_UPLOAD = True
 
 # Parameters for which users and games to keep in reviews:
 # Keep only games with >= ... reviews:
