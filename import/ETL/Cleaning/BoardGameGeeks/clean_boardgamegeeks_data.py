@@ -163,6 +163,9 @@ def clean_bgg_reviews():
     # drop column name (game name is already indirectly included through the game_id)
     del df['name']
 
+    # remove reviews with a rating < 1: these ratings are actually errors since the rating scale goes from 1 - 10 and not 0 - 10.
+    df = df[df['rating'] >= 1]
+
     # rename columns
     df.rename(columns={
         'user': 'user_name',

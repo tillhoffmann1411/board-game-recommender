@@ -20,24 +20,25 @@ def etl_pipeline():
 
     1)  BoardGameAtlas (BGA)
         1.1: BGA Scraper
-            1.1.1: Crawl BoardGameAtlas.com to get IDs of all BoardGamesAtlas Games
+            1.1.1: Scrape BoardGameAtlas.com to get IDs of all BoardGamesAtlas Games
             1.1.2: Extract BGA IDs from scraped data to use them for the API calls
         1.2: BGA API
             1.2.1: BGA Board Games
                 1.2.1.1: Get all information for all 120k games provided by BGA games API
                 1.2.1.2: Clean API GameInformation data (includes creating "auxiliary" tables for publishers,
                          designers, categories, mechanics, ...)
-                1.2.1.3: Create a list of the IDs of all obtained BGA games. This list is later used to when
-                         requesting reviews from the BGA API.
-                1.2.1.4: Get all BGA game mechanics
-                1.2.1.5: Get all BGA game categories
+                1.2.1.3: Create a list of the IDs of all obtained BGA games with >= 3 ratings.
+                         This list is later used to when requesting reviews from the BGA API.
+                1.2.1.4: Scrape BGA to get all BGA game mechanics
+                1.2.1.5: Scrape BGA to get all BGA game categories
             1.2.2: BGA Reviews
                 1.2.2.1: Get all 162k reviews for games with >= 3 ratings provided by BGA reviews API
                 1.2.2.2: Clean API GameReviews data
 
     2)  BoardGameGeeks (BGG):
-        2.1: Clean BGG GameInformation and create "auxiliary tables" for publishers, designers, categories and mechanics
-        2.2: Clean BGG Reviews
+        2.1: Clean BGG GameInformation obtained from Kaggle and create "auxiliary tables" for publishers, designers,
+             categories and mechanics
+        2.2: Clean BGG Reviews also obtained from Kaggle
 
     3)  OnlineGames:
         3.1: Scrape Tabletopia Games
@@ -51,7 +52,7 @@ def etl_pipeline():
 
     5)  OnlineGames Integration:
         5.1: Integrate online games
-        5.2: Link online games to offline games
+        5.2: Link online games to offline games again using string matching on game names using the Jaccard similarity
 
     6)  Load to Database:
         6.1: Upload users
@@ -67,13 +68,13 @@ def etl_pipeline():
     if RUN_BGA_PIPELINE:
         ### BGA Scraper: ###
         # runSpider()
-        create_list_of_ids_of_all_bga_games()
+        # create_list_of_ids_of_all_bga_games()
         print('Scraper Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
         ### BGA API - Board Games: ###
         # get_bga_game_information_from_api()
-        clean_bga_api_game_information()
-        create_id_list_of_included_bga_games()
+        # clean_bga_api_game_information()
+        # create_id_list_of_included_bga_games()
         # get_bga_mechanics_from_api()
         # get_bga_categories_from_api()
         print('BGA Board Games API Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
@@ -85,7 +86,7 @@ def etl_pipeline():
 
 
     if RUN_BGG_PIPELINE:
-        clean_bgg_games()
+        # clean_bgg_games()
         clean_bgg_reviews()
         print('BGG Cleaning Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
@@ -101,7 +102,7 @@ def etl_pipeline():
 
     if RUN_INTEGRATE_OFFLINE_GAMES_PIPELINE:
         integrate_boardgame_table()
-        # integrate_user_and_review_tables()
+        integrate_user_and_review_tables()
         # integrate_auxiliary_tables()
         print('Offline Games Integration Pipeline completed! ' + datetime.now().strftime("%d_%m_%Y-%H_%M_%S"))
 
