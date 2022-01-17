@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1612905920662,
+  "timestamp": 1642418325581,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/favicon.ico",
         "/index.html",
         "/lottie-web.be8f45a906c5061bae97.js",
-        "/main.70121737b1fdb4fd3616.js",
+        "/main.e2bfb624a591274b4077.js",
         "/manifest.webmanifest",
         "/polyfills.a88c71f8c22a8253ff66.js",
         "/runtime.3ee2f505061e6951bd39.js",
@@ -171,9 +171,9 @@
     "/assets/images/loading-dice.json": "b9d48da1be495b8a78a830478191f97faec494b8",
     "/assets/scss/modules/_fonts.scss": "184f8126fb3cd7a3034fdbcb471c6b92d29a8b77",
     "/favicon.ico": "842330c87812448eb6e3df330e04ca35fcbdbe15",
-    "/index.html": "eac0657a690db0ec8117252aba683e2d1d09f3d5",
+    "/index.html": "987a81501062c3db805c09f15e3a6512f68f6c46",
     "/lottie-web.be8f45a906c5061bae97.js": "248a5badd9c3912d1988a166fdfd6004a31a18f4",
-    "/main.70121737b1fdb4fd3616.js": "0863c8fa1218325e4d7cb17ead6746fb9b6c4d9b",
+    "/main.e2bfb624a591274b4077.js": "88573b07f69ab03f93bc912cb3d60bb0a3ff76ed",
     "/manifest.webmanifest": "6d84acd71a47bd8b0995c9cb4bdf887dfc892001",
     "/polyfills.a88c71f8c22a8253ff66.js": "b6380ed034569010e4ec859b66fbc7c7132365a3",
     "/runtime.3ee2f505061e6951bd39.js": "4891d148d1d574b9903540ea510b385432569cf0",
