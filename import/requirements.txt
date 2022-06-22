@@ -1,6 +1,6 @@
 itemadapter==0.2.0
 scrapy_splash==0.7.2
-numpy==1.19.2
+numpy==1.22.0
 Scrapy==2.4.1
 requests==2.24.0
 ratelimit==2.2.1
