@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Star, Users, Clock } from "lucide-react";
@@ -12,6 +13,7 @@ interface SerializedGameSummary {
   _id: string;
   name: string;
   imageUrl: string | null;
+  thumbnailUrl: string | null;
   yearPublished: number | null;
   minPlayers: number | null;
   maxPlayers: number | null;
@@ -27,6 +29,7 @@ interface RecommendedGameWithDetails {
   gameId: string;
   name: string;
   imageUrl?: string;
+  thumbnailUrl?: string;
   score?: number;
   rank?: number;
   bggRating?: number;
@@ -61,20 +64,44 @@ function getCategoryColor(category: string): string {
   return categoryColors[category] || "bg-gray-100 text-gray-700 border-gray-200";
 }
 
+// Helper function to validate URL
+function validateUrl(url: string | null | undefined): string | null {
+  if (
+    !url ||
+    typeof url !== "string" ||
+    url === "nan" ||
+    url === "null" ||
+    url.trim() === ""
+  ) {
+    return null;
+  }
+  if (
+    url.startsWith("http://") ||
+    url.startsWith("https://") ||
+    url.startsWith("/")
+  ) {
+    return url;
+  }
+  return null;
+}
+
 export function GameCard({ game }: GameCardProps) {
   // Handle both data structures
   const gameId = "_id" in game ? game._id : game.gameId;
 
-  // Validate imageUrl - must be a valid URL string
+  // Get image URLs from both data structures
   const rawImageUrl = game.imageUrl;
-  const imageUrl =
-    rawImageUrl &&
-      typeof rawImageUrl === "string" &&
-      rawImageUrl !== "nan" &&
-      rawImageUrl !== "null" &&
-      (rawImageUrl.startsWith("http://") || rawImageUrl.startsWith("https://") || rawImageUrl.startsWith("/"))
-      ? rawImageUrl
-      : null;
+  const rawThumbnailUrl = "thumbnailUrl" in game ? game.thumbnailUrl : undefined;
+
+  // Validate URLs
+  const imageUrl = validateUrl(rawImageUrl);
+  const thumbnailUrl = validateUrl(rawThumbnailUrl);
+
+  // Progressive image loading: start with thumbnail, then load full image
+  const [fullImageLoaded, setFullImageLoaded] = useState(false);
+  
+  // Determine if we should show thumbnail first (only if both exist and are different)
+  const showThumbnailFirst = thumbnailUrl && imageUrl && thumbnailUrl !== imageUrl;
 
   const bggRatingValue =
     "bggRating" in game && typeof game.bggRating === "object" && game.bggRating !== null
@@ -113,15 +140,45 @@ export function GameCard({ game }: GameCardProps) {
     <Link href={`/games/${gameId}`}>
       <Card className="h-full overflow-hidden border border-transparent bg-white shadow-sm transition-all duration-300 hover:shadow hover:border-purple-200 group">
         <CardHeader className="p-0">
-          <div className="relative h-32 w-full overflow-hidden bg-gradient-to-br from-purple-100 to-pink-50">
-            {imageUrl ? (
-              <Image
-                src={imageUrl}
-                alt={game.name}
-                fill
-                className="object-contain"
-                sizes="128px"
-              />
+          <div className="relative aspect-[3/4] w-full overflow-hidden bg-gradient-to-br from-purple-100 to-pink-50">
+            {thumbnailUrl || imageUrl ? (
+              <>
+                {/* Thumbnail (shown first if available, fades out when full image loads) */}
+                {showThumbnailFirst && thumbnailUrl && (
+                  <Image
+                    src={thumbnailUrl}
+                    alt={game.name}
+                    fill
+                    className={`object-cover transition-opacity duration-500 ${
+                      fullImageLoaded ? "opacity-0" : "opacity-100"
+                    }`}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                    loading="lazy"
+                    quality={70}
+                  />
+                )}
+                {/* Full image (preloaded in background, fades in when ready) */}
+                {imageUrl && (
+                  <Image
+                    src={imageUrl}
+                    alt={game.name}
+                    fill
+                    className={`object-cover transition-opacity duration-500 ${
+                      showThumbnailFirst
+                        ? fullImageLoaded
+                          ? "opacity-100"
+                          : "opacity-0"
+                        : "opacity-100"
+                    }`}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                    loading="lazy"
+                    quality={85}
+                    onLoad={() => {
+                      setFullImageLoaded(true);
+                    }}
+                  />
+                )}
+              </>
             ) : (
               <div className="flex h-full w-full items-center justify-center">
                 <span className="text-2xl">🎲</span>
@@ -187,7 +244,7 @@ export function GameCardSkeleton() {
   return (
     <Card className="h-full overflow-hidden border border-gray-100">
       <CardHeader className="p-0">
-        <Skeleton className="h-32 w-full" />
+        <Skeleton className="aspect-[3/4] w-full" />
       </CardHeader>
       <CardContent className="p-2">
         <Skeleton className="mb-1.5 h-3 w-3/4" />

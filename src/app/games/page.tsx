@@ -21,6 +21,7 @@ interface SerializedGameSummary {
   _id: string;
   name: string;
   imageUrl: string | null;
+  thumbnailUrl: string | null;
   yearPublished: number | null;
   minPlayers: number | null;
   maxPlayers: number | null;
@@ -68,6 +69,7 @@ async function getGames(
           complexity: 1,
           bggRating: 1,
           categories: 1,
+          thumbnailUrl: 1,
         },
       })
       .sort(sort)
@@ -102,7 +104,7 @@ function GamesGrid({ games }: { games: SerializedGameSummary[] }) {
   }
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {games.map((game) => (
         <GameCard key={game._id} game={game} />
       ))}
@@ -112,7 +114,7 @@ function GamesGrid({ games }: { games: SerializedGameSummary[] }) {
 
 function GamesGridSkeleton() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
       {Array.from({ length: 12 }).map((_, i) => (
         <GameCardSkeleton key={i} />
       ))}
@@ -126,8 +128,8 @@ async function GamesContent({ query, page }: { query?: string; page: number }) {
 
   return (
     <>
-      <div className="mb-6 flex items-center justify-between">
-        <p className="text-gray-600">
+      <div className="mb-4 sm:mb-6 flex items-center justify-between">
+        <p className="text-sm sm:text-base text-gray-600">
           <span className="font-semibold text-purple-600">{total.toLocaleString()}</span> games
           {query && (
             <span>
@@ -140,43 +142,43 @@ async function GamesContent({ query, page }: { query?: string; page: number }) {
       <GamesGrid games={games} />
 
       {totalPages > 1 && (
-        <div className="mt-12 flex items-center justify-center gap-2">
+        <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-2">
           {page > 1 ? (
             <a
               href={`/games?${query ? `q=${query}&` : ""}page=${page - 1}`}
             >
-              <Button variant="outline" className="gap-1">
-                <ChevronLeft className="h-4 w-4" />
+              <Button variant="outline" size="sm" className="gap-1 text-xs sm:text-sm">
+                <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
                 Previous
               </Button>
             </a>
           ) : (
-            <Button variant="outline" className="gap-1" disabled>
-              <ChevronLeft className="h-4 w-4" />
+            <Button variant="outline" size="sm" className="gap-1 text-xs sm:text-sm" disabled>
+              <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
               Previous
             </Button>
           )}
 
-          <div className="flex items-center gap-1 px-4">
-            <span className="text-sm text-gray-500">Page</span>
-            <span className="font-semibold text-purple-600">{page}</span>
-            <span className="text-sm text-gray-500">of</span>
-            <span className="font-semibold text-purple-600">{totalPages}</span>
+          <div className="flex items-center gap-1 px-2 sm:px-4">
+            <span className="text-xs sm:text-sm text-gray-500">Page</span>
+            <span className="text-sm sm:text-base font-semibold text-purple-600">{page}</span>
+            <span className="text-xs sm:text-sm text-gray-500">of</span>
+            <span className="text-sm sm:text-base font-semibold text-purple-600">{totalPages}</span>
           </div>
 
           {page < totalPages ? (
             <a
               href={`/games?${query ? `q=${query}&` : ""}page=${page + 1}`}
             >
-              <Button variant="outline" className="gap-1">
+              <Button variant="outline" size="sm" className="gap-1 text-xs sm:text-sm">
                 Next
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
               </Button>
             </a>
           ) : (
-            <Button variant="outline" className="gap-1" disabled>
+            <Button variant="outline" size="sm" className="gap-1 text-xs sm:text-sm" disabled>
               Next
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
             </Button>
           )}
         </div>
@@ -194,34 +196,35 @@ export default async function GamesPage({ searchParams }: GamesPageProps) {
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-purple-50/30 via-white to-white">
       <Header />
 
-      <main className="flex-1 py-8">
+      <main className="flex-1 py-4 px-4 sm:py-8 sm:px-6">
         <div className="container">
           {/* Page Header */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
-                <Sparkles className="h-6 w-6 text-white" />
+          <div className="mb-6 sm:mb-8">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2">
+              <div className="p-1.5 sm:p-2 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500">
+                <Sparkles className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
               </div>
-              <h1 className="text-3xl font-bold text-gray-900">Browse Games</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Browse Games</h1>
             </div>
-            <p className="text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               Explore our collection of board games and find your next favorite
             </p>
           </div>
 
           {/* Search Form */}
-          <form action="/games" method="GET" className="mb-8">
+          <form action="/games" method="GET" className="mb-6 sm:mb-8">
             <div className="relative max-w-xl">
-              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+              <Search className="absolute left-3 sm:left-4 top-1/2 h-4 w-4 sm:h-5 sm:w-5 -translate-y-1/2 text-gray-400" />
               <Input
                 name="q"
                 placeholder="Search for board games..."
                 defaultValue={query}
-                className="pl-12 h-12 text-base border-2 border-gray-200 focus:border-purple-400 rounded-xl shadow-sm"
+                className="pl-10 sm:pl-12 h-10 sm:h-12 text-sm sm:text-base border-2 border-gray-200 focus:border-purple-400 rounded-xl shadow-sm"
               />
               <Button
                 type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600"
+                size="sm"
+                className="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-xs sm:text-sm"
               >
                 Search
               </Button>

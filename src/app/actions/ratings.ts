@@ -217,3 +217,39 @@ export async function getUserRatings(): Promise<
     return [];
   }
 }
+
+export async function getGameRating(
+  gameId: string
+): Promise<number | null> {
+  try {
+    const { userId: clerkId } = await auth();
+
+    if (!clerkId) {
+      return null;
+    }
+
+    if (!ObjectId.isValid(gameId)) {
+      return null;
+    }
+
+    const db = await getDb();
+
+    const user = await db
+      .collection<User>(COLLECTIONS.USERS)
+      .findOne({ clerkId });
+
+    if (!user) {
+      return null;
+    }
+
+    const gameObjectId = new ObjectId(gameId);
+    const rating = await db
+      .collection<Rating>(COLLECTIONS.RATINGS)
+      .findOne({ userId: user._id, gameId: gameObjectId });
+
+    return rating ? rating.rating : null;
+  } catch (error) {
+    console.error("Error getting game rating:", error);
+    return null;
+  }
+}

@@ -19,28 +19,41 @@ declare global {
 let clientPromise: Promise<MongoClient> | null = null;
 
 function getClientPromise(): Promise<MongoClient> {
-  const uri = process.env.MONGODB_URI;
+  // Default to local MongoDB for development if not specified
+  const uri = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
-  if (!uri) {
-    throw new Error(
-      "Please define the MONGODB_URI environment variable in .env.local"
-    );
-  }
+  // Mask password in logs for security
+  const maskedUri = uri.replace(/:([^:@]+)@/, ":****@");
+  console.log("Connecting to MongoDB:", maskedUri);
 
   if (clientPromise) {
     return clientPromise;
   }
 
+  // Connection options for better reliability, especially for Atlas
+  const options = {
+    serverSelectionTimeoutMS: 30000, // 30 seconds
+    connectTimeoutMS: 30000, // 30 seconds
+    socketTimeoutMS: 30000, // 30 seconds
+    retryWrites: true,
+    retryReads: true,
+    // For Atlas connections, ensure TLS is used
+    ...(uri.includes("mongodb+srv://") && {
+      tls: true,
+      tlsAllowInvalidCertificates: false,
+    }),
+  };
+
   if (process.env.NODE_ENV === "development") {
     // In development, use a global variable to preserve the client across HMR
     if (!global._mongoClientPromise) {
-      const client = new MongoClient(uri);
+      const client = new MongoClient(uri, options);
       global._mongoClientPromise = client.connect();
     }
     clientPromise = global._mongoClientPromise;
   } else {
     // In production, create a new client for each instance
-    const client = new MongoClient(uri);
+    const client = new MongoClient(uri, options);
     clientPromise = client.connect();
   }
 

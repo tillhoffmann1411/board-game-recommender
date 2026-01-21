@@ -313,6 +313,7 @@ export type GameSummary = Pick<
   | "_id"
   | "name"
   | "imageUrl"
+  | "thumbnailUrl"
   | "yearPublished"
   | "minPlayers"
   | "maxPlayers"

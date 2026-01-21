@@ -15,6 +15,7 @@ interface RecommendedGameWithDetails {
   gameId: string;
   name: string;
   imageUrl?: string;
+  thumbnailUrl?: string;
   score: number;
   rank: number;
   bggRating?: number;
@@ -76,6 +77,7 @@ export async function getRecommendations(
         gameId: game._id.toString(),
         name: game.name,
         imageUrl: game.imageUrl || undefined,
+        thumbnailUrl: game.thumbnailUrl || undefined,
         score: game.score,
         rank: game.rank,
         bggRating: game.bggRating?.average,

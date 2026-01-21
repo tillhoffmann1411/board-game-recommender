@@ -43,39 +43,52 @@ export function RatingForm({ gameId, gameName, initialRating }: RatingFormProps)
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center gap-2">
-        <div className="flex">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-            <button
-              key={value}
-              type="button"
-              onClick={() => setRating(value)}
-              onMouseEnter={() => setHoveredRating(value)}
-              onMouseLeave={() => setHoveredRating(0)}
-              className="p-1 transition-transform hover:scale-110"
-              disabled={isPending}
-            >
-              <Star
-                className={cn(
-                  "h-6 w-6 transition-colors",
-                  (hoveredRating || rating) >= value
-                    ? "fill-yellow-400 text-yellow-400"
-                    : "text-muted-foreground"
-                )}
-              />
-            </button>
-          ))}
+    <div className="space-y-3 sm:space-y-4">
+      {initialRating && (
+        <div className="flex items-center gap-2 rounded-md bg-muted/50 px-2 py-1.5 sm:px-3 sm:py-2">
+          <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-yellow-400 text-yellow-400" />
+          <span className="text-sm sm:text-base font-medium">
+            Your rating: <span className="text-yellow-600">{initialRating}</span> / 10
+          </span>
         </div>
-        <span className="ml-2 text-lg font-medium">
-          {hoveredRating || rating || "?"} / 10
-        </span>
+      )}
+
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+              <button
+                key={value}
+                type="button"
+                onClick={() => setRating(value)}
+                onMouseEnter={() => setHoveredRating(value)}
+                onMouseLeave={() => setHoveredRating(0)}
+                className="p-0.5 sm:p-1 transition-transform hover:scale-110"
+                disabled={isPending}
+              >
+                <Star
+                  className={cn(
+                    "h-4 w-4 sm:h-6 sm:w-6 transition-colors",
+                    (hoveredRating || rating) >= value
+                      ? "fill-yellow-400 text-yellow-400"
+                      : "text-muted-foreground"
+                  )}
+                />
+              </button>
+            ))}
+          </div>
+          <span className="ml-1 sm:ml-2 text-sm sm:text-lg font-medium">
+            {hoveredRating || rating || "?"} / 10
+          </span>
+        </div>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
         <Button
           onClick={handleSubmit}
           disabled={rating === 0 || isPending}
+          size="sm"
+          className="w-full sm:w-auto text-xs sm:text-sm"
         >
           {isPending ? "Saving..." : initialRating ? "Update Rating" : "Submit Rating"}
         </Button>
@@ -83,7 +96,7 @@ export function RatingForm({ gameId, gameName, initialRating }: RatingFormProps)
         {message && (
           <span
             className={cn(
-              "text-sm",
+              "text-xs sm:text-sm",
               message.type === "success" ? "text-green-600" : "text-red-600"
             )}
           >
@@ -92,7 +105,7 @@ export function RatingForm({ gameId, gameName, initialRating }: RatingFormProps)
         )}
       </div>
 
-      <p className="text-sm text-muted-foreground">
+      <p className="text-xs sm:text-sm text-muted-foreground">
         Rate {gameName} on a scale of 1 to 10
       </p>
     </div>
