@@ -4,9 +4,25 @@ import { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Search, Star, Sparkles, Arrow
 import { Header } from "@/src/components/header";
 import { Button } from "@/src/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card";
+import type { Metadata } from "next";
 
 // Force dynamic rendering (uses Clerk auth)
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Discover Your Next Favorite Board Game",
+  description: "Get personalized board game recommendations powered by smart algorithms. Browse 20,000+ games, rate what you've played, and discover your next adventure.",
+  openGraph: {
+    title: "Board Game Recommender - Discover Your Next Favorite Game",
+    description: "Get personalized board game recommendations powered by smart algorithms. Browse 20,000+ games, rate what you've played, and discover your next adventure.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Board Game Recommender - Discover Your Next Favorite Game",
+    description: "Get personalized board game recommendations powered by smart algorithms.",
+  },
+};
 
 export default function HomePage() {
   return (
