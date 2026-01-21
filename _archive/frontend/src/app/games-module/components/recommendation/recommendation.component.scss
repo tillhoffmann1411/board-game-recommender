@@ -1,0 +1,115 @@
+@import "../../../../colors.scss";
+
+.wrapper {
+  margin-top: 4rem;
+}
+
+.filter {
+  padding: 0.2rem;
+  .num-input {
+    align-self: center;
+    font-weight: 500;
+  }
+  .filter-actions {
+    text-align: center;
+    margin: 1rem 0;
+  }
+}
+
+.action-section {
+  text-align: center;
+  margin: 0.5rem 0;
+  .tooltip {
+    display: inline-flex;
+  }
+}
+
+
+.game-section {
+  margin-bottom: 0.3rem;
+  h1 {
+    padding: 0 0.5rem;
+  }
+  .game-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    background: $background;
+  
+    ::-webkit-scrollbar {
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+      height: 0.5rem;
+    }
+    /* Optional: show position indicator in red */
+    ::-webkit-scrollbar-thumb {
+      background: $background2;
+      border-radius: 10px;
+   }
+  }
+}
+
+
+.loading {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media only screen and (min-width: 992px) {
+  .wrapper {
+    padding: 1rem;
+  }
+
+  .filter-section {
+    padding: 1rem 0;
+  }
+
+  .action-section {
+    text-align: left;
+    float: right;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .game-section {
+    float: right;
+    padding: 1rem;
+    ::-webkit-scrollbar {
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+      height: 0.5rem;
+    }
+    /* Optional: show position indicator in red */
+    ::-webkit-scrollbar-thumb {
+        background: $background2;
+        border-radius: 10px;
+   }
+  }
+
+  .filter-section {
+    details {
+      position: fixed;
+    }
+    .filter {
+      .num-input {
+        font-weight: 500;
+        align-items: baseline;
+        display: flex;
+      }
+    }
+  }
+
+  details {
+    summary {
+      display: none;
+    }
+    
+    .content {
+      border-radius: 10px;
+    }
+  }
+}

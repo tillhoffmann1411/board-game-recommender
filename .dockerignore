@@ -1,29 +1,58 @@
-# virtual environments
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Next.js
+.next
+out
+
+# Production
+build
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files (will be injected at runtime)
+.env
+.env.*
+!.env.example
+
+# Git
+.git
+.gitignore
+
+# Archives
+_archive
+
+# ETL (separate service)
+etl
+data
+
+# Python
+__pycache__
+*.pyc
 venv
 
-# Python files
-*.pyc
-__pycache__
+# Logs
+logs
+*.log
 
-# Python Notebook dot files
-.ipynb*
+# Testing
+coverage
+.nyc_output
 
-# Secret environment settings
-.env
-env
+# Documentation
+*.md
+!README.md
 
-# Node and Webpack files
-node_modules
-npm-debug.log
-webpack-stats*
-
-# Static assests
-staticfiles
-static_cdn
-media_cdn
-
-# Ignore sqlite
-db.sqlite3
-
-# Apple files
-.DS_Store
+# Docker
+Dockerfile*
+docker-compose*
+.dockerignore

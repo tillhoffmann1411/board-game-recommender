@@ -1,0 +1,50 @@
+2026-01-16 16:42:17 - root - INFO - Logging to file: logs/etl_20260116_164217.log
+2026-01-16 16:42:17 - __main__ - INFO - Reading input CSV: data/test_bgg_games_1_100.csv
+2026-01-16 16:42:17 - __main__ - INFO - Found 8700 games to process
+2026-01-16 16:42:17 - __main__ - INFO - Processing game 1/8700 (BGG ID: 224517): https://boardgamegeek.com/boardgame/224517/brass-birmingham
+2026-01-16 16:42:17 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/224517/brass-birmingham/credits
+2026-01-16 16:42:19 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:42:19 - __main__ - INFO - Extracted credits for 224517: 0 mechanics, 0 categories
+2026-01-16 16:42:24 - __main__ - INFO - Processing game 2/8700 (BGG ID: 342942): https://boardgamegeek.com/boardgame/342942/ark-nova
+2026-01-16 16:42:24 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/342942/ark-nova/credits
+2026-01-16 16:42:25 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:42:25 - __main__ - INFO - Extracted credits for 342942: 0 mechanics, 0 categories
+2026-01-16 16:42:30 - __main__ - INFO - Processing game 3/8700 (BGG ID: 161936): https://boardgamegeek.com/boardgame/161936/pandemic-legacy-season-1
+2026-01-16 16:42:30 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/161936/pandemic-legacy-season-1/credits
+2026-01-16 16:42:31 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:42:31 - __main__ - INFO - Extracted credits for 161936: 0 mechanics, 0 categories
+2026-01-16 16:42:36 - __main__ - INFO - Processing game 4/8700 (BGG ID: 174430): https://boardgamegeek.com/boardgame/174430/gloomhaven
+2026-01-16 16:42:36 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/174430/gloomhaven/credits
+2026-01-16 16:42:37 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:42:37 - __main__ - INFO - Extracted credits for 174430: 0 mechanics, 0 categories
+2026-01-16 16:42:42 - __main__ - INFO - Processing game 5/8700 (BGG ID: 316554): https://boardgamegeek.com/boardgame/316554/dune-imperium
+2026-01-16 16:42:42 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/316554/dune-imperium/credits
+2026-01-16 16:42:43 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:42:43 - __main__ - INFO - Extracted credits for 316554: 0 mechanics, 0 categories
+2026-01-16 16:42:48 - __main__ - INFO - Processing game 6/8700 (BGG ID: 233078): https://boardgamegeek.com/boardgame/233078/twilight-imperium-fourth-edition
+2026-01-16 16:42:48 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/233078/twilight-imperium-fourth-edition/credits
+2026-01-16 16:42:49 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:42:49 - __main__ - INFO - Extracted credits for 233078: 0 mechanics, 0 categories
+2026-01-16 16:42:54 - __main__ - INFO - Processing game 7/8700 (BGG ID: 397598): https://boardgamegeek.com/boardgame/397598/dune-imperium-uprising
+2026-01-16 16:42:54 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/397598/dune-imperium-uprising/credits
+2026-01-16 16:42:55 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:42:55 - __main__ - INFO - Extracted credits for 397598: 0 mechanics, 0 categories
+2026-01-16 16:43:00 - __main__ - INFO - Processing game 8/8700 (BGG ID: 115746): https://boardgamegeek.com/boardgame/115746/war-of-the-ring-second-edition
+2026-01-16 16:43:00 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/115746/war-of-the-ring-second-edition/credits
+2026-01-16 16:43:01 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:43:01 - __main__ - INFO - Extracted credits for 115746: 0 mechanics, 0 categories
+2026-01-16 16:43:06 - __main__ - INFO - Processing game 9/8700 (BGG ID: 167791): https://boardgamegeek.com/boardgame/167791/terraforming-mars
+2026-01-16 16:43:06 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/167791/terraforming-mars/credits
+2026-01-16 16:43:07 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:43:07 - __main__ - INFO - Extracted credits for 167791: 0 mechanics, 0 categories
+2026-01-16 16:43:12 - __main__ - INFO - Processing game 10/8700 (BGG ID: 187645): https://boardgamegeek.com/boardgame/187645/star-wars-rebellion
+2026-01-16 16:43:12 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/187645/star-wars-rebellion/credits
+2026-01-16 16:43:12 - extraction.bgg_credits_scraper - INFO - Extracted credits data: 0 mechanics, 0 categories, 0 designers
+2026-01-16 16:43:12 - __main__ - INFO - Extracted credits for 187645: 0 mechanics, 0 categories
+2026-01-16 16:43:12 - __main__ - INFO - Progress saved: 10 credits to data/game_credits_1_100.csv
+2026-01-16 16:43:12 - __main__ - INFO - Progress: 10 processed, 0 skipped, 10 total entries
+2026-01-16 16:43:17 - __main__ - WARNING - 
+Processing interrupted at row 10
+2026-01-16 16:43:17 - __main__ - INFO - 
+Saving 10 collected credits before exit...
+2026-01-16 16:43:17 - __main__ - INFO - Data saved to data/game_credits_1_100.csv. Exiting...

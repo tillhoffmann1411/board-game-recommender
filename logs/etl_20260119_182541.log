@@ -1,0 +1,46 @@
+2026-01-19 18:25:41 - root - INFO - Logging to file: logs/etl_20260119_182541.log
+2026-01-19 18:25:41 - __main__ - INFO - ============================================================
+2026-01-19 18:25:41 - __main__ - INFO - Starting ETL Pipeline
+2026-01-19 18:25:41 - __main__ - INFO - ============================================================
+2026-01-19 18:25:41 - __main__ - INFO - CSV data directory: /Users/tillhoffmann/Projects/private/board-game-recommender/data
+2026-01-19 18:25:41 - __main__ - INFO - CSV file pattern: _1_100
+2026-01-19 18:25:41 - __main__ - INFO - Files to import: ['games', 'credits']
+2026-01-19 18:25:41 - __main__ - INFO - Initializing database...
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Connecting to MongoDB database: board-game-recommender
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Successfully connected to MongoDB
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Initializing database indexes...
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on games: bggId_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on games: categories_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on games: mechanics_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on games: bggRating.average_-1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on games: bggRank_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on games: minPlayers_1_maxPlayers_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on users: clerkId_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on ratings: userId_1_gameId_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on ratings: userId_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on ratings: gameId_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on recommendations: userId_1_algorithm_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on gameSimilarities: gameId_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on onlineGames: gameId_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Created index on onlineGames: bggId_1
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Database initialization complete
+2026-01-19 18:25:41 - etl.load - INFO - Database initialized
+2026-01-19 18:25:41 - __main__ - INFO - Reading CSV files...
+2026-01-19 18:25:41 - etl.read_csv - WARNING - No files found matching pattern 'test_bgg_games_1_100.csv' in /Users/tillhoffmann/Projects/private/board-game-recommender/data
+2026-01-19 18:25:41 - etl.read_csv - WARNING - No files found for games, skipping
+2026-01-19 18:25:41 - etl.read_csv - WARNING - No files found matching pattern 'game_credits_1_100.csv' in /Users/tillhoffmann/Projects/private/board-game-recommender/data
+2026-01-19 18:25:41 - etl.read_csv - WARNING - No files found for credits, skipping
+2026-01-19 18:25:41 - __main__ - INFO - Merging CSV data...
+2026-01-19 18:25:41 - etl.merge_csv_data - INFO - ============================================================
+2026-01-19 18:25:41 - etl.merge_csv_data - INFO - Merging CSV data
+2026-01-19 18:25:41 - etl.merge_csv_data - INFO - ============================================================
+2026-01-19 18:25:41 - __main__ - ERROR - Pipeline failed: Games data is required but not found
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/pipeline.py", line 103, in run
+    merged_games_df, shadow_profiles_dict, ratings_df = merge_csv_data(csv_data)
+                                                        ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/merge_csv_data.py", line 308, in merge_csv_data
+    raise ValueError("Games data is required but not found")
+ValueError: Games data is required but not found
+2026-01-19 18:25:41 - etl.lib.mongodb - INFO - Disconnected from MongoDB
+2026-01-19 18:25:41 - __main__ - ERROR - Pipeline failed: Games data is required but not found

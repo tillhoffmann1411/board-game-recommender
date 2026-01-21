@@ -1,0 +1,20 @@
+2026-01-16 17:02:09 - root - INFO - Logging to file: logs/etl_20260116_170209.log
+2026-01-16 17:02:09 - __main__ - INFO - Reading input CSV: data/test_bgg_games_1_100.csv
+2026-01-16 17:02:09 - __main__ - INFO - Found 8700 games to process
+2026-01-16 17:02:09 - __main__ - INFO - 
+
+Processing game 1/8700 (BGG ID: 224517): https://boardgamegeek.com/boardgame/224517/brass-birmingham
+2026-01-16 17:02:09 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/224517/brass-birmingham/credits
+2026-01-16 17:02:11 - extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/224517/brass-birmingham/credits: 'NoneType' object is not subscriptable
+2026-01-16 17:02:11 - __main__ - WARNING - Failed to extract credits for 224517
+2026-01-16 17:02:16 - __main__ - INFO - 
+
+Processing game 2/8700 (BGG ID: 342942): https://boardgamegeek.com/boardgame/342942/ark-nova
+2026-01-16 17:02:16 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/342942/ark-nova/credits
+2026-01-16 17:02:17 - extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/342942/ark-nova/credits: 'NoneType' object is not subscriptable
+2026-01-16 17:02:17 - __main__ - WARNING - Failed to extract credits for 342942
+2026-01-16 17:02:18 - __main__ - WARNING - 
+Processing interrupted at row 2
+2026-01-16 17:02:18 - __main__ - INFO - 
+Saving 2 collected credits before exit...
+2026-01-16 17:02:18 - __main__ - INFO - Data saved to data/game_credits_1_100.csv. Exiting...

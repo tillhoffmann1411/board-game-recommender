@@ -1,0 +1,97 @@
+<div class="wrapper row">
+
+  <section class="filter-section">
+    <details class="filter col-l-2 col-xl-2" [open]="largeScreen">
+      <summary>
+        Filter
+      </summary>
+      <div class="content filter">
+        <div class="input-section">
+          <label for="age">Minimum Age</label>
+          <div class="num-input">
+            <button mat-icon-button color="primary" (click)="minusMinAge()">
+              <mat-icon>remove</mat-icon>
+            </button>
+            <input name="minimumAge" type="number" min="0" max="99" #age class="input"
+              [(ngModel)]="minimumAge < 0 ? undefined : minimumAge" />
+            <button mat-icon-button color="primary" (click)="plusMinAge()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-section">
+          <label for="age">Player</label>
+          <div class="num-input">
+            <input type="number" min="0" max="49" #age class="input" [(ngModel)]="player.min" />
+            &nbsp;-&nbsp;
+            <input type="number" min="1" max="50" #age class="input" [(ngModel)]="player.max" />
+          </div>
+        </div>
+
+        <div class="input-section">
+          <label for="age">Playtime</label>
+          <div class="num-input">
+            <input type="number" min="0" max="999" #age class="input" [(ngModel)]="time.min" />
+            &nbsp;-&nbsp;
+            <input type="number" min="1" max="1000" #age class="input" [(ngModel)]="time.max" />
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <button class="button primary" (click)="filter()">
+            <mat-icon>filter_alt</mat-icon>
+            Filter
+          </button>
+          <button (click)="resetFilter()" [matTooltip]="'Remove all Filters'">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section class="col-l-10 action-section" *ngIf="!isLoading">
+    <div class="tooltip"
+      [matTooltip]="isLoadingRecommendations ? 'Loading all your recommendations...' : 'Refresh recommendations!'">
+      <button class="primary" [disabled]="isLoadingRecommendations" (click)="refresh()">
+        <mat-icon>autorenew</mat-icon>
+      </button>
+    </div>
+  </section>
+
+  <section class="game-section col-l-10" *ngIf="!isLoading && knn.length > 0">
+    <h1>Top Picks for you</h1>
+    <div class="game-row">
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of knn"></app-game-card>
+    </div>
+  </section>
+
+  <section class="game-section col-l-10" *ngIf="!isLoading && commonBased.length > 0">
+    <h1>Users similar to you also liked</h1>
+    <div class="game-row">
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of commonBased"></app-game-card>
+    </div>
+  </section>
+
+  <section class="game-section col-l-10" *ngIf="!isLoading && itemBased.length > 0">
+    <h1>Games similar to your favorite games</h1>
+    <div class="game-row">
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of itemBased"></app-game-card>
+    </div>
+  </section>
+
+
+  <section class="game-section col-l-10" *ngIf="!isLoading">
+    <h1>Trending</h1>
+    <div class="game-row">
+      <app-game-card [game]="game" [activateDetails]="true" *ngFor="let game of popularity"></app-game-card>
+    </div>
+  </section>
+
+  <section class="loading" *ngIf="isLoading">
+    <h2>We are looking for games you will love!</h2>
+    <app-loading></app-loading>
+  </section>
+
+</div>

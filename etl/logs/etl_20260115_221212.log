@@ -1,0 +1,20 @@
+2026-01-15 22:12:12 - root - INFO - Logging to file: logs/etl_20260115_221212.log
+2026-01-15 22:12:12 - __main__ - INFO - Using authenticated requests with provided cookie
+2026-01-15 22:12:14 - __main__ - INFO - Found 1728 total pages
+2026-01-15 22:12:14 - __main__ - INFO - Scraping pages 1 to 1728
+2026-01-15 22:12:14 - __main__ - INFO - Scraping page 1: https://boardgamegeek.com/browse/boardgame/page/1
+2026-01-15 22:12:16 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 22:12:16 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 22:12:16 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 22:12:16 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 22:12:16 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 22:12:16 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 22:12:16 - __main__ - INFO - Extracted 100 games from page 1
+2026-01-15 22:12:16 - __main__ - INFO - Saved 100 games to data/test_bgg_games.csv
+2026-01-15 22:12:18 - __main__ - INFO - Scraping page 2: https://boardgamegeek.com/browse/boardgame/page/2
+2026-01-15 22:12:19 - __main__ - WARNING - 
+Scraping interrupted by user. Collected 100 games so far.
+2026-01-15 22:12:19 - __main__ - INFO - 
+Saving 100 collected games before exit...
+2026-01-15 22:12:19 - __main__ - INFO - Saved 100 games to data/test_bgg_games.csv
+2026-01-15 22:12:19 - __main__ - INFO - Data saved to data/test_bgg_games.csv. Exiting...

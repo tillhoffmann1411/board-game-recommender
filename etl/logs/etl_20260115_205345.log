@@ -1,0 +1,5 @@
+2026-01-15 20:53:45 - root - INFO - Logging to file: logs/etl_20260115_205345.log
+2026-01-15 20:53:55 - __main__ - INFO - Using Chrome with auto-managed ChromeDriver
+2026-01-15 20:53:55 - __main__ - INFO - Browser driver started successfully
+2026-01-15 20:53:55 - __main__ - INFO - Scraping pages 1 to 1
+2026-01-15 20:53:55 - __main__ - INFO - Scraping page 1: https://boardgamegeek.com/browse/boardgame/page/1

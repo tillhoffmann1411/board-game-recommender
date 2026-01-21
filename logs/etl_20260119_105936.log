@@ -1,0 +1,7 @@
+2026-01-19 10:59:36 - root - INFO - Logging to file: logs/etl_20260119_105936.log
+2026-01-19 10:59:36 - __main__ - INFO - Reading input CSV: etl/data/test_bgg_games_1_100.csv
+2026-01-19 10:59:36 - __main__ - INFO - Found 8700 games to process
+2026-01-19 10:59:36 - __main__ - INFO - 
+
+Processing game 1/8700 (BGG ID: 224517): https://boardgamegeek.com/boardgame/224517/brass-birmingham
+2026-01-19 10:59:36 - etl.extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/224517/brass-birmingham/credits

@@ -1,0 +1,84 @@
+2026-01-15 21:27:26 - root - INFO - Logging to file: logs/etl_20260115_212726.log
+2026-01-15 21:27:26 - __main__ - INFO - Scraping pages 1 to 10
+2026-01-15 21:27:26 - __main__ - INFO - Scraping page 1: https://boardgamegeek.com/browse/boardgame/page/1
+2026-01-15 21:27:27 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:27 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:27 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:27 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:27 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:27 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:27 - __main__ - INFO - Extracted 100 games from page 1
+2026-01-15 21:27:29 - __main__ - INFO - Scraping page 2: https://boardgamegeek.com/browse/boardgame/page/2
+2026-01-15 21:27:30 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:30 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:30 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:30 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:30 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:30 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:30 - __main__ - INFO - Extracted 100 games from page 2
+2026-01-15 21:27:32 - __main__ - INFO - Scraping page 3: https://boardgamegeek.com/browse/boardgame/page/3
+2026-01-15 21:27:33 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:33 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:33 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:33 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:33 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:33 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:33 - __main__ - INFO - Extracted 100 games from page 3
+2026-01-15 21:27:35 - __main__ - INFO - Scraping page 4: https://boardgamegeek.com/browse/boardgame/page/4
+2026-01-15 21:27:35 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:35 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:35 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:35 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:35 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:35 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:35 - __main__ - INFO - Extracted 100 games from page 4
+2026-01-15 21:27:38 - __main__ - INFO - Scraping page 5: https://boardgamegeek.com/browse/boardgame/page/5
+2026-01-15 21:27:38 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:38 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:38 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:38 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:38 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:38 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:38 - __main__ - INFO - Extracted 100 games from page 5
+2026-01-15 21:27:40 - __main__ - INFO - Scraping page 6: https://boardgamegeek.com/browse/boardgame/page/6
+2026-01-15 21:27:41 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:41 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:41 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:41 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:41 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:41 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:41 - __main__ - INFO - Extracted 100 games from page 6
+2026-01-15 21:27:43 - __main__ - INFO - Scraping page 7: https://boardgamegeek.com/browse/boardgame/page/7
+2026-01-15 21:27:44 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:44 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:44 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:44 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:44 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:44 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:44 - __main__ - INFO - Extracted 100 games from page 7
+2026-01-15 21:27:46 - __main__ - INFO - Scraping page 8: https://boardgamegeek.com/browse/boardgame/page/8
+2026-01-15 21:27:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:46 - __main__ - INFO - Extracted 100 games from page 8
+2026-01-15 21:27:48 - __main__ - INFO - Scraping page 9: https://boardgamegeek.com/browse/boardgame/page/9
+2026-01-15 21:27:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:49 - __main__ - INFO - Extracted 100 games from page 9
+2026-01-15 21:27:51 - __main__ - INFO - Scraping page 10: https://boardgamegeek.com/browse/boardgame/page/10
+2026-01-15 21:27:52 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:52 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:52 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:52 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:52 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:52 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:27:52 - __main__ - INFO - Extracted 100 games from page 10
+2026-01-15 21:27:52 - __main__ - INFO - Total games extracted: 1000
+2026-01-15 21:27:52 - __main__ - INFO - Saved 1000 games to data/test_bgg_games.csv

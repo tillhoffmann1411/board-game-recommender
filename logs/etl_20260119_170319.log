@@ -1,0 +1,23 @@
+2026-01-19 17:03:19 - root - INFO - Logging to file: logs/etl_20260119_170319.log
+2026-01-19 17:03:19 - __main__ - INFO - ================================================================================
+2026-01-19 17:03:19 - __main__ - INFO - 📂 Reading input CSV: etl/data/test_bgg_games_1_100.csv
+2026-01-19 17:03:19 - __main__ - INFO - ✓ Successfully loaded CSV with 8700 rows
+2026-01-19 17:03:19 - __main__ - INFO - 📊 Total games to process: 8700
+2026-01-19 17:03:19 - __main__ - INFO - ================================================================================
+2026-01-19 17:03:19 - __main__ - INFO - 📋 Found 24 unique games with existing ratings
+2026-01-19 17:03:19 - __main__ - INFO - 🔄 Resuming from where we left off...
+2026-01-19 17:03:20 - __main__ - INFO - 🎯 Games remaining to process: 8676
+2026-01-19 17:03:20 - __main__ - INFO - ⏭️  Games already processed (skipped): 24
+2026-01-19 17:03:20 - __main__ - INFO - ================================================================================
+2026-01-19 17:03:20 - __main__ - INFO - 🚀 Starting scraping process...
+2026-01-19 17:03:20 - __main__ - INFO - ================================================================================
+2026-01-19 17:03:47 - __main__ - WARNING - 
+⚠ Processing interrupted at row 25
+2026-01-19 17:03:47 - __main__ - WARNING - 
+================================================================================
+2026-01-19 17:03:47 - __main__ - WARNING - ⚠ Processing interrupted by user
+2026-01-19 17:03:47 - __main__ - WARNING - ================================================================================
+2026-01-19 17:03:47 - __main__ - INFO - 💾 Saving 1200 collected ratings before exit...
+2026-01-19 17:03:47 - __main__ - INFO - ✓ Data saved to etl/data/game_ratings_1_100.csv
+2026-01-19 17:03:47 - __main__ - INFO - 👋 Exiting...
+2026-01-19 17:03:47 - __main__ - INFO - ================================================================================

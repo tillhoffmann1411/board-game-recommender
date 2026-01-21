@@ -1,0 +1,17 @@
+# Development override - use with: docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+version: "3.8"
+
+services:
+  # Development mode for Next.js - mount source and use dev server
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+    command: npm run dev

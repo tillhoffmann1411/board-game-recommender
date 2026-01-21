@@ -1,0 +1,75 @@
+2026-01-19 18:26:22 - root - INFO - Logging to file: logs/etl_20260119_182622.log
+2026-01-19 18:26:22 - __main__ - INFO - ============================================================
+2026-01-19 18:26:22 - __main__ - INFO - Starting ETL Pipeline
+2026-01-19 18:26:22 - __main__ - INFO - ============================================================
+2026-01-19 18:26:22 - __main__ - INFO - CSV data directory: /Users/tillhoffmann/Projects/private/board-game-recommender/etl/data
+2026-01-19 18:26:22 - __main__ - INFO - CSV file pattern: _1_100
+2026-01-19 18:26:22 - __main__ - INFO - Files to import: ['games', 'credits']
+2026-01-19 18:26:22 - __main__ - INFO - Initializing database...
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Connecting to MongoDB database: board-game-recommender
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Successfully connected to MongoDB
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Initializing database indexes...
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on games: bggId_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on games: categories_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on games: mechanics_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on games: bggRating.average_-1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on games: bggRank_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on games: minPlayers_1_maxPlayers_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on users: clerkId_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on ratings: userId_1_gameId_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on ratings: userId_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on ratings: gameId_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on recommendations: userId_1_algorithm_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on gameSimilarities: gameId_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on onlineGames: gameId_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Created index on onlineGames: bggId_1
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Database initialization complete
+2026-01-19 18:26:22 - etl.load - INFO - Database initialized
+2026-01-19 18:26:22 - __main__ - INFO - Reading CSV files...
+2026-01-19 18:26:22 - etl.read_csv - INFO - Found 1 file(s) for games: ['test_bgg_games_1_100.csv']
+2026-01-19 18:26:22 - etl.read_csv - INFO - Reading games CSV: test_bgg_games_1_100.csv
+2026-01-19 18:26:22 - etl.read_csv - INFO - Loaded 8700 games from test_bgg_games_1_100.csv
+2026-01-19 18:26:22 - etl.read_csv - INFO - Combined 1 file(s) for games: 8700 total rows
+2026-01-19 18:26:22 - etl.read_csv - INFO - Found 1 file(s) for credits: ['game_credits_1_100.csv']
+2026-01-19 18:26:22 - etl.read_csv - INFO - Reading credits CSV: game_credits_1_100.csv
+2026-01-19 18:26:22 - etl.read_csv - INFO - Loaded 8700 credits records from game_credits_1_100.csv
+2026-01-19 18:26:22 - etl.read_csv - INFO - Combined 1 file(s) for credits: 8700 total rows
+2026-01-19 18:26:22 - __main__ - INFO - Merging CSV data...
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - ============================================================
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - Merging CSV data
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - ============================================================
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - Merging game data...
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - Merged 8700 games with credits data
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - Preparing categories and mechanics...
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - Categories and mechanics prepared
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - No ratings data, skipping shadow profile extraction
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - ============================================================
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - CSV data merge complete
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - Games: 8700
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - Shadow profiles: 0
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - Ratings: 0
+2026-01-19 18:26:22 - etl.merge_csv_data - INFO - ============================================================
+2026-01-19 18:26:22 - __main__ - INFO - Transforming and loading games...
+2026-01-19 18:26:22 - __main__ - INFO - Transformed 8700 games
+2026-01-19 18:26:22 - etl.load - INFO - Dropped games collection
+2026-01-19 18:26:22 - games - INFO - [1000/8700] (11.5%) - 38699.7/s
+2026-01-19 18:26:22 - games - INFO - [2000/8700] (23.0%) - 39412.8/s
+2026-01-19 18:26:22 - games - INFO - [3000/8700] (34.5%) - 45666.3/s
+2026-01-19 18:26:22 - games - INFO - [4000/8700] (46.0%) - 48700.3/s
+2026-01-19 18:26:22 - games - INFO - [5000/8700] (57.5%) - 51048.0/s
+2026-01-19 18:26:22 - games - INFO - [6000/8700] (69.0%) - 53223.6/s
+2026-01-19 18:26:22 - games - INFO - [7000/8700] (80.5%) - 54575.8/s
+2026-01-19 18:26:22 - games - INFO - [8000/8700] (92.0%) - 53588.8/s
+2026-01-19 18:26:22 - games - INFO - [8700/8700] (100.0%) - 54179.3/s
+2026-01-19 18:26:22 - games - INFO - Completed games: 8700 items in 0.2s
+2026-01-19 18:26:22 - __main__ - INFO - Creating and loading shadow profiles...
+2026-01-19 18:26:22 - __main__ - INFO - Created 0 shadow profiles
+2026-01-19 18:26:22 - etl.load - INFO - Dropped users collection
+2026-01-19 18:26:22 - users - INFO - Completed users: 0 items in 0.0s
+2026-01-19 18:26:22 - __main__ - INFO - No ratings data to process
+2026-01-19 18:26:22 - __main__ - INFO - ============================================================
+2026-01-19 18:26:22 - __main__ - INFO - ETL Pipeline completed in 0.5s
+2026-01-19 18:26:22 - __main__ - INFO - Final stats: {'games': 8700, 'users': 0, 'ratings': 0, 'recommendations': 0, 'gameSimilarities': 0, 'onlineGames': 0}
+2026-01-19 18:26:22 - __main__ - INFO - ============================================================
+2026-01-19 18:26:22 - etl.lib.mongodb - INFO - Disconnected from MongoDB
+2026-01-19 18:26:22 - __main__ - INFO - Pipeline completed successfully: {'games': 8700, 'users': 0, 'ratings': 0, 'elapsed_seconds': 0.516414}

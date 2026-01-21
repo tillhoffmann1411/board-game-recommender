@@ -1,0 +1,1007 @@
+2026-01-19 12:32:34 - root - INFO - Logging to file: logs/etl_20260119_123234.log
+2026-01-19 12:32:34 - __main__ - INFO - ================================================================================
+2026-01-19 12:32:34 - __main__ - INFO - 📂 Reading input CSV: etl/data/test_bgg_games_1_100.csv
+2026-01-19 12:32:34 - __main__ - INFO - ✓ Successfully loaded CSV with 8700 rows
+2026-01-19 12:32:34 - __main__ - INFO - 📊 Total games to process: 8700
+2026-01-19 12:32:34 - __main__ - INFO - ================================================================================
+2026-01-19 12:32:34 - __main__ - INFO - 📋 Found 770 existing credits entries
+2026-01-19 12:32:34 - __main__ - INFO - 🔄 Resuming from where we left off...
+2026-01-19 12:32:34 - __main__ - INFO - 🎯 Games remaining to process: 7930
+2026-01-19 12:32:34 - __main__ - INFO - ⏭️  Games already processed (skipped): 770
+2026-01-19 12:32:34 - __main__ - INFO - ================================================================================
+2026-01-19 12:32:34 - __main__ - INFO - 🚀 Starting scraping process...
+2026-01-19 12:32:34 - __main__ - INFO - ================================================================================
+2026-01-19 12:32:50 - __main__ - INFO - 📊 Progress Update: 10/7930 processed (0.1%), 770 skipped, 0 errors, 780 total entries
+2026-01-19 12:33:07 - __main__ - INFO - 📊 Progress Update: 20/7930 processed (0.3%), 770 skipped, 0 errors, 790 total entries
+2026-01-19 12:33:23 - __main__ - INFO - 📊 Progress Update: 30/7930 processed (0.4%), 770 skipped, 0 errors, 800 total entries
+2026-01-19 12:33:40 - __main__ - INFO - 📊 Progress Update: 40/7930 processed (0.5%), 770 skipped, 0 errors, 810 total entries
+2026-01-19 12:33:56 - __main__ - INFO - 📊 Progress Update: 50/7930 processed (0.6%), 770 skipped, 0 errors, 820 total entries
+2026-01-19 12:34:12 - __main__ - INFO - 📊 Progress Update: 60/7930 processed (0.8%), 770 skipped, 0 errors, 830 total entries
+2026-01-19 12:34:28 - __main__ - INFO - 📊 Progress Update: 70/7930 processed (0.9%), 770 skipped, 0 errors, 840 total entries
+2026-01-19 12:34:44 - __main__ - INFO - 📊 Progress Update: 80/7930 processed (1.0%), 770 skipped, 0 errors, 850 total entries
+2026-01-19 12:35:01 - __main__ - INFO - 📊 Progress Update: 90/7930 processed (1.1%), 770 skipped, 0 errors, 860 total entries
+2026-01-19 12:35:20 - __main__ - INFO - 📊 Progress Update: 100/7930 processed (1.3%), 770 skipped, 0 errors, 870 total entries
+2026-01-19 12:35:38 - __main__ - INFO - 📊 Progress Update: 110/7930 processed (1.4%), 770 skipped, 0 errors, 880 total entries
+2026-01-19 12:35:56 - __main__ - INFO - 📊 Progress Update: 120/7930 processed (1.5%), 770 skipped, 0 errors, 890 total entries
+2026-01-19 12:36:12 - __main__ - INFO - 📊 Progress Update: 130/7930 processed (1.6%), 770 skipped, 0 errors, 900 total entries
+2026-01-19 12:36:28 - __main__ - INFO - 📊 Progress Update: 140/7930 processed (1.8%), 770 skipped, 0 errors, 910 total entries
+2026-01-19 12:36:44 - __main__ - INFO - 📊 Progress Update: 150/7930 processed (1.9%), 770 skipped, 0 errors, 920 total entries
+2026-01-19 12:37:01 - __main__ - INFO - 📊 Progress Update: 160/7930 processed (2.0%), 770 skipped, 0 errors, 930 total entries
+2026-01-19 12:37:19 - __main__ - INFO - 📊 Progress Update: 170/7930 processed (2.1%), 770 skipped, 0 errors, 940 total entries
+2026-01-19 12:37:35 - __main__ - INFO - 📊 Progress Update: 180/7930 processed (2.3%), 770 skipped, 0 errors, 950 total entries
+2026-01-19 12:37:52 - __main__ - INFO - 📊 Progress Update: 190/7930 processed (2.4%), 770 skipped, 0 errors, 960 total entries
+2026-01-19 12:38:09 - __main__ - INFO - 📊 Progress Update: 200/7930 processed (2.5%), 770 skipped, 0 errors, 970 total entries
+2026-01-19 12:38:26 - __main__ - INFO - 📊 Progress Update: 210/7930 processed (2.6%), 770 skipped, 0 errors, 980 total entries
+2026-01-19 12:38:42 - __main__ - INFO - 📊 Progress Update: 220/7930 processed (2.8%), 770 skipped, 0 errors, 990 total entries
+2026-01-19 12:38:58 - __main__ - INFO - 📊 Progress Update: 230/7930 processed (2.9%), 770 skipped, 0 errors, 1000 total entries
+2026-01-19 12:39:14 - __main__ - INFO - 📊 Progress Update: 240/7930 processed (3.0%), 770 skipped, 0 errors, 1010 total entries
+2026-01-19 12:39:31 - __main__ - INFO - 📊 Progress Update: 250/7930 processed (3.2%), 770 skipped, 0 errors, 1020 total entries
+2026-01-19 12:39:48 - __main__ - INFO - 📊 Progress Update: 260/7930 processed (3.3%), 770 skipped, 0 errors, 1030 total entries
+2026-01-19 12:40:04 - __main__ - INFO - 📊 Progress Update: 270/7930 processed (3.4%), 770 skipped, 0 errors, 1040 total entries
+2026-01-19 12:40:20 - __main__ - INFO - 📊 Progress Update: 280/7930 processed (3.5%), 770 skipped, 0 errors, 1050 total entries
+2026-01-19 12:40:36 - __main__ - INFO - 📊 Progress Update: 290/7930 processed (3.7%), 770 skipped, 0 errors, 1060 total entries
+2026-01-19 12:40:51 - __main__ - INFO - 📊 Progress Update: 300/7930 processed (3.8%), 770 skipped, 0 errors, 1070 total entries
+2026-01-19 12:41:07 - __main__ - INFO - 📊 Progress Update: 310/7930 processed (3.9%), 770 skipped, 0 errors, 1080 total entries
+2026-01-19 12:41:23 - __main__ - INFO - 📊 Progress Update: 320/7930 processed (4.0%), 770 skipped, 0 errors, 1090 total entries
+2026-01-19 12:41:40 - __main__ - INFO - 📊 Progress Update: 330/7930 processed (4.2%), 770 skipped, 0 errors, 1100 total entries
+2026-01-19 12:41:55 - __main__ - INFO - 📊 Progress Update: 340/7930 processed (4.3%), 770 skipped, 0 errors, 1110 total entries
+2026-01-19 12:42:11 - __main__ - INFO - 📊 Progress Update: 350/7930 processed (4.4%), 770 skipped, 0 errors, 1120 total entries
+2026-01-19 12:42:26 - __main__ - INFO - 📊 Progress Update: 360/7930 processed (4.5%), 770 skipped, 0 errors, 1130 total entries
+2026-01-19 12:42:42 - __main__ - INFO - 📊 Progress Update: 370/7930 processed (4.7%), 770 skipped, 0 errors, 1140 total entries
+2026-01-19 12:42:58 - __main__ - INFO - 📊 Progress Update: 380/7930 processed (4.8%), 770 skipped, 0 errors, 1150 total entries
+2026-01-19 12:43:13 - __main__ - INFO - 📊 Progress Update: 390/7930 processed (4.9%), 770 skipped, 0 errors, 1160 total entries
+2026-01-19 12:43:29 - __main__ - INFO - 📊 Progress Update: 400/7930 processed (5.0%), 770 skipped, 0 errors, 1170 total entries
+2026-01-19 12:43:45 - __main__ - INFO - 📊 Progress Update: 410/7930 processed (5.2%), 770 skipped, 0 errors, 1180 total entries
+2026-01-19 12:44:01 - __main__ - INFO - 📊 Progress Update: 420/7930 processed (5.3%), 770 skipped, 0 errors, 1190 total entries
+2026-01-19 12:44:17 - __main__ - INFO - 📊 Progress Update: 430/7930 processed (5.4%), 770 skipped, 0 errors, 1200 total entries
+2026-01-19 12:44:33 - __main__ - INFO - 📊 Progress Update: 440/7930 processed (5.5%), 770 skipped, 0 errors, 1210 total entries
+2026-01-19 12:44:49 - __main__ - INFO - 📊 Progress Update: 450/7930 processed (5.7%), 770 skipped, 0 errors, 1220 total entries
+2026-01-19 12:45:06 - __main__ - INFO - 📊 Progress Update: 460/7930 processed (5.8%), 770 skipped, 0 errors, 1230 total entries
+2026-01-19 12:45:22 - __main__ - INFO - 📊 Progress Update: 470/7930 processed (5.9%), 770 skipped, 0 errors, 1240 total entries
+2026-01-19 12:45:38 - __main__ - INFO - 📊 Progress Update: 480/7930 processed (6.1%), 770 skipped, 0 errors, 1250 total entries
+2026-01-19 12:45:54 - __main__ - INFO - 📊 Progress Update: 490/7930 processed (6.2%), 770 skipped, 0 errors, 1260 total entries
+2026-01-19 12:46:09 - __main__ - INFO - 📊 Progress Update: 500/7930 processed (6.3%), 770 skipped, 0 errors, 1270 total entries
+2026-01-19 12:46:26 - __main__ - INFO - 📊 Progress Update: 510/7930 processed (6.4%), 770 skipped, 0 errors, 1280 total entries
+2026-01-19 12:46:42 - __main__ - INFO - 📊 Progress Update: 520/7930 processed (6.6%), 770 skipped, 0 errors, 1290 total entries
+2026-01-19 12:46:58 - __main__ - INFO - 📊 Progress Update: 530/7930 processed (6.7%), 770 skipped, 0 errors, 1300 total entries
+2026-01-19 12:47:15 - __main__ - INFO - 📊 Progress Update: 540/7930 processed (6.8%), 770 skipped, 0 errors, 1310 total entries
+2026-01-19 12:47:30 - __main__ - INFO - 📊 Progress Update: 550/7930 processed (6.9%), 770 skipped, 0 errors, 1320 total entries
+2026-01-19 12:47:46 - __main__ - INFO - 📊 Progress Update: 560/7930 processed (7.1%), 770 skipped, 0 errors, 1330 total entries
+2026-01-19 12:48:03 - __main__ - INFO - 📊 Progress Update: 570/7930 processed (7.2%), 770 skipped, 0 errors, 1340 total entries
+2026-01-19 12:48:20 - __main__ - INFO - 📊 Progress Update: 580/7930 processed (7.3%), 770 skipped, 0 errors, 1350 total entries
+2026-01-19 12:48:37 - __main__ - INFO - 📊 Progress Update: 590/7930 processed (7.4%), 770 skipped, 0 errors, 1360 total entries
+2026-01-19 12:48:53 - __main__ - INFO - 📊 Progress Update: 600/7930 processed (7.6%), 770 skipped, 0 errors, 1370 total entries
+2026-01-19 12:49:09 - __main__ - INFO - 📊 Progress Update: 610/7930 processed (7.7%), 770 skipped, 0 errors, 1380 total entries
+2026-01-19 12:49:25 - __main__ - INFO - 📊 Progress Update: 620/7930 processed (7.8%), 770 skipped, 0 errors, 1390 total entries
+2026-01-19 12:49:43 - __main__ - INFO - 📊 Progress Update: 630/7930 processed (7.9%), 770 skipped, 0 errors, 1400 total entries
+2026-01-19 12:49:58 - __main__ - INFO - 📊 Progress Update: 640/7930 processed (8.1%), 770 skipped, 0 errors, 1410 total entries
+2026-01-19 12:50:14 - __main__ - INFO - 📊 Progress Update: 650/7930 processed (8.2%), 770 skipped, 0 errors, 1420 total entries
+2026-01-19 12:50:29 - __main__ - INFO - 📊 Progress Update: 660/7930 processed (8.3%), 770 skipped, 0 errors, 1430 total entries
+2026-01-19 12:50:45 - __main__ - INFO - 📊 Progress Update: 670/7930 processed (8.4%), 770 skipped, 0 errors, 1440 total entries
+2026-01-19 12:51:02 - __main__ - INFO - 📊 Progress Update: 680/7930 processed (8.6%), 770 skipped, 0 errors, 1450 total entries
+2026-01-19 12:51:17 - __main__ - INFO - 📊 Progress Update: 690/7930 processed (8.7%), 770 skipped, 0 errors, 1460 total entries
+2026-01-19 12:51:33 - __main__ - INFO - 📊 Progress Update: 700/7930 processed (8.8%), 770 skipped, 0 errors, 1470 total entries
+2026-01-19 12:51:49 - __main__ - INFO - 📊 Progress Update: 710/7930 processed (9.0%), 770 skipped, 0 errors, 1480 total entries
+2026-01-19 12:52:04 - __main__ - INFO - 📊 Progress Update: 720/7930 processed (9.1%), 770 skipped, 0 errors, 1490 total entries
+2026-01-19 12:52:21 - __main__ - INFO - 📊 Progress Update: 730/7930 processed (9.2%), 770 skipped, 0 errors, 1500 total entries
+2026-01-19 12:52:37 - __main__ - INFO - 📊 Progress Update: 740/7930 processed (9.3%), 770 skipped, 0 errors, 1510 total entries
+2026-01-19 12:52:55 - __main__ - INFO - 📊 Progress Update: 750/7930 processed (9.5%), 770 skipped, 0 errors, 1520 total entries
+2026-01-19 12:53:11 - __main__ - INFO - 📊 Progress Update: 760/7930 processed (9.6%), 770 skipped, 0 errors, 1530 total entries
+2026-01-19 12:53:28 - __main__ - INFO - 📊 Progress Update: 770/7930 processed (9.7%), 770 skipped, 0 errors, 1540 total entries
+2026-01-19 12:53:44 - __main__ - INFO - 📊 Progress Update: 780/7930 processed (9.8%), 770 skipped, 0 errors, 1550 total entries
+2026-01-19 12:54:00 - __main__ - INFO - 📊 Progress Update: 790/7930 processed (10.0%), 770 skipped, 0 errors, 1560 total entries
+2026-01-19 12:54:15 - __main__ - INFO - 📊 Progress Update: 800/7930 processed (10.1%), 770 skipped, 0 errors, 1570 total entries
+2026-01-19 12:54:30 - __main__ - INFO - 📊 Progress Update: 810/7930 processed (10.2%), 770 skipped, 0 errors, 1580 total entries
+2026-01-19 12:54:46 - __main__ - INFO - 📊 Progress Update: 820/7930 processed (10.3%), 770 skipped, 0 errors, 1590 total entries
+2026-01-19 12:55:03 - __main__ - INFO - 📊 Progress Update: 830/7930 processed (10.5%), 770 skipped, 0 errors, 1600 total entries
+2026-01-19 12:55:20 - __main__ - INFO - 📊 Progress Update: 840/7930 processed (10.6%), 770 skipped, 0 errors, 1610 total entries
+2026-01-19 12:55:36 - __main__ - INFO - 📊 Progress Update: 850/7930 processed (10.7%), 770 skipped, 0 errors, 1620 total entries
+2026-01-19 12:55:52 - __main__ - INFO - 📊 Progress Update: 860/7930 processed (10.8%), 770 skipped, 0 errors, 1630 total entries
+2026-01-19 12:56:10 - __main__ - INFO - 📊 Progress Update: 870/7930 processed (11.0%), 770 skipped, 0 errors, 1640 total entries
+2026-01-19 12:56:25 - __main__ - INFO - 📊 Progress Update: 880/7930 processed (11.1%), 770 skipped, 0 errors, 1650 total entries
+2026-01-19 12:56:40 - __main__ - INFO - 📊 Progress Update: 890/7930 processed (11.2%), 770 skipped, 0 errors, 1660 total entries
+2026-01-19 12:56:56 - __main__ - INFO - 📊 Progress Update: 900/7930 processed (11.3%), 770 skipped, 0 errors, 1670 total entries
+2026-01-19 12:57:13 - __main__ - INFO - 📊 Progress Update: 910/7930 processed (11.5%), 770 skipped, 0 errors, 1680 total entries
+2026-01-19 12:57:29 - __main__ - INFO - 📊 Progress Update: 920/7930 processed (11.6%), 770 skipped, 0 errors, 1690 total entries
+2026-01-19 12:57:44 - __main__ - INFO - 📊 Progress Update: 930/7930 processed (11.7%), 770 skipped, 0 errors, 1700 total entries
+2026-01-19 12:58:00 - __main__ - INFO - 📊 Progress Update: 940/7930 processed (11.9%), 770 skipped, 0 errors, 1710 total entries
+2026-01-19 12:58:16 - __main__ - INFO - 📊 Progress Update: 950/7930 processed (12.0%), 770 skipped, 0 errors, 1720 total entries
+2026-01-19 12:58:32 - __main__ - INFO - 📊 Progress Update: 960/7930 processed (12.1%), 770 skipped, 0 errors, 1730 total entries
+2026-01-19 12:58:49 - __main__ - INFO - 📊 Progress Update: 970/7930 processed (12.2%), 770 skipped, 0 errors, 1740 total entries
+2026-01-19 12:59:05 - __main__ - INFO - 📊 Progress Update: 980/7930 processed (12.4%), 770 skipped, 0 errors, 1750 total entries
+2026-01-19 12:59:22 - __main__ - INFO - 📊 Progress Update: 990/7930 processed (12.5%), 770 skipped, 0 errors, 1760 total entries
+2026-01-19 12:59:37 - __main__ - INFO - 📊 Progress Update: 1000/7930 processed (12.6%), 770 skipped, 0 errors, 1770 total entries
+2026-01-19 12:59:53 - __main__ - INFO - 📊 Progress Update: 1010/7930 processed (12.7%), 770 skipped, 0 errors, 1780 total entries
+2026-01-19 13:00:09 - __main__ - INFO - 📊 Progress Update: 1020/7930 processed (12.9%), 770 skipped, 0 errors, 1790 total entries
+2026-01-19 13:00:25 - __main__ - INFO - 📊 Progress Update: 1030/7930 processed (13.0%), 770 skipped, 0 errors, 1800 total entries
+2026-01-19 13:00:40 - __main__ - INFO - 📊 Progress Update: 1040/7930 processed (13.1%), 770 skipped, 0 errors, 1810 total entries
+2026-01-19 13:00:55 - __main__ - INFO - 📊 Progress Update: 1050/7930 processed (13.2%), 770 skipped, 0 errors, 1820 total entries
+2026-01-19 13:01:10 - __main__ - INFO - 📊 Progress Update: 1060/7930 processed (13.4%), 770 skipped, 0 errors, 1830 total entries
+2026-01-19 13:01:26 - __main__ - INFO - 📊 Progress Update: 1070/7930 processed (13.5%), 770 skipped, 0 errors, 1840 total entries
+2026-01-19 13:01:42 - __main__ - INFO - 📊 Progress Update: 1080/7930 processed (13.6%), 770 skipped, 0 errors, 1850 total entries
+2026-01-19 13:01:58 - __main__ - INFO - 📊 Progress Update: 1090/7930 processed (13.7%), 770 skipped, 0 errors, 1860 total entries
+2026-01-19 13:02:14 - __main__ - INFO - 📊 Progress Update: 1100/7930 processed (13.9%), 770 skipped, 0 errors, 1870 total entries
+2026-01-19 13:02:30 - __main__ - INFO - 📊 Progress Update: 1110/7930 processed (14.0%), 770 skipped, 0 errors, 1880 total entries
+2026-01-19 13:02:48 - __main__ - INFO - 📊 Progress Update: 1120/7930 processed (14.1%), 770 skipped, 0 errors, 1890 total entries
+2026-01-19 13:03:06 - __main__ - INFO - 📊 Progress Update: 1130/7930 processed (14.2%), 770 skipped, 0 errors, 1900 total entries
+2026-01-19 13:03:22 - __main__ - INFO - 📊 Progress Update: 1140/7930 processed (14.4%), 770 skipped, 0 errors, 1910 total entries
+2026-01-19 13:03:38 - __main__ - INFO - 📊 Progress Update: 1150/7930 processed (14.5%), 770 skipped, 0 errors, 1920 total entries
+2026-01-19 13:03:54 - __main__ - INFO - 📊 Progress Update: 1160/7930 processed (14.6%), 770 skipped, 0 errors, 1930 total entries
+2026-01-19 13:04:11 - __main__ - INFO - 📊 Progress Update: 1170/7930 processed (14.8%), 770 skipped, 0 errors, 1940 total entries
+2026-01-19 13:04:28 - __main__ - INFO - 📊 Progress Update: 1180/7930 processed (14.9%), 770 skipped, 0 errors, 1950 total entries
+2026-01-19 13:04:44 - __main__ - INFO - 📊 Progress Update: 1190/7930 processed (15.0%), 770 skipped, 0 errors, 1960 total entries
+2026-01-19 13:05:00 - __main__ - INFO - 📊 Progress Update: 1200/7930 processed (15.1%), 770 skipped, 0 errors, 1970 total entries
+2026-01-19 13:05:16 - __main__ - INFO - 📊 Progress Update: 1210/7930 processed (15.3%), 770 skipped, 0 errors, 1980 total entries
+2026-01-19 13:05:32 - __main__ - INFO - 📊 Progress Update: 1220/7930 processed (15.4%), 770 skipped, 0 errors, 1990 total entries
+2026-01-19 13:05:47 - __main__ - INFO - 📊 Progress Update: 1230/7930 processed (15.5%), 770 skipped, 0 errors, 2000 total entries
+2026-01-19 13:06:05 - __main__ - INFO - 📊 Progress Update: 1240/7930 processed (15.6%), 770 skipped, 0 errors, 2010 total entries
+2026-01-19 13:06:26 - __main__ - INFO - 📊 Progress Update: 1250/7930 processed (15.8%), 770 skipped, 0 errors, 2020 total entries
+2026-01-19 13:06:42 - __main__ - INFO - 📊 Progress Update: 1260/7930 processed (15.9%), 770 skipped, 0 errors, 2030 total entries
+2026-01-19 13:06:59 - __main__ - INFO - 📊 Progress Update: 1270/7930 processed (16.0%), 770 skipped, 0 errors, 2040 total entries
+2026-01-19 13:07:14 - __main__ - INFO - 📊 Progress Update: 1280/7930 processed (16.1%), 770 skipped, 0 errors, 2050 total entries
+2026-01-19 13:07:30 - __main__ - INFO - 📊 Progress Update: 1290/7930 processed (16.3%), 770 skipped, 0 errors, 2060 total entries
+2026-01-19 13:07:47 - __main__ - INFO - 📊 Progress Update: 1300/7930 processed (16.4%), 770 skipped, 0 errors, 2070 total entries
+2026-01-19 13:08:04 - __main__ - INFO - 📊 Progress Update: 1310/7930 processed (16.5%), 770 skipped, 0 errors, 2080 total entries
+2026-01-19 13:08:21 - __main__ - INFO - 📊 Progress Update: 1320/7930 processed (16.6%), 770 skipped, 0 errors, 2090 total entries
+2026-01-19 13:08:37 - __main__ - INFO - 📊 Progress Update: 1330/7930 processed (16.8%), 770 skipped, 0 errors, 2100 total entries
+2026-01-19 13:08:54 - __main__ - INFO - 📊 Progress Update: 1340/7930 processed (16.9%), 770 skipped, 0 errors, 2110 total entries
+2026-01-19 13:09:10 - __main__ - INFO - 📊 Progress Update: 1350/7930 processed (17.0%), 770 skipped, 0 errors, 2120 total entries
+2026-01-19 13:09:28 - __main__ - INFO - 📊 Progress Update: 1360/7930 processed (17.2%), 770 skipped, 0 errors, 2130 total entries
+2026-01-19 13:09:45 - __main__ - INFO - 📊 Progress Update: 1370/7930 processed (17.3%), 770 skipped, 0 errors, 2140 total entries
+2026-01-19 13:10:01 - __main__ - INFO - 📊 Progress Update: 1380/7930 processed (17.4%), 770 skipped, 0 errors, 2150 total entries
+2026-01-19 13:10:17 - __main__ - INFO - 📊 Progress Update: 1390/7930 processed (17.5%), 770 skipped, 0 errors, 2160 total entries
+2026-01-19 13:10:33 - __main__ - INFO - 📊 Progress Update: 1400/7930 processed (17.7%), 770 skipped, 0 errors, 2170 total entries
+2026-01-19 13:10:49 - __main__ - INFO - 📊 Progress Update: 1410/7930 processed (17.8%), 770 skipped, 0 errors, 2180 total entries
+2026-01-19 13:11:06 - __main__ - INFO - 📊 Progress Update: 1420/7930 processed (17.9%), 770 skipped, 0 errors, 2190 total entries
+2026-01-19 13:11:22 - __main__ - INFO - 📊 Progress Update: 1430/7930 processed (18.0%), 770 skipped, 0 errors, 2200 total entries
+2026-01-19 13:11:38 - __main__ - INFO - 📊 Progress Update: 1440/7930 processed (18.2%), 770 skipped, 0 errors, 2210 total entries
+2026-01-19 13:11:53 - __main__ - INFO - 📊 Progress Update: 1450/7930 processed (18.3%), 770 skipped, 0 errors, 2220 total entries
+2026-01-19 13:12:11 - __main__ - INFO - 📊 Progress Update: 1460/7930 processed (18.4%), 770 skipped, 0 errors, 2230 total entries
+2026-01-19 13:12:29 - __main__ - INFO - 📊 Progress Update: 1470/7930 processed (18.5%), 770 skipped, 0 errors, 2240 total entries
+2026-01-19 13:12:45 - __main__ - INFO - 📊 Progress Update: 1480/7930 processed (18.7%), 770 skipped, 0 errors, 2250 total entries
+2026-01-19 13:13:02 - __main__ - INFO - 📊 Progress Update: 1490/7930 processed (18.8%), 770 skipped, 0 errors, 2260 total entries
+2026-01-19 13:13:19 - __main__ - INFO - 📊 Progress Update: 1500/7930 processed (18.9%), 770 skipped, 0 errors, 2270 total entries
+2026-01-19 13:13:36 - __main__ - INFO - 📊 Progress Update: 1510/7930 processed (19.0%), 770 skipped, 0 errors, 2280 total entries
+2026-01-19 13:13:52 - __main__ - INFO - 📊 Progress Update: 1520/7930 processed (19.2%), 770 skipped, 0 errors, 2290 total entries
+2026-01-19 13:14:09 - __main__ - INFO - 📊 Progress Update: 1530/7930 processed (19.3%), 770 skipped, 0 errors, 2300 total entries
+2026-01-19 13:14:26 - __main__ - INFO - 📊 Progress Update: 1540/7930 processed (19.4%), 770 skipped, 0 errors, 2310 total entries
+2026-01-19 13:14:42 - __main__ - INFO - 📊 Progress Update: 1550/7930 processed (19.5%), 770 skipped, 0 errors, 2320 total entries
+2026-01-19 13:14:59 - __main__ - INFO - 📊 Progress Update: 1560/7930 processed (19.7%), 770 skipped, 0 errors, 2330 total entries
+2026-01-19 13:15:15 - __main__ - INFO - 📊 Progress Update: 1570/7930 processed (19.8%), 770 skipped, 0 errors, 2340 total entries
+2026-01-19 13:15:31 - __main__ - INFO - 📊 Progress Update: 1580/7930 processed (19.9%), 770 skipped, 0 errors, 2350 total entries
+2026-01-19 13:15:47 - __main__ - INFO - 📊 Progress Update: 1590/7930 processed (20.1%), 770 skipped, 0 errors, 2360 total entries
+2026-01-19 13:16:02 - __main__ - INFO - 📊 Progress Update: 1600/7930 processed (20.2%), 770 skipped, 0 errors, 2370 total entries
+2026-01-19 13:16:18 - __main__ - INFO - 📊 Progress Update: 1610/7930 processed (20.3%), 770 skipped, 0 errors, 2380 total entries
+2026-01-19 13:16:34 - __main__ - INFO - 📊 Progress Update: 1620/7930 processed (20.4%), 770 skipped, 0 errors, 2390 total entries
+2026-01-19 13:16:52 - __main__ - INFO - 📊 Progress Update: 1630/7930 processed (20.6%), 770 skipped, 0 errors, 2400 total entries
+2026-01-19 13:17:07 - __main__ - INFO - 📊 Progress Update: 1640/7930 processed (20.7%), 770 skipped, 0 errors, 2410 total entries
+2026-01-19 13:17:23 - __main__ - INFO - 📊 Progress Update: 1650/7930 processed (20.8%), 770 skipped, 0 errors, 2420 total entries
+2026-01-19 13:17:39 - __main__ - INFO - 📊 Progress Update: 1660/7930 processed (20.9%), 770 skipped, 0 errors, 2430 total entries
+2026-01-19 13:17:55 - __main__ - INFO - 📊 Progress Update: 1670/7930 processed (21.1%), 770 skipped, 0 errors, 2440 total entries
+2026-01-19 13:18:11 - __main__ - INFO - 📊 Progress Update: 1680/7930 processed (21.2%), 770 skipped, 0 errors, 2450 total entries
+2026-01-19 13:18:27 - __main__ - INFO - 📊 Progress Update: 1690/7930 processed (21.3%), 770 skipped, 0 errors, 2460 total entries
+2026-01-19 13:18:44 - __main__ - INFO - 📊 Progress Update: 1700/7930 processed (21.4%), 770 skipped, 0 errors, 2470 total entries
+2026-01-19 13:19:00 - __main__ - INFO - 📊 Progress Update: 1710/7930 processed (21.6%), 770 skipped, 0 errors, 2480 total entries
+2026-01-19 13:19:15 - __main__ - INFO - 📊 Progress Update: 1720/7930 processed (21.7%), 770 skipped, 0 errors, 2490 total entries
+2026-01-19 13:19:31 - __main__ - INFO - 📊 Progress Update: 1730/7930 processed (21.8%), 770 skipped, 0 errors, 2500 total entries
+2026-01-19 13:19:47 - __main__ - INFO - 📊 Progress Update: 1740/7930 processed (21.9%), 770 skipped, 0 errors, 2510 total entries
+2026-01-19 13:20:05 - __main__ - INFO - 📊 Progress Update: 1750/7930 processed (22.1%), 770 skipped, 0 errors, 2520 total entries
+2026-01-19 13:20:21 - __main__ - INFO - 📊 Progress Update: 1760/7930 processed (22.2%), 770 skipped, 0 errors, 2530 total entries
+2026-01-19 13:20:38 - __main__ - INFO - 📊 Progress Update: 1770/7930 processed (22.3%), 770 skipped, 0 errors, 2540 total entries
+2026-01-19 13:20:54 - __main__ - INFO - 📊 Progress Update: 1780/7930 processed (22.4%), 770 skipped, 0 errors, 2550 total entries
+2026-01-19 13:21:09 - __main__ - INFO - 📊 Progress Update: 1790/7930 processed (22.6%), 770 skipped, 0 errors, 2560 total entries
+2026-01-19 13:21:25 - __main__ - INFO - 📊 Progress Update: 1800/7930 processed (22.7%), 770 skipped, 0 errors, 2570 total entries
+2026-01-19 13:21:41 - __main__ - INFO - 📊 Progress Update: 1810/7930 processed (22.8%), 770 skipped, 0 errors, 2580 total entries
+2026-01-19 13:21:57 - __main__ - INFO - 📊 Progress Update: 1820/7930 processed (23.0%), 770 skipped, 0 errors, 2590 total entries
+2026-01-19 13:22:13 - __main__ - INFO - 📊 Progress Update: 1830/7930 processed (23.1%), 770 skipped, 0 errors, 2600 total entries
+2026-01-19 13:22:30 - __main__ - INFO - 📊 Progress Update: 1840/7930 processed (23.2%), 770 skipped, 0 errors, 2610 total entries
+2026-01-19 13:22:47 - __main__ - INFO - 📊 Progress Update: 1850/7930 processed (23.3%), 770 skipped, 0 errors, 2620 total entries
+2026-01-19 13:23:02 - __main__ - INFO - 📊 Progress Update: 1860/7930 processed (23.5%), 770 skipped, 0 errors, 2630 total entries
+2026-01-19 13:23:18 - __main__ - INFO - 📊 Progress Update: 1870/7930 processed (23.6%), 770 skipped, 0 errors, 2640 total entries
+2026-01-19 13:23:34 - __main__ - INFO - 📊 Progress Update: 1880/7930 processed (23.7%), 770 skipped, 0 errors, 2650 total entries
+2026-01-19 13:23:50 - __main__ - INFO - 📊 Progress Update: 1890/7930 processed (23.8%), 770 skipped, 0 errors, 2660 total entries
+2026-01-19 13:24:09 - __main__ - INFO - 📊 Progress Update: 1900/7930 processed (24.0%), 770 skipped, 0 errors, 2670 total entries
+2026-01-19 13:24:25 - __main__ - INFO - 📊 Progress Update: 1910/7930 processed (24.1%), 770 skipped, 0 errors, 2680 total entries
+2026-01-19 13:24:41 - __main__ - INFO - 📊 Progress Update: 1920/7930 processed (24.2%), 770 skipped, 0 errors, 2690 total entries
+2026-01-19 13:24:57 - __main__ - INFO - 📊 Progress Update: 1930/7930 processed (24.3%), 770 skipped, 0 errors, 2700 total entries
+2026-01-19 13:25:13 - __main__ - INFO - 📊 Progress Update: 1940/7930 processed (24.5%), 770 skipped, 0 errors, 2710 total entries
+2026-01-19 13:25:30 - __main__ - INFO - 📊 Progress Update: 1950/7930 processed (24.6%), 770 skipped, 0 errors, 2720 total entries
+2026-01-19 13:25:45 - __main__ - INFO - 📊 Progress Update: 1960/7930 processed (24.7%), 770 skipped, 0 errors, 2730 total entries
+2026-01-19 13:26:03 - __main__ - INFO - 📊 Progress Update: 1970/7930 processed (24.8%), 770 skipped, 0 errors, 2740 total entries
+2026-01-19 13:26:20 - __main__ - INFO - 📊 Progress Update: 1980/7930 processed (25.0%), 770 skipped, 0 errors, 2750 total entries
+2026-01-19 13:26:36 - __main__ - INFO - 📊 Progress Update: 1990/7930 processed (25.1%), 770 skipped, 0 errors, 2760 total entries
+2026-01-19 13:26:52 - __main__ - INFO - 📊 Progress Update: 2000/7930 processed (25.2%), 770 skipped, 0 errors, 2770 total entries
+2026-01-19 13:27:08 - __main__ - INFO - 📊 Progress Update: 2010/7930 processed (25.3%), 770 skipped, 0 errors, 2780 total entries
+2026-01-19 13:27:24 - __main__ - INFO - 📊 Progress Update: 2020/7930 processed (25.5%), 770 skipped, 0 errors, 2790 total entries
+2026-01-19 13:27:39 - __main__ - INFO - 📊 Progress Update: 2030/7930 processed (25.6%), 770 skipped, 0 errors, 2800 total entries
+2026-01-19 13:27:55 - __main__ - INFO - 📊 Progress Update: 2040/7930 processed (25.7%), 770 skipped, 0 errors, 2810 total entries
+2026-01-19 13:28:10 - __main__ - INFO - 📊 Progress Update: 2050/7930 processed (25.9%), 770 skipped, 0 errors, 2820 total entries
+2026-01-19 13:28:26 - __main__ - INFO - 📊 Progress Update: 2060/7930 processed (26.0%), 770 skipped, 0 errors, 2830 total entries
+2026-01-19 13:28:41 - __main__ - INFO - 📊 Progress Update: 2070/7930 processed (26.1%), 770 skipped, 0 errors, 2840 total entries
+2026-01-19 13:28:57 - __main__ - INFO - 📊 Progress Update: 2080/7930 processed (26.2%), 770 skipped, 0 errors, 2850 total entries
+2026-01-19 13:29:12 - __main__ - INFO - 📊 Progress Update: 2090/7930 processed (26.4%), 770 skipped, 0 errors, 2860 total entries
+2026-01-19 13:29:29 - __main__ - INFO - 📊 Progress Update: 2100/7930 processed (26.5%), 770 skipped, 0 errors, 2870 total entries
+2026-01-19 13:29:44 - __main__ - INFO - 📊 Progress Update: 2110/7930 processed (26.6%), 770 skipped, 0 errors, 2880 total entries
+2026-01-19 13:29:59 - __main__ - INFO - 📊 Progress Update: 2120/7930 processed (26.7%), 770 skipped, 0 errors, 2890 total entries
+2026-01-19 13:30:15 - __main__ - INFO - 📊 Progress Update: 2130/7930 processed (26.9%), 770 skipped, 0 errors, 2900 total entries
+2026-01-19 13:30:32 - __main__ - INFO - 📊 Progress Update: 2140/7930 processed (27.0%), 770 skipped, 0 errors, 2910 total entries
+2026-01-19 13:30:48 - __main__ - INFO - 📊 Progress Update: 2150/7930 processed (27.1%), 770 skipped, 0 errors, 2920 total entries
+2026-01-19 13:31:07 - __main__ - INFO - 📊 Progress Update: 2160/7930 processed (27.2%), 770 skipped, 0 errors, 2930 total entries
+2026-01-19 13:31:23 - __main__ - INFO - 📊 Progress Update: 2170/7930 processed (27.4%), 770 skipped, 0 errors, 2940 total entries
+2026-01-19 13:31:39 - __main__ - INFO - 📊 Progress Update: 2180/7930 processed (27.5%), 770 skipped, 0 errors, 2950 total entries
+2026-01-19 13:31:55 - __main__ - INFO - 📊 Progress Update: 2190/7930 processed (27.6%), 770 skipped, 0 errors, 2960 total entries
+2026-01-19 13:32:11 - __main__ - INFO - 📊 Progress Update: 2200/7930 processed (27.7%), 770 skipped, 0 errors, 2970 total entries
+2026-01-19 13:32:27 - __main__ - INFO - 📊 Progress Update: 2210/7930 processed (27.9%), 770 skipped, 0 errors, 2980 total entries
+2026-01-19 13:32:45 - __main__ - INFO - 📊 Progress Update: 2220/7930 processed (28.0%), 770 skipped, 0 errors, 2990 total entries
+2026-01-19 13:33:02 - __main__ - INFO - 📊 Progress Update: 2230/7930 processed (28.1%), 770 skipped, 0 errors, 3000 total entries
+2026-01-19 13:33:18 - __main__ - INFO - 📊 Progress Update: 2240/7930 processed (28.2%), 770 skipped, 0 errors, 3010 total entries
+2026-01-19 13:33:34 - __main__ - INFO - 📊 Progress Update: 2250/7930 processed (28.4%), 770 skipped, 0 errors, 3020 total entries
+2026-01-19 13:33:50 - __main__ - INFO - 📊 Progress Update: 2260/7930 processed (28.5%), 770 skipped, 0 errors, 3030 total entries
+2026-01-19 13:34:07 - __main__ - INFO - 📊 Progress Update: 2270/7930 processed (28.6%), 770 skipped, 0 errors, 3040 total entries
+2026-01-19 13:34:23 - __main__ - INFO - 📊 Progress Update: 2280/7930 processed (28.8%), 770 skipped, 0 errors, 3050 total entries
+2026-01-19 13:34:40 - __main__ - INFO - 📊 Progress Update: 2290/7930 processed (28.9%), 770 skipped, 0 errors, 3060 total entries
+2026-01-19 13:35:02 - __main__ - INFO - 📊 Progress Update: 2300/7930 processed (29.0%), 770 skipped, 0 errors, 3070 total entries
+2026-01-19 13:35:19 - __main__ - INFO - 📊 Progress Update: 2310/7930 processed (29.1%), 770 skipped, 0 errors, 3080 total entries
+2026-01-19 13:35:35 - __main__ - INFO - 📊 Progress Update: 2320/7930 processed (29.3%), 770 skipped, 0 errors, 3090 total entries
+2026-01-19 13:35:51 - __main__ - INFO - 📊 Progress Update: 2330/7930 processed (29.4%), 770 skipped, 0 errors, 3100 total entries
+2026-01-19 13:36:07 - __main__ - INFO - 📊 Progress Update: 2340/7930 processed (29.5%), 770 skipped, 0 errors, 3110 total entries
+2026-01-19 13:36:23 - __main__ - INFO - 📊 Progress Update: 2350/7930 processed (29.6%), 770 skipped, 0 errors, 3120 total entries
+2026-01-19 13:36:38 - __main__ - INFO - 📊 Progress Update: 2360/7930 processed (29.8%), 770 skipped, 0 errors, 3130 total entries
+2026-01-19 13:36:55 - __main__ - INFO - 📊 Progress Update: 2370/7930 processed (29.9%), 770 skipped, 0 errors, 3140 total entries
+2026-01-19 13:37:11 - __main__ - INFO - 📊 Progress Update: 2380/7930 processed (30.0%), 770 skipped, 0 errors, 3150 total entries
+2026-01-19 13:37:27 - __main__ - INFO - 📊 Progress Update: 2390/7930 processed (30.1%), 770 skipped, 0 errors, 3160 total entries
+2026-01-19 13:37:42 - __main__ - INFO - 📊 Progress Update: 2400/7930 processed (30.3%), 770 skipped, 0 errors, 3170 total entries
+2026-01-19 13:37:58 - __main__ - INFO - 📊 Progress Update: 2410/7930 processed (30.4%), 770 skipped, 0 errors, 3180 total entries
+2026-01-19 13:38:15 - __main__ - INFO - 📊 Progress Update: 2420/7930 processed (30.5%), 770 skipped, 0 errors, 3190 total entries
+2026-01-19 13:38:31 - __main__ - INFO - 📊 Progress Update: 2430/7930 processed (30.6%), 770 skipped, 0 errors, 3200 total entries
+2026-01-19 13:38:47 - __main__ - INFO - 📊 Progress Update: 2440/7930 processed (30.8%), 770 skipped, 0 errors, 3210 total entries
+2026-01-19 13:39:03 - __main__ - INFO - 📊 Progress Update: 2450/7930 processed (30.9%), 770 skipped, 0 errors, 3220 total entries
+2026-01-19 13:39:19 - __main__ - INFO - 📊 Progress Update: 2460/7930 processed (31.0%), 770 skipped, 0 errors, 3230 total entries
+2026-01-19 13:39:35 - __main__ - INFO - 📊 Progress Update: 2470/7930 processed (31.1%), 770 skipped, 0 errors, 3240 total entries
+2026-01-19 13:39:52 - __main__ - INFO - 📊 Progress Update: 2480/7930 processed (31.3%), 770 skipped, 0 errors, 3250 total entries
+2026-01-19 13:40:07 - __main__ - INFO - 📊 Progress Update: 2490/7930 processed (31.4%), 770 skipped, 0 errors, 3260 total entries
+2026-01-19 13:40:23 - __main__ - INFO - 📊 Progress Update: 2500/7930 processed (31.5%), 770 skipped, 0 errors, 3270 total entries
+2026-01-19 13:40:40 - __main__ - INFO - 📊 Progress Update: 2510/7930 processed (31.7%), 770 skipped, 0 errors, 3280 total entries
+2026-01-19 13:40:56 - __main__ - INFO - 📊 Progress Update: 2520/7930 processed (31.8%), 770 skipped, 0 errors, 3290 total entries
+2026-01-19 13:41:12 - __main__ - INFO - 📊 Progress Update: 2530/7930 processed (31.9%), 770 skipped, 0 errors, 3300 total entries
+2026-01-19 13:41:29 - __main__ - INFO - 📊 Progress Update: 2540/7930 processed (32.0%), 770 skipped, 0 errors, 3310 total entries
+2026-01-19 13:41:45 - __main__ - INFO - 📊 Progress Update: 2550/7930 processed (32.2%), 770 skipped, 0 errors, 3320 total entries
+2026-01-19 13:42:02 - __main__ - INFO - 📊 Progress Update: 2560/7930 processed (32.3%), 770 skipped, 0 errors, 3330 total entries
+2026-01-19 13:42:18 - __main__ - INFO - 📊 Progress Update: 2570/7930 processed (32.4%), 770 skipped, 0 errors, 3340 total entries
+2026-01-19 13:42:35 - __main__ - INFO - 📊 Progress Update: 2580/7930 processed (32.5%), 770 skipped, 0 errors, 3350 total entries
+2026-01-19 13:42:52 - __main__ - INFO - 📊 Progress Update: 2590/7930 processed (32.7%), 770 skipped, 0 errors, 3360 total entries
+2026-01-19 13:43:08 - __main__ - INFO - 📊 Progress Update: 2600/7930 processed (32.8%), 770 skipped, 0 errors, 3370 total entries
+2026-01-19 13:43:24 - __main__ - INFO - 📊 Progress Update: 2610/7930 processed (32.9%), 770 skipped, 0 errors, 3380 total entries
+2026-01-19 13:43:41 - __main__ - INFO - 📊 Progress Update: 2620/7930 processed (33.0%), 770 skipped, 0 errors, 3390 total entries
+2026-01-19 13:43:57 - __main__ - INFO - 📊 Progress Update: 2630/7930 processed (33.2%), 770 skipped, 0 errors, 3400 total entries
+2026-01-19 13:44:13 - __main__ - INFO - 📊 Progress Update: 2640/7930 processed (33.3%), 770 skipped, 0 errors, 3410 total entries
+2026-01-19 13:44:30 - __main__ - INFO - 📊 Progress Update: 2650/7930 processed (33.4%), 770 skipped, 0 errors, 3420 total entries
+2026-01-19 13:44:46 - __main__ - INFO - 📊 Progress Update: 2660/7930 processed (33.5%), 770 skipped, 0 errors, 3430 total entries
+2026-01-19 13:45:02 - __main__ - INFO - 📊 Progress Update: 2670/7930 processed (33.7%), 770 skipped, 0 errors, 3440 total entries
+2026-01-19 13:45:19 - __main__ - INFO - 📊 Progress Update: 2680/7930 processed (33.8%), 770 skipped, 0 errors, 3450 total entries
+2026-01-19 13:45:36 - etl.extraction.bgg_credits_scraper - ERROR - ✗ HTTP error fetching credits data for BGG ID 250561: Response ended prematurely
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1344, in _update_chunk_length
+    raise ProtocolError("Response ended prematurely") from None
+urllib3.exceptions.ProtocolError: Response ended prematurely
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_credits_scraper.py", line 110, in scrape_credits
+    response = self.session.get(api_url, timeout=self.timeout)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 746, in send
+    r.content
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: Response ended prematurely
+2026-01-19 13:45:36 - __main__ - WARNING - ⚠ Failed to extract credits for 250561
+2026-01-19 13:45:36 - __main__ - INFO - 📊 Progress Update: 2689/7930 processed (33.9%), 770 skipped, 1 errors, 3460 total entries
+2026-01-19 13:45:52 - __main__ - INFO - 📊 Progress Update: 2699/7930 processed (34.0%), 770 skipped, 1 errors, 3470 total entries
+2026-01-19 13:46:08 - __main__ - INFO - 📊 Progress Update: 2709/7930 processed (34.2%), 770 skipped, 1 errors, 3480 total entries
+2026-01-19 13:46:24 - __main__ - INFO - 📊 Progress Update: 2719/7930 processed (34.3%), 770 skipped, 1 errors, 3490 total entries
+2026-01-19 13:46:41 - __main__ - INFO - 📊 Progress Update: 2729/7930 processed (34.4%), 770 skipped, 1 errors, 3500 total entries
+2026-01-19 13:46:57 - __main__ - INFO - 📊 Progress Update: 2739/7930 processed (34.5%), 770 skipped, 1 errors, 3510 total entries
+2026-01-19 13:47:13 - __main__ - INFO - 📊 Progress Update: 2749/7930 processed (34.7%), 770 skipped, 1 errors, 3520 total entries
+2026-01-19 13:47:29 - __main__ - INFO - 📊 Progress Update: 2759/7930 processed (34.8%), 770 skipped, 1 errors, 3530 total entries
+2026-01-19 13:47:46 - __main__ - INFO - 📊 Progress Update: 2769/7930 processed (34.9%), 770 skipped, 1 errors, 3540 total entries
+2026-01-19 13:48:02 - __main__ - INFO - 📊 Progress Update: 2779/7930 processed (35.0%), 770 skipped, 1 errors, 3550 total entries
+2026-01-19 13:48:19 - __main__ - INFO - 📊 Progress Update: 2789/7930 processed (35.2%), 770 skipped, 1 errors, 3560 total entries
+2026-01-19 13:48:36 - __main__ - INFO - 📊 Progress Update: 2799/7930 processed (35.3%), 770 skipped, 1 errors, 3570 total entries
+2026-01-19 13:48:53 - __main__ - INFO - 📊 Progress Update: 2809/7930 processed (35.4%), 770 skipped, 1 errors, 3580 total entries
+2026-01-19 13:49:10 - __main__ - INFO - 📊 Progress Update: 2819/7930 processed (35.5%), 770 skipped, 1 errors, 3590 total entries
+2026-01-19 13:49:27 - __main__ - INFO - 📊 Progress Update: 2829/7930 processed (35.7%), 770 skipped, 1 errors, 3600 total entries
+2026-01-19 13:49:45 - __main__ - INFO - 📊 Progress Update: 2839/7930 processed (35.8%), 770 skipped, 1 errors, 3610 total entries
+2026-01-19 13:50:02 - __main__ - INFO - 📊 Progress Update: 2849/7930 processed (35.9%), 770 skipped, 1 errors, 3620 total entries
+2026-01-19 13:50:19 - __main__ - INFO - 📊 Progress Update: 2859/7930 processed (36.1%), 770 skipped, 1 errors, 3630 total entries
+2026-01-19 13:50:35 - __main__ - INFO - 📊 Progress Update: 2869/7930 processed (36.2%), 770 skipped, 1 errors, 3640 total entries
+2026-01-19 13:50:52 - __main__ - INFO - 📊 Progress Update: 2879/7930 processed (36.3%), 770 skipped, 1 errors, 3650 total entries
+2026-01-19 13:51:09 - __main__ - INFO - 📊 Progress Update: 2889/7930 processed (36.4%), 770 skipped, 1 errors, 3660 total entries
+2026-01-19 13:51:25 - __main__ - INFO - 📊 Progress Update: 2899/7930 processed (36.6%), 770 skipped, 1 errors, 3670 total entries
+2026-01-19 13:51:41 - __main__ - INFO - 📊 Progress Update: 2909/7930 processed (36.7%), 770 skipped, 1 errors, 3680 total entries
+2026-01-19 13:51:58 - __main__ - INFO - 📊 Progress Update: 2919/7930 processed (36.8%), 770 skipped, 1 errors, 3690 total entries
+2026-01-19 13:52:14 - __main__ - INFO - 📊 Progress Update: 2929/7930 processed (36.9%), 770 skipped, 1 errors, 3700 total entries
+2026-01-19 13:52:30 - __main__ - INFO - 📊 Progress Update: 2939/7930 processed (37.1%), 770 skipped, 1 errors, 3710 total entries
+2026-01-19 13:52:46 - __main__ - INFO - 📊 Progress Update: 2949/7930 processed (37.2%), 770 skipped, 1 errors, 3720 total entries
+2026-01-19 13:53:01 - __main__ - INFO - 📊 Progress Update: 2959/7930 processed (37.3%), 770 skipped, 1 errors, 3730 total entries
+2026-01-19 13:53:17 - __main__ - INFO - 📊 Progress Update: 2969/7930 processed (37.4%), 770 skipped, 1 errors, 3740 total entries
+2026-01-19 13:53:32 - __main__ - INFO - 📊 Progress Update: 2979/7930 processed (37.6%), 770 skipped, 1 errors, 3750 total entries
+2026-01-19 13:53:49 - __main__ - INFO - 📊 Progress Update: 2989/7930 processed (37.7%), 770 skipped, 1 errors, 3760 total entries
+2026-01-19 13:54:06 - __main__ - INFO - 📊 Progress Update: 2999/7930 processed (37.8%), 770 skipped, 1 errors, 3770 total entries
+2026-01-19 13:54:22 - __main__ - INFO - 📊 Progress Update: 3009/7930 processed (37.9%), 770 skipped, 1 errors, 3780 total entries
+2026-01-19 13:54:38 - __main__ - INFO - 📊 Progress Update: 3019/7930 processed (38.1%), 770 skipped, 1 errors, 3790 total entries
+2026-01-19 13:54:56 - __main__ - INFO - 📊 Progress Update: 3029/7930 processed (38.2%), 770 skipped, 1 errors, 3800 total entries
+2026-01-19 13:55:11 - __main__ - INFO - 📊 Progress Update: 3039/7930 processed (38.3%), 770 skipped, 1 errors, 3810 total entries
+2026-01-19 13:55:28 - __main__ - INFO - 📊 Progress Update: 3049/7930 processed (38.4%), 770 skipped, 1 errors, 3820 total entries
+2026-01-19 13:55:44 - __main__ - INFO - 📊 Progress Update: 3059/7930 processed (38.6%), 770 skipped, 1 errors, 3830 total entries
+2026-01-19 13:55:59 - __main__ - INFO - 📊 Progress Update: 3069/7930 processed (38.7%), 770 skipped, 1 errors, 3840 total entries
+2026-01-19 13:56:16 - __main__ - INFO - 📊 Progress Update: 3079/7930 processed (38.8%), 770 skipped, 1 errors, 3850 total entries
+2026-01-19 13:56:32 - __main__ - INFO - 📊 Progress Update: 3089/7930 processed (39.0%), 770 skipped, 1 errors, 3860 total entries
+2026-01-19 13:56:47 - __main__ - INFO - 📊 Progress Update: 3099/7930 processed (39.1%), 770 skipped, 1 errors, 3870 total entries
+2026-01-19 13:57:03 - __main__ - INFO - 📊 Progress Update: 3109/7930 processed (39.2%), 770 skipped, 1 errors, 3880 total entries
+2026-01-19 13:57:19 - __main__ - INFO - 📊 Progress Update: 3119/7930 processed (39.3%), 770 skipped, 1 errors, 3890 total entries
+2026-01-19 13:57:35 - __main__ - INFO - 📊 Progress Update: 3129/7930 processed (39.5%), 770 skipped, 1 errors, 3900 total entries
+2026-01-19 13:57:51 - __main__ - INFO - 📊 Progress Update: 3139/7930 processed (39.6%), 770 skipped, 1 errors, 3910 total entries
+2026-01-19 13:58:07 - __main__ - INFO - 📊 Progress Update: 3149/7930 processed (39.7%), 770 skipped, 1 errors, 3920 total entries
+2026-01-19 13:58:22 - __main__ - INFO - 📊 Progress Update: 3159/7930 processed (39.8%), 770 skipped, 1 errors, 3930 total entries
+2026-01-19 13:58:39 - __main__ - INFO - 📊 Progress Update: 3169/7930 processed (40.0%), 770 skipped, 1 errors, 3940 total entries
+2026-01-19 13:58:55 - __main__ - INFO - 📊 Progress Update: 3179/7930 processed (40.1%), 770 skipped, 1 errors, 3950 total entries
+2026-01-19 13:59:15 - __main__ - INFO - 📊 Progress Update: 3189/7930 processed (40.2%), 770 skipped, 1 errors, 3960 total entries
+2026-01-19 13:59:32 - __main__ - INFO - 📊 Progress Update: 3199/7930 processed (40.3%), 770 skipped, 1 errors, 3970 total entries
+2026-01-19 13:59:49 - __main__ - INFO - 📊 Progress Update: 3209/7930 processed (40.5%), 770 skipped, 1 errors, 3980 total entries
+2026-01-19 14:00:06 - __main__ - INFO - 📊 Progress Update: 3219/7930 processed (40.6%), 770 skipped, 1 errors, 3990 total entries
+2026-01-19 14:00:22 - __main__ - INFO - 📊 Progress Update: 3229/7930 processed (40.7%), 770 skipped, 1 errors, 4000 total entries
+2026-01-19 14:00:38 - __main__ - INFO - 📊 Progress Update: 3239/7930 processed (40.8%), 770 skipped, 1 errors, 4010 total entries
+2026-01-19 14:00:55 - __main__ - INFO - 📊 Progress Update: 3249/7930 processed (41.0%), 770 skipped, 1 errors, 4020 total entries
+2026-01-19 14:01:11 - __main__ - INFO - 📊 Progress Update: 3259/7930 processed (41.1%), 770 skipped, 1 errors, 4030 total entries
+2026-01-19 14:01:27 - __main__ - INFO - 📊 Progress Update: 3269/7930 processed (41.2%), 770 skipped, 1 errors, 4040 total entries
+2026-01-19 14:01:43 - __main__ - INFO - 📊 Progress Update: 3279/7930 processed (41.3%), 770 skipped, 1 errors, 4050 total entries
+2026-01-19 14:02:01 - __main__ - INFO - 📊 Progress Update: 3289/7930 processed (41.5%), 770 skipped, 1 errors, 4060 total entries
+2026-01-19 14:02:19 - __main__ - INFO - 📊 Progress Update: 3299/7930 processed (41.6%), 770 skipped, 1 errors, 4070 total entries
+2026-01-19 14:02:34 - __main__ - INFO - 📊 Progress Update: 3309/7930 processed (41.7%), 770 skipped, 1 errors, 4080 total entries
+2026-01-19 14:02:51 - __main__ - INFO - 📊 Progress Update: 3319/7930 processed (41.9%), 770 skipped, 1 errors, 4090 total entries
+2026-01-19 14:03:08 - __main__ - INFO - 📊 Progress Update: 3329/7930 processed (42.0%), 770 skipped, 1 errors, 4100 total entries
+2026-01-19 14:03:32 - __main__ - INFO - 📊 Progress Update: 3339/7930 processed (42.1%), 770 skipped, 1 errors, 4110 total entries
+2026-01-19 14:03:48 - __main__ - INFO - 📊 Progress Update: 3349/7930 processed (42.2%), 770 skipped, 1 errors, 4120 total entries
+2026-01-19 14:04:05 - __main__ - INFO - 📊 Progress Update: 3359/7930 processed (42.4%), 770 skipped, 1 errors, 4130 total entries
+2026-01-19 14:04:21 - __main__ - INFO - 📊 Progress Update: 3369/7930 processed (42.5%), 770 skipped, 1 errors, 4140 total entries
+2026-01-19 14:04:38 - __main__ - INFO - 📊 Progress Update: 3379/7930 processed (42.6%), 770 skipped, 1 errors, 4150 total entries
+2026-01-19 14:04:55 - __main__ - INFO - 📊 Progress Update: 3389/7930 processed (42.7%), 770 skipped, 1 errors, 4160 total entries
+2026-01-19 14:05:12 - __main__ - INFO - 📊 Progress Update: 3399/7930 processed (42.9%), 770 skipped, 1 errors, 4170 total entries
+2026-01-19 14:05:28 - __main__ - INFO - 📊 Progress Update: 3409/7930 processed (43.0%), 770 skipped, 1 errors, 4180 total entries
+2026-01-19 14:05:45 - __main__ - INFO - 📊 Progress Update: 3419/7930 processed (43.1%), 770 skipped, 1 errors, 4190 total entries
+2026-01-19 14:06:01 - __main__ - INFO - 📊 Progress Update: 3429/7930 processed (43.2%), 770 skipped, 1 errors, 4200 total entries
+2026-01-19 14:06:18 - __main__ - INFO - 📊 Progress Update: 3439/7930 processed (43.4%), 770 skipped, 1 errors, 4210 total entries
+2026-01-19 14:06:35 - __main__ - INFO - 📊 Progress Update: 3449/7930 processed (43.5%), 770 skipped, 1 errors, 4220 total entries
+2026-01-19 14:06:53 - __main__ - INFO - 📊 Progress Update: 3459/7930 processed (43.6%), 770 skipped, 1 errors, 4230 total entries
+2026-01-19 14:07:09 - __main__ - INFO - 📊 Progress Update: 3469/7930 processed (43.7%), 770 skipped, 1 errors, 4240 total entries
+2026-01-19 14:07:21 - etl.extraction.bgg_credits_scraper - ERROR - ✗ HTTP error fetching credits data for BGG ID 3986: Response ended prematurely
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1344, in _update_chunk_length
+    raise ProtocolError("Response ended prematurely") from None
+urllib3.exceptions.ProtocolError: Response ended prematurely
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_credits_scraper.py", line 110, in scrape_credits
+    response = self.session.get(api_url, timeout=self.timeout)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 746, in send
+    r.content
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: Response ended prematurely
+2026-01-19 14:07:21 - __main__ - WARNING - ⚠ Failed to extract credits for 3986
+2026-01-19 14:07:26 - __main__ - INFO - 📊 Progress Update: 3478/7930 processed (43.9%), 770 skipped, 2 errors, 4250 total entries
+2026-01-19 14:07:43 - __main__ - INFO - 📊 Progress Update: 3488/7930 processed (44.0%), 770 skipped, 2 errors, 4260 total entries
+2026-01-19 14:08:00 - __main__ - INFO - 📊 Progress Update: 3498/7930 processed (44.1%), 770 skipped, 2 errors, 4270 total entries
+2026-01-19 14:08:16 - __main__ - INFO - 📊 Progress Update: 3508/7930 processed (44.2%), 770 skipped, 2 errors, 4280 total entries
+2026-01-19 14:08:33 - __main__ - INFO - 📊 Progress Update: 3518/7930 processed (44.4%), 770 skipped, 2 errors, 4290 total entries
+2026-01-19 14:08:48 - __main__ - INFO - 📊 Progress Update: 3528/7930 processed (44.5%), 770 skipped, 2 errors, 4300 total entries
+2026-01-19 14:09:05 - __main__ - INFO - 📊 Progress Update: 3538/7930 processed (44.6%), 770 skipped, 2 errors, 4310 total entries
+2026-01-19 14:09:21 - __main__ - INFO - 📊 Progress Update: 3548/7930 processed (44.7%), 770 skipped, 2 errors, 4320 total entries
+2026-01-19 14:09:41 - __main__ - INFO - 📊 Progress Update: 3558/7930 processed (44.9%), 770 skipped, 2 errors, 4330 total entries
+2026-01-19 14:09:57 - __main__ - INFO - 📊 Progress Update: 3568/7930 processed (45.0%), 770 skipped, 2 errors, 4340 total entries
+2026-01-19 14:10:14 - __main__ - INFO - 📊 Progress Update: 3578/7930 processed (45.1%), 770 skipped, 2 errors, 4350 total entries
+2026-01-19 14:10:30 - __main__ - INFO - 📊 Progress Update: 3588/7930 processed (45.2%), 770 skipped, 2 errors, 4360 total entries
+2026-01-19 14:10:48 - __main__ - INFO - 📊 Progress Update: 3598/7930 processed (45.4%), 770 skipped, 2 errors, 4370 total entries
+2026-01-19 14:11:07 - __main__ - INFO - 📊 Progress Update: 3608/7930 processed (45.5%), 770 skipped, 2 errors, 4380 total entries
+2026-01-19 14:11:25 - __main__ - INFO - 📊 Progress Update: 3618/7930 processed (45.6%), 770 skipped, 2 errors, 4390 total entries
+2026-01-19 14:11:45 - __main__ - INFO - 📊 Progress Update: 3628/7930 processed (45.8%), 770 skipped, 2 errors, 4400 total entries
+2026-01-19 14:12:02 - __main__ - INFO - 📊 Progress Update: 3638/7930 processed (45.9%), 770 skipped, 2 errors, 4410 total entries
+2026-01-19 14:12:21 - __main__ - INFO - 📊 Progress Update: 3648/7930 processed (46.0%), 770 skipped, 2 errors, 4420 total entries
+2026-01-19 14:12:37 - __main__ - INFO - 📊 Progress Update: 3658/7930 processed (46.1%), 770 skipped, 2 errors, 4430 total entries
+2026-01-19 14:12:53 - __main__ - INFO - 📊 Progress Update: 3668/7930 processed (46.3%), 770 skipped, 2 errors, 4440 total entries
+2026-01-19 14:13:10 - __main__ - INFO - 📊 Progress Update: 3678/7930 processed (46.4%), 770 skipped, 2 errors, 4450 total entries
+2026-01-19 14:13:26 - __main__ - INFO - 📊 Progress Update: 3688/7930 processed (46.5%), 770 skipped, 2 errors, 4460 total entries
+2026-01-19 14:17:11 - __main__ - INFO - 📊 Progress Update: 3698/7930 processed (46.6%), 770 skipped, 2 errors, 4470 total entries
+2026-01-19 14:17:16 - etl.extraction.bgg_credits_scraper - ERROR - ✗ HTTP error fetching credits data for BGG ID 152757: Response ended prematurely
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1344, in _update_chunk_length
+    raise ProtocolError("Response ended prematurely") from None
+urllib3.exceptions.ProtocolError: Response ended prematurely
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_credits_scraper.py", line 110, in scrape_credits
+    response = self.session.get(api_url, timeout=self.timeout)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 746, in send
+    r.content
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: Response ended prematurely
+2026-01-19 14:17:16 - __main__ - WARNING - ⚠ Failed to extract credits for 152757
+2026-01-19 14:17:28 - __main__ - INFO - 📊 Progress Update: 3707/7930 processed (46.7%), 770 skipped, 3 errors, 4480 total entries
+2026-01-19 14:17:45 - __main__ - INFO - 📊 Progress Update: 3717/7930 processed (46.9%), 770 skipped, 3 errors, 4490 total entries
+2026-01-19 14:18:02 - __main__ - INFO - 📊 Progress Update: 3727/7930 processed (47.0%), 770 skipped, 3 errors, 4500 total entries
+2026-01-19 14:18:18 - __main__ - INFO - 📊 Progress Update: 3737/7930 processed (47.1%), 770 skipped, 3 errors, 4510 total entries
+2026-01-19 14:18:35 - __main__ - INFO - 📊 Progress Update: 3747/7930 processed (47.3%), 770 skipped, 3 errors, 4520 total entries
+2026-01-19 14:18:51 - __main__ - INFO - 📊 Progress Update: 3757/7930 processed (47.4%), 770 skipped, 3 errors, 4530 total entries
+2026-01-19 14:19:07 - __main__ - INFO - 📊 Progress Update: 3767/7930 processed (47.5%), 770 skipped, 3 errors, 4540 total entries
+2026-01-19 14:19:24 - __main__ - INFO - 📊 Progress Update: 3777/7930 processed (47.6%), 770 skipped, 3 errors, 4550 total entries
+2026-01-19 14:19:41 - __main__ - INFO - 📊 Progress Update: 3787/7930 processed (47.8%), 770 skipped, 3 errors, 4560 total entries
+2026-01-19 14:19:59 - __main__ - INFO - 📊 Progress Update: 3797/7930 processed (47.9%), 770 skipped, 3 errors, 4570 total entries
+2026-01-19 14:20:15 - __main__ - INFO - 📊 Progress Update: 3807/7930 processed (48.0%), 770 skipped, 3 errors, 4580 total entries
+2026-01-19 14:20:32 - __main__ - INFO - 📊 Progress Update: 3817/7930 processed (48.1%), 770 skipped, 3 errors, 4590 total entries
+2026-01-19 14:20:48 - __main__ - INFO - 📊 Progress Update: 3827/7930 processed (48.3%), 770 skipped, 3 errors, 4600 total entries
+2026-01-19 14:21:05 - __main__ - INFO - 📊 Progress Update: 3837/7930 processed (48.4%), 770 skipped, 3 errors, 4610 total entries
+2026-01-19 14:21:23 - __main__ - INFO - 📊 Progress Update: 3847/7930 processed (48.5%), 770 skipped, 3 errors, 4620 total entries
+2026-01-19 14:21:39 - __main__ - INFO - 📊 Progress Update: 3857/7930 processed (48.6%), 770 skipped, 3 errors, 4630 total entries
+2026-01-19 14:21:56 - __main__ - INFO - 📊 Progress Update: 3867/7930 processed (48.8%), 770 skipped, 3 errors, 4640 total entries
+2026-01-19 14:22:11 - __main__ - INFO - 📊 Progress Update: 3877/7930 processed (48.9%), 770 skipped, 3 errors, 4650 total entries
+2026-01-19 14:22:29 - __main__ - INFO - 📊 Progress Update: 3887/7930 processed (49.0%), 770 skipped, 3 errors, 4660 total entries
+2026-01-19 14:22:45 - __main__ - INFO - 📊 Progress Update: 3897/7930 processed (49.1%), 770 skipped, 3 errors, 4670 total entries
+2026-01-19 14:23:02 - __main__ - INFO - 📊 Progress Update: 3907/7930 processed (49.3%), 770 skipped, 3 errors, 4680 total entries
+2026-01-19 14:23:18 - __main__ - INFO - 📊 Progress Update: 3917/7930 processed (49.4%), 770 skipped, 3 errors, 4690 total entries
+2026-01-19 14:23:36 - __main__ - INFO - 📊 Progress Update: 3927/7930 processed (49.5%), 770 skipped, 3 errors, 4700 total entries
+2026-01-19 14:23:53 - __main__ - INFO - 📊 Progress Update: 3937/7930 processed (49.6%), 770 skipped, 3 errors, 4710 total entries
+2026-01-19 14:24:09 - __main__ - INFO - 📊 Progress Update: 3947/7930 processed (49.8%), 770 skipped, 3 errors, 4720 total entries
+2026-01-19 14:24:26 - __main__ - INFO - 📊 Progress Update: 3957/7930 processed (49.9%), 770 skipped, 3 errors, 4730 total entries
+2026-01-19 14:24:44 - __main__ - INFO - 📊 Progress Update: 3967/7930 processed (50.0%), 770 skipped, 3 errors, 4740 total entries
+2026-01-19 14:25:00 - __main__ - INFO - 📊 Progress Update: 3977/7930 processed (50.2%), 770 skipped, 3 errors, 4750 total entries
+2026-01-19 14:25:16 - __main__ - INFO - 📊 Progress Update: 3987/7930 processed (50.3%), 770 skipped, 3 errors, 4760 total entries
+2026-01-19 14:25:32 - __main__ - INFO - 📊 Progress Update: 3997/7930 processed (50.4%), 770 skipped, 3 errors, 4770 total entries
+2026-01-19 14:25:50 - __main__ - INFO - 📊 Progress Update: 4007/7930 processed (50.5%), 770 skipped, 3 errors, 4780 total entries
+2026-01-19 14:26:06 - __main__ - INFO - 📊 Progress Update: 4017/7930 processed (50.7%), 770 skipped, 3 errors, 4790 total entries
+2026-01-19 14:26:22 - __main__ - INFO - 📊 Progress Update: 4027/7930 processed (50.8%), 770 skipped, 3 errors, 4800 total entries
+2026-01-19 14:26:39 - __main__ - INFO - 📊 Progress Update: 4037/7930 processed (50.9%), 770 skipped, 3 errors, 4810 total entries
+2026-01-19 14:26:54 - __main__ - INFO - 📊 Progress Update: 4047/7930 processed (51.0%), 770 skipped, 3 errors, 4820 total entries
+2026-01-19 14:27:11 - __main__ - INFO - 📊 Progress Update: 4057/7930 processed (51.2%), 770 skipped, 3 errors, 4830 total entries
+2026-01-19 14:27:27 - __main__ - INFO - 📊 Progress Update: 4067/7930 processed (51.3%), 770 skipped, 3 errors, 4840 total entries
+2026-01-19 14:27:43 - __main__ - INFO - 📊 Progress Update: 4077/7930 processed (51.4%), 770 skipped, 3 errors, 4850 total entries
+2026-01-19 14:27:59 - __main__ - INFO - 📊 Progress Update: 4087/7930 processed (51.5%), 770 skipped, 3 errors, 4860 total entries
+2026-01-19 14:28:17 - __main__ - INFO - 📊 Progress Update: 4097/7930 processed (51.7%), 770 skipped, 3 errors, 4870 total entries
+2026-01-19 14:28:35 - __main__ - INFO - 📊 Progress Update: 4107/7930 processed (51.8%), 770 skipped, 3 errors, 4880 total entries
+2026-01-19 14:28:52 - __main__ - INFO - 📊 Progress Update: 4117/7930 processed (51.9%), 770 skipped, 3 errors, 4890 total entries
+2026-01-19 14:29:08 - __main__ - INFO - 📊 Progress Update: 4127/7930 processed (52.0%), 770 skipped, 3 errors, 4900 total entries
+2026-01-19 14:29:24 - __main__ - INFO - 📊 Progress Update: 4137/7930 processed (52.2%), 770 skipped, 3 errors, 4910 total entries
+2026-01-19 14:29:40 - __main__ - INFO - 📊 Progress Update: 4147/7930 processed (52.3%), 770 skipped, 3 errors, 4920 total entries
+2026-01-19 14:29:56 - __main__ - INFO - 📊 Progress Update: 4157/7930 processed (52.4%), 770 skipped, 3 errors, 4930 total entries
+2026-01-19 14:30:15 - __main__ - INFO - 📊 Progress Update: 4167/7930 processed (52.5%), 770 skipped, 3 errors, 4940 total entries
+2026-01-19 14:30:31 - __main__ - INFO - 📊 Progress Update: 4177/7930 processed (52.7%), 770 skipped, 3 errors, 4950 total entries
+2026-01-19 14:30:48 - __main__ - INFO - 📊 Progress Update: 4187/7930 processed (52.8%), 770 skipped, 3 errors, 4960 total entries
+2026-01-19 14:31:04 - __main__ - INFO - 📊 Progress Update: 4197/7930 processed (52.9%), 770 skipped, 3 errors, 4970 total entries
+2026-01-19 14:31:21 - __main__ - INFO - 📊 Progress Update: 4207/7930 processed (53.1%), 770 skipped, 3 errors, 4980 total entries
+2026-01-19 14:31:38 - __main__ - INFO - 📊 Progress Update: 4217/7930 processed (53.2%), 770 skipped, 3 errors, 4990 total entries
+2026-01-19 14:31:55 - __main__ - INFO - 📊 Progress Update: 4227/7930 processed (53.3%), 770 skipped, 3 errors, 5000 total entries
+2026-01-19 14:32:14 - __main__ - INFO - 📊 Progress Update: 4237/7930 processed (53.4%), 770 skipped, 3 errors, 5010 total entries
+2026-01-19 14:32:30 - __main__ - INFO - 📊 Progress Update: 4247/7930 processed (53.6%), 770 skipped, 3 errors, 5020 total entries
+2026-01-19 14:32:48 - __main__ - INFO - 📊 Progress Update: 4257/7930 processed (53.7%), 770 skipped, 3 errors, 5030 total entries
+2026-01-19 14:33:04 - __main__ - INFO - 📊 Progress Update: 4267/7930 processed (53.8%), 770 skipped, 3 errors, 5040 total entries
+2026-01-19 14:33:20 - __main__ - INFO - 📊 Progress Update: 4277/7930 processed (53.9%), 770 skipped, 3 errors, 5050 total entries
+2026-01-19 14:33:36 - __main__ - INFO - 📊 Progress Update: 4287/7930 processed (54.1%), 770 skipped, 3 errors, 5060 total entries
+2026-01-19 14:33:52 - __main__ - INFO - 📊 Progress Update: 4297/7930 processed (54.2%), 770 skipped, 3 errors, 5070 total entries
+2026-01-19 14:34:10 - __main__ - INFO - 📊 Progress Update: 4307/7930 processed (54.3%), 770 skipped, 3 errors, 5080 total entries
+2026-01-19 14:34:26 - __main__ - INFO - 📊 Progress Update: 4317/7930 processed (54.4%), 770 skipped, 3 errors, 5090 total entries
+2026-01-19 14:34:42 - __main__ - INFO - 📊 Progress Update: 4327/7930 processed (54.6%), 770 skipped, 3 errors, 5100 total entries
+2026-01-19 14:34:57 - __main__ - INFO - 📊 Progress Update: 4337/7930 processed (54.7%), 770 skipped, 3 errors, 5110 total entries
+2026-01-19 14:35:13 - __main__ - INFO - 📊 Progress Update: 4347/7930 processed (54.8%), 770 skipped, 3 errors, 5120 total entries
+2026-01-19 14:35:29 - __main__ - INFO - 📊 Progress Update: 4357/7930 processed (54.9%), 770 skipped, 3 errors, 5130 total entries
+2026-01-19 14:35:46 - __main__ - INFO - 📊 Progress Update: 4367/7930 processed (55.1%), 770 skipped, 3 errors, 5140 total entries
+2026-01-19 14:36:02 - __main__ - INFO - 📊 Progress Update: 4377/7930 processed (55.2%), 770 skipped, 3 errors, 5150 total entries
+2026-01-19 14:36:20 - __main__ - INFO - 📊 Progress Update: 4387/7930 processed (55.3%), 770 skipped, 3 errors, 5160 total entries
+2026-01-19 14:36:36 - __main__ - INFO - 📊 Progress Update: 4397/7930 processed (55.4%), 770 skipped, 3 errors, 5170 total entries
+2026-01-19 14:36:53 - __main__ - INFO - 📊 Progress Update: 4407/7930 processed (55.6%), 770 skipped, 3 errors, 5180 total entries
+2026-01-19 14:37:08 - __main__ - INFO - 📊 Progress Update: 4417/7930 processed (55.7%), 770 skipped, 3 errors, 5190 total entries
+2026-01-19 14:37:24 - __main__ - INFO - 📊 Progress Update: 4427/7930 processed (55.8%), 770 skipped, 3 errors, 5200 total entries
+2026-01-19 14:37:40 - __main__ - INFO - 📊 Progress Update: 4437/7930 processed (56.0%), 770 skipped, 3 errors, 5210 total entries
+2026-01-19 14:37:56 - __main__ - INFO - 📊 Progress Update: 4447/7930 processed (56.1%), 770 skipped, 3 errors, 5220 total entries
+2026-01-19 14:38:12 - __main__ - INFO - 📊 Progress Update: 4457/7930 processed (56.2%), 770 skipped, 3 errors, 5230 total entries
+2026-01-19 14:38:30 - __main__ - INFO - 📊 Progress Update: 4467/7930 processed (56.3%), 770 skipped, 3 errors, 5240 total entries
+2026-01-19 14:38:46 - __main__ - INFO - 📊 Progress Update: 4477/7930 processed (56.5%), 770 skipped, 3 errors, 5250 total entries
+2026-01-19 14:39:03 - __main__ - INFO - 📊 Progress Update: 4487/7930 processed (56.6%), 770 skipped, 3 errors, 5260 total entries
+2026-01-19 14:39:18 - __main__ - INFO - 📊 Progress Update: 4497/7930 processed (56.7%), 770 skipped, 3 errors, 5270 total entries
+2026-01-19 14:39:35 - __main__ - INFO - 📊 Progress Update: 4507/7930 processed (56.8%), 770 skipped, 3 errors, 5280 total entries
+2026-01-19 14:39:51 - __main__ - INFO - 📊 Progress Update: 4517/7930 processed (57.0%), 770 skipped, 3 errors, 5290 total entries
+2026-01-19 14:40:08 - __main__ - INFO - 📊 Progress Update: 4527/7930 processed (57.1%), 770 skipped, 3 errors, 5300 total entries
+2026-01-19 14:40:25 - __main__ - INFO - 📊 Progress Update: 4537/7930 processed (57.2%), 770 skipped, 3 errors, 5310 total entries
+2026-01-19 14:40:41 - __main__ - INFO - 📊 Progress Update: 4547/7930 processed (57.3%), 770 skipped, 3 errors, 5320 total entries
+2026-01-19 14:40:58 - __main__ - INFO - 📊 Progress Update: 4557/7930 processed (57.5%), 770 skipped, 3 errors, 5330 total entries
+2026-01-19 14:41:14 - __main__ - INFO - 📊 Progress Update: 4567/7930 processed (57.6%), 770 skipped, 3 errors, 5340 total entries
+2026-01-19 14:41:30 - __main__ - INFO - 📊 Progress Update: 4577/7930 processed (57.7%), 770 skipped, 3 errors, 5350 total entries
+2026-01-19 14:41:47 - __main__ - INFO - 📊 Progress Update: 4587/7930 processed (57.8%), 770 skipped, 3 errors, 5360 total entries
+2026-01-19 14:42:03 - __main__ - INFO - 📊 Progress Update: 4597/7930 processed (58.0%), 770 skipped, 3 errors, 5370 total entries
+2026-01-19 14:42:19 - __main__ - INFO - 📊 Progress Update: 4607/7930 processed (58.1%), 770 skipped, 3 errors, 5380 total entries
+2026-01-19 14:42:35 - __main__ - INFO - 📊 Progress Update: 4617/7930 processed (58.2%), 770 skipped, 3 errors, 5390 total entries
+2026-01-19 14:42:52 - __main__ - INFO - 📊 Progress Update: 4627/7930 processed (58.3%), 770 skipped, 3 errors, 5400 total entries
+2026-01-19 14:43:08 - __main__ - INFO - 📊 Progress Update: 4637/7930 processed (58.5%), 770 skipped, 3 errors, 5410 total entries
+2026-01-19 14:43:24 - __main__ - INFO - 📊 Progress Update: 4647/7930 processed (58.6%), 770 skipped, 3 errors, 5420 total entries
+2026-01-19 14:43:39 - __main__ - INFO - 📊 Progress Update: 4657/7930 processed (58.7%), 770 skipped, 3 errors, 5430 total entries
+2026-01-19 14:43:55 - __main__ - INFO - 📊 Progress Update: 4667/7930 processed (58.9%), 770 skipped, 3 errors, 5440 total entries
+2026-01-19 14:44:12 - __main__ - INFO - 📊 Progress Update: 4677/7930 processed (59.0%), 770 skipped, 3 errors, 5450 total entries
+2026-01-19 14:44:28 - __main__ - INFO - 📊 Progress Update: 4687/7930 processed (59.1%), 770 skipped, 3 errors, 5460 total entries
+2026-01-19 14:44:46 - __main__ - INFO - 📊 Progress Update: 4697/7930 processed (59.2%), 770 skipped, 3 errors, 5470 total entries
+2026-01-19 14:45:04 - __main__ - INFO - 📊 Progress Update: 4707/7930 processed (59.4%), 770 skipped, 3 errors, 5480 total entries
+2026-01-19 14:45:20 - __main__ - INFO - 📊 Progress Update: 4717/7930 processed (59.5%), 770 skipped, 3 errors, 5490 total entries
+2026-01-19 14:45:36 - __main__ - INFO - 📊 Progress Update: 4727/7930 processed (59.6%), 770 skipped, 3 errors, 5500 total entries
+2026-01-19 14:45:52 - __main__ - INFO - 📊 Progress Update: 4737/7930 processed (59.7%), 770 skipped, 3 errors, 5510 total entries
+2026-01-19 14:46:08 - __main__ - INFO - 📊 Progress Update: 4747/7930 processed (59.9%), 770 skipped, 3 errors, 5520 total entries
+2026-01-19 14:46:24 - __main__ - INFO - 📊 Progress Update: 4757/7930 processed (60.0%), 770 skipped, 3 errors, 5530 total entries
+2026-01-19 14:46:41 - __main__ - INFO - 📊 Progress Update: 4767/7930 processed (60.1%), 770 skipped, 3 errors, 5540 total entries
+2026-01-19 14:46:58 - __main__ - INFO - 📊 Progress Update: 4777/7930 processed (60.2%), 770 skipped, 3 errors, 5550 total entries
+2026-01-19 14:47:14 - __main__ - INFO - 📊 Progress Update: 4787/7930 processed (60.4%), 770 skipped, 3 errors, 5560 total entries
+2026-01-19 14:47:31 - __main__ - INFO - 📊 Progress Update: 4797/7930 processed (60.5%), 770 skipped, 3 errors, 5570 total entries
+2026-01-19 14:47:47 - __main__ - INFO - 📊 Progress Update: 4807/7930 processed (60.6%), 770 skipped, 3 errors, 5580 total entries
+2026-01-19 14:48:03 - __main__ - INFO - 📊 Progress Update: 4817/7930 processed (60.7%), 770 skipped, 3 errors, 5590 total entries
+2026-01-19 14:48:18 - __main__ - INFO - 📊 Progress Update: 4827/7930 processed (60.9%), 770 skipped, 3 errors, 5600 total entries
+2026-01-19 14:48:35 - __main__ - INFO - 📊 Progress Update: 4837/7930 processed (61.0%), 770 skipped, 3 errors, 5610 total entries
+2026-01-19 14:48:51 - __main__ - INFO - 📊 Progress Update: 4847/7930 processed (61.1%), 770 skipped, 3 errors, 5620 total entries
+2026-01-19 14:49:08 - __main__ - INFO - 📊 Progress Update: 4857/7930 processed (61.2%), 770 skipped, 3 errors, 5630 total entries
+2026-01-19 14:49:24 - __main__ - INFO - 📊 Progress Update: 4867/7930 processed (61.4%), 770 skipped, 3 errors, 5640 total entries
+2026-01-19 14:49:40 - __main__ - INFO - 📊 Progress Update: 4877/7930 processed (61.5%), 770 skipped, 3 errors, 5650 total entries
+2026-01-19 14:49:56 - __main__ - INFO - 📊 Progress Update: 4887/7930 processed (61.6%), 770 skipped, 3 errors, 5660 total entries
+2026-01-19 14:50:14 - __main__ - INFO - 📊 Progress Update: 4897/7930 processed (61.8%), 770 skipped, 3 errors, 5670 total entries
+2026-01-19 14:50:30 - __main__ - INFO - 📊 Progress Update: 4907/7930 processed (61.9%), 770 skipped, 3 errors, 5680 total entries
+2026-01-19 14:50:48 - __main__ - INFO - 📊 Progress Update: 4917/7930 processed (62.0%), 770 skipped, 3 errors, 5690 total entries
+2026-01-19 14:51:05 - __main__ - INFO - 📊 Progress Update: 4927/7930 processed (62.1%), 770 skipped, 3 errors, 5700 total entries
+2026-01-19 14:51:21 - __main__ - INFO - 📊 Progress Update: 4937/7930 processed (62.3%), 770 skipped, 3 errors, 5710 total entries
+2026-01-19 14:51:38 - __main__ - INFO - 📊 Progress Update: 4947/7930 processed (62.4%), 770 skipped, 3 errors, 5720 total entries
+2026-01-19 14:51:54 - __main__ - INFO - 📊 Progress Update: 4957/7930 processed (62.5%), 770 skipped, 3 errors, 5730 total entries
+2026-01-19 14:52:10 - __main__ - INFO - 📊 Progress Update: 4967/7930 processed (62.6%), 770 skipped, 3 errors, 5740 total entries
+2026-01-19 14:52:27 - __main__ - INFO - 📊 Progress Update: 4977/7930 processed (62.8%), 770 skipped, 3 errors, 5750 total entries
+2026-01-19 14:52:44 - __main__ - INFO - 📊 Progress Update: 4987/7930 processed (62.9%), 770 skipped, 3 errors, 5760 total entries
+2026-01-19 14:53:01 - __main__ - INFO - 📊 Progress Update: 4997/7930 processed (63.0%), 770 skipped, 3 errors, 5770 total entries
+2026-01-19 14:53:18 - __main__ - INFO - 📊 Progress Update: 5007/7930 processed (63.1%), 770 skipped, 3 errors, 5780 total entries
+2026-01-19 14:53:34 - __main__ - INFO - 📊 Progress Update: 5017/7930 processed (63.3%), 770 skipped, 3 errors, 5790 total entries
+2026-01-19 14:53:50 - __main__ - INFO - 📊 Progress Update: 5027/7930 processed (63.4%), 770 skipped, 3 errors, 5800 total entries
+2026-01-19 14:54:06 - __main__ - INFO - 📊 Progress Update: 5037/7930 processed (63.5%), 770 skipped, 3 errors, 5810 total entries
+2026-01-19 14:54:22 - __main__ - INFO - 📊 Progress Update: 5047/7930 processed (63.6%), 770 skipped, 3 errors, 5820 total entries
+2026-01-19 14:54:40 - __main__ - INFO - 📊 Progress Update: 5057/7930 processed (63.8%), 770 skipped, 3 errors, 5830 total entries
+2026-01-19 14:54:56 - __main__ - INFO - 📊 Progress Update: 5067/7930 processed (63.9%), 770 skipped, 3 errors, 5840 total entries
+2026-01-19 14:55:13 - __main__ - INFO - 📊 Progress Update: 5077/7930 processed (64.0%), 770 skipped, 3 errors, 5850 total entries
+2026-01-19 14:55:30 - __main__ - INFO - 📊 Progress Update: 5087/7930 processed (64.1%), 770 skipped, 3 errors, 5860 total entries
+2026-01-19 14:55:47 - __main__ - INFO - 📊 Progress Update: 5097/7930 processed (64.3%), 770 skipped, 3 errors, 5870 total entries
+2026-01-19 14:56:04 - __main__ - INFO - 📊 Progress Update: 5107/7930 processed (64.4%), 770 skipped, 3 errors, 5880 total entries
+2026-01-19 14:56:20 - __main__ - INFO - 📊 Progress Update: 5117/7930 processed (64.5%), 770 skipped, 3 errors, 5890 total entries
+2026-01-19 14:56:40 - __main__ - INFO - 📊 Progress Update: 5127/7930 processed (64.7%), 770 skipped, 3 errors, 5900 total entries
+2026-01-19 14:56:56 - __main__ - INFO - 📊 Progress Update: 5137/7930 processed (64.8%), 770 skipped, 3 errors, 5910 total entries
+2026-01-19 14:57:13 - __main__ - INFO - 📊 Progress Update: 5147/7930 processed (64.9%), 770 skipped, 3 errors, 5920 total entries
+2026-01-19 14:57:30 - __main__ - INFO - 📊 Progress Update: 5157/7930 processed (65.0%), 770 skipped, 3 errors, 5930 total entries
+2026-01-19 14:57:46 - __main__ - INFO - 📊 Progress Update: 5167/7930 processed (65.2%), 770 skipped, 3 errors, 5940 total entries
+2026-01-19 14:58:02 - __main__ - INFO - 📊 Progress Update: 5177/7930 processed (65.3%), 770 skipped, 3 errors, 5950 total entries
+2026-01-19 14:58:17 - __main__ - INFO - 📊 Progress Update: 5187/7930 processed (65.4%), 770 skipped, 3 errors, 5960 total entries
+2026-01-19 14:58:34 - __main__ - INFO - 📊 Progress Update: 5197/7930 processed (65.5%), 770 skipped, 3 errors, 5970 total entries
+2026-01-19 14:58:52 - __main__ - INFO - 📊 Progress Update: 5207/7930 processed (65.7%), 770 skipped, 3 errors, 5980 total entries
+2026-01-19 14:59:08 - __main__ - INFO - 📊 Progress Update: 5217/7930 processed (65.8%), 770 skipped, 3 errors, 5990 total entries
+2026-01-19 14:59:24 - __main__ - INFO - 📊 Progress Update: 5227/7930 processed (65.9%), 770 skipped, 3 errors, 6000 total entries
+2026-01-19 14:59:40 - __main__ - INFO - 📊 Progress Update: 5237/7930 processed (66.0%), 770 skipped, 3 errors, 6010 total entries
+2026-01-19 14:59:55 - __main__ - INFO - 📊 Progress Update: 5247/7930 processed (66.2%), 770 skipped, 3 errors, 6020 total entries
+2026-01-19 15:00:11 - __main__ - INFO - 📊 Progress Update: 5257/7930 processed (66.3%), 770 skipped, 3 errors, 6030 total entries
+2026-01-19 15:00:27 - __main__ - INFO - 📊 Progress Update: 5267/7930 processed (66.4%), 770 skipped, 3 errors, 6040 total entries
+2026-01-19 15:00:43 - __main__ - INFO - 📊 Progress Update: 5277/7930 processed (66.5%), 770 skipped, 3 errors, 6050 total entries
+2026-01-19 15:01:01 - __main__ - INFO - 📊 Progress Update: 5287/7930 processed (66.7%), 770 skipped, 3 errors, 6060 total entries
+2026-01-19 15:01:17 - __main__ - INFO - 📊 Progress Update: 5297/7930 processed (66.8%), 770 skipped, 3 errors, 6070 total entries
+2026-01-19 15:01:33 - __main__ - INFO - 📊 Progress Update: 5307/7930 processed (66.9%), 770 skipped, 3 errors, 6080 total entries
+2026-01-19 15:01:48 - __main__ - INFO - 📊 Progress Update: 5317/7930 processed (67.0%), 770 skipped, 3 errors, 6090 total entries
+2026-01-19 15:02:05 - __main__ - INFO - 📊 Progress Update: 5327/7930 processed (67.2%), 770 skipped, 3 errors, 6100 total entries
+2026-01-19 15:02:22 - __main__ - INFO - 📊 Progress Update: 5337/7930 processed (67.3%), 770 skipped, 3 errors, 6110 total entries
+2026-01-19 15:02:37 - __main__ - INFO - 📊 Progress Update: 5347/7930 processed (67.4%), 770 skipped, 3 errors, 6120 total entries
+2026-01-19 15:02:54 - __main__ - INFO - 📊 Progress Update: 5357/7930 processed (67.6%), 770 skipped, 3 errors, 6130 total entries
+2026-01-19 15:03:10 - __main__ - INFO - 📊 Progress Update: 5367/7930 processed (67.7%), 770 skipped, 3 errors, 6140 total entries
+2026-01-19 15:03:27 - __main__ - INFO - 📊 Progress Update: 5377/7930 processed (67.8%), 770 skipped, 3 errors, 6150 total entries
+2026-01-19 15:03:43 - __main__ - INFO - 📊 Progress Update: 5387/7930 processed (67.9%), 770 skipped, 3 errors, 6160 total entries
+2026-01-19 15:04:00 - __main__ - INFO - 📊 Progress Update: 5397/7930 processed (68.1%), 770 skipped, 3 errors, 6170 total entries
+2026-01-19 15:04:16 - __main__ - INFO - 📊 Progress Update: 5407/7930 processed (68.2%), 770 skipped, 3 errors, 6180 total entries
+2026-01-19 15:04:33 - __main__ - INFO - 📊 Progress Update: 5417/7930 processed (68.3%), 770 skipped, 3 errors, 6190 total entries
+2026-01-19 15:04:50 - __main__ - INFO - 📊 Progress Update: 5427/7930 processed (68.4%), 770 skipped, 3 errors, 6200 total entries
+2026-01-19 15:05:08 - __main__ - INFO - 📊 Progress Update: 5437/7930 processed (68.6%), 770 skipped, 3 errors, 6210 total entries
+2026-01-19 15:05:24 - __main__ - INFO - 📊 Progress Update: 5447/7930 processed (68.7%), 770 skipped, 3 errors, 6220 total entries
+2026-01-19 15:05:40 - __main__ - INFO - 📊 Progress Update: 5457/7930 processed (68.8%), 770 skipped, 3 errors, 6230 total entries
+2026-01-19 15:05:57 - __main__ - INFO - 📊 Progress Update: 5467/7930 processed (68.9%), 770 skipped, 3 errors, 6240 total entries
+2026-01-19 15:06:16 - __main__ - INFO - 📊 Progress Update: 5477/7930 processed (69.1%), 770 skipped, 3 errors, 6250 total entries
+2026-01-19 15:06:32 - __main__ - INFO - 📊 Progress Update: 5487/7930 processed (69.2%), 770 skipped, 3 errors, 6260 total entries
+2026-01-19 15:06:49 - __main__ - INFO - 📊 Progress Update: 5497/7930 processed (69.3%), 770 skipped, 3 errors, 6270 total entries
+2026-01-19 15:07:05 - __main__ - INFO - 📊 Progress Update: 5507/7930 processed (69.4%), 770 skipped, 3 errors, 6280 total entries
+2026-01-19 15:07:22 - __main__ - INFO - 📊 Progress Update: 5517/7930 processed (69.6%), 770 skipped, 3 errors, 6290 total entries
+2026-01-19 15:07:37 - __main__ - INFO - 📊 Progress Update: 5527/7930 processed (69.7%), 770 skipped, 3 errors, 6300 total entries
+2026-01-19 15:07:53 - __main__ - INFO - 📊 Progress Update: 5537/7930 processed (69.8%), 770 skipped, 3 errors, 6310 total entries
+2026-01-19 15:08:10 - __main__ - INFO - 📊 Progress Update: 5547/7930 processed (69.9%), 770 skipped, 3 errors, 6320 total entries
+2026-01-19 15:08:27 - __main__ - INFO - 📊 Progress Update: 5557/7930 processed (70.1%), 770 skipped, 3 errors, 6330 total entries
+2026-01-19 15:08:43 - __main__ - INFO - 📊 Progress Update: 5567/7930 processed (70.2%), 770 skipped, 3 errors, 6340 total entries
+2026-01-19 15:08:59 - __main__ - INFO - 📊 Progress Update: 5577/7930 processed (70.3%), 770 skipped, 3 errors, 6350 total entries
+2026-01-19 15:09:16 - __main__ - INFO - 📊 Progress Update: 5587/7930 processed (70.5%), 770 skipped, 3 errors, 6360 total entries
+2026-01-19 15:09:34 - __main__ - INFO - 📊 Progress Update: 5597/7930 processed (70.6%), 770 skipped, 3 errors, 6370 total entries
+2026-01-19 15:09:51 - __main__ - INFO - 📊 Progress Update: 5607/7930 processed (70.7%), 770 skipped, 3 errors, 6380 total entries
+2026-01-19 15:10:07 - __main__ - INFO - 📊 Progress Update: 5617/7930 processed (70.8%), 770 skipped, 3 errors, 6390 total entries
+2026-01-19 15:10:24 - __main__ - INFO - 📊 Progress Update: 5627/7930 processed (71.0%), 770 skipped, 3 errors, 6400 total entries
+2026-01-19 15:10:40 - __main__ - INFO - 📊 Progress Update: 5637/7930 processed (71.1%), 770 skipped, 3 errors, 6410 total entries
+2026-01-19 15:10:58 - __main__ - INFO - 📊 Progress Update: 5647/7930 processed (71.2%), 770 skipped, 3 errors, 6420 total entries
+2026-01-19 15:11:06 - etl.extraction.bgg_credits_scraper - ERROR - ✗ HTTP error fetching credits data for BGG ID 227110: Response ended prematurely
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1344, in _update_chunk_length
+    raise ProtocolError("Response ended prematurely") from None
+urllib3.exceptions.ProtocolError: Response ended prematurely
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_credits_scraper.py", line 110, in scrape_credits
+    response = self.session.get(api_url, timeout=self.timeout)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 746, in send
+    r.content
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: Response ended prematurely
+2026-01-19 15:11:06 - __main__ - WARNING - ⚠ Failed to extract credits for 227110
+2026-01-19 15:11:15 - __main__ - INFO - 📊 Progress Update: 5656/7930 processed (71.3%), 770 skipped, 4 errors, 6430 total entries
+2026-01-19 15:11:32 - __main__ - INFO - 📊 Progress Update: 5666/7930 processed (71.5%), 770 skipped, 4 errors, 6440 total entries
+2026-01-19 15:11:49 - __main__ - INFO - 📊 Progress Update: 5676/7930 processed (71.6%), 770 skipped, 4 errors, 6450 total entries
+2026-01-19 15:12:05 - __main__ - INFO - 📊 Progress Update: 5686/7930 processed (71.7%), 770 skipped, 4 errors, 6460 total entries
+2026-01-19 15:12:22 - __main__ - INFO - 📊 Progress Update: 5696/7930 processed (71.8%), 770 skipped, 4 errors, 6470 total entries
+2026-01-19 15:12:42 - __main__ - INFO - 📊 Progress Update: 5706/7930 processed (72.0%), 770 skipped, 4 errors, 6480 total entries
+2026-01-19 15:12:59 - __main__ - INFO - 📊 Progress Update: 5716/7930 processed (72.1%), 770 skipped, 4 errors, 6490 total entries
+2026-01-19 15:13:16 - __main__ - INFO - 📊 Progress Update: 5726/7930 processed (72.2%), 770 skipped, 4 errors, 6500 total entries
+2026-01-19 15:13:36 - __main__ - INFO - 📊 Progress Update: 5736/7930 processed (72.3%), 770 skipped, 4 errors, 6510 total entries
+2026-01-19 15:13:54 - __main__ - INFO - 📊 Progress Update: 5746/7930 processed (72.5%), 770 skipped, 4 errors, 6520 total entries
+2026-01-19 15:14:12 - __main__ - INFO - 📊 Progress Update: 5756/7930 processed (72.6%), 770 skipped, 4 errors, 6530 total entries
+2026-01-19 15:14:29 - __main__ - INFO - 📊 Progress Update: 5766/7930 processed (72.7%), 770 skipped, 4 errors, 6540 total entries
+2026-01-19 15:14:49 - __main__ - INFO - 📊 Progress Update: 5776/7930 processed (72.8%), 770 skipped, 4 errors, 6550 total entries
+2026-01-19 15:15:06 - __main__ - INFO - 📊 Progress Update: 5786/7930 processed (73.0%), 770 skipped, 4 errors, 6560 total entries
+2026-01-19 15:15:23 - __main__ - INFO - 📊 Progress Update: 5796/7930 processed (73.1%), 770 skipped, 4 errors, 6570 total entries
+2026-01-19 15:15:40 - __main__ - INFO - 📊 Progress Update: 5806/7930 processed (73.2%), 770 skipped, 4 errors, 6580 total entries
+2026-01-19 15:15:56 - __main__ - INFO - 📊 Progress Update: 5816/7930 processed (73.3%), 770 skipped, 4 errors, 6590 total entries
+2026-01-19 15:16:12 - __main__ - INFO - 📊 Progress Update: 5826/7930 processed (73.5%), 770 skipped, 4 errors, 6600 total entries
+2026-01-19 15:16:28 - __main__ - INFO - 📊 Progress Update: 5836/7930 processed (73.6%), 770 skipped, 4 errors, 6610 total entries
+2026-01-19 15:16:44 - __main__ - INFO - 📊 Progress Update: 5846/7930 processed (73.7%), 770 skipped, 4 errors, 6620 total entries
+2026-01-19 15:17:03 - __main__ - INFO - 📊 Progress Update: 5856/7930 processed (73.8%), 770 skipped, 4 errors, 6630 total entries
+2026-01-19 15:17:20 - __main__ - INFO - 📊 Progress Update: 5866/7930 processed (74.0%), 770 skipped, 4 errors, 6640 total entries
+2026-01-19 15:17:37 - __main__ - INFO - 📊 Progress Update: 5876/7930 processed (74.1%), 770 skipped, 4 errors, 6650 total entries
+2026-01-19 15:17:53 - __main__ - INFO - 📊 Progress Update: 5886/7930 processed (74.2%), 770 skipped, 4 errors, 6660 total entries
+2026-01-19 15:18:09 - __main__ - INFO - 📊 Progress Update: 5896/7930 processed (74.4%), 770 skipped, 4 errors, 6670 total entries
+2026-01-19 15:18:24 - __main__ - INFO - 📊 Progress Update: 5906/7930 processed (74.5%), 770 skipped, 4 errors, 6680 total entries
+2026-01-19 15:18:40 - __main__ - INFO - 📊 Progress Update: 5916/7930 processed (74.6%), 770 skipped, 4 errors, 6690 total entries
+2026-01-19 15:18:57 - __main__ - INFO - 📊 Progress Update: 5926/7930 processed (74.7%), 770 skipped, 4 errors, 6700 total entries
+2026-01-19 15:19:24 - __main__ - INFO - 📊 Progress Update: 5936/7930 processed (74.9%), 770 skipped, 4 errors, 6710 total entries
+2026-01-19 15:19:41 - __main__ - INFO - 📊 Progress Update: 5946/7930 processed (75.0%), 770 skipped, 4 errors, 6720 total entries
+2026-01-19 15:19:56 - __main__ - INFO - 📊 Progress Update: 5956/7930 processed (75.1%), 770 skipped, 4 errors, 6730 total entries
+2026-01-19 15:20:12 - __main__ - INFO - 📊 Progress Update: 5966/7930 processed (75.2%), 770 skipped, 4 errors, 6740 total entries
+2026-01-19 15:20:27 - __main__ - INFO - 📊 Progress Update: 5976/7930 processed (75.4%), 770 skipped, 4 errors, 6750 total entries
+2026-01-19 15:20:42 - __main__ - INFO - 📊 Progress Update: 5986/7930 processed (75.5%), 770 skipped, 4 errors, 6760 total entries
+2026-01-19 15:20:58 - __main__ - INFO - 📊 Progress Update: 5996/7930 processed (75.6%), 770 skipped, 4 errors, 6770 total entries
+2026-01-19 15:21:14 - __main__ - INFO - 📊 Progress Update: 6006/7930 processed (75.7%), 770 skipped, 4 errors, 6780 total entries
+2026-01-19 15:21:39 - __main__ - INFO - 📊 Progress Update: 6016/7930 processed (75.9%), 770 skipped, 4 errors, 6790 total entries
+2026-01-19 15:21:54 - __main__ - INFO - 📊 Progress Update: 6026/7930 processed (76.0%), 770 skipped, 4 errors, 6800 total entries
+2026-01-19 15:22:11 - __main__ - INFO - 📊 Progress Update: 6036/7930 processed (76.1%), 770 skipped, 4 errors, 6810 total entries
+2026-01-19 15:22:26 - __main__ - INFO - 📊 Progress Update: 6046/7930 processed (76.2%), 770 skipped, 4 errors, 6820 total entries
+2026-01-19 15:22:40 - __main__ - INFO - 📊 Progress Update: 6056/7930 processed (76.4%), 770 skipped, 4 errors, 6830 total entries
+2026-01-19 15:22:56 - __main__ - INFO - 📊 Progress Update: 6066/7930 processed (76.5%), 770 skipped, 4 errors, 6840 total entries
+2026-01-19 15:23:12 - __main__ - INFO - 📊 Progress Update: 6076/7930 processed (76.6%), 770 skipped, 4 errors, 6850 total entries
+2026-01-19 15:23:28 - __main__ - INFO - 📊 Progress Update: 6086/7930 processed (76.7%), 770 skipped, 4 errors, 6860 total entries
+2026-01-19 15:23:45 - __main__ - INFO - 📊 Progress Update: 6096/7930 processed (76.9%), 770 skipped, 4 errors, 6870 total entries
+2026-01-19 15:24:02 - __main__ - INFO - 📊 Progress Update: 6106/7930 processed (77.0%), 770 skipped, 4 errors, 6880 total entries
+2026-01-19 15:24:18 - __main__ - INFO - 📊 Progress Update: 6116/7930 processed (77.1%), 770 skipped, 4 errors, 6890 total entries
+2026-01-19 15:24:34 - __main__ - INFO - 📊 Progress Update: 6126/7930 processed (77.3%), 770 skipped, 4 errors, 6900 total entries
+2026-01-19 15:24:50 - __main__ - INFO - 📊 Progress Update: 6136/7930 processed (77.4%), 770 skipped, 4 errors, 6910 total entries
+2026-01-19 15:25:07 - __main__ - INFO - 📊 Progress Update: 6146/7930 processed (77.5%), 770 skipped, 4 errors, 6920 total entries
+2026-01-19 15:25:24 - __main__ - INFO - 📊 Progress Update: 6156/7930 processed (77.6%), 770 skipped, 4 errors, 6930 total entries
+2026-01-19 15:25:40 - __main__ - INFO - 📊 Progress Update: 6166/7930 processed (77.8%), 770 skipped, 4 errors, 6940 total entries
+2026-01-19 15:25:56 - __main__ - INFO - 📊 Progress Update: 6176/7930 processed (77.9%), 770 skipped, 4 errors, 6950 total entries
+2026-01-19 15:26:12 - __main__ - INFO - 📊 Progress Update: 6186/7930 processed (78.0%), 770 skipped, 4 errors, 6960 total entries
+2026-01-19 15:26:28 - __main__ - INFO - 📊 Progress Update: 6196/7930 processed (78.1%), 770 skipped, 4 errors, 6970 total entries
+2026-01-19 15:26:44 - __main__ - INFO - 📊 Progress Update: 6206/7930 processed (78.3%), 770 skipped, 4 errors, 6980 total entries
+2026-01-19 15:30:35 - __main__ - INFO - 📊 Progress Update: 6216/7930 processed (78.4%), 770 skipped, 4 errors, 6990 total entries
+2026-01-19 15:30:51 - __main__ - INFO - 📊 Progress Update: 6226/7930 processed (78.5%), 770 skipped, 4 errors, 7000 total entries
+2026-01-19 15:31:08 - __main__ - INFO - 📊 Progress Update: 6236/7930 processed (78.6%), 770 skipped, 4 errors, 7010 total entries
+2026-01-19 15:31:24 - __main__ - INFO - 📊 Progress Update: 6246/7930 processed (78.8%), 770 skipped, 4 errors, 7020 total entries
+2026-01-19 15:31:41 - __main__ - INFO - 📊 Progress Update: 6256/7930 processed (78.9%), 770 skipped, 4 errors, 7030 total entries
+2026-01-19 15:31:57 - __main__ - INFO - 📊 Progress Update: 6266/7930 processed (79.0%), 770 skipped, 4 errors, 7040 total entries
+2026-01-19 15:32:13 - __main__ - INFO - 📊 Progress Update: 6276/7930 processed (79.1%), 770 skipped, 4 errors, 7050 total entries
+2026-01-19 15:32:29 - __main__ - INFO - 📊 Progress Update: 6286/7930 processed (79.3%), 770 skipped, 4 errors, 7060 total entries
+2026-01-19 15:32:45 - __main__ - INFO - 📊 Progress Update: 6296/7930 processed (79.4%), 770 skipped, 4 errors, 7070 total entries
+2026-01-19 15:33:01 - __main__ - INFO - 📊 Progress Update: 6306/7930 processed (79.5%), 770 skipped, 4 errors, 7080 total entries
+2026-01-19 15:33:17 - __main__ - INFO - 📊 Progress Update: 6316/7930 processed (79.6%), 770 skipped, 4 errors, 7090 total entries
+2026-01-19 15:33:34 - __main__ - INFO - 📊 Progress Update: 6326/7930 processed (79.8%), 770 skipped, 4 errors, 7100 total entries
+2026-01-19 15:33:50 - __main__ - INFO - 📊 Progress Update: 6336/7930 processed (79.9%), 770 skipped, 4 errors, 7110 total entries
+2026-01-19 15:34:06 - __main__ - INFO - 📊 Progress Update: 6346/7930 processed (80.0%), 770 skipped, 4 errors, 7120 total entries
+2026-01-19 15:34:22 - __main__ - INFO - 📊 Progress Update: 6356/7930 processed (80.2%), 770 skipped, 4 errors, 7130 total entries
+2026-01-19 15:34:38 - __main__ - INFO - 📊 Progress Update: 6366/7930 processed (80.3%), 770 skipped, 4 errors, 7140 total entries
+2026-01-19 15:34:55 - __main__ - INFO - 📊 Progress Update: 6376/7930 processed (80.4%), 770 skipped, 4 errors, 7150 total entries
+2026-01-19 15:35:12 - __main__ - INFO - 📊 Progress Update: 6386/7930 processed (80.5%), 770 skipped, 4 errors, 7160 total entries
+2026-01-19 15:35:28 - __main__ - INFO - 📊 Progress Update: 6396/7930 processed (80.7%), 770 skipped, 4 errors, 7170 total entries
+2026-01-19 15:35:44 - __main__ - INFO - 📊 Progress Update: 6406/7930 processed (80.8%), 770 skipped, 4 errors, 7180 total entries
+2026-01-19 15:35:59 - __main__ - INFO - 📊 Progress Update: 6416/7930 processed (80.9%), 770 skipped, 4 errors, 7190 total entries
+2026-01-19 15:36:14 - __main__ - INFO - 📊 Progress Update: 6426/7930 processed (81.0%), 770 skipped, 4 errors, 7200 total entries
+2026-01-19 15:36:30 - __main__ - INFO - 📊 Progress Update: 6436/7930 processed (81.2%), 770 skipped, 4 errors, 7210 total entries
+2026-01-19 15:36:46 - __main__ - INFO - 📊 Progress Update: 6446/7930 processed (81.3%), 770 skipped, 4 errors, 7220 total entries
+2026-01-19 15:37:01 - __main__ - INFO - 📊 Progress Update: 6456/7930 processed (81.4%), 770 skipped, 4 errors, 7230 total entries
+2026-01-19 15:37:17 - __main__ - INFO - 📊 Progress Update: 6466/7930 processed (81.5%), 770 skipped, 4 errors, 7240 total entries
+2026-01-19 15:37:33 - __main__ - INFO - 📊 Progress Update: 6476/7930 processed (81.7%), 770 skipped, 4 errors, 7250 total entries
+2026-01-19 15:37:48 - __main__ - INFO - 📊 Progress Update: 6486/7930 processed (81.8%), 770 skipped, 4 errors, 7260 total entries
+2026-01-19 15:38:04 - __main__ - INFO - 📊 Progress Update: 6496/7930 processed (81.9%), 770 skipped, 4 errors, 7270 total entries
+2026-01-19 15:38:19 - __main__ - INFO - 📊 Progress Update: 6506/7930 processed (82.0%), 770 skipped, 4 errors, 7280 total entries
+2026-01-19 15:38:35 - __main__ - INFO - 📊 Progress Update: 6516/7930 processed (82.2%), 770 skipped, 4 errors, 7290 total entries
+2026-01-19 15:38:51 - __main__ - INFO - 📊 Progress Update: 6526/7930 processed (82.3%), 770 skipped, 4 errors, 7300 total entries
+2026-01-19 15:39:07 - __main__ - INFO - 📊 Progress Update: 6536/7930 processed (82.4%), 770 skipped, 4 errors, 7310 total entries
+2026-01-19 15:39:23 - __main__ - INFO - 📊 Progress Update: 6546/7930 processed (82.5%), 770 skipped, 4 errors, 7320 total entries
+2026-01-19 15:39:39 - __main__ - INFO - 📊 Progress Update: 6556/7930 processed (82.7%), 770 skipped, 4 errors, 7330 total entries
+2026-01-19 15:39:55 - __main__ - INFO - 📊 Progress Update: 6566/7930 processed (82.8%), 770 skipped, 4 errors, 7340 total entries
+2026-01-19 15:40:11 - __main__ - INFO - 📊 Progress Update: 6576/7930 processed (82.9%), 770 skipped, 4 errors, 7350 total entries
+2026-01-19 15:40:26 - __main__ - INFO - 📊 Progress Update: 6586/7930 processed (83.1%), 770 skipped, 4 errors, 7360 total entries
+2026-01-19 15:40:42 - __main__ - INFO - 📊 Progress Update: 6596/7930 processed (83.2%), 770 skipped, 4 errors, 7370 total entries
+2026-01-19 15:40:58 - __main__ - INFO - 📊 Progress Update: 6606/7930 processed (83.3%), 770 skipped, 4 errors, 7380 total entries
+2026-01-19 15:41:14 - __main__ - INFO - 📊 Progress Update: 6616/7930 processed (83.4%), 770 skipped, 4 errors, 7390 total entries
+2026-01-19 15:41:30 - __main__ - INFO - 📊 Progress Update: 6626/7930 processed (83.6%), 770 skipped, 4 errors, 7400 total entries
+2026-01-19 15:41:46 - __main__ - INFO - 📊 Progress Update: 6636/7930 processed (83.7%), 770 skipped, 4 errors, 7410 total entries
+2026-01-19 15:42:02 - __main__ - INFO - 📊 Progress Update: 6646/7930 processed (83.8%), 770 skipped, 4 errors, 7420 total entries
+2026-01-19 15:42:17 - __main__ - INFO - 📊 Progress Update: 6656/7930 processed (83.9%), 770 skipped, 4 errors, 7430 total entries
+2026-01-19 15:42:33 - __main__ - INFO - 📊 Progress Update: 6666/7930 processed (84.1%), 770 skipped, 4 errors, 7440 total entries
+2026-01-19 15:42:50 - __main__ - INFO - 📊 Progress Update: 6676/7930 processed (84.2%), 770 skipped, 4 errors, 7450 total entries
+2026-01-19 15:43:06 - __main__ - INFO - 📊 Progress Update: 6686/7930 processed (84.3%), 770 skipped, 4 errors, 7460 total entries
+2026-01-19 15:43:22 - __main__ - INFO - 📊 Progress Update: 6696/7930 processed (84.4%), 770 skipped, 4 errors, 7470 total entries
+2026-01-19 15:43:38 - __main__ - INFO - 📊 Progress Update: 6706/7930 processed (84.6%), 770 skipped, 4 errors, 7480 total entries
+2026-01-19 15:43:54 - __main__ - INFO - 📊 Progress Update: 6716/7930 processed (84.7%), 770 skipped, 4 errors, 7490 total entries
+2026-01-19 15:44:12 - __main__ - INFO - 📊 Progress Update: 6726/7930 processed (84.8%), 770 skipped, 4 errors, 7500 total entries
+2026-01-19 15:44:27 - __main__ - INFO - 📊 Progress Update: 6736/7930 processed (84.9%), 770 skipped, 4 errors, 7510 total entries
+2026-01-19 15:44:44 - __main__ - INFO - 📊 Progress Update: 6746/7930 processed (85.1%), 770 skipped, 4 errors, 7520 total entries
+2026-01-19 15:45:00 - __main__ - INFO - 📊 Progress Update: 6756/7930 processed (85.2%), 770 skipped, 4 errors, 7530 total entries
+2026-01-19 15:45:16 - __main__ - INFO - 📊 Progress Update: 6766/7930 processed (85.3%), 770 skipped, 4 errors, 7540 total entries
+2026-01-19 15:45:32 - __main__ - INFO - 📊 Progress Update: 6776/7930 processed (85.4%), 770 skipped, 4 errors, 7550 total entries
+2026-01-19 15:45:48 - __main__ - INFO - 📊 Progress Update: 6786/7930 processed (85.6%), 770 skipped, 4 errors, 7560 total entries
+2026-01-19 15:46:03 - __main__ - INFO - 📊 Progress Update: 6796/7930 processed (85.7%), 770 skipped, 4 errors, 7570 total entries
+2026-01-19 15:46:19 - __main__ - INFO - 📊 Progress Update: 6806/7930 processed (85.8%), 770 skipped, 4 errors, 7580 total entries
+2026-01-19 15:46:37 - __main__ - INFO - 📊 Progress Update: 6816/7930 processed (86.0%), 770 skipped, 4 errors, 7590 total entries
+2026-01-19 15:46:54 - __main__ - INFO - 📊 Progress Update: 6826/7930 processed (86.1%), 770 skipped, 4 errors, 7600 total entries
+2026-01-19 15:47:10 - __main__ - INFO - 📊 Progress Update: 6836/7930 processed (86.2%), 770 skipped, 4 errors, 7610 total entries
+2026-01-19 15:47:26 - __main__ - INFO - 📊 Progress Update: 6846/7930 processed (86.3%), 770 skipped, 4 errors, 7620 total entries
+2026-01-19 15:47:42 - __main__ - INFO - 📊 Progress Update: 6856/7930 processed (86.5%), 770 skipped, 4 errors, 7630 total entries
+2026-01-19 15:47:58 - __main__ - INFO - 📊 Progress Update: 6866/7930 processed (86.6%), 770 skipped, 4 errors, 7640 total entries
+2026-01-19 15:48:14 - __main__ - INFO - 📊 Progress Update: 6876/7930 processed (86.7%), 770 skipped, 4 errors, 7650 total entries
+2026-01-19 15:48:29 - __main__ - INFO - 📊 Progress Update: 6886/7930 processed (86.8%), 770 skipped, 4 errors, 7660 total entries
+2026-01-19 15:48:45 - __main__ - INFO - 📊 Progress Update: 6896/7930 processed (87.0%), 770 skipped, 4 errors, 7670 total entries
+2026-01-19 15:49:01 - __main__ - INFO - 📊 Progress Update: 6906/7930 processed (87.1%), 770 skipped, 4 errors, 7680 total entries
+2026-01-19 15:49:18 - __main__ - INFO - 📊 Progress Update: 6916/7930 processed (87.2%), 770 skipped, 4 errors, 7690 total entries
+2026-01-19 15:49:34 - __main__ - INFO - 📊 Progress Update: 6926/7930 processed (87.3%), 770 skipped, 4 errors, 7700 total entries
+2026-01-19 15:49:50 - __main__ - INFO - 📊 Progress Update: 6936/7930 processed (87.5%), 770 skipped, 4 errors, 7710 total entries
+2026-01-19 15:50:08 - __main__ - INFO - 📊 Progress Update: 6946/7930 processed (87.6%), 770 skipped, 4 errors, 7720 total entries
+2026-01-19 15:50:24 - __main__ - INFO - 📊 Progress Update: 6956/7930 processed (87.7%), 770 skipped, 4 errors, 7730 total entries
+2026-01-19 15:50:40 - __main__ - INFO - 📊 Progress Update: 6966/7930 processed (87.8%), 770 skipped, 4 errors, 7740 total entries
+2026-01-19 15:50:57 - __main__ - INFO - 📊 Progress Update: 6976/7930 processed (88.0%), 770 skipped, 4 errors, 7750 total entries
+2026-01-19 15:51:13 - __main__ - INFO - 📊 Progress Update: 6986/7930 processed (88.1%), 770 skipped, 4 errors, 7760 total entries
+2026-01-19 15:51:29 - __main__ - INFO - 📊 Progress Update: 6996/7930 processed (88.2%), 770 skipped, 4 errors, 7770 total entries
+2026-01-19 15:51:45 - __main__ - INFO - 📊 Progress Update: 7006/7930 processed (88.3%), 770 skipped, 4 errors, 7780 total entries
+2026-01-19 15:52:02 - __main__ - INFO - 📊 Progress Update: 7016/7930 processed (88.5%), 770 skipped, 4 errors, 7790 total entries
+2026-01-19 15:52:17 - __main__ - INFO - 📊 Progress Update: 7026/7930 processed (88.6%), 770 skipped, 4 errors, 7800 total entries
+2026-01-19 15:52:34 - __main__ - INFO - 📊 Progress Update: 7036/7930 processed (88.7%), 770 skipped, 4 errors, 7810 total entries
+2026-01-19 15:52:49 - __main__ - INFO - 📊 Progress Update: 7046/7930 processed (88.9%), 770 skipped, 4 errors, 7820 total entries
+2026-01-19 15:53:05 - __main__ - INFO - 📊 Progress Update: 7056/7930 processed (89.0%), 770 skipped, 4 errors, 7830 total entries
+2026-01-19 15:53:21 - __main__ - INFO - 📊 Progress Update: 7066/7930 processed (89.1%), 770 skipped, 4 errors, 7840 total entries
+2026-01-19 15:53:37 - __main__ - INFO - 📊 Progress Update: 7076/7930 processed (89.2%), 770 skipped, 4 errors, 7850 total entries
+2026-01-19 15:53:53 - __main__ - INFO - 📊 Progress Update: 7086/7930 processed (89.4%), 770 skipped, 4 errors, 7860 total entries
+2026-01-19 15:54:09 - __main__ - INFO - 📊 Progress Update: 7096/7930 processed (89.5%), 770 skipped, 4 errors, 7870 total entries
+2026-01-19 15:54:25 - __main__ - INFO - 📊 Progress Update: 7106/7930 processed (89.6%), 770 skipped, 4 errors, 7880 total entries
+2026-01-19 15:54:41 - __main__ - INFO - 📊 Progress Update: 7116/7930 processed (89.7%), 770 skipped, 4 errors, 7890 total entries
+2026-01-19 15:54:57 - __main__ - INFO - 📊 Progress Update: 7126/7930 processed (89.9%), 770 skipped, 4 errors, 7900 total entries
+2026-01-19 15:55:13 - __main__ - INFO - 📊 Progress Update: 7136/7930 processed (90.0%), 770 skipped, 4 errors, 7910 total entries
+2026-01-19 15:55:29 - __main__ - INFO - 📊 Progress Update: 7146/7930 processed (90.1%), 770 skipped, 4 errors, 7920 total entries
+2026-01-19 15:55:45 - __main__ - INFO - 📊 Progress Update: 7156/7930 processed (90.2%), 770 skipped, 4 errors, 7930 total entries
+2026-01-19 15:56:01 - __main__ - INFO - 📊 Progress Update: 7166/7930 processed (90.4%), 770 skipped, 4 errors, 7940 total entries
+2026-01-19 15:56:16 - __main__ - INFO - 📊 Progress Update: 7176/7930 processed (90.5%), 770 skipped, 4 errors, 7950 total entries
+2026-01-19 15:56:32 - __main__ - INFO - 📊 Progress Update: 7186/7930 processed (90.6%), 770 skipped, 4 errors, 7960 total entries
+2026-01-19 15:56:47 - __main__ - INFO - 📊 Progress Update: 7196/7930 processed (90.7%), 770 skipped, 4 errors, 7970 total entries
+2026-01-19 15:57:03 - __main__ - INFO - 📊 Progress Update: 7206/7930 processed (90.9%), 770 skipped, 4 errors, 7980 total entries
+2026-01-19 15:57:19 - __main__ - INFO - 📊 Progress Update: 7216/7930 processed (91.0%), 770 skipped, 4 errors, 7990 total entries
+2026-01-19 15:57:35 - __main__ - INFO - 📊 Progress Update: 7226/7930 processed (91.1%), 770 skipped, 4 errors, 8000 total entries
+2026-01-19 15:57:50 - __main__ - INFO - 📊 Progress Update: 7236/7930 processed (91.2%), 770 skipped, 4 errors, 8010 total entries
+2026-01-19 15:58:07 - __main__ - INFO - 📊 Progress Update: 7246/7930 processed (91.4%), 770 skipped, 4 errors, 8020 total entries
+2026-01-19 15:58:22 - __main__ - INFO - 📊 Progress Update: 7256/7930 processed (91.5%), 770 skipped, 4 errors, 8030 total entries
+2026-01-19 15:58:38 - __main__ - INFO - 📊 Progress Update: 7266/7930 processed (91.6%), 770 skipped, 4 errors, 8040 total entries
+2026-01-19 15:58:53 - __main__ - INFO - 📊 Progress Update: 7276/7930 processed (91.8%), 770 skipped, 4 errors, 8050 total entries
+2026-01-19 15:59:10 - __main__ - INFO - 📊 Progress Update: 7286/7930 processed (91.9%), 770 skipped, 4 errors, 8060 total entries
+2026-01-19 15:59:26 - __main__ - INFO - 📊 Progress Update: 7296/7930 processed (92.0%), 770 skipped, 4 errors, 8070 total entries
+2026-01-19 15:59:42 - __main__ - INFO - 📊 Progress Update: 7306/7930 processed (92.1%), 770 skipped, 4 errors, 8080 total entries
+2026-01-19 15:59:58 - __main__ - INFO - 📊 Progress Update: 7316/7930 processed (92.3%), 770 skipped, 4 errors, 8090 total entries
+2026-01-19 16:00:14 - __main__ - INFO - 📊 Progress Update: 7326/7930 processed (92.4%), 770 skipped, 4 errors, 8100 total entries
+2026-01-19 16:00:30 - __main__ - INFO - 📊 Progress Update: 7336/7930 processed (92.5%), 770 skipped, 4 errors, 8110 total entries
+2026-01-19 16:00:45 - __main__ - INFO - 📊 Progress Update: 7346/7930 processed (92.6%), 770 skipped, 4 errors, 8120 total entries
+2026-01-19 16:01:01 - __main__ - INFO - 📊 Progress Update: 7356/7930 processed (92.8%), 770 skipped, 4 errors, 8130 total entries
+2026-01-19 16:01:17 - __main__ - INFO - 📊 Progress Update: 7366/7930 processed (92.9%), 770 skipped, 4 errors, 8140 total entries
+2026-01-19 16:01:32 - __main__ - INFO - 📊 Progress Update: 7376/7930 processed (93.0%), 770 skipped, 4 errors, 8150 total entries
+2026-01-19 16:01:48 - __main__ - INFO - 📊 Progress Update: 7386/7930 processed (93.1%), 770 skipped, 4 errors, 8160 total entries
+2026-01-19 16:02:05 - __main__ - INFO - 📊 Progress Update: 7396/7930 processed (93.3%), 770 skipped, 4 errors, 8170 total entries
+2026-01-19 16:02:21 - __main__ - INFO - 📊 Progress Update: 7406/7930 processed (93.4%), 770 skipped, 4 errors, 8180 total entries
+2026-01-19 16:02:39 - __main__ - INFO - 📊 Progress Update: 7416/7930 processed (93.5%), 770 skipped, 4 errors, 8190 total entries
+2026-01-19 16:02:55 - __main__ - INFO - 📊 Progress Update: 7426/7930 processed (93.6%), 770 skipped, 4 errors, 8200 total entries
+2026-01-19 16:03:11 - __main__ - INFO - 📊 Progress Update: 7436/7930 processed (93.8%), 770 skipped, 4 errors, 8210 total entries
+2026-01-19 16:03:27 - __main__ - INFO - 📊 Progress Update: 7446/7930 processed (93.9%), 770 skipped, 4 errors, 8220 total entries
+2026-01-19 16:03:44 - __main__ - INFO - 📊 Progress Update: 7456/7930 processed (94.0%), 770 skipped, 4 errors, 8230 total entries
+2026-01-19 16:04:00 - __main__ - INFO - 📊 Progress Update: 7466/7930 processed (94.1%), 770 skipped, 4 errors, 8240 total entries
+2026-01-19 16:04:10 - etl.extraction.bgg_credits_scraper - ERROR - ✗ HTTP error fetching credits data for BGG ID 52825: Response ended prematurely
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1344, in _update_chunk_length
+    raise ProtocolError("Response ended prematurely") from None
+urllib3.exceptions.ProtocolError: Response ended prematurely
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_credits_scraper.py", line 110, in scrape_credits
+    response = self.session.get(api_url, timeout=self.timeout)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 746, in send
+    r.content
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: Response ended prematurely
+2026-01-19 16:04:10 - __main__ - WARNING - ⚠ Failed to extract credits for 52825
+2026-01-19 16:04:17 - __main__ - INFO - 📊 Progress Update: 7475/7930 processed (94.3%), 770 skipped, 5 errors, 8250 total entries
+2026-01-19 16:04:33 - __main__ - INFO - 📊 Progress Update: 7485/7930 processed (94.4%), 770 skipped, 5 errors, 8260 total entries
+2026-01-19 16:04:49 - __main__ - INFO - 📊 Progress Update: 7495/7930 processed (94.5%), 770 skipped, 5 errors, 8270 total entries
+2026-01-19 16:05:05 - __main__ - INFO - 📊 Progress Update: 7505/7930 processed (94.6%), 770 skipped, 5 errors, 8280 total entries
+2026-01-19 16:05:22 - __main__ - INFO - 📊 Progress Update: 7515/7930 processed (94.8%), 770 skipped, 5 errors, 8290 total entries
+2026-01-19 16:05:37 - __main__ - INFO - 📊 Progress Update: 7525/7930 processed (94.9%), 770 skipped, 5 errors, 8300 total entries
+2026-01-19 16:05:53 - __main__ - INFO - 📊 Progress Update: 7535/7930 processed (95.0%), 770 skipped, 5 errors, 8310 total entries
+2026-01-19 16:06:10 - __main__ - INFO - 📊 Progress Update: 7545/7930 processed (95.1%), 770 skipped, 5 errors, 8320 total entries
+2026-01-19 16:06:25 - __main__ - INFO - 📊 Progress Update: 7555/7930 processed (95.3%), 770 skipped, 5 errors, 8330 total entries
+2026-01-19 16:06:42 - __main__ - INFO - 📊 Progress Update: 7565/7930 processed (95.4%), 770 skipped, 5 errors, 8340 total entries
+2026-01-19 16:06:59 - __main__ - INFO - 📊 Progress Update: 7575/7930 processed (95.5%), 770 skipped, 5 errors, 8350 total entries
+2026-01-19 16:07:15 - __main__ - INFO - 📊 Progress Update: 7585/7930 processed (95.6%), 770 skipped, 5 errors, 8360 total entries
+2026-01-19 16:07:20 - etl.extraction.bgg_credits_scraper - ERROR - ✗ HTTP error fetching credits data for BGG ID 428989: Response ended prematurely
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/response.py", line 1344, in _update_chunk_length
+    raise ProtocolError("Response ended prematurely") from None
+urllib3.exceptions.ProtocolError: Response ended prematurely
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_credits_scraper.py", line 110, in scrape_credits
+    response = self.session.get(api_url, timeout=self.timeout)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 746, in send
+    r.content
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: Response ended prematurely
+2026-01-19 16:07:20 - __main__ - WARNING - ⚠ Failed to extract credits for 428989
+2026-01-19 16:07:31 - __main__ - INFO - 📊 Progress Update: 7594/7930 processed (95.8%), 770 skipped, 6 errors, 8370 total entries
+2026-01-19 16:07:47 - __main__ - INFO - 📊 Progress Update: 7604/7930 processed (95.9%), 770 skipped, 6 errors, 8380 total entries
+2026-01-19 16:08:03 - __main__ - INFO - 📊 Progress Update: 7614/7930 processed (96.0%), 770 skipped, 6 errors, 8390 total entries
+2026-01-19 16:08:19 - __main__ - INFO - 📊 Progress Update: 7624/7930 processed (96.1%), 770 skipped, 6 errors, 8400 total entries
+2026-01-19 16:08:35 - __main__ - INFO - 📊 Progress Update: 7634/7930 processed (96.3%), 770 skipped, 6 errors, 8410 total entries
+2026-01-19 16:08:51 - __main__ - INFO - 📊 Progress Update: 7644/7930 processed (96.4%), 770 skipped, 6 errors, 8420 total entries
+2026-01-19 16:09:07 - __main__ - INFO - 📊 Progress Update: 7654/7930 processed (96.5%), 770 skipped, 6 errors, 8430 total entries
+2026-01-19 16:09:24 - __main__ - INFO - 📊 Progress Update: 7664/7930 processed (96.6%), 770 skipped, 6 errors, 8440 total entries
+2026-01-19 16:09:41 - __main__ - INFO - 📊 Progress Update: 7674/7930 processed (96.8%), 770 skipped, 6 errors, 8450 total entries
+2026-01-19 16:09:58 - __main__ - INFO - 📊 Progress Update: 7684/7930 processed (96.9%), 770 skipped, 6 errors, 8460 total entries
+2026-01-19 16:10:15 - __main__ - INFO - 📊 Progress Update: 7694/7930 processed (97.0%), 770 skipped, 6 errors, 8470 total entries
+2026-01-19 16:10:32 - __main__ - INFO - 📊 Progress Update: 7704/7930 processed (97.2%), 770 skipped, 6 errors, 8480 total entries
+2026-01-19 16:10:49 - __main__ - INFO - 📊 Progress Update: 7714/7930 processed (97.3%), 770 skipped, 6 errors, 8490 total entries
+2026-01-19 16:11:05 - __main__ - INFO - 📊 Progress Update: 7724/7930 processed (97.4%), 770 skipped, 6 errors, 8500 total entries
+2026-01-19 16:11:21 - __main__ - INFO - 📊 Progress Update: 7734/7930 processed (97.5%), 770 skipped, 6 errors, 8510 total entries
+2026-01-19 16:11:38 - __main__ - INFO - 📊 Progress Update: 7744/7930 processed (97.7%), 770 skipped, 6 errors, 8520 total entries
+2026-01-19 16:11:54 - __main__ - INFO - 📊 Progress Update: 7754/7930 processed (97.8%), 770 skipped, 6 errors, 8530 total entries
+2026-01-19 16:12:11 - __main__ - INFO - 📊 Progress Update: 7764/7930 processed (97.9%), 770 skipped, 6 errors, 8540 total entries
+2026-01-19 16:12:28 - __main__ - INFO - 📊 Progress Update: 7774/7930 processed (98.0%), 770 skipped, 6 errors, 8550 total entries
+2026-01-19 16:12:45 - __main__ - INFO - 📊 Progress Update: 7784/7930 processed (98.2%), 770 skipped, 6 errors, 8560 total entries
+2026-01-19 16:13:01 - __main__ - INFO - 📊 Progress Update: 7794/7930 processed (98.3%), 770 skipped, 6 errors, 8570 total entries
+2026-01-19 16:13:18 - __main__ - INFO - 📊 Progress Update: 7804/7930 processed (98.4%), 770 skipped, 6 errors, 8580 total entries
+2026-01-19 16:13:33 - __main__ - INFO - 📊 Progress Update: 7814/7930 processed (98.5%), 770 skipped, 6 errors, 8590 total entries
+2026-01-19 16:13:50 - __main__ - INFO - 📊 Progress Update: 7824/7930 processed (98.7%), 770 skipped, 6 errors, 8600 total entries
+2026-01-19 16:14:06 - __main__ - INFO - 📊 Progress Update: 7834/7930 processed (98.8%), 770 skipped, 6 errors, 8610 total entries
+2026-01-19 16:14:23 - __main__ - INFO - 📊 Progress Update: 7844/7930 processed (98.9%), 770 skipped, 6 errors, 8620 total entries
+2026-01-19 16:14:38 - __main__ - INFO - 📊 Progress Update: 7854/7930 processed (99.0%), 770 skipped, 6 errors, 8630 total entries
+2026-01-19 16:14:55 - __main__ - INFO - 📊 Progress Update: 7864/7930 processed (99.2%), 770 skipped, 6 errors, 8640 total entries
+2026-01-19 16:15:13 - __main__ - INFO - 📊 Progress Update: 7874/7930 processed (99.3%), 770 skipped, 6 errors, 8650 total entries
+2026-01-19 16:15:30 - __main__ - INFO - 📊 Progress Update: 7884/7930 processed (99.4%), 770 skipped, 6 errors, 8660 total entries
+2026-01-19 16:15:47 - __main__ - INFO - 📊 Progress Update: 7894/7930 processed (99.5%), 770 skipped, 6 errors, 8670 total entries
+2026-01-19 16:16:03 - __main__ - INFO - 📊 Progress Update: 7904/7930 processed (99.7%), 770 skipped, 6 errors, 8680 total entries
+2026-01-19 16:16:19 - __main__ - INFO - 📊 Progress Update: 7914/7930 processed (99.8%), 770 skipped, 6 errors, 8690 total entries
+2026-01-19 16:16:36 - __main__ - INFO - 📊 Progress Update: 7924/7930 processed (99.9%), 770 skipped, 6 errors, 8700 total entries
+2026-01-19 16:16:36 - __main__ - INFO - ================================================================================
+2026-01-19 16:16:36 - __main__ - INFO - ✅ Scraping completed successfully!
+2026-01-19 16:16:36 - __main__ - INFO - 📈 Final Statistics:
+2026-01-19 16:16:36 - __main__ - INFO -    • Processed: 7924 games
+2026-01-19 16:16:36 - __main__ - INFO -    • Skipped: 770 games
+2026-01-19 16:16:36 - __main__ - INFO -    • Errors: 6 games
+2026-01-19 16:16:36 - __main__ - INFO -    • Total entries: 8700
+2026-01-19 16:16:36 - __main__ - INFO - 💾 Data saved to: etl/data/game_credits.csv
+2026-01-19 16:16:36 - __main__ - INFO - ================================================================================

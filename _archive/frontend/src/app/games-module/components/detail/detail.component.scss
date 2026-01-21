@@ -1,0 +1,197 @@
+@import "../../../../colors.scss";
+
+.wrapper {
+  margin-top: 4rem;
+  padding: 0 0.25rem;
+}
+
+
+.top-section {
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .game-info {
+    padding-left: 1rem;
+
+    .info-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .info-card {
+        padding: 0.5rem 1rem;
+        display: flex;
+        margin: 0.5rem;
+        flex-direction: column;
+        align-items: center;
+        background: $background2;
+        border-radius: 10px;
+        justify-content: center;
+        transition: background-color .3s;
+      }
+      .link {
+        cursor: pointer;
+        &:hover {
+          background: darken( $background2, 10% );
+        }
+      }
+    }
+
+    .external-container {
+      padding: 0.5rem 1rem;
+      display: flex;
+      margin: 0.75rem 0.5rem;
+      flex-direction: column;
+      background: $background2;
+      border-radius: 10px;
+      max-width: 20rem;
+
+      img.online-game {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1rem;
+      } 
+
+      .title {
+        display: flex;
+        margin-bottom: 1rem;
+        img {
+          width: 3rem;
+          height: 3rem;
+          margin-right: 1rem;
+        }
+        .text {
+          align-self: center;
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+      }
+
+      .info-row {
+        display: flex;
+        padding: 0.5rem;
+        border-radius: 10px;
+        mat-icon {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .link {
+    cursor: pointer;
+    transition: background-color .3s;
+    &:hover {
+      background: darken( $background2, 10% );
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+
+    mat-icon {
+      font-size: 3rem;
+    }
+
+    .buttons {
+      margin-top: 1rem;
+      align-self: center;
+
+      button {
+        margin: 0.5rem;
+      }
+    }
+  }
+
+}
+
+.description-section {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+
+
+
+.game-section {
+  margin: 5rem 0;
+  padding: 0.5rem;
+  background-color: $background2;
+  border-radius: 10px;
+
+  .game-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
+
+.info-section {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  .info-row {
+    margin: 0.6rem 0;
+    .chip-row {
+      display: flex;
+      flex-direction: row;
+      overflow: auto;
+      .chip {
+        background: $background;
+        margin: 0.3rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+
+.loading {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 992px) {
+  .wrapper {
+    padding: 2rem;
+  }
+
+  .top-section {
+    padding: 2rem;
+    
+    .actions {
+      .buttons {
+        margin-top: 2rem;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .info-row {
+    img {
+      height: 10rem;
+    }
+    .chip-row {
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      flex-wrap: wrap;
+    }
+  }
+
+  .description-section {
+    padding: 0 3rem;
+  }
+
+
+}

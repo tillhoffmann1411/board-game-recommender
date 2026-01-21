@@ -1,0 +1,97 @@
+2026-01-19 16:52:34 - root - INFO - Logging to file: logs/etl_20260119_165234.log
+2026-01-19 16:52:34 - __main__ - INFO - ================================================================================
+2026-01-19 16:52:34 - __main__ - INFO - 📂 Reading input CSV: etl/data/test_bgg_games_1_100.csv
+2026-01-19 16:52:34 - __main__ - INFO - ✓ Successfully loaded CSV with 8700 rows
+2026-01-19 16:52:34 - __main__ - INFO - 📊 Total games to process: 8700
+2026-01-19 16:52:34 - __main__ - INFO - ================================================================================
+2026-01-19 16:52:34 - __main__ - INFO - 📋 Found 0 unique games with existing ratings
+2026-01-19 16:52:34 - __main__ - INFO - 🔄 Resuming from where we left off...
+2026-01-19 16:52:34 - __main__ - INFO - 🎯 Games remaining to process: 8700
+2026-01-19 16:52:34 - __main__ - INFO - ⏭️  Games already processed (skipped): 0
+2026-01-19 16:52:34 - __main__ - INFO - ================================================================================
+2026-01-19 16:52:34 - __main__ - INFO - 🚀 Starting scraping process...
+2026-01-19 16:52:34 - __main__ - INFO - ================================================================================
+2026-01-19 16:52:50 - __main__ - INFO - 📊 Progress Update: 10/8700 games processed (0.1%), 0 skipped, 0 errors, 500 total ratings
+2026-01-19 16:53:07 - __main__ - INFO - 📊 Progress Update: 20/8700 games processed (0.2%), 0 skipped, 0 errors, 1000 total ratings
+2026-01-19 16:53:13 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 1 for BGG ID 169786: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=0&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=0&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:13 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 2 for BGG ID 169786: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=1&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=1&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:14 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 3 for BGG ID 169786: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=2&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=2&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:14 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 4 for BGG ID 169786: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=3&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=3&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:14 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 5 for BGG ID 169786: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=4&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=4&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:14 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 6 for BGG ID 169786: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=5&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=5&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:15 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 7 for BGG ID 169786: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=6&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=6&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:15 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 8 for BGG ID 169786: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=7&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=169786&objecttype=thing&oneperuser=1&pageid=7&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:17 - etl.extraction.bgg_ratings_scraper - ERROR - ✗ HTTP error fetching ratings page 1 for BGG ID 167355: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=167355&objecttype=thing&oneperuser=1&pageid=0&require_review=true&showcount=100&sort=review_tstamp
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_ratings_scraper.py", line 112, in scrape_ratings
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://api.geekdo.com/api/collections?ajax=1&objectid=167355&objecttype=thing&oneperuser=1&pageid=0&require_review=true&showcount=100&sort=review_tstamp
+2026-01-19 16:53:17 - __main__ - WARNING - 
+⚠ Processing interrupted at row 25
+2026-01-19 16:53:17 - __main__ - WARNING - 
+================================================================================
+2026-01-19 16:53:17 - __main__ - WARNING - ⚠ Processing interrupted by user
+2026-01-19 16:53:17 - __main__ - WARNING - ================================================================================
+2026-01-19 16:53:17 - __main__ - INFO - 💾 Saving 1200 collected ratings before exit...
+2026-01-19 16:53:17 - __main__ - INFO - ✓ Data saved to etl/data/game_ratings_1_100.csv
+2026-01-19 16:53:17 - __main__ - INFO - 👋 Exiting...
+2026-01-19 16:53:17 - __main__ - INFO - ================================================================================

@@ -1,0 +1,12 @@
+2026-01-15 21:00:36 - root - INFO - Logging to file: logs/etl_20260115_210036.log
+2026-01-15 21:00:36 - __main__ - INFO - Using Chrome with auto-managed ChromeDriver
+2026-01-15 21:00:36 - __main__ - INFO - Browser driver started successfully
+2026-01-15 21:00:36 - __main__ - INFO - Scraping pages 1 to 1
+2026-01-15 21:00:36 - __main__ - INFO - Scraping page 1: https://boardgamegeek.com/browse/boardgame/page/1
+2026-01-15 21:01:20 - __main__ - WARNING - Could not find game name/link in row
+2026-01-15 21:01:55 - __main__ - WARNING - Could not find game name/link in row
+2026-01-15 21:02:29 - __main__ - WARNING - Could not find game name/link in row
+2026-01-15 21:02:32 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=56148): Failed to establish a new connection: [Errno 61] Connection refused")': /session/925588913d6cf18069e4951a95c73afa
+2026-01-15 21:02:32 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=56148): Failed to establish a new connection: [Errno 61] Connection refused")': /session/925588913d6cf18069e4951a95c73afa
+2026-01-15 21:02:32 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=56148): Failed to establish a new connection: [Errno 61] Connection refused")': /session/925588913d6cf18069e4951a95c73afa
+2026-01-15 21:02:32 - __main__ - INFO - Browser driver stopped

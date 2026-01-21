@@ -1,0 +1,11 @@
+@import "../../../colors.scss";
+
+a {
+  color: $on-primary-font;
+  text-decoration: none;
+}
+
+.nav-caption {
+  display: inline-block;
+  padding-left: 6px;
+}

@@ -1,0 +1,15 @@
+Django>=3.0.6,<3.1
+uWSGI>=2.0.18,<2.1
+psycopg2-binary
+django-cors-headers
+djangorestframework
+djangorestframework_simplejwt
+dj-rest-auth
+dj-rest-auth[with_social]
+djangorestframework-camel-case
+
+gunicorn
+
+pandas
+numpy
+django-pandas

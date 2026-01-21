@@ -1,0 +1,1013 @@
+2026-01-15 21:28:41 - root - INFO - Logging to file: logs/etl_20260115_212841.log
+2026-01-15 21:28:42 - __main__ - INFO - Found 1728 total pages
+2026-01-15 21:28:42 - __main__ - INFO - Scraping pages 1 to 1728
+2026-01-15 21:28:42 - __main__ - INFO - Scraping page 1: https://boardgamegeek.com/browse/boardgame/page/1
+2026-01-15 21:28:43 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:43 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:43 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:43 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:43 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:43 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:43 - __main__ - INFO - Extracted 100 games from page 1
+2026-01-15 21:28:45 - __main__ - INFO - Scraping page 2: https://boardgamegeek.com/browse/boardgame/page/2
+2026-01-15 21:28:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:46 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:46 - __main__ - INFO - Extracted 100 games from page 2
+2026-01-15 21:28:48 - __main__ - INFO - Scraping page 3: https://boardgamegeek.com/browse/boardgame/page/3
+2026-01-15 21:28:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:49 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:49 - __main__ - INFO - Extracted 100 games from page 3
+2026-01-15 21:28:51 - __main__ - INFO - Scraping page 4: https://boardgamegeek.com/browse/boardgame/page/4
+2026-01-15 21:28:51 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:51 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:51 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:51 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:51 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:51 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:51 - __main__ - INFO - Extracted 100 games from page 4
+2026-01-15 21:28:53 - __main__ - INFO - Scraping page 5: https://boardgamegeek.com/browse/boardgame/page/5
+2026-01-15 21:28:54 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:54 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:54 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:54 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:54 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:54 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:54 - __main__ - INFO - Extracted 100 games from page 5
+2026-01-15 21:28:56 - __main__ - INFO - Scraping page 6: https://boardgamegeek.com/browse/boardgame/page/6
+2026-01-15 21:28:57 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:57 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:57 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:57 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:57 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:57 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:28:57 - __main__ - INFO - Extracted 100 games from page 6
+2026-01-15 21:28:59 - __main__ - INFO - Scraping page 7: https://boardgamegeek.com/browse/boardgame/page/7
+2026-01-15 21:29:00 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:00 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:00 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:00 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:00 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:00 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:00 - __main__ - INFO - Extracted 100 games from page 7
+2026-01-15 21:29:02 - __main__ - INFO - Scraping page 8: https://boardgamegeek.com/browse/boardgame/page/8
+2026-01-15 21:29:03 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:03 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:03 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:03 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:03 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:03 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:03 - __main__ - INFO - Extracted 100 games from page 8
+2026-01-15 21:29:05 - __main__ - INFO - Scraping page 9: https://boardgamegeek.com/browse/boardgame/page/9
+2026-01-15 21:29:05 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:05 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:05 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:05 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:05 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:05 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:05 - __main__ - INFO - Extracted 100 games from page 9
+2026-01-15 21:29:07 - __main__ - INFO - Scraping page 10: https://boardgamegeek.com/browse/boardgame/page/10
+2026-01-15 21:29:08 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:08 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:08 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:08 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:08 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:08 - __main__ - WARNING - Could not find collection_objectname td in row
+2026-01-15 21:29:08 - __main__ - INFO - Extracted 100 games from page 10
+2026-01-15 21:29:10 - __main__ - INFO - Scraping page 11: https://boardgamegeek.com/browse/boardgame/page/11
+2026-01-15 21:29:11 - __main__ - ERROR - Could not find collection div on page 11
+2026-01-15 21:29:13 - __main__ - INFO - Scraping page 12: https://boardgamegeek.com/browse/boardgame/page/12
+2026-01-15 21:29:14 - __main__ - ERROR - Could not find collection div on page 12
+2026-01-15 21:29:16 - __main__ - INFO - Scraping page 13: https://boardgamegeek.com/browse/boardgame/page/13
+2026-01-15 21:29:17 - __main__ - ERROR - Could not find collection div on page 13
+2026-01-15 21:29:19 - __main__ - INFO - Scraping page 14: https://boardgamegeek.com/browse/boardgame/page/14
+2026-01-15 21:29:20 - __main__ - ERROR - Could not find collection div on page 14
+2026-01-15 21:29:22 - __main__ - INFO - Scraping page 15: https://boardgamegeek.com/browse/boardgame/page/15
+2026-01-15 21:29:23 - __main__ - ERROR - Could not find collection div on page 15
+2026-01-15 21:29:25 - __main__ - INFO - Scraping page 16: https://boardgamegeek.com/browse/boardgame/page/16
+2026-01-15 21:29:26 - __main__ - ERROR - Could not find collection div on page 16
+2026-01-15 21:29:28 - __main__ - INFO - Scraping page 17: https://boardgamegeek.com/browse/boardgame/page/17
+2026-01-15 21:29:29 - __main__ - ERROR - Could not find collection div on page 17
+2026-01-15 21:29:31 - __main__ - INFO - Scraping page 18: https://boardgamegeek.com/browse/boardgame/page/18
+2026-01-15 21:29:32 - __main__ - ERROR - Could not find collection div on page 18
+2026-01-15 21:29:34 - __main__ - INFO - Scraping page 19: https://boardgamegeek.com/browse/boardgame/page/19
+2026-01-15 21:29:35 - __main__ - ERROR - Could not find collection div on page 19
+2026-01-15 21:29:37 - __main__ - INFO - Scraping page 20: https://boardgamegeek.com/browse/boardgame/page/20
+2026-01-15 21:29:38 - __main__ - ERROR - Could not find collection div on page 20
+2026-01-15 21:29:40 - __main__ - INFO - Scraping page 21: https://boardgamegeek.com/browse/boardgame/page/21
+2026-01-15 21:29:41 - __main__ - ERROR - Could not find collection div on page 21
+2026-01-15 21:29:43 - __main__ - INFO - Scraping page 22: https://boardgamegeek.com/browse/boardgame/page/22
+2026-01-15 21:29:44 - __main__ - ERROR - Could not find collection div on page 22
+2026-01-15 21:29:46 - __main__ - INFO - Scraping page 23: https://boardgamegeek.com/browse/boardgame/page/23
+2026-01-15 21:29:47 - __main__ - ERROR - Could not find collection div on page 23
+2026-01-15 21:29:49 - __main__ - INFO - Scraping page 24: https://boardgamegeek.com/browse/boardgame/page/24
+2026-01-15 21:29:50 - __main__ - ERROR - Could not find collection div on page 24
+2026-01-15 21:29:52 - __main__ - INFO - Scraping page 25: https://boardgamegeek.com/browse/boardgame/page/25
+2026-01-15 21:29:53 - __main__ - ERROR - Could not find collection div on page 25
+2026-01-15 21:29:55 - __main__ - INFO - Scraping page 26: https://boardgamegeek.com/browse/boardgame/page/26
+2026-01-15 21:29:56 - __main__ - ERROR - Could not find collection div on page 26
+2026-01-15 21:29:58 - __main__ - INFO - Scraping page 27: https://boardgamegeek.com/browse/boardgame/page/27
+2026-01-15 21:29:59 - __main__ - ERROR - Could not find collection div on page 27
+2026-01-15 21:30:01 - __main__ - INFO - Scraping page 28: https://boardgamegeek.com/browse/boardgame/page/28
+2026-01-15 21:30:02 - __main__ - ERROR - Could not find collection div on page 28
+2026-01-15 21:30:04 - __main__ - INFO - Scraping page 29: https://boardgamegeek.com/browse/boardgame/page/29
+2026-01-15 21:30:04 - __main__ - ERROR - Could not find collection div on page 29
+2026-01-15 21:30:06 - __main__ - INFO - Scraping page 30: https://boardgamegeek.com/browse/boardgame/page/30
+2026-01-15 21:30:07 - __main__ - ERROR - Could not find collection div on page 30
+2026-01-15 21:30:09 - __main__ - INFO - Scraping page 31: https://boardgamegeek.com/browse/boardgame/page/31
+2026-01-15 21:30:10 - __main__ - ERROR - Could not find collection div on page 31
+2026-01-15 21:30:12 - __main__ - INFO - Scraping page 32: https://boardgamegeek.com/browse/boardgame/page/32
+2026-01-15 21:30:13 - __main__ - ERROR - Could not find collection div on page 32
+2026-01-15 21:30:15 - __main__ - INFO - Scraping page 33: https://boardgamegeek.com/browse/boardgame/page/33
+2026-01-15 21:30:16 - __main__ - ERROR - Could not find collection div on page 33
+2026-01-15 21:30:18 - __main__ - INFO - Scraping page 34: https://boardgamegeek.com/browse/boardgame/page/34
+2026-01-15 21:30:19 - __main__ - ERROR - Could not find collection div on page 34
+2026-01-15 21:30:21 - __main__ - INFO - Scraping page 35: https://boardgamegeek.com/browse/boardgame/page/35
+2026-01-15 21:30:22 - __main__ - ERROR - Could not find collection div on page 35
+2026-01-15 21:30:24 - __main__ - INFO - Scraping page 36: https://boardgamegeek.com/browse/boardgame/page/36
+2026-01-15 21:30:26 - __main__ - ERROR - Could not find collection div on page 36
+2026-01-15 21:30:28 - __main__ - INFO - Scraping page 37: https://boardgamegeek.com/browse/boardgame/page/37
+2026-01-15 21:30:29 - __main__ - ERROR - Could not find collection div on page 37
+2026-01-15 21:30:31 - __main__ - INFO - Scraping page 38: https://boardgamegeek.com/browse/boardgame/page/38
+2026-01-15 21:30:32 - __main__ - ERROR - Could not find collection div on page 38
+2026-01-15 21:30:34 - __main__ - INFO - Scraping page 39: https://boardgamegeek.com/browse/boardgame/page/39
+2026-01-15 21:30:35 - __main__ - ERROR - Could not find collection div on page 39
+2026-01-15 21:30:37 - __main__ - INFO - Scraping page 40: https://boardgamegeek.com/browse/boardgame/page/40
+2026-01-15 21:30:38 - __main__ - ERROR - Could not find collection div on page 40
+2026-01-15 21:30:40 - __main__ - INFO - Scraping page 41: https://boardgamegeek.com/browse/boardgame/page/41
+2026-01-15 21:30:41 - __main__ - ERROR - Could not find collection div on page 41
+2026-01-15 21:30:43 - __main__ - INFO - Scraping page 42: https://boardgamegeek.com/browse/boardgame/page/42
+2026-01-15 21:30:44 - __main__ - ERROR - Could not find collection div on page 42
+2026-01-15 21:30:46 - __main__ - INFO - Scraping page 43: https://boardgamegeek.com/browse/boardgame/page/43
+2026-01-15 21:30:48 - __main__ - ERROR - Could not find collection div on page 43
+2026-01-15 21:30:50 - __main__ - INFO - Scraping page 44: https://boardgamegeek.com/browse/boardgame/page/44
+2026-01-15 21:30:51 - __main__ - ERROR - Could not find collection div on page 44
+2026-01-15 21:30:53 - __main__ - INFO - Scraping page 45: https://boardgamegeek.com/browse/boardgame/page/45
+2026-01-15 21:30:54 - __main__ - ERROR - Could not find collection div on page 45
+2026-01-15 21:30:56 - __main__ - INFO - Scraping page 46: https://boardgamegeek.com/browse/boardgame/page/46
+2026-01-15 21:30:57 - __main__ - ERROR - Could not find collection div on page 46
+2026-01-15 21:30:59 - __main__ - INFO - Scraping page 47: https://boardgamegeek.com/browse/boardgame/page/47
+2026-01-15 21:31:00 - __main__ - ERROR - Could not find collection div on page 47
+2026-01-15 21:31:02 - __main__ - INFO - Scraping page 48: https://boardgamegeek.com/browse/boardgame/page/48
+2026-01-15 21:31:03 - __main__ - ERROR - Could not find collection div on page 48
+2026-01-15 21:31:05 - __main__ - INFO - Scraping page 49: https://boardgamegeek.com/browse/boardgame/page/49
+2026-01-15 21:31:07 - __main__ - ERROR - Could not find collection div on page 49
+2026-01-15 21:31:09 - __main__ - INFO - Scraping page 50: https://boardgamegeek.com/browse/boardgame/page/50
+2026-01-15 21:31:10 - __main__ - ERROR - Could not find collection div on page 50
+2026-01-15 21:31:12 - __main__ - INFO - Scraping page 51: https://boardgamegeek.com/browse/boardgame/page/51
+2026-01-15 21:31:13 - __main__ - ERROR - Could not find collection div on page 51
+2026-01-15 21:31:15 - __main__ - INFO - Scraping page 52: https://boardgamegeek.com/browse/boardgame/page/52
+2026-01-15 21:31:16 - __main__ - ERROR - Could not find collection div on page 52
+2026-01-15 21:31:18 - __main__ - INFO - Scraping page 53: https://boardgamegeek.com/browse/boardgame/page/53
+2026-01-15 21:31:19 - __main__ - ERROR - Could not find collection div on page 53
+2026-01-15 21:31:21 - __main__ - INFO - Scraping page 54: https://boardgamegeek.com/browse/boardgame/page/54
+2026-01-15 21:31:22 - __main__ - ERROR - Could not find collection div on page 54
+2026-01-15 21:31:24 - __main__ - INFO - Scraping page 55: https://boardgamegeek.com/browse/boardgame/page/55
+2026-01-15 21:31:25 - __main__ - ERROR - Could not find collection div on page 55
+2026-01-15 21:31:27 - __main__ - INFO - Scraping page 56: https://boardgamegeek.com/browse/boardgame/page/56
+2026-01-15 21:31:28 - __main__ - ERROR - Could not find collection div on page 56
+2026-01-15 21:31:30 - __main__ - INFO - Scraping page 57: https://boardgamegeek.com/browse/boardgame/page/57
+2026-01-15 21:31:32 - __main__ - ERROR - Could not find collection div on page 57
+2026-01-15 21:31:34 - __main__ - INFO - Scraping page 58: https://boardgamegeek.com/browse/boardgame/page/58
+2026-01-15 21:31:35 - __main__ - ERROR - Could not find collection div on page 58
+2026-01-15 21:31:37 - __main__ - INFO - Scraping page 59: https://boardgamegeek.com/browse/boardgame/page/59
+2026-01-15 21:31:38 - __main__ - ERROR - Could not find collection div on page 59
+2026-01-15 21:31:40 - __main__ - INFO - Scraping page 60: https://boardgamegeek.com/browse/boardgame/page/60
+2026-01-15 21:31:41 - __main__ - ERROR - Could not find collection div on page 60
+2026-01-15 21:31:43 - __main__ - INFO - Scraping page 61: https://boardgamegeek.com/browse/boardgame/page/61
+2026-01-15 21:31:44 - __main__ - ERROR - Could not find collection div on page 61
+2026-01-15 21:31:46 - __main__ - INFO - Scraping page 62: https://boardgamegeek.com/browse/boardgame/page/62
+2026-01-15 21:31:47 - __main__ - ERROR - Could not find collection div on page 62
+2026-01-15 21:31:49 - __main__ - INFO - Scraping page 63: https://boardgamegeek.com/browse/boardgame/page/63
+2026-01-15 21:31:50 - __main__ - ERROR - Could not find collection div on page 63
+2026-01-15 21:31:52 - __main__ - INFO - Scraping page 64: https://boardgamegeek.com/browse/boardgame/page/64
+2026-01-15 21:31:53 - __main__ - ERROR - Could not find collection div on page 64
+2026-01-15 21:31:55 - __main__ - INFO - Scraping page 65: https://boardgamegeek.com/browse/boardgame/page/65
+2026-01-15 21:31:56 - __main__ - ERROR - Could not find collection div on page 65
+2026-01-15 21:31:58 - __main__ - INFO - Scraping page 66: https://boardgamegeek.com/browse/boardgame/page/66
+2026-01-15 21:32:00 - __main__ - ERROR - Could not find collection div on page 66
+2026-01-15 21:32:02 - __main__ - INFO - Scraping page 67: https://boardgamegeek.com/browse/boardgame/page/67
+2026-01-15 21:32:03 - __main__ - ERROR - Could not find collection div on page 67
+2026-01-15 21:32:05 - __main__ - INFO - Scraping page 68: https://boardgamegeek.com/browse/boardgame/page/68
+2026-01-15 21:32:06 - __main__ - ERROR - Could not find collection div on page 68
+2026-01-15 21:32:08 - __main__ - INFO - Scraping page 69: https://boardgamegeek.com/browse/boardgame/page/69
+2026-01-15 21:32:09 - __main__ - ERROR - Could not find collection div on page 69
+2026-01-15 21:32:11 - __main__ - INFO - Scraping page 70: https://boardgamegeek.com/browse/boardgame/page/70
+2026-01-15 21:32:12 - __main__ - ERROR - Could not find collection div on page 70
+2026-01-15 21:32:14 - __main__ - INFO - Scraping page 71: https://boardgamegeek.com/browse/boardgame/page/71
+2026-01-15 21:32:15 - __main__ - ERROR - Could not find collection div on page 71
+2026-01-15 21:32:17 - __main__ - INFO - Scraping page 72: https://boardgamegeek.com/browse/boardgame/page/72
+2026-01-15 21:32:18 - __main__ - ERROR - Could not find collection div on page 72
+2026-01-15 21:32:20 - __main__ - INFO - Scraping page 73: https://boardgamegeek.com/browse/boardgame/page/73
+2026-01-15 21:32:21 - __main__ - ERROR - Could not find collection div on page 73
+2026-01-15 21:32:23 - __main__ - INFO - Scraping page 74: https://boardgamegeek.com/browse/boardgame/page/74
+2026-01-15 21:32:25 - __main__ - ERROR - Could not find collection div on page 74
+2026-01-15 21:32:27 - __main__ - INFO - Scraping page 75: https://boardgamegeek.com/browse/boardgame/page/75
+2026-01-15 21:32:28 - __main__ - ERROR - Could not find collection div on page 75
+2026-01-15 21:32:30 - __main__ - INFO - Scraping page 76: https://boardgamegeek.com/browse/boardgame/page/76
+2026-01-15 21:32:31 - __main__ - ERROR - Could not find collection div on page 76
+2026-01-15 21:32:33 - __main__ - INFO - Scraping page 77: https://boardgamegeek.com/browse/boardgame/page/77
+2026-01-15 21:32:34 - __main__ - ERROR - Could not find collection div on page 77
+2026-01-15 21:32:36 - __main__ - INFO - Scraping page 78: https://boardgamegeek.com/browse/boardgame/page/78
+2026-01-15 21:32:37 - __main__ - ERROR - Could not find collection div on page 78
+2026-01-15 21:32:39 - __main__ - INFO - Scraping page 79: https://boardgamegeek.com/browse/boardgame/page/79
+2026-01-15 21:32:41 - __main__ - ERROR - Could not find collection div on page 79
+2026-01-15 21:32:43 - __main__ - INFO - Scraping page 80: https://boardgamegeek.com/browse/boardgame/page/80
+2026-01-15 21:32:44 - __main__ - ERROR - Could not find collection div on page 80
+2026-01-15 21:32:46 - __main__ - INFO - Scraping page 81: https://boardgamegeek.com/browse/boardgame/page/81
+2026-01-15 21:32:47 - __main__ - ERROR - Could not find collection div on page 81
+2026-01-15 21:32:49 - __main__ - INFO - Scraping page 82: https://boardgamegeek.com/browse/boardgame/page/82
+2026-01-15 21:32:50 - __main__ - ERROR - Could not find collection div on page 82
+2026-01-15 21:32:52 - __main__ - INFO - Scraping page 83: https://boardgamegeek.com/browse/boardgame/page/83
+2026-01-15 21:32:53 - __main__ - ERROR - Could not find collection div on page 83
+2026-01-15 21:32:55 - __main__ - INFO - Scraping page 84: https://boardgamegeek.com/browse/boardgame/page/84
+2026-01-15 21:32:56 - __main__ - ERROR - Could not find collection div on page 84
+2026-01-15 21:32:58 - __main__ - INFO - Scraping page 85: https://boardgamegeek.com/browse/boardgame/page/85
+2026-01-15 21:32:59 - __main__ - ERROR - Could not find collection div on page 85
+2026-01-15 21:33:01 - __main__ - INFO - Scraping page 86: https://boardgamegeek.com/browse/boardgame/page/86
+2026-01-15 21:33:02 - __main__ - ERROR - Could not find collection div on page 86
+2026-01-15 21:33:04 - __main__ - INFO - Scraping page 87: https://boardgamegeek.com/browse/boardgame/page/87
+2026-01-15 21:33:05 - __main__ - ERROR - Could not find collection div on page 87
+2026-01-15 21:33:07 - __main__ - INFO - Scraping page 88: https://boardgamegeek.com/browse/boardgame/page/88
+2026-01-15 21:33:09 - __main__ - ERROR - Could not find collection div on page 88
+2026-01-15 21:33:11 - __main__ - INFO - Scraping page 89: https://boardgamegeek.com/browse/boardgame/page/89
+2026-01-15 21:33:12 - __main__ - ERROR - Could not find collection div on page 89
+2026-01-15 21:33:14 - __main__ - INFO - Scraping page 90: https://boardgamegeek.com/browse/boardgame/page/90
+2026-01-15 21:33:15 - __main__ - ERROR - Could not find collection div on page 90
+2026-01-15 21:33:17 - __main__ - INFO - Scraping page 91: https://boardgamegeek.com/browse/boardgame/page/91
+2026-01-15 21:33:18 - __main__ - ERROR - Could not find collection div on page 91
+2026-01-15 21:33:20 - __main__ - INFO - Scraping page 92: https://boardgamegeek.com/browse/boardgame/page/92
+2026-01-15 21:33:21 - __main__ - ERROR - Could not find collection div on page 92
+2026-01-15 21:33:23 - __main__ - INFO - Scraping page 93: https://boardgamegeek.com/browse/boardgame/page/93
+2026-01-15 21:33:24 - __main__ - ERROR - Could not find collection div on page 93
+2026-01-15 21:33:26 - __main__ - INFO - Scraping page 94: https://boardgamegeek.com/browse/boardgame/page/94
+2026-01-15 21:33:27 - __main__ - ERROR - Could not find collection div on page 94
+2026-01-15 21:33:29 - __main__ - INFO - Scraping page 95: https://boardgamegeek.com/browse/boardgame/page/95
+2026-01-15 21:33:30 - __main__ - ERROR - Could not find collection div on page 95
+2026-01-15 21:33:32 - __main__ - INFO - Scraping page 96: https://boardgamegeek.com/browse/boardgame/page/96
+2026-01-15 21:33:34 - __main__ - ERROR - Could not find collection div on page 96
+2026-01-15 21:33:36 - __main__ - INFO - Scraping page 97: https://boardgamegeek.com/browse/boardgame/page/97
+2026-01-15 21:33:37 - __main__ - ERROR - Could not find collection div on page 97
+2026-01-15 21:33:39 - __main__ - INFO - Scraping page 98: https://boardgamegeek.com/browse/boardgame/page/98
+2026-01-15 21:33:40 - __main__ - ERROR - Could not find collection div on page 98
+2026-01-15 21:33:42 - __main__ - INFO - Scraping page 99: https://boardgamegeek.com/browse/boardgame/page/99
+2026-01-15 21:33:43 - __main__ - ERROR - Could not find collection div on page 99
+2026-01-15 21:33:45 - __main__ - INFO - Scraping page 100: https://boardgamegeek.com/browse/boardgame/page/100
+2026-01-15 21:33:46 - __main__ - ERROR - Could not find collection div on page 100
+2026-01-15 21:33:48 - __main__ - INFO - Scraping page 101: https://boardgamegeek.com/browse/boardgame/page/101
+2026-01-15 21:33:49 - __main__ - ERROR - Could not find collection div on page 101
+2026-01-15 21:33:51 - __main__ - INFO - Scraping page 102: https://boardgamegeek.com/browse/boardgame/page/102
+2026-01-15 21:33:52 - __main__ - ERROR - Could not find collection div on page 102
+2026-01-15 21:33:54 - __main__ - INFO - Scraping page 103: https://boardgamegeek.com/browse/boardgame/page/103
+2026-01-15 21:33:55 - __main__ - ERROR - Could not find collection div on page 103
+2026-01-15 21:33:57 - __main__ - INFO - Scraping page 104: https://boardgamegeek.com/browse/boardgame/page/104
+2026-01-15 21:33:58 - __main__ - ERROR - Could not find collection div on page 104
+2026-01-15 21:34:00 - __main__ - INFO - Scraping page 105: https://boardgamegeek.com/browse/boardgame/page/105
+2026-01-15 21:34:02 - __main__ - ERROR - Could not find collection div on page 105
+2026-01-15 21:34:04 - __main__ - INFO - Scraping page 106: https://boardgamegeek.com/browse/boardgame/page/106
+2026-01-15 21:34:05 - __main__ - ERROR - Could not find collection div on page 106
+2026-01-15 21:34:07 - __main__ - INFO - Scraping page 107: https://boardgamegeek.com/browse/boardgame/page/107
+2026-01-15 21:34:08 - __main__ - ERROR - Could not find collection div on page 107
+2026-01-15 21:34:10 - __main__ - INFO - Scraping page 108: https://boardgamegeek.com/browse/boardgame/page/108
+2026-01-15 21:34:11 - __main__ - ERROR - Could not find collection div on page 108
+2026-01-15 21:34:13 - __main__ - INFO - Scraping page 109: https://boardgamegeek.com/browse/boardgame/page/109
+2026-01-15 21:34:14 - __main__ - ERROR - Could not find collection div on page 109
+2026-01-15 21:34:16 - __main__ - INFO - Scraping page 110: https://boardgamegeek.com/browse/boardgame/page/110
+2026-01-15 21:34:17 - __main__ - ERROR - Could not find collection div on page 110
+2026-01-15 21:34:19 - __main__ - INFO - Scraping page 111: https://boardgamegeek.com/browse/boardgame/page/111
+2026-01-15 21:34:20 - __main__ - ERROR - Could not find collection div on page 111
+2026-01-15 21:34:22 - __main__ - INFO - Scraping page 112: https://boardgamegeek.com/browse/boardgame/page/112
+2026-01-15 21:34:23 - __main__ - ERROR - Could not find collection div on page 112
+2026-01-15 21:34:25 - __main__ - INFO - Scraping page 113: https://boardgamegeek.com/browse/boardgame/page/113
+2026-01-15 21:34:27 - __main__ - ERROR - Could not find collection div on page 113
+2026-01-15 21:34:29 - __main__ - INFO - Scraping page 114: https://boardgamegeek.com/browse/boardgame/page/114
+2026-01-15 21:34:30 - __main__ - ERROR - Could not find collection div on page 114
+2026-01-15 21:34:32 - __main__ - INFO - Scraping page 115: https://boardgamegeek.com/browse/boardgame/page/115
+2026-01-15 21:34:33 - __main__ - ERROR - Could not find collection div on page 115
+2026-01-15 21:34:35 - __main__ - INFO - Scraping page 116: https://boardgamegeek.com/browse/boardgame/page/116
+2026-01-15 21:34:36 - __main__ - ERROR - Could not find collection div on page 116
+2026-01-15 21:34:38 - __main__ - INFO - Scraping page 117: https://boardgamegeek.com/browse/boardgame/page/117
+2026-01-15 21:34:39 - __main__ - ERROR - Could not find collection div on page 117
+2026-01-15 21:34:41 - __main__ - INFO - Scraping page 118: https://boardgamegeek.com/browse/boardgame/page/118
+2026-01-15 21:34:42 - __main__ - ERROR - Could not find collection div on page 118
+2026-01-15 21:34:44 - __main__ - INFO - Scraping page 119: https://boardgamegeek.com/browse/boardgame/page/119
+2026-01-15 21:34:45 - __main__ - ERROR - Could not find collection div on page 119
+2026-01-15 21:34:47 - __main__ - INFO - Scraping page 120: https://boardgamegeek.com/browse/boardgame/page/120
+2026-01-15 21:34:49 - __main__ - ERROR - Could not find collection div on page 120
+2026-01-15 21:34:51 - __main__ - INFO - Scraping page 121: https://boardgamegeek.com/browse/boardgame/page/121
+2026-01-15 21:34:52 - __main__ - ERROR - Could not find collection div on page 121
+2026-01-15 21:34:54 - __main__ - INFO - Scraping page 122: https://boardgamegeek.com/browse/boardgame/page/122
+2026-01-15 21:34:55 - __main__ - ERROR - Could not find collection div on page 122
+2026-01-15 21:34:57 - __main__ - INFO - Scraping page 123: https://boardgamegeek.com/browse/boardgame/page/123
+2026-01-15 21:34:58 - __main__ - ERROR - Could not find collection div on page 123
+2026-01-15 21:35:00 - __main__ - INFO - Scraping page 124: https://boardgamegeek.com/browse/boardgame/page/124
+2026-01-15 21:35:01 - __main__ - ERROR - Could not find collection div on page 124
+2026-01-15 21:35:03 - __main__ - INFO - Scraping page 125: https://boardgamegeek.com/browse/boardgame/page/125
+2026-01-15 21:35:05 - __main__ - ERROR - Could not find collection div on page 125
+2026-01-15 21:35:07 - __main__ - INFO - Scraping page 126: https://boardgamegeek.com/browse/boardgame/page/126
+2026-01-15 21:35:08 - __main__ - ERROR - Could not find collection div on page 126
+2026-01-15 21:35:10 - __main__ - INFO - Scraping page 127: https://boardgamegeek.com/browse/boardgame/page/127
+2026-01-15 21:35:11 - __main__ - ERROR - Could not find collection div on page 127
+2026-01-15 21:35:13 - __main__ - INFO - Scraping page 128: https://boardgamegeek.com/browse/boardgame/page/128
+2026-01-15 21:35:14 - __main__ - ERROR - Could not find collection div on page 128
+2026-01-15 21:35:16 - __main__ - INFO - Scraping page 129: https://boardgamegeek.com/browse/boardgame/page/129
+2026-01-15 21:35:18 - __main__ - ERROR - Could not find collection div on page 129
+2026-01-15 21:35:20 - __main__ - INFO - Scraping page 130: https://boardgamegeek.com/browse/boardgame/page/130
+2026-01-15 21:35:21 - __main__ - ERROR - Could not find collection div on page 130
+2026-01-15 21:35:23 - __main__ - INFO - Scraping page 131: https://boardgamegeek.com/browse/boardgame/page/131
+2026-01-15 21:35:24 - __main__ - ERROR - Could not find collection div on page 131
+2026-01-15 21:35:26 - __main__ - INFO - Scraping page 132: https://boardgamegeek.com/browse/boardgame/page/132
+2026-01-15 21:35:27 - __main__ - ERROR - Could not find collection div on page 132
+2026-01-15 21:35:29 - __main__ - INFO - Scraping page 133: https://boardgamegeek.com/browse/boardgame/page/133
+2026-01-15 21:35:30 - __main__ - ERROR - Could not find collection div on page 133
+2026-01-15 21:35:32 - __main__ - INFO - Scraping page 134: https://boardgamegeek.com/browse/boardgame/page/134
+2026-01-15 21:35:33 - __main__ - ERROR - Could not find collection div on page 134
+2026-01-15 21:35:35 - __main__ - INFO - Scraping page 135: https://boardgamegeek.com/browse/boardgame/page/135
+2026-01-15 21:35:37 - __main__ - ERROR - Could not find collection div on page 135
+2026-01-15 21:35:39 - __main__ - INFO - Scraping page 136: https://boardgamegeek.com/browse/boardgame/page/136
+2026-01-15 21:35:40 - __main__ - ERROR - Could not find collection div on page 136
+2026-01-15 21:35:42 - __main__ - INFO - Scraping page 137: https://boardgamegeek.com/browse/boardgame/page/137
+2026-01-15 21:35:43 - __main__ - ERROR - Could not find collection div on page 137
+2026-01-15 21:35:45 - __main__ - INFO - Scraping page 138: https://boardgamegeek.com/browse/boardgame/page/138
+2026-01-15 21:35:46 - __main__ - ERROR - Could not find collection div on page 138
+2026-01-15 21:35:48 - __main__ - INFO - Scraping page 139: https://boardgamegeek.com/browse/boardgame/page/139
+2026-01-15 21:35:49 - __main__ - ERROR - Could not find collection div on page 139
+2026-01-15 21:35:51 - __main__ - INFO - Scraping page 140: https://boardgamegeek.com/browse/boardgame/page/140
+2026-01-15 21:35:52 - __main__ - ERROR - Could not find collection div on page 140
+2026-01-15 21:35:54 - __main__ - INFO - Scraping page 141: https://boardgamegeek.com/browse/boardgame/page/141
+2026-01-15 21:35:56 - __main__ - ERROR - Could not find collection div on page 141
+2026-01-15 21:35:58 - __main__ - INFO - Scraping page 142: https://boardgamegeek.com/browse/boardgame/page/142
+2026-01-15 21:35:59 - __main__ - ERROR - Could not find collection div on page 142
+2026-01-15 21:36:01 - __main__ - INFO - Scraping page 143: https://boardgamegeek.com/browse/boardgame/page/143
+2026-01-15 21:36:02 - __main__ - ERROR - Could not find collection div on page 143
+2026-01-15 21:36:04 - __main__ - INFO - Scraping page 144: https://boardgamegeek.com/browse/boardgame/page/144
+2026-01-15 21:36:05 - __main__ - ERROR - Could not find collection div on page 144
+2026-01-15 21:36:07 - __main__ - INFO - Scraping page 145: https://boardgamegeek.com/browse/boardgame/page/145
+2026-01-15 21:36:08 - __main__ - ERROR - Could not find collection div on page 145
+2026-01-15 21:36:10 - __main__ - INFO - Scraping page 146: https://boardgamegeek.com/browse/boardgame/page/146
+2026-01-15 21:36:11 - __main__ - ERROR - Could not find collection div on page 146
+2026-01-15 21:36:13 - __main__ - INFO - Scraping page 147: https://boardgamegeek.com/browse/boardgame/page/147
+2026-01-15 21:36:15 - __main__ - ERROR - Could not find collection div on page 147
+2026-01-15 21:36:17 - __main__ - INFO - Scraping page 148: https://boardgamegeek.com/browse/boardgame/page/148
+2026-01-15 21:36:18 - __main__ - ERROR - Could not find collection div on page 148
+2026-01-15 21:36:20 - __main__ - INFO - Scraping page 149: https://boardgamegeek.com/browse/boardgame/page/149
+2026-01-15 21:36:21 - __main__ - ERROR - Could not find collection div on page 149
+2026-01-15 21:36:23 - __main__ - INFO - Scraping page 150: https://boardgamegeek.com/browse/boardgame/page/150
+2026-01-15 21:36:24 - __main__ - ERROR - Could not find collection div on page 150
+2026-01-15 21:36:26 - __main__ - INFO - Scraping page 151: https://boardgamegeek.com/browse/boardgame/page/151
+2026-01-15 21:36:27 - __main__ - ERROR - Could not find collection div on page 151
+2026-01-15 21:36:29 - __main__ - INFO - Scraping page 152: https://boardgamegeek.com/browse/boardgame/page/152
+2026-01-15 21:36:30 - __main__ - ERROR - Could not find collection div on page 152
+2026-01-15 21:36:32 - __main__ - INFO - Scraping page 153: https://boardgamegeek.com/browse/boardgame/page/153
+2026-01-15 21:36:34 - __main__ - ERROR - Could not find collection div on page 153
+2026-01-15 21:36:36 - __main__ - INFO - Scraping page 154: https://boardgamegeek.com/browse/boardgame/page/154
+2026-01-15 21:36:37 - __main__ - ERROR - Could not find collection div on page 154
+2026-01-15 21:36:39 - __main__ - INFO - Scraping page 155: https://boardgamegeek.com/browse/boardgame/page/155
+2026-01-15 21:36:40 - __main__ - ERROR - Could not find collection div on page 155
+2026-01-15 21:36:42 - __main__ - INFO - Scraping page 156: https://boardgamegeek.com/browse/boardgame/page/156
+2026-01-15 21:36:43 - __main__ - ERROR - Could not find collection div on page 156
+2026-01-15 21:36:45 - __main__ - INFO - Scraping page 157: https://boardgamegeek.com/browse/boardgame/page/157
+2026-01-15 21:36:46 - __main__ - ERROR - Could not find collection div on page 157
+2026-01-15 21:36:48 - __main__ - INFO - Scraping page 158: https://boardgamegeek.com/browse/boardgame/page/158
+2026-01-15 21:36:49 - __main__ - ERROR - Could not find collection div on page 158
+2026-01-15 21:36:51 - __main__ - INFO - Scraping page 159: https://boardgamegeek.com/browse/boardgame/page/159
+2026-01-15 21:36:52 - __main__ - ERROR - Could not find collection div on page 159
+2026-01-15 21:36:54 - __main__ - INFO - Scraping page 160: https://boardgamegeek.com/browse/boardgame/page/160
+2026-01-15 21:36:56 - __main__ - ERROR - Could not find collection div on page 160
+2026-01-15 21:36:58 - __main__ - INFO - Scraping page 161: https://boardgamegeek.com/browse/boardgame/page/161
+2026-01-15 21:36:59 - __main__ - ERROR - Could not find collection div on page 161
+2026-01-15 21:37:01 - __main__ - INFO - Scraping page 162: https://boardgamegeek.com/browse/boardgame/page/162
+2026-01-15 21:37:02 - __main__ - ERROR - Could not find collection div on page 162
+2026-01-15 21:37:04 - __main__ - INFO - Scraping page 163: https://boardgamegeek.com/browse/boardgame/page/163
+2026-01-15 21:37:05 - __main__ - ERROR - Could not find collection div on page 163
+2026-01-15 21:37:07 - __main__ - INFO - Scraping page 164: https://boardgamegeek.com/browse/boardgame/page/164
+2026-01-15 21:37:09 - __main__ - ERROR - Could not find collection div on page 164
+2026-01-15 21:37:11 - __main__ - INFO - Scraping page 165: https://boardgamegeek.com/browse/boardgame/page/165
+2026-01-15 21:37:12 - __main__ - ERROR - Could not find collection div on page 165
+2026-01-15 21:37:14 - __main__ - INFO - Scraping page 166: https://boardgamegeek.com/browse/boardgame/page/166
+2026-01-15 21:37:15 - __main__ - ERROR - Could not find collection div on page 166
+2026-01-15 21:37:17 - __main__ - INFO - Scraping page 167: https://boardgamegeek.com/browse/boardgame/page/167
+2026-01-15 21:37:18 - __main__ - ERROR - Could not find collection div on page 167
+2026-01-15 21:37:20 - __main__ - INFO - Scraping page 168: https://boardgamegeek.com/browse/boardgame/page/168
+2026-01-15 21:37:21 - __main__ - ERROR - Could not find collection div on page 168
+2026-01-15 21:37:23 - __main__ - INFO - Scraping page 169: https://boardgamegeek.com/browse/boardgame/page/169
+2026-01-15 21:37:24 - __main__ - ERROR - Could not find collection div on page 169
+2026-01-15 21:37:26 - __main__ - INFO - Scraping page 170: https://boardgamegeek.com/browse/boardgame/page/170
+2026-01-15 21:37:27 - __main__ - ERROR - Could not find collection div on page 170
+2026-01-15 21:37:29 - __main__ - INFO - Scraping page 171: https://boardgamegeek.com/browse/boardgame/page/171
+2026-01-15 21:37:31 - __main__ - ERROR - Could not find collection div on page 171
+2026-01-15 21:37:33 - __main__ - INFO - Scraping page 172: https://boardgamegeek.com/browse/boardgame/page/172
+2026-01-15 21:37:34 - __main__ - ERROR - Could not find collection div on page 172
+2026-01-15 21:37:36 - __main__ - INFO - Scraping page 173: https://boardgamegeek.com/browse/boardgame/page/173
+2026-01-15 21:37:37 - __main__ - ERROR - Could not find collection div on page 173
+2026-01-15 21:37:39 - __main__ - INFO - Scraping page 174: https://boardgamegeek.com/browse/boardgame/page/174
+2026-01-15 21:37:40 - __main__ - ERROR - Could not find collection div on page 174
+2026-01-15 21:37:42 - __main__ - INFO - Scraping page 175: https://boardgamegeek.com/browse/boardgame/page/175
+2026-01-15 21:37:43 - __main__ - ERROR - Could not find collection div on page 175
+2026-01-15 21:37:45 - __main__ - INFO - Scraping page 176: https://boardgamegeek.com/browse/boardgame/page/176
+2026-01-15 21:37:46 - __main__ - ERROR - Could not find collection div on page 176
+2026-01-15 21:37:48 - __main__ - INFO - Scraping page 177: https://boardgamegeek.com/browse/boardgame/page/177
+2026-01-15 21:37:49 - __main__ - ERROR - Could not find collection div on page 177
+2026-01-15 21:37:51 - __main__ - INFO - Scraping page 178: https://boardgamegeek.com/browse/boardgame/page/178
+2026-01-15 21:37:52 - __main__ - ERROR - Could not find collection div on page 178
+2026-01-15 21:37:54 - __main__ - INFO - Scraping page 179: https://boardgamegeek.com/browse/boardgame/page/179
+2026-01-15 21:37:55 - __main__ - ERROR - Could not find collection div on page 179
+2026-01-15 21:37:57 - __main__ - INFO - Scraping page 180: https://boardgamegeek.com/browse/boardgame/page/180
+2026-01-15 21:37:59 - __main__ - ERROR - Could not find collection div on page 180
+2026-01-15 21:38:01 - __main__ - INFO - Scraping page 181: https://boardgamegeek.com/browse/boardgame/page/181
+2026-01-15 21:38:02 - __main__ - ERROR - Could not find collection div on page 181
+2026-01-15 21:38:04 - __main__ - INFO - Scraping page 182: https://boardgamegeek.com/browse/boardgame/page/182
+2026-01-15 21:38:05 - __main__ - ERROR - Could not find collection div on page 182
+2026-01-15 21:38:07 - __main__ - INFO - Scraping page 183: https://boardgamegeek.com/browse/boardgame/page/183
+2026-01-15 21:38:08 - __main__ - ERROR - Could not find collection div on page 183
+2026-01-15 21:38:10 - __main__ - INFO - Scraping page 184: https://boardgamegeek.com/browse/boardgame/page/184
+2026-01-15 21:38:11 - __main__ - ERROR - Could not find collection div on page 184
+2026-01-15 21:38:13 - __main__ - INFO - Scraping page 185: https://boardgamegeek.com/browse/boardgame/page/185
+2026-01-15 21:38:14 - __main__ - ERROR - Could not find collection div on page 185
+2026-01-15 21:38:16 - __main__ - INFO - Scraping page 186: https://boardgamegeek.com/browse/boardgame/page/186
+2026-01-15 21:38:17 - __main__ - ERROR - Could not find collection div on page 186
+2026-01-15 21:38:19 - __main__ - INFO - Scraping page 187: https://boardgamegeek.com/browse/boardgame/page/187
+2026-01-15 21:38:20 - __main__ - ERROR - Could not find collection div on page 187
+2026-01-15 21:38:22 - __main__ - INFO - Scraping page 188: https://boardgamegeek.com/browse/boardgame/page/188
+2026-01-15 21:38:24 - __main__ - ERROR - Could not find collection div on page 188
+2026-01-15 21:38:26 - __main__ - INFO - Scraping page 189: https://boardgamegeek.com/browse/boardgame/page/189
+2026-01-15 21:38:27 - __main__ - ERROR - Could not find collection div on page 189
+2026-01-15 21:38:29 - __main__ - INFO - Scraping page 190: https://boardgamegeek.com/browse/boardgame/page/190
+2026-01-15 21:38:30 - __main__ - ERROR - Could not find collection div on page 190
+2026-01-15 21:38:32 - __main__ - INFO - Scraping page 191: https://boardgamegeek.com/browse/boardgame/page/191
+2026-01-15 21:38:33 - __main__ - ERROR - Could not find collection div on page 191
+2026-01-15 21:38:35 - __main__ - INFO - Scraping page 192: https://boardgamegeek.com/browse/boardgame/page/192
+2026-01-15 21:38:36 - __main__ - ERROR - Could not find collection div on page 192
+2026-01-15 21:38:38 - __main__ - INFO - Scraping page 193: https://boardgamegeek.com/browse/boardgame/page/193
+2026-01-15 21:38:39 - __main__ - ERROR - Could not find collection div on page 193
+2026-01-15 21:38:41 - __main__ - INFO - Scraping page 194: https://boardgamegeek.com/browse/boardgame/page/194
+2026-01-15 21:38:42 - __main__ - ERROR - Could not find collection div on page 194
+2026-01-15 21:38:44 - __main__ - INFO - Scraping page 195: https://boardgamegeek.com/browse/boardgame/page/195
+2026-01-15 21:38:45 - __main__ - ERROR - Could not find collection div on page 195
+2026-01-15 21:38:47 - __main__ - INFO - Scraping page 196: https://boardgamegeek.com/browse/boardgame/page/196
+2026-01-15 21:38:48 - __main__ - ERROR - Could not find collection div on page 196
+2026-01-15 21:38:50 - __main__ - INFO - Scraping page 197: https://boardgamegeek.com/browse/boardgame/page/197
+2026-01-15 21:38:52 - __main__ - ERROR - Could not find collection div on page 197
+2026-01-15 21:38:54 - __main__ - INFO - Scraping page 198: https://boardgamegeek.com/browse/boardgame/page/198
+2026-01-15 21:38:55 - __main__ - ERROR - Could not find collection div on page 198
+2026-01-15 21:38:57 - __main__ - INFO - Scraping page 199: https://boardgamegeek.com/browse/boardgame/page/199
+2026-01-15 21:38:58 - __main__ - ERROR - Could not find collection div on page 199
+2026-01-15 21:39:00 - __main__ - INFO - Scraping page 200: https://boardgamegeek.com/browse/boardgame/page/200
+2026-01-15 21:39:01 - __main__ - ERROR - Could not find collection div on page 200
+2026-01-15 21:39:03 - __main__ - INFO - Scraping page 201: https://boardgamegeek.com/browse/boardgame/page/201
+2026-01-15 21:39:04 - __main__ - ERROR - Could not find collection div on page 201
+2026-01-15 21:39:06 - __main__ - INFO - Scraping page 202: https://boardgamegeek.com/browse/boardgame/page/202
+2026-01-15 21:39:07 - __main__ - ERROR - Could not find collection div on page 202
+2026-01-15 21:39:09 - __main__ - INFO - Scraping page 203: https://boardgamegeek.com/browse/boardgame/page/203
+2026-01-15 21:39:10 - __main__ - ERROR - Could not find collection div on page 203
+2026-01-15 21:39:12 - __main__ - INFO - Scraping page 204: https://boardgamegeek.com/browse/boardgame/page/204
+2026-01-15 21:39:13 - __main__ - ERROR - Could not find collection div on page 204
+2026-01-15 21:39:15 - __main__ - INFO - Scraping page 205: https://boardgamegeek.com/browse/boardgame/page/205
+2026-01-15 21:39:16 - __main__ - ERROR - Could not find collection div on page 205
+2026-01-15 21:39:18 - __main__ - INFO - Scraping page 206: https://boardgamegeek.com/browse/boardgame/page/206
+2026-01-15 21:39:19 - __main__ - ERROR - Could not find collection div on page 206
+2026-01-15 21:39:21 - __main__ - INFO - Scraping page 207: https://boardgamegeek.com/browse/boardgame/page/207
+2026-01-15 21:39:22 - __main__ - ERROR - Could not find collection div on page 207
+2026-01-15 21:39:24 - __main__ - INFO - Scraping page 208: https://boardgamegeek.com/browse/boardgame/page/208
+2026-01-15 21:39:26 - __main__ - ERROR - Could not find collection div on page 208
+2026-01-15 21:39:28 - __main__ - INFO - Scraping page 209: https://boardgamegeek.com/browse/boardgame/page/209
+2026-01-15 21:39:29 - __main__ - ERROR - Could not find collection div on page 209
+2026-01-15 21:39:31 - __main__ - INFO - Scraping page 210: https://boardgamegeek.com/browse/boardgame/page/210
+2026-01-15 21:39:32 - __main__ - ERROR - Could not find collection div on page 210
+2026-01-15 21:39:34 - __main__ - INFO - Scraping page 211: https://boardgamegeek.com/browse/boardgame/page/211
+2026-01-15 21:39:35 - __main__ - ERROR - Could not find collection div on page 211
+2026-01-15 21:39:37 - __main__ - INFO - Scraping page 212: https://boardgamegeek.com/browse/boardgame/page/212
+2026-01-15 21:39:38 - __main__ - ERROR - Could not find collection div on page 212
+2026-01-15 21:39:40 - __main__ - INFO - Scraping page 213: https://boardgamegeek.com/browse/boardgame/page/213
+2026-01-15 21:39:41 - __main__ - ERROR - Could not find collection div on page 213
+2026-01-15 21:39:43 - __main__ - INFO - Scraping page 214: https://boardgamegeek.com/browse/boardgame/page/214
+2026-01-15 21:39:44 - __main__ - ERROR - Could not find collection div on page 214
+2026-01-15 21:39:46 - __main__ - INFO - Scraping page 215: https://boardgamegeek.com/browse/boardgame/page/215
+2026-01-15 21:39:47 - __main__ - ERROR - Could not find collection div on page 215
+2026-01-15 21:39:49 - __main__ - INFO - Scraping page 216: https://boardgamegeek.com/browse/boardgame/page/216
+2026-01-15 21:39:50 - __main__ - ERROR - Could not find collection div on page 216
+2026-01-15 21:39:52 - __main__ - INFO - Scraping page 217: https://boardgamegeek.com/browse/boardgame/page/217
+2026-01-15 21:39:53 - __main__ - ERROR - Could not find collection div on page 217
+2026-01-15 21:39:55 - __main__ - INFO - Scraping page 218: https://boardgamegeek.com/browse/boardgame/page/218
+2026-01-15 21:39:57 - __main__ - ERROR - Could not find collection div on page 218
+2026-01-15 21:39:59 - __main__ - INFO - Scraping page 219: https://boardgamegeek.com/browse/boardgame/page/219
+2026-01-15 21:40:00 - __main__ - ERROR - Could not find collection div on page 219
+2026-01-15 21:40:02 - __main__ - INFO - Scraping page 220: https://boardgamegeek.com/browse/boardgame/page/220
+2026-01-15 21:40:03 - __main__ - ERROR - Could not find collection div on page 220
+2026-01-15 21:40:05 - __main__ - INFO - Scraping page 221: https://boardgamegeek.com/browse/boardgame/page/221
+2026-01-15 21:40:06 - __main__ - ERROR - Could not find collection div on page 221
+2026-01-15 21:40:08 - __main__ - INFO - Scraping page 222: https://boardgamegeek.com/browse/boardgame/page/222
+2026-01-15 21:40:09 - __main__ - ERROR - Could not find collection div on page 222
+2026-01-15 21:40:11 - __main__ - INFO - Scraping page 223: https://boardgamegeek.com/browse/boardgame/page/223
+2026-01-15 21:40:12 - __main__ - ERROR - Could not find collection div on page 223
+2026-01-15 21:40:14 - __main__ - INFO - Scraping page 224: https://boardgamegeek.com/browse/boardgame/page/224
+2026-01-15 21:40:16 - __main__ - ERROR - Could not find collection div on page 224
+2026-01-15 21:40:18 - __main__ - INFO - Scraping page 225: https://boardgamegeek.com/browse/boardgame/page/225
+2026-01-15 21:40:19 - __main__ - ERROR - Could not find collection div on page 225
+2026-01-15 21:40:21 - __main__ - INFO - Scraping page 226: https://boardgamegeek.com/browse/boardgame/page/226
+2026-01-15 21:40:22 - __main__ - ERROR - Could not find collection div on page 226
+2026-01-15 21:40:24 - __main__ - INFO - Scraping page 227: https://boardgamegeek.com/browse/boardgame/page/227
+2026-01-15 21:40:25 - __main__ - ERROR - Could not find collection div on page 227
+2026-01-15 21:40:27 - __main__ - INFO - Scraping page 228: https://boardgamegeek.com/browse/boardgame/page/228
+2026-01-15 21:40:28 - __main__ - ERROR - Could not find collection div on page 228
+2026-01-15 21:40:30 - __main__ - INFO - Scraping page 229: https://boardgamegeek.com/browse/boardgame/page/229
+2026-01-15 21:40:31 - __main__ - ERROR - Could not find collection div on page 229
+2026-01-15 21:40:33 - __main__ - INFO - Scraping page 230: https://boardgamegeek.com/browse/boardgame/page/230
+2026-01-15 21:40:34 - __main__ - ERROR - Could not find collection div on page 230
+2026-01-15 21:40:36 - __main__ - INFO - Scraping page 231: https://boardgamegeek.com/browse/boardgame/page/231
+2026-01-15 21:40:37 - __main__ - ERROR - Could not find collection div on page 231
+2026-01-15 21:40:39 - __main__ - INFO - Scraping page 232: https://boardgamegeek.com/browse/boardgame/page/232
+2026-01-15 21:40:40 - __main__ - ERROR - Could not find collection div on page 232
+2026-01-15 21:40:42 - __main__ - INFO - Scraping page 233: https://boardgamegeek.com/browse/boardgame/page/233
+2026-01-15 21:40:43 - __main__ - ERROR - Could not find collection div on page 233
+2026-01-15 21:40:45 - __main__ - INFO - Scraping page 234: https://boardgamegeek.com/browse/boardgame/page/234
+2026-01-15 21:40:46 - __main__ - ERROR - Could not find collection div on page 234
+2026-01-15 21:40:48 - __main__ - INFO - Scraping page 235: https://boardgamegeek.com/browse/boardgame/page/235
+2026-01-15 21:40:50 - __main__ - ERROR - Could not find collection div on page 235
+2026-01-15 21:40:52 - __main__ - INFO - Scraping page 236: https://boardgamegeek.com/browse/boardgame/page/236
+2026-01-15 21:40:53 - __main__ - ERROR - Could not find collection div on page 236
+2026-01-15 21:40:55 - __main__ - INFO - Scraping page 237: https://boardgamegeek.com/browse/boardgame/page/237
+2026-01-15 21:40:56 - __main__ - ERROR - Could not find collection div on page 237
+2026-01-15 21:40:58 - __main__ - INFO - Scraping page 238: https://boardgamegeek.com/browse/boardgame/page/238
+2026-01-15 21:40:59 - __main__ - ERROR - Could not find collection div on page 238
+2026-01-15 21:41:01 - __main__ - INFO - Scraping page 239: https://boardgamegeek.com/browse/boardgame/page/239
+2026-01-15 21:41:02 - __main__ - ERROR - Could not find collection div on page 239
+2026-01-15 21:41:04 - __main__ - INFO - Scraping page 240: https://boardgamegeek.com/browse/boardgame/page/240
+2026-01-15 21:41:05 - __main__ - ERROR - Could not find collection div on page 240
+2026-01-15 21:41:07 - __main__ - INFO - Scraping page 241: https://boardgamegeek.com/browse/boardgame/page/241
+2026-01-15 21:41:09 - __main__ - ERROR - Could not find collection div on page 241
+2026-01-15 21:41:11 - __main__ - INFO - Scraping page 242: https://boardgamegeek.com/browse/boardgame/page/242
+2026-01-15 21:41:12 - __main__ - ERROR - Could not find collection div on page 242
+2026-01-15 21:41:14 - __main__ - INFO - Scraping page 243: https://boardgamegeek.com/browse/boardgame/page/243
+2026-01-15 21:41:15 - __main__ - ERROR - Could not find collection div on page 243
+2026-01-15 21:41:17 - __main__ - INFO - Scraping page 244: https://boardgamegeek.com/browse/boardgame/page/244
+2026-01-15 21:41:18 - __main__ - ERROR - Could not find collection div on page 244
+2026-01-15 21:41:20 - __main__ - INFO - Scraping page 245: https://boardgamegeek.com/browse/boardgame/page/245
+2026-01-15 21:41:21 - __main__ - ERROR - Could not find collection div on page 245
+2026-01-15 21:41:23 - __main__ - INFO - Scraping page 246: https://boardgamegeek.com/browse/boardgame/page/246
+2026-01-15 21:41:24 - __main__ - ERROR - Could not find collection div on page 246
+2026-01-15 21:41:26 - __main__ - INFO - Scraping page 247: https://boardgamegeek.com/browse/boardgame/page/247
+2026-01-15 21:41:27 - __main__ - ERROR - Could not find collection div on page 247
+2026-01-15 21:41:29 - __main__ - INFO - Scraping page 248: https://boardgamegeek.com/browse/boardgame/page/248
+2026-01-15 21:41:31 - __main__ - ERROR - Could not find collection div on page 248
+2026-01-15 21:41:33 - __main__ - INFO - Scraping page 249: https://boardgamegeek.com/browse/boardgame/page/249
+2026-01-15 21:41:34 - __main__ - ERROR - Could not find collection div on page 249
+2026-01-15 21:41:36 - __main__ - INFO - Scraping page 250: https://boardgamegeek.com/browse/boardgame/page/250
+2026-01-15 21:41:37 - __main__ - ERROR - Could not find collection div on page 250
+2026-01-15 21:41:39 - __main__ - INFO - Scraping page 251: https://boardgamegeek.com/browse/boardgame/page/251
+2026-01-15 21:41:40 - __main__ - ERROR - Could not find collection div on page 251
+2026-01-15 21:41:42 - __main__ - INFO - Scraping page 252: https://boardgamegeek.com/browse/boardgame/page/252
+2026-01-15 21:41:43 - __main__ - ERROR - Could not find collection div on page 252
+2026-01-15 21:41:45 - __main__ - INFO - Scraping page 253: https://boardgamegeek.com/browse/boardgame/page/253
+2026-01-15 21:41:47 - __main__ - ERROR - Could not find collection div on page 253
+2026-01-15 21:41:49 - __main__ - INFO - Scraping page 254: https://boardgamegeek.com/browse/boardgame/page/254
+2026-01-15 21:41:50 - __main__ - ERROR - Could not find collection div on page 254
+2026-01-15 21:41:52 - __main__ - INFO - Scraping page 255: https://boardgamegeek.com/browse/boardgame/page/255
+2026-01-15 21:41:53 - __main__ - ERROR - Could not find collection div on page 255
+2026-01-15 21:41:55 - __main__ - INFO - Scraping page 256: https://boardgamegeek.com/browse/boardgame/page/256
+2026-01-15 21:41:56 - __main__ - ERROR - Could not find collection div on page 256
+2026-01-15 21:41:58 - __main__ - INFO - Scraping page 257: https://boardgamegeek.com/browse/boardgame/page/257
+2026-01-15 21:41:59 - __main__ - ERROR - Could not find collection div on page 257
+2026-01-15 21:42:01 - __main__ - INFO - Scraping page 258: https://boardgamegeek.com/browse/boardgame/page/258
+2026-01-15 21:42:02 - __main__ - ERROR - Could not find collection div on page 258
+2026-01-15 21:42:04 - __main__ - INFO - Scraping page 259: https://boardgamegeek.com/browse/boardgame/page/259
+2026-01-15 21:42:05 - __main__ - ERROR - Could not find collection div on page 259
+2026-01-15 21:42:07 - __main__ - INFO - Scraping page 260: https://boardgamegeek.com/browse/boardgame/page/260
+2026-01-15 21:42:09 - __main__ - ERROR - Could not find collection div on page 260
+2026-01-15 21:42:11 - __main__ - INFO - Scraping page 261: https://boardgamegeek.com/browse/boardgame/page/261
+2026-01-15 21:42:12 - __main__ - ERROR - Could not find collection div on page 261
+2026-01-15 21:42:14 - __main__ - INFO - Scraping page 262: https://boardgamegeek.com/browse/boardgame/page/262
+2026-01-15 21:42:15 - __main__ - ERROR - Could not find collection div on page 262
+2026-01-15 21:42:17 - __main__ - INFO - Scraping page 263: https://boardgamegeek.com/browse/boardgame/page/263
+2026-01-15 21:42:18 - __main__ - ERROR - Could not find collection div on page 263
+2026-01-15 21:42:20 - __main__ - INFO - Scraping page 264: https://boardgamegeek.com/browse/boardgame/page/264
+2026-01-15 21:42:22 - __main__ - ERROR - Could not find collection div on page 264
+2026-01-15 21:42:24 - __main__ - INFO - Scraping page 265: https://boardgamegeek.com/browse/boardgame/page/265
+2026-01-15 21:42:25 - __main__ - ERROR - Could not find collection div on page 265
+2026-01-15 21:42:27 - __main__ - INFO - Scraping page 266: https://boardgamegeek.com/browse/boardgame/page/266
+2026-01-15 21:42:28 - __main__ - ERROR - Could not find collection div on page 266
+2026-01-15 21:42:30 - __main__ - INFO - Scraping page 267: https://boardgamegeek.com/browse/boardgame/page/267
+2026-01-15 21:42:31 - __main__ - ERROR - Could not find collection div on page 267
+2026-01-15 21:42:33 - __main__ - INFO - Scraping page 268: https://boardgamegeek.com/browse/boardgame/page/268
+2026-01-15 21:42:34 - __main__ - ERROR - Could not find collection div on page 268
+2026-01-15 21:42:36 - __main__ - INFO - Scraping page 269: https://boardgamegeek.com/browse/boardgame/page/269
+2026-01-15 21:42:37 - __main__ - ERROR - Could not find collection div on page 269
+2026-01-15 21:42:39 - __main__ - INFO - Scraping page 270: https://boardgamegeek.com/browse/boardgame/page/270
+2026-01-15 21:42:40 - __main__ - ERROR - Could not find collection div on page 270
+2026-01-15 21:42:42 - __main__ - INFO - Scraping page 271: https://boardgamegeek.com/browse/boardgame/page/271
+2026-01-15 21:42:43 - __main__ - ERROR - Could not find collection div on page 271
+2026-01-15 21:42:45 - __main__ - INFO - Scraping page 272: https://boardgamegeek.com/browse/boardgame/page/272
+2026-01-15 21:42:46 - __main__ - ERROR - Could not find collection div on page 272
+2026-01-15 21:42:48 - __main__ - INFO - Scraping page 273: https://boardgamegeek.com/browse/boardgame/page/273
+2026-01-15 21:42:50 - __main__ - ERROR - Could not find collection div on page 273
+2026-01-15 21:42:52 - __main__ - INFO - Scraping page 274: https://boardgamegeek.com/browse/boardgame/page/274
+2026-01-15 21:42:53 - __main__ - ERROR - Could not find collection div on page 274
+2026-01-15 21:42:55 - __main__ - INFO - Scraping page 275: https://boardgamegeek.com/browse/boardgame/page/275
+2026-01-15 21:42:56 - __main__ - ERROR - Could not find collection div on page 275
+2026-01-15 21:42:58 - __main__ - INFO - Scraping page 276: https://boardgamegeek.com/browse/boardgame/page/276
+2026-01-15 21:42:59 - __main__ - ERROR - Could not find collection div on page 276
+2026-01-15 21:43:01 - __main__ - INFO - Scraping page 277: https://boardgamegeek.com/browse/boardgame/page/277
+2026-01-15 21:43:02 - __main__ - ERROR - Could not find collection div on page 277
+2026-01-15 21:43:04 - __main__ - INFO - Scraping page 278: https://boardgamegeek.com/browse/boardgame/page/278
+2026-01-15 21:43:05 - __main__ - ERROR - Could not find collection div on page 278
+2026-01-15 21:43:07 - __main__ - INFO - Scraping page 279: https://boardgamegeek.com/browse/boardgame/page/279
+2026-01-15 21:43:08 - __main__ - ERROR - Could not find collection div on page 279
+2026-01-15 21:43:10 - __main__ - INFO - Scraping page 280: https://boardgamegeek.com/browse/boardgame/page/280
+2026-01-15 21:43:11 - __main__ - ERROR - Could not find collection div on page 280
+2026-01-15 21:43:13 - __main__ - INFO - Scraping page 281: https://boardgamegeek.com/browse/boardgame/page/281
+2026-01-15 21:43:14 - __main__ - ERROR - Could not find collection div on page 281
+2026-01-15 21:43:16 - __main__ - INFO - Scraping page 282: https://boardgamegeek.com/browse/boardgame/page/282
+2026-01-15 21:43:17 - __main__ - ERROR - Could not find collection div on page 282
+2026-01-15 21:43:19 - __main__ - INFO - Scraping page 283: https://boardgamegeek.com/browse/boardgame/page/283
+2026-01-15 21:43:21 - __main__ - ERROR - Could not find collection div on page 283
+2026-01-15 21:43:23 - __main__ - INFO - Scraping page 284: https://boardgamegeek.com/browse/boardgame/page/284
+2026-01-15 21:43:24 - __main__ - ERROR - Could not find collection div on page 284
+2026-01-15 21:43:26 - __main__ - INFO - Scraping page 285: https://boardgamegeek.com/browse/boardgame/page/285
+2026-01-15 21:43:27 - __main__ - ERROR - Could not find collection div on page 285
+2026-01-15 21:43:29 - __main__ - INFO - Scraping page 286: https://boardgamegeek.com/browse/boardgame/page/286
+2026-01-15 21:43:30 - __main__ - ERROR - Could not find collection div on page 286
+2026-01-15 21:43:32 - __main__ - INFO - Scraping page 287: https://boardgamegeek.com/browse/boardgame/page/287
+2026-01-15 21:43:33 - __main__ - ERROR - Could not find collection div on page 287
+2026-01-15 21:43:35 - __main__ - INFO - Scraping page 288: https://boardgamegeek.com/browse/boardgame/page/288
+2026-01-15 21:43:36 - __main__ - ERROR - Could not find collection div on page 288
+2026-01-15 21:43:38 - __main__ - INFO - Scraping page 289: https://boardgamegeek.com/browse/boardgame/page/289
+2026-01-15 21:43:39 - __main__ - ERROR - Could not find collection div on page 289
+2026-01-15 21:43:41 - __main__ - INFO - Scraping page 290: https://boardgamegeek.com/browse/boardgame/page/290
+2026-01-15 21:43:43 - __main__ - ERROR - Could not find collection div on page 290
+2026-01-15 21:43:45 - __main__ - INFO - Scraping page 291: https://boardgamegeek.com/browse/boardgame/page/291
+2026-01-15 21:43:46 - __main__ - ERROR - Could not find collection div on page 291
+2026-01-15 21:43:48 - __main__ - INFO - Scraping page 292: https://boardgamegeek.com/browse/boardgame/page/292
+2026-01-15 21:43:49 - __main__ - ERROR - Could not find collection div on page 292
+2026-01-15 21:43:51 - __main__ - INFO - Scraping page 293: https://boardgamegeek.com/browse/boardgame/page/293
+2026-01-15 21:43:52 - __main__ - ERROR - Could not find collection div on page 293
+2026-01-15 21:43:54 - __main__ - INFO - Scraping page 294: https://boardgamegeek.com/browse/boardgame/page/294
+2026-01-15 21:43:55 - __main__ - ERROR - Could not find collection div on page 294
+2026-01-15 21:43:57 - __main__ - INFO - Scraping page 295: https://boardgamegeek.com/browse/boardgame/page/295
+2026-01-15 21:43:58 - __main__ - ERROR - Could not find collection div on page 295
+2026-01-15 21:44:00 - __main__ - INFO - Scraping page 296: https://boardgamegeek.com/browse/boardgame/page/296
+2026-01-15 21:44:01 - __main__ - ERROR - Could not find collection div on page 296
+2026-01-15 21:44:03 - __main__ - INFO - Scraping page 297: https://boardgamegeek.com/browse/boardgame/page/297
+2026-01-15 21:44:05 - __main__ - ERROR - Could not find collection div on page 297
+2026-01-15 21:44:07 - __main__ - INFO - Scraping page 298: https://boardgamegeek.com/browse/boardgame/page/298
+2026-01-15 21:44:08 - __main__ - ERROR - Could not find collection div on page 298
+2026-01-15 21:44:10 - __main__ - INFO - Scraping page 299: https://boardgamegeek.com/browse/boardgame/page/299
+2026-01-15 21:44:11 - __main__ - ERROR - Could not find collection div on page 299
+2026-01-15 21:44:13 - __main__ - INFO - Scraping page 300: https://boardgamegeek.com/browse/boardgame/page/300
+2026-01-15 21:44:14 - __main__ - ERROR - Could not find collection div on page 300
+2026-01-15 21:44:16 - __main__ - INFO - Scraping page 301: https://boardgamegeek.com/browse/boardgame/page/301
+2026-01-15 21:44:17 - __main__ - ERROR - Could not find collection div on page 301
+2026-01-15 21:44:19 - __main__ - INFO - Scraping page 302: https://boardgamegeek.com/browse/boardgame/page/302
+2026-01-15 21:44:20 - __main__ - ERROR - Could not find collection div on page 302
+2026-01-15 21:44:22 - __main__ - INFO - Scraping page 303: https://boardgamegeek.com/browse/boardgame/page/303
+2026-01-15 21:44:23 - __main__ - ERROR - Could not find collection div on page 303
+2026-01-15 21:44:25 - __main__ - INFO - Scraping page 304: https://boardgamegeek.com/browse/boardgame/page/304
+2026-01-15 21:44:26 - __main__ - ERROR - Could not find collection div on page 304
+2026-01-15 21:44:28 - __main__ - INFO - Scraping page 305: https://boardgamegeek.com/browse/boardgame/page/305
+2026-01-15 21:44:30 - __main__ - ERROR - Could not find collection div on page 305
+2026-01-15 21:44:32 - __main__ - INFO - Scraping page 306: https://boardgamegeek.com/browse/boardgame/page/306
+2026-01-15 21:44:33 - __main__ - ERROR - Could not find collection div on page 306
+2026-01-15 21:44:35 - __main__ - INFO - Scraping page 307: https://boardgamegeek.com/browse/boardgame/page/307
+2026-01-15 21:44:36 - __main__ - ERROR - Could not find collection div on page 307
+2026-01-15 21:44:38 - __main__ - INFO - Scraping page 308: https://boardgamegeek.com/browse/boardgame/page/308
+2026-01-15 21:44:39 - __main__ - ERROR - Could not find collection div on page 308
+2026-01-15 21:44:41 - __main__ - INFO - Scraping page 309: https://boardgamegeek.com/browse/boardgame/page/309
+2026-01-15 21:44:42 - __main__ - ERROR - Could not find collection div on page 309
+2026-01-15 21:44:44 - __main__ - INFO - Scraping page 310: https://boardgamegeek.com/browse/boardgame/page/310
+2026-01-15 21:44:45 - __main__ - ERROR - Could not find collection div on page 310
+2026-01-15 21:44:47 - __main__ - INFO - Scraping page 311: https://boardgamegeek.com/browse/boardgame/page/311
+2026-01-15 21:44:48 - __main__ - ERROR - Could not find collection div on page 311
+2026-01-15 21:44:50 - __main__ - INFO - Scraping page 312: https://boardgamegeek.com/browse/boardgame/page/312
+2026-01-15 21:44:51 - __main__ - ERROR - Could not find collection div on page 312
+2026-01-15 21:44:53 - __main__ - INFO - Scraping page 313: https://boardgamegeek.com/browse/boardgame/page/313
+2026-01-15 21:44:54 - __main__ - ERROR - Could not find collection div on page 313
+2026-01-15 21:44:56 - __main__ - INFO - Scraping page 314: https://boardgamegeek.com/browse/boardgame/page/314
+2026-01-15 21:44:57 - __main__ - ERROR - Could not find collection div on page 314
+2026-01-15 21:44:59 - __main__ - INFO - Scraping page 315: https://boardgamegeek.com/browse/boardgame/page/315
+2026-01-15 21:45:01 - __main__ - ERROR - Could not find collection div on page 315
+2026-01-15 21:45:03 - __main__ - INFO - Scraping page 316: https://boardgamegeek.com/browse/boardgame/page/316
+2026-01-15 21:45:04 - __main__ - ERROR - Could not find collection div on page 316
+2026-01-15 21:45:06 - __main__ - INFO - Scraping page 317: https://boardgamegeek.com/browse/boardgame/page/317
+2026-01-15 21:45:07 - __main__ - ERROR - Could not find collection div on page 317
+2026-01-15 21:45:09 - __main__ - INFO - Scraping page 318: https://boardgamegeek.com/browse/boardgame/page/318
+2026-01-15 21:45:10 - __main__ - ERROR - Could not find collection div on page 318
+2026-01-15 21:45:12 - __main__ - INFO - Scraping page 319: https://boardgamegeek.com/browse/boardgame/page/319
+2026-01-15 21:45:13 - __main__ - ERROR - Could not find collection div on page 319
+2026-01-15 21:45:15 - __main__ - INFO - Scraping page 320: https://boardgamegeek.com/browse/boardgame/page/320
+2026-01-15 21:45:16 - __main__ - ERROR - Could not find collection div on page 320
+2026-01-15 21:45:18 - __main__ - INFO - Scraping page 321: https://boardgamegeek.com/browse/boardgame/page/321
+2026-01-15 21:45:19 - __main__ - ERROR - Could not find collection div on page 321
+2026-01-15 21:45:21 - __main__ - INFO - Scraping page 322: https://boardgamegeek.com/browse/boardgame/page/322
+2026-01-15 21:45:22 - __main__ - ERROR - Could not find collection div on page 322
+2026-01-15 21:45:24 - __main__ - INFO - Scraping page 323: https://boardgamegeek.com/browse/boardgame/page/323
+2026-01-15 21:45:25 - __main__ - ERROR - Could not find collection div on page 323
+2026-01-15 21:45:27 - __main__ - INFO - Scraping page 324: https://boardgamegeek.com/browse/boardgame/page/324
+2026-01-15 21:45:28 - __main__ - ERROR - Could not find collection div on page 324
+2026-01-15 21:45:30 - __main__ - INFO - Scraping page 325: https://boardgamegeek.com/browse/boardgame/page/325
+2026-01-15 21:45:32 - __main__ - ERROR - Could not find collection div on page 325
+2026-01-15 21:45:34 - __main__ - INFO - Scraping page 326: https://boardgamegeek.com/browse/boardgame/page/326
+2026-01-15 21:45:35 - __main__ - ERROR - Could not find collection div on page 326
+2026-01-15 21:45:37 - __main__ - INFO - Scraping page 327: https://boardgamegeek.com/browse/boardgame/page/327
+2026-01-15 21:45:38 - __main__ - ERROR - Could not find collection div on page 327
+2026-01-15 21:45:40 - __main__ - INFO - Scraping page 328: https://boardgamegeek.com/browse/boardgame/page/328
+2026-01-15 21:45:41 - __main__ - ERROR - Could not find collection div on page 328
+2026-01-15 21:45:43 - __main__ - INFO - Scraping page 329: https://boardgamegeek.com/browse/boardgame/page/329
+2026-01-15 21:45:44 - __main__ - ERROR - Could not find collection div on page 329
+2026-01-15 21:45:46 - __main__ - INFO - Scraping page 330: https://boardgamegeek.com/browse/boardgame/page/330
+2026-01-15 21:45:47 - __main__ - ERROR - Could not find collection div on page 330
+2026-01-15 21:45:49 - __main__ - INFO - Scraping page 331: https://boardgamegeek.com/browse/boardgame/page/331
+2026-01-15 21:45:50 - __main__ - ERROR - Could not find collection div on page 331
+2026-01-15 21:45:52 - __main__ - INFO - Scraping page 332: https://boardgamegeek.com/browse/boardgame/page/332
+2026-01-15 21:45:54 - __main__ - ERROR - Could not find collection div on page 332
+2026-01-15 21:45:56 - __main__ - INFO - Scraping page 333: https://boardgamegeek.com/browse/boardgame/page/333
+2026-01-15 21:45:57 - __main__ - ERROR - Could not find collection div on page 333
+2026-01-15 21:45:59 - __main__ - INFO - Scraping page 334: https://boardgamegeek.com/browse/boardgame/page/334
+2026-01-15 21:46:00 - __main__ - ERROR - Could not find collection div on page 334
+2026-01-15 21:46:02 - __main__ - INFO - Scraping page 335: https://boardgamegeek.com/browse/boardgame/page/335
+2026-01-15 21:46:03 - __main__ - ERROR - Could not find collection div on page 335
+2026-01-15 21:46:05 - __main__ - INFO - Scraping page 336: https://boardgamegeek.com/browse/boardgame/page/336
+2026-01-15 21:46:06 - __main__ - ERROR - Could not find collection div on page 336
+2026-01-15 21:46:08 - __main__ - INFO - Scraping page 337: https://boardgamegeek.com/browse/boardgame/page/337
+2026-01-15 21:46:09 - __main__ - ERROR - Could not find collection div on page 337
+2026-01-15 21:46:11 - __main__ - INFO - Scraping page 338: https://boardgamegeek.com/browse/boardgame/page/338
+2026-01-15 21:46:13 - __main__ - ERROR - Could not find collection div on page 338
+2026-01-15 21:46:15 - __main__ - INFO - Scraping page 339: https://boardgamegeek.com/browse/boardgame/page/339
+2026-01-15 21:46:16 - __main__ - ERROR - Could not find collection div on page 339
+2026-01-15 21:46:18 - __main__ - INFO - Scraping page 340: https://boardgamegeek.com/browse/boardgame/page/340
+2026-01-15 21:46:19 - __main__ - ERROR - Could not find collection div on page 340
+2026-01-15 21:46:21 - __main__ - INFO - Scraping page 341: https://boardgamegeek.com/browse/boardgame/page/341
+2026-01-15 21:46:22 - __main__ - ERROR - Could not find collection div on page 341
+2026-01-15 21:46:24 - __main__ - INFO - Scraping page 342: https://boardgamegeek.com/browse/boardgame/page/342
+2026-01-15 21:46:25 - __main__ - ERROR - Could not find collection div on page 342
+2026-01-15 21:46:27 - __main__ - INFO - Scraping page 343: https://boardgamegeek.com/browse/boardgame/page/343
+2026-01-15 21:46:28 - __main__ - ERROR - Could not find collection div on page 343
+2026-01-15 21:46:30 - __main__ - INFO - Scraping page 344: https://boardgamegeek.com/browse/boardgame/page/344
+2026-01-15 21:46:31 - __main__ - ERROR - Could not find collection div on page 344
+2026-01-15 21:46:33 - __main__ - INFO - Scraping page 345: https://boardgamegeek.com/browse/boardgame/page/345
+2026-01-15 21:46:34 - __main__ - ERROR - Could not find collection div on page 345
+2026-01-15 21:46:36 - __main__ - INFO - Scraping page 346: https://boardgamegeek.com/browse/boardgame/page/346
+2026-01-15 21:46:37 - __main__ - ERROR - Could not find collection div on page 346
+2026-01-15 21:46:39 - __main__ - INFO - Scraping page 347: https://boardgamegeek.com/browse/boardgame/page/347
+2026-01-15 21:46:41 - __main__ - ERROR - Could not find collection div on page 347
+2026-01-15 21:46:43 - __main__ - INFO - Scraping page 348: https://boardgamegeek.com/browse/boardgame/page/348
+2026-01-15 21:46:44 - __main__ - ERROR - Could not find collection div on page 348
+2026-01-15 21:46:46 - __main__ - INFO - Scraping page 349: https://boardgamegeek.com/browse/boardgame/page/349
+2026-01-15 21:46:47 - __main__ - ERROR - Could not find collection div on page 349
+2026-01-15 21:46:49 - __main__ - INFO - Scraping page 350: https://boardgamegeek.com/browse/boardgame/page/350
+2026-01-15 21:46:50 - __main__ - ERROR - Could not find collection div on page 350
+2026-01-15 21:46:52 - __main__ - INFO - Scraping page 351: https://boardgamegeek.com/browse/boardgame/page/351
+2026-01-15 21:46:53 - __main__ - ERROR - Could not find collection div on page 351
+2026-01-15 21:46:55 - __main__ - INFO - Scraping page 352: https://boardgamegeek.com/browse/boardgame/page/352
+2026-01-15 21:46:56 - __main__ - ERROR - Could not find collection div on page 352
+2026-01-15 21:46:58 - __main__ - INFO - Scraping page 353: https://boardgamegeek.com/browse/boardgame/page/353
+2026-01-15 21:46:59 - __main__ - ERROR - Could not find collection div on page 353
+2026-01-15 21:47:01 - __main__ - INFO - Scraping page 354: https://boardgamegeek.com/browse/boardgame/page/354
+2026-01-15 21:47:02 - __main__ - ERROR - Could not find collection div on page 354
+2026-01-15 21:47:04 - __main__ - INFO - Scraping page 355: https://boardgamegeek.com/browse/boardgame/page/355
+2026-01-15 21:47:05 - __main__ - ERROR - Could not find collection div on page 355
+2026-01-15 21:47:08 - __main__ - INFO - Scraping page 356: https://boardgamegeek.com/browse/boardgame/page/356
+2026-01-15 21:47:09 - __main__ - ERROR - Could not find collection div on page 356
+2026-01-15 21:47:11 - __main__ - INFO - Scraping page 357: https://boardgamegeek.com/browse/boardgame/page/357
+2026-01-15 21:47:12 - __main__ - ERROR - Could not find collection div on page 357
+2026-01-15 21:47:14 - __main__ - INFO - Scraping page 358: https://boardgamegeek.com/browse/boardgame/page/358
+2026-01-15 21:47:15 - __main__ - ERROR - Could not find collection div on page 358
+2026-01-15 21:47:17 - __main__ - INFO - Scraping page 359: https://boardgamegeek.com/browse/boardgame/page/359
+2026-01-15 21:47:18 - __main__ - ERROR - Could not find collection div on page 359
+2026-01-15 21:47:20 - __main__ - INFO - Scraping page 360: https://boardgamegeek.com/browse/boardgame/page/360
+2026-01-15 21:47:21 - __main__ - ERROR - Could not find collection div on page 360
+2026-01-15 21:47:23 - __main__ - INFO - Scraping page 361: https://boardgamegeek.com/browse/boardgame/page/361
+2026-01-15 21:47:24 - __main__ - ERROR - Could not find collection div on page 361
+2026-01-15 21:47:26 - __main__ - INFO - Scraping page 362: https://boardgamegeek.com/browse/boardgame/page/362
+2026-01-15 21:47:27 - __main__ - ERROR - Could not find collection div on page 362
+2026-01-15 21:47:29 - __main__ - INFO - Scraping page 363: https://boardgamegeek.com/browse/boardgame/page/363
+2026-01-15 21:47:30 - __main__ - ERROR - Could not find collection div on page 363
+2026-01-15 21:47:32 - __main__ - INFO - Scraping page 364: https://boardgamegeek.com/browse/boardgame/page/364
+2026-01-15 21:47:33 - __main__ - ERROR - Could not find collection div on page 364
+2026-01-15 21:47:35 - __main__ - INFO - Scraping page 365: https://boardgamegeek.com/browse/boardgame/page/365
+2026-01-15 21:47:37 - __main__ - ERROR - Could not find collection div on page 365
+2026-01-15 21:47:39 - __main__ - INFO - Scraping page 366: https://boardgamegeek.com/browse/boardgame/page/366
+2026-01-15 21:47:40 - __main__ - ERROR - Could not find collection div on page 366
+2026-01-15 21:47:42 - __main__ - INFO - Scraping page 367: https://boardgamegeek.com/browse/boardgame/page/367
+2026-01-15 21:47:43 - __main__ - ERROR - Could not find collection div on page 367
+2026-01-15 21:47:45 - __main__ - INFO - Scraping page 368: https://boardgamegeek.com/browse/boardgame/page/368
+2026-01-15 21:47:46 - __main__ - ERROR - Could not find collection div on page 368
+2026-01-15 21:47:48 - __main__ - INFO - Scraping page 369: https://boardgamegeek.com/browse/boardgame/page/369
+2026-01-15 21:47:49 - __main__ - ERROR - Could not find collection div on page 369
+2026-01-15 21:47:51 - __main__ - INFO - Scraping page 370: https://boardgamegeek.com/browse/boardgame/page/370
+2026-01-15 21:47:52 - __main__ - ERROR - Could not find collection div on page 370
+2026-01-15 21:47:54 - __main__ - INFO - Scraping page 371: https://boardgamegeek.com/browse/boardgame/page/371
+2026-01-15 21:47:56 - __main__ - ERROR - Could not find collection div on page 371
+2026-01-15 21:47:58 - __main__ - INFO - Scraping page 372: https://boardgamegeek.com/browse/boardgame/page/372
+2026-01-15 21:47:59 - __main__ - ERROR - Could not find collection div on page 372
+2026-01-15 21:48:01 - __main__ - INFO - Scraping page 373: https://boardgamegeek.com/browse/boardgame/page/373
+2026-01-15 21:48:02 - __main__ - ERROR - Could not find collection div on page 373
+2026-01-15 21:48:04 - __main__ - INFO - Scraping page 374: https://boardgamegeek.com/browse/boardgame/page/374
+2026-01-15 21:48:05 - __main__ - ERROR - Could not find collection div on page 374
+2026-01-15 21:48:07 - __main__ - INFO - Scraping page 375: https://boardgamegeek.com/browse/boardgame/page/375
+2026-01-15 21:48:08 - __main__ - ERROR - Could not find collection div on page 375
+2026-01-15 21:48:10 - __main__ - INFO - Scraping page 376: https://boardgamegeek.com/browse/boardgame/page/376
+2026-01-15 21:48:11 - __main__ - ERROR - Could not find collection div on page 376
+2026-01-15 21:48:13 - __main__ - INFO - Scraping page 377: https://boardgamegeek.com/browse/boardgame/page/377
+2026-01-15 21:48:14 - __main__ - ERROR - Could not find collection div on page 377
+2026-01-15 21:48:16 - __main__ - INFO - Scraping page 378: https://boardgamegeek.com/browse/boardgame/page/378
+2026-01-15 21:48:18 - __main__ - ERROR - Could not find collection div on page 378
+2026-01-15 21:48:20 - __main__ - INFO - Scraping page 379: https://boardgamegeek.com/browse/boardgame/page/379
+2026-01-15 21:48:21 - __main__ - ERROR - Could not find collection div on page 379
+2026-01-15 21:48:23 - __main__ - INFO - Scraping page 380: https://boardgamegeek.com/browse/boardgame/page/380
+2026-01-15 21:48:24 - __main__ - ERROR - Could not find collection div on page 380
+2026-01-15 21:48:26 - __main__ - INFO - Scraping page 381: https://boardgamegeek.com/browse/boardgame/page/381
+2026-01-15 21:48:27 - __main__ - ERROR - Could not find collection div on page 381
+2026-01-15 21:48:29 - __main__ - INFO - Scraping page 382: https://boardgamegeek.com/browse/boardgame/page/382
+2026-01-15 21:48:30 - __main__ - ERROR - Could not find collection div on page 382
+2026-01-15 21:48:32 - __main__ - INFO - Scraping page 383: https://boardgamegeek.com/browse/boardgame/page/383
+2026-01-15 21:48:33 - __main__ - ERROR - Could not find collection div on page 383
+2026-01-15 21:48:35 - __main__ - INFO - Scraping page 384: https://boardgamegeek.com/browse/boardgame/page/384
+2026-01-15 21:48:36 - __main__ - ERROR - Could not find collection div on page 384
+2026-01-15 21:48:38 - __main__ - INFO - Scraping page 385: https://boardgamegeek.com/browse/boardgame/page/385
+2026-01-15 21:48:40 - __main__ - ERROR - Could not find collection div on page 385
+2026-01-15 21:48:42 - __main__ - INFO - Scraping page 386: https://boardgamegeek.com/browse/boardgame/page/386
+2026-01-15 21:48:43 - __main__ - ERROR - Could not find collection div on page 386
+2026-01-15 21:48:45 - __main__ - INFO - Scraping page 387: https://boardgamegeek.com/browse/boardgame/page/387
+2026-01-15 21:48:46 - __main__ - ERROR - Could not find collection div on page 387
+2026-01-15 21:48:48 - __main__ - INFO - Scraping page 388: https://boardgamegeek.com/browse/boardgame/page/388
+2026-01-15 21:48:49 - __main__ - ERROR - Could not find collection div on page 388
+2026-01-15 21:48:51 - __main__ - INFO - Scraping page 389: https://boardgamegeek.com/browse/boardgame/page/389
+2026-01-15 21:48:52 - __main__ - ERROR - Could not find collection div on page 389
+2026-01-15 21:48:54 - __main__ - INFO - Scraping page 390: https://boardgamegeek.com/browse/boardgame/page/390
+2026-01-15 21:48:55 - __main__ - ERROR - Could not find collection div on page 390
+2026-01-15 21:48:57 - __main__ - INFO - Scraping page 391: https://boardgamegeek.com/browse/boardgame/page/391
+2026-01-15 21:48:58 - __main__ - ERROR - Could not find collection div on page 391
+2026-01-15 21:49:00 - __main__ - INFO - Scraping page 392: https://boardgamegeek.com/browse/boardgame/page/392
+2026-01-15 21:49:01 - __main__ - ERROR - Could not find collection div on page 392
+2026-01-15 21:49:03 - __main__ - INFO - Scraping page 393: https://boardgamegeek.com/browse/boardgame/page/393
+2026-01-15 21:49:04 - __main__ - ERROR - Could not find collection div on page 393
+2026-01-15 21:49:06 - __main__ - INFO - Scraping page 394: https://boardgamegeek.com/browse/boardgame/page/394
+2026-01-15 21:49:08 - __main__ - ERROR - Could not find collection div on page 394
+2026-01-15 21:49:10 - __main__ - INFO - Scraping page 395: https://boardgamegeek.com/browse/boardgame/page/395
+2026-01-15 21:49:11 - __main__ - ERROR - Could not find collection div on page 395
+2026-01-15 21:49:13 - __main__ - INFO - Scraping page 396: https://boardgamegeek.com/browse/boardgame/page/396
+2026-01-15 21:49:14 - __main__ - ERROR - Could not find collection div on page 396
+2026-01-15 21:49:16 - __main__ - INFO - Scraping page 397: https://boardgamegeek.com/browse/boardgame/page/397
+2026-01-15 21:49:17 - __main__ - ERROR - Could not find collection div on page 397
+2026-01-15 21:49:19 - __main__ - INFO - Scraping page 398: https://boardgamegeek.com/browse/boardgame/page/398
+2026-01-15 21:49:20 - __main__ - ERROR - Could not find collection div on page 398
+2026-01-15 21:49:22 - __main__ - INFO - Scraping page 399: https://boardgamegeek.com/browse/boardgame/page/399
+2026-01-15 21:49:23 - __main__ - ERROR - Could not find collection div on page 399
+2026-01-15 21:49:25 - __main__ - INFO - Scraping page 400: https://boardgamegeek.com/browse/boardgame/page/400
+2026-01-15 21:49:27 - __main__ - ERROR - Could not find collection div on page 400
+2026-01-15 21:49:29 - __main__ - INFO - Scraping page 401: https://boardgamegeek.com/browse/boardgame/page/401
+2026-01-15 21:49:30 - __main__ - ERROR - Could not find collection div on page 401
+2026-01-15 21:49:32 - __main__ - INFO - Scraping page 402: https://boardgamegeek.com/browse/boardgame/page/402
+2026-01-15 21:49:33 - __main__ - ERROR - Could not find collection div on page 402
+2026-01-15 21:49:35 - __main__ - INFO - Scraping page 403: https://boardgamegeek.com/browse/boardgame/page/403
+2026-01-15 21:49:36 - __main__ - ERROR - Could not find collection div on page 403
+2026-01-15 21:49:38 - __main__ - INFO - Scraping page 404: https://boardgamegeek.com/browse/boardgame/page/404
+2026-01-15 21:49:39 - __main__ - ERROR - Could not find collection div on page 404
+2026-01-15 21:49:41 - __main__ - INFO - Scraping page 405: https://boardgamegeek.com/browse/boardgame/page/405
+2026-01-15 21:49:43 - __main__ - ERROR - Could not find collection div on page 405
+2026-01-15 21:49:45 - __main__ - INFO - Scraping page 406: https://boardgamegeek.com/browse/boardgame/page/406
+2026-01-15 21:49:46 - __main__ - ERROR - Could not find collection div on page 406
+2026-01-15 21:49:48 - __main__ - INFO - Scraping page 407: https://boardgamegeek.com/browse/boardgame/page/407
+2026-01-15 21:49:49 - __main__ - ERROR - Could not find collection div on page 407
+2026-01-15 21:49:51 - __main__ - INFO - Scraping page 408: https://boardgamegeek.com/browse/boardgame/page/408
+2026-01-15 21:49:52 - __main__ - ERROR - Could not find collection div on page 408
+2026-01-15 21:49:54 - __main__ - INFO - Scraping page 409: https://boardgamegeek.com/browse/boardgame/page/409
+2026-01-15 21:49:55 - __main__ - ERROR - Could not find collection div on page 409
+2026-01-15 21:49:57 - __main__ - INFO - Scraping page 410: https://boardgamegeek.com/browse/boardgame/page/410
+2026-01-15 21:49:58 - __main__ - ERROR - Could not find collection div on page 410
+2026-01-15 21:50:00 - __main__ - INFO - Scraping page 411: https://boardgamegeek.com/browse/boardgame/page/411
+2026-01-15 21:50:01 - __main__ - ERROR - Could not find collection div on page 411
+2026-01-15 21:50:03 - __main__ - INFO - Scraping page 412: https://boardgamegeek.com/browse/boardgame/page/412
+2026-01-15 21:50:05 - __main__ - ERROR - Could not find collection div on page 412
+2026-01-15 21:50:07 - __main__ - INFO - Scraping page 413: https://boardgamegeek.com/browse/boardgame/page/413
+2026-01-15 21:50:08 - __main__ - ERROR - Could not find collection div on page 413
+2026-01-15 21:50:10 - __main__ - INFO - Scraping page 414: https://boardgamegeek.com/browse/boardgame/page/414
+2026-01-15 21:50:11 - __main__ - ERROR - Could not find collection div on page 414
+2026-01-15 21:50:13 - __main__ - INFO - Scraping page 415: https://boardgamegeek.com/browse/boardgame/page/415
+2026-01-15 21:50:14 - __main__ - ERROR - Could not find collection div on page 415
+2026-01-15 21:50:16 - __main__ - INFO - Scraping page 416: https://boardgamegeek.com/browse/boardgame/page/416
+2026-01-15 21:50:17 - __main__ - ERROR - Could not find collection div on page 416
+2026-01-15 21:50:19 - __main__ - INFO - Scraping page 417: https://boardgamegeek.com/browse/boardgame/page/417
+2026-01-15 21:50:20 - __main__ - ERROR - Could not find collection div on page 417
+2026-01-15 21:50:22 - __main__ - INFO - Scraping page 418: https://boardgamegeek.com/browse/boardgame/page/418
+2026-01-15 21:50:23 - __main__ - ERROR - Could not find collection div on page 418
+2026-01-15 21:50:25 - __main__ - INFO - Scraping page 419: https://boardgamegeek.com/browse/boardgame/page/419
+2026-01-15 21:50:26 - __main__ - ERROR - Could not find collection div on page 419
+2026-01-15 21:50:28 - __main__ - INFO - Scraping page 420: https://boardgamegeek.com/browse/boardgame/page/420
+2026-01-15 21:50:30 - __main__ - ERROR - Could not find collection div on page 420
+2026-01-15 21:50:32 - __main__ - INFO - Scraping page 421: https://boardgamegeek.com/browse/boardgame/page/421
+2026-01-15 21:50:33 - __main__ - ERROR - Could not find collection div on page 421
+2026-01-15 21:50:35 - __main__ - INFO - Scraping page 422: https://boardgamegeek.com/browse/boardgame/page/422
+2026-01-15 21:50:36 - __main__ - ERROR - Could not find collection div on page 422
+2026-01-15 21:50:38 - __main__ - INFO - Scraping page 423: https://boardgamegeek.com/browse/boardgame/page/423
+2026-01-15 21:50:39 - __main__ - ERROR - Could not find collection div on page 423
+2026-01-15 21:50:41 - __main__ - INFO - Scraping page 424: https://boardgamegeek.com/browse/boardgame/page/424
+2026-01-15 21:50:42 - __main__ - ERROR - Could not find collection div on page 424
+2026-01-15 21:50:44 - __main__ - INFO - Scraping page 425: https://boardgamegeek.com/browse/boardgame/page/425
+2026-01-15 21:50:45 - __main__ - ERROR - Could not find collection div on page 425
+2026-01-15 21:50:47 - __main__ - INFO - Scraping page 426: https://boardgamegeek.com/browse/boardgame/page/426
+2026-01-15 21:50:49 - __main__ - ERROR - Could not find collection div on page 426
+2026-01-15 21:50:51 - __main__ - INFO - Scraping page 427: https://boardgamegeek.com/browse/boardgame/page/427
+2026-01-15 21:50:52 - __main__ - ERROR - Could not find collection div on page 427
+2026-01-15 21:50:54 - __main__ - INFO - Scraping page 428: https://boardgamegeek.com/browse/boardgame/page/428
+2026-01-15 21:50:55 - __main__ - ERROR - Could not find collection div on page 428
+2026-01-15 21:50:57 - __main__ - INFO - Scraping page 429: https://boardgamegeek.com/browse/boardgame/page/429
+2026-01-15 21:50:58 - __main__ - ERROR - Could not find collection div on page 429
+2026-01-15 21:51:00 - __main__ - INFO - Scraping page 430: https://boardgamegeek.com/browse/boardgame/page/430
+2026-01-15 21:51:01 - __main__ - ERROR - Could not find collection div on page 430
+2026-01-15 21:51:03 - __main__ - INFO - Scraping page 431: https://boardgamegeek.com/browse/boardgame/page/431
+2026-01-15 21:51:04 - __main__ - ERROR - Could not find collection div on page 431
+2026-01-15 21:51:06 - __main__ - INFO - Scraping page 432: https://boardgamegeek.com/browse/boardgame/page/432
+2026-01-15 21:51:07 - __main__ - ERROR - Could not find collection div on page 432
+2026-01-15 21:51:09 - __main__ - INFO - Scraping page 433: https://boardgamegeek.com/browse/boardgame/page/433
+2026-01-15 21:51:10 - __main__ - ERROR - Could not find collection div on page 433
+2026-01-15 21:51:12 - __main__ - INFO - Scraping page 434: https://boardgamegeek.com/browse/boardgame/page/434
+2026-01-15 21:51:14 - __main__ - ERROR - Could not find collection div on page 434
+2026-01-15 21:51:16 - __main__ - INFO - Scraping page 435: https://boardgamegeek.com/browse/boardgame/page/435
+2026-01-15 21:51:17 - __main__ - ERROR - Could not find collection div on page 435
+2026-01-15 21:51:19 - __main__ - INFO - Scraping page 436: https://boardgamegeek.com/browse/boardgame/page/436
+2026-01-15 21:51:20 - __main__ - ERROR - Could not find collection div on page 436
+2026-01-15 21:51:22 - __main__ - INFO - Scraping page 437: https://boardgamegeek.com/browse/boardgame/page/437
+2026-01-15 21:51:23 - __main__ - ERROR - Could not find collection div on page 437
+2026-01-15 21:51:25 - __main__ - INFO - Scraping page 438: https://boardgamegeek.com/browse/boardgame/page/438
+2026-01-15 21:51:26 - __main__ - ERROR - Could not find collection div on page 438
+2026-01-15 21:51:28 - __main__ - INFO - Scraping page 439: https://boardgamegeek.com/browse/boardgame/page/439
+2026-01-15 21:51:29 - __main__ - ERROR - Could not find collection div on page 439
+2026-01-15 21:51:31 - __main__ - INFO - Scraping page 440: https://boardgamegeek.com/browse/boardgame/page/440
+2026-01-15 21:51:32 - __main__ - ERROR - Could not find collection div on page 440
+2026-01-15 21:51:34 - __main__ - INFO - Scraping page 441: https://boardgamegeek.com/browse/boardgame/page/441
+2026-01-15 21:51:35 - __main__ - ERROR - Could not find collection div on page 441
+2026-01-15 21:51:37 - __main__ - INFO - Scraping page 442: https://boardgamegeek.com/browse/boardgame/page/442
+2026-01-15 21:51:38 - __main__ - ERROR - Could not find collection div on page 442
+2026-01-15 21:51:40 - __main__ - INFO - Scraping page 443: https://boardgamegeek.com/browse/boardgame/page/443
+2026-01-15 21:51:42 - __main__ - ERROR - Could not find collection div on page 443
+2026-01-15 21:51:44 - __main__ - INFO - Scraping page 444: https://boardgamegeek.com/browse/boardgame/page/444
+2026-01-15 21:51:45 - __main__ - ERROR - Could not find collection div on page 444
+2026-01-15 21:51:47 - __main__ - INFO - Scraping page 445: https://boardgamegeek.com/browse/boardgame/page/445
+2026-01-15 21:51:48 - __main__ - ERROR - Could not find collection div on page 445
+2026-01-15 21:51:50 - __main__ - INFO - Scraping page 446: https://boardgamegeek.com/browse/boardgame/page/446
+2026-01-15 21:51:51 - __main__ - ERROR - Could not find collection div on page 446
+2026-01-15 21:51:53 - __main__ - INFO - Scraping page 447: https://boardgamegeek.com/browse/boardgame/page/447
+2026-01-15 21:51:54 - __main__ - ERROR - Could not find collection div on page 447
+2026-01-15 21:51:56 - __main__ - INFO - Scraping page 448: https://boardgamegeek.com/browse/boardgame/page/448
+2026-01-15 21:51:58 - __main__ - ERROR - Could not find collection div on page 448
+2026-01-15 21:52:00 - __main__ - INFO - Scraping page 449: https://boardgamegeek.com/browse/boardgame/page/449
+2026-01-15 21:52:01 - __main__ - ERROR - Could not find collection div on page 449
+2026-01-15 21:52:03 - __main__ - INFO - Scraping page 450: https://boardgamegeek.com/browse/boardgame/page/450
+2026-01-15 21:52:04 - __main__ - ERROR - Could not find collection div on page 450
+2026-01-15 21:52:06 - __main__ - INFO - Scraping page 451: https://boardgamegeek.com/browse/boardgame/page/451
+2026-01-15 21:52:07 - __main__ - ERROR - Could not find collection div on page 451
+2026-01-15 21:52:09 - __main__ - INFO - Scraping page 452: https://boardgamegeek.com/browse/boardgame/page/452
+2026-01-15 21:52:10 - __main__ - ERROR - Could not find collection div on page 452
+2026-01-15 21:52:12 - __main__ - INFO - Scraping page 453: https://boardgamegeek.com/browse/boardgame/page/453
+2026-01-15 21:52:13 - __main__ - ERROR - Could not find collection div on page 453
+2026-01-15 21:52:15 - __main__ - INFO - Scraping page 454: https://boardgamegeek.com/browse/boardgame/page/454
+2026-01-15 21:52:16 - __main__ - ERROR - Could not find collection div on page 454
+2026-01-15 21:52:18 - __main__ - INFO - Scraping page 455: https://boardgamegeek.com/browse/boardgame/page/455
+2026-01-15 21:52:19 - __main__ - ERROR - Could not find collection div on page 455
+2026-01-15 21:52:21 - __main__ - INFO - Scraping page 456: https://boardgamegeek.com/browse/boardgame/page/456
+2026-01-15 21:52:23 - __main__ - ERROR - Could not find collection div on page 456
+2026-01-15 21:52:25 - __main__ - INFO - Scraping page 457: https://boardgamegeek.com/browse/boardgame/page/457
+2026-01-15 21:52:26 - __main__ - ERROR - Could not find collection div on page 457
+2026-01-15 21:52:28 - __main__ - INFO - Scraping page 458: https://boardgamegeek.com/browse/boardgame/page/458
+2026-01-15 21:52:29 - __main__ - ERROR - Could not find collection div on page 458
+2026-01-15 21:52:31 - __main__ - INFO - Scraping page 459: https://boardgamegeek.com/browse/boardgame/page/459
+2026-01-15 21:52:32 - __main__ - ERROR - Could not find collection div on page 459
+2026-01-15 21:52:34 - __main__ - INFO - Scraping page 460: https://boardgamegeek.com/browse/boardgame/page/460
+2026-01-15 21:52:35 - __main__ - ERROR - Could not find collection div on page 460
+2026-01-15 21:52:37 - __main__ - INFO - Scraping page 461: https://boardgamegeek.com/browse/boardgame/page/461
+2026-01-15 21:52:38 - __main__ - ERROR - Could not find collection div on page 461
+2026-01-15 21:52:40 - __main__ - INFO - Scraping page 462: https://boardgamegeek.com/browse/boardgame/page/462
+2026-01-15 21:52:41 - __main__ - ERROR - Could not find collection div on page 462
+2026-01-15 21:52:43 - __main__ - INFO - Scraping page 463: https://boardgamegeek.com/browse/boardgame/page/463
+2026-01-15 21:52:45 - __main__ - ERROR - Could not find collection div on page 463
+2026-01-15 21:52:47 - __main__ - INFO - Scraping page 464: https://boardgamegeek.com/browse/boardgame/page/464
+2026-01-15 21:52:48 - __main__ - ERROR - Could not find collection div on page 464
+2026-01-15 21:52:50 - __main__ - INFO - Scraping page 465: https://boardgamegeek.com/browse/boardgame/page/465
+2026-01-15 21:52:51 - __main__ - ERROR - Could not find collection div on page 465
+2026-01-15 21:52:53 - __main__ - INFO - Scraping page 466: https://boardgamegeek.com/browse/boardgame/page/466
+2026-01-15 21:52:54 - __main__ - ERROR - Could not find collection div on page 466
+2026-01-15 21:52:56 - __main__ - INFO - Scraping page 467: https://boardgamegeek.com/browse/boardgame/page/467
+2026-01-15 21:52:57 - __main__ - ERROR - Could not find collection div on page 467
+2026-01-15 21:52:59 - __main__ - INFO - Scraping page 468: https://boardgamegeek.com/browse/boardgame/page/468
+2026-01-15 21:53:00 - __main__ - ERROR - Could not find collection div on page 468
+2026-01-15 21:53:02 - __main__ - INFO - Scraping page 469: https://boardgamegeek.com/browse/boardgame/page/469
+2026-01-15 21:53:03 - __main__ - ERROR - Could not find collection div on page 469
+2026-01-15 21:53:05 - __main__ - INFO - Scraping page 470: https://boardgamegeek.com/browse/boardgame/page/470
+2026-01-15 21:53:06 - __main__ - ERROR - Could not find collection div on page 470
+2026-01-15 21:53:08 - __main__ - INFO - Scraping page 471: https://boardgamegeek.com/browse/boardgame/page/471
+2026-01-15 21:53:09 - __main__ - ERROR - Could not find collection div on page 471
+2026-01-15 21:53:11 - __main__ - INFO - Scraping page 472: https://boardgamegeek.com/browse/boardgame/page/472
+2026-01-15 21:53:12 - __main__ - ERROR - Could not find collection div on page 472
+2026-01-15 21:53:14 - __main__ - INFO - Scraping page 473: https://boardgamegeek.com/browse/boardgame/page/473
+2026-01-15 21:53:16 - __main__ - ERROR - Could not find collection div on page 473
+2026-01-15 21:53:18 - __main__ - INFO - Scraping page 474: https://boardgamegeek.com/browse/boardgame/page/474
+2026-01-15 21:53:19 - __main__ - ERROR - Could not find collection div on page 474
+2026-01-15 21:53:21 - __main__ - INFO - Scraping page 475: https://boardgamegeek.com/browse/boardgame/page/475
+2026-01-15 21:53:22 - __main__ - ERROR - Could not find collection div on page 475

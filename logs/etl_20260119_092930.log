@@ -1,0 +1,45 @@
+2026-01-19 09:29:30 - root - INFO - Logging to file: logs/etl_20260119_092930.log
+2026-01-19 09:29:30 - __main__ - INFO - Reading input CSV: etl/data/test_bgg_games_1_100.csv
+2026-01-19 09:29:30 - __main__ - INFO - Found 8700 games to process
+2026-01-19 09:29:30 - __main__ - INFO - 
+
+Processing game 1/8700 (BGG ID: 224517): https://boardgamegeek.com/boardgame/224517/brass-birmingham
+2026-01-19 09:29:30 - etl.extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/224517/brass-birmingham/credits
+2026-01-19 09:29:32 - etl.extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/224517/brass-birmingham/credits: 'NoneType' object is not subscriptable
+2026-01-19 09:29:32 - __main__ - WARNING - Failed to extract credits for 224517
+2026-01-19 09:29:37 - __main__ - INFO - 
+
+Processing game 2/8700 (BGG ID: 342942): https://boardgamegeek.com/boardgame/342942/ark-nova
+2026-01-19 09:29:37 - etl.extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/342942/ark-nova/credits
+2026-01-19 09:29:38 - etl.extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/342942/ark-nova/credits: 'NoneType' object is not subscriptable
+2026-01-19 09:29:38 - __main__ - WARNING - Failed to extract credits for 342942
+2026-01-19 09:29:43 - __main__ - INFO - 
+
+Processing game 3/8700 (BGG ID: 161936): https://boardgamegeek.com/boardgame/161936/pandemic-legacy-season-1
+2026-01-19 09:29:43 - etl.extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/161936/pandemic-legacy-season-1/credits
+2026-01-19 09:29:44 - etl.extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/161936/pandemic-legacy-season-1/credits: 'NoneType' object is not subscriptable
+2026-01-19 09:29:44 - __main__ - WARNING - Failed to extract credits for 161936
+2026-01-19 09:29:49 - __main__ - INFO - 
+
+Processing game 4/8700 (BGG ID: 174430): https://boardgamegeek.com/boardgame/174430/gloomhaven
+2026-01-19 09:29:49 - etl.extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/174430/gloomhaven/credits
+2026-01-19 09:29:50 - etl.extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/174430/gloomhaven/credits: 'NoneType' object is not subscriptable
+2026-01-19 09:29:50 - __main__ - WARNING - Failed to extract credits for 174430
+2026-01-19 09:29:55 - __main__ - INFO - 
+
+Processing game 5/8700 (BGG ID: 316554): https://boardgamegeek.com/boardgame/316554/dune-imperium
+2026-01-19 09:29:55 - etl.extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/316554/dune-imperium/credits
+2026-01-19 09:29:56 - etl.extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/316554/dune-imperium/credits: 'NoneType' object is not subscriptable
+2026-01-19 09:29:56 - __main__ - WARNING - Failed to extract credits for 316554
+2026-01-19 09:30:01 - __main__ - INFO - 
+
+Processing game 6/8700 (BGG ID: 233078): https://boardgamegeek.com/boardgame/233078/twilight-imperium-fourth-edition
+2026-01-19 09:30:01 - etl.extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/233078/twilight-imperium-fourth-edition/credits
+2026-01-19 09:30:02 - etl.extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/233078/twilight-imperium-fourth-edition/credits: 'NoneType' object is not subscriptable
+2026-01-19 09:30:02 - __main__ - WARNING - Failed to extract credits for 233078
+2026-01-19 09:30:07 - __main__ - INFO - 
+
+Processing game 7/8700 (BGG ID: 397598): https://boardgamegeek.com/boardgame/397598/dune-imperium-uprising
+2026-01-19 09:30:07 - etl.extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/397598/dune-imperium-uprising/credits
+2026-01-19 09:30:08 - etl.extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/397598/dune-imperium-uprising/credits: 'NoneType' object is not subscriptable
+2026-01-19 09:30:08 - __main__ - WARNING - Failed to extract credits for 397598

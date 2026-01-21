@@ -1,0 +1,33 @@
+2026-01-16 17:01:35 - root - INFO - Logging to file: logs/etl_20260116_170135.log
+2026-01-16 17:01:35 - __main__ - INFO - Reading input CSV: data/test_bgg_games_1_100.csv
+2026-01-16 17:01:35 - __main__ - INFO - Found 8700 games to process
+2026-01-16 17:01:35 - __main__ - INFO - Found 10 existing credits entries, resuming...
+2026-01-16 17:01:35 - __main__ - INFO - 
+
+Processing game 11/8700 (BGG ID: 162886): https://boardgamegeek.com/boardgame/162886/spirit-island
+2026-01-16 17:01:35 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/162886/spirit-island/credits
+2026-01-16 17:01:37 - extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/162886/spirit-island/credits: 'NoneType' object is not subscriptable
+2026-01-16 17:01:37 - __main__ - WARNING - Failed to extract credits for 162886
+2026-01-16 17:01:42 - __main__ - INFO - 
+
+Processing game 12/8700 (BGG ID: 291457): https://boardgamegeek.com/boardgame/291457/gloomhaven-jaws-of-the-lion
+2026-01-16 17:01:42 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/291457/gloomhaven-jaws-of-the-lion/credits
+2026-01-16 17:01:42 - extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/291457/gloomhaven-jaws-of-the-lion/credits: 'NoneType' object is not subscriptable
+2026-01-16 17:01:42 - __main__ - WARNING - Failed to extract credits for 291457
+2026-01-16 17:01:47 - __main__ - INFO - 
+
+Processing game 13/8700 (BGG ID: 220308): https://boardgamegeek.com/boardgame/220308/gaia-project
+2026-01-16 17:01:47 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/220308/gaia-project/credits
+2026-01-16 17:01:48 - extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/220308/gaia-project/credits: 'NoneType' object is not subscriptable
+2026-01-16 17:01:48 - __main__ - WARNING - Failed to extract credits for 220308
+2026-01-16 17:01:53 - __main__ - INFO - 
+
+Processing game 14/8700 (BGG ID: 12333): https://boardgamegeek.com/boardgame/12333/twilight-struggle
+2026-01-16 17:01:53 - extraction.bgg_credits_scraper - INFO - Scraping credits from: https://boardgamegeek.com/boardgame/12333/twilight-struggle/credits
+2026-01-16 17:01:54 - extraction.bgg_credits_scraper - ERROR - Error scraping credits from https://boardgamegeek.com/boardgame/12333/twilight-struggle/credits: 'NoneType' object is not subscriptable
+2026-01-16 17:01:54 - __main__ - WARNING - Failed to extract credits for 12333
+2026-01-16 17:01:55 - __main__ - WARNING - 
+Processing interrupted at row 14
+2026-01-16 17:01:55 - __main__ - INFO - 
+Saving 14 collected credits before exit...
+2026-01-16 17:01:55 - __main__ - INFO - Data saved to data/game_credits_1_100.csv. Exiting...

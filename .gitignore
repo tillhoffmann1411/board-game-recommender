@@ -1,5 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Next.js
+/.next/
+/out/
+/build
+
 # compiled output
 /tmp
 /out-tsc
@@ -57,7 +62,7 @@ __pycache__
 # Secret environment settings
 .env
 env
-*.env*
+*.env
 .env.prod
 
 # Node and Webpack files

@@ -1,0 +1,1149 @@
+2026-01-19 12:22:08 - root - INFO - Logging to file: logs/etl_20260119_122208.log
+2026-01-19 12:22:08 - __main__ - INFO - Reading input CSV: etl/data/test_bgg_games_1_100.csv
+2026-01-19 12:22:08 - __main__ - INFO - Found 8700 games to process
+2026-01-19 12:22:08 - __main__ - INFO - Found 600 existing credits entries, resuming...
+2026-01-19 12:22:08 - __main__ - INFO - 
+
+Processing game 601/8700 (BGG ID: 150658): https://boardgamegeek.com/boardgame/150658/pandemic-the-cure
+2026-01-19 12:22:08 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=150658&objecttype=thing
+2026-01-19 12:22:10 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 3 categories, 1 designers
+2026-01-19 12:22:10 - __main__ - INFO - Extracted credits for 150658: 10 mechanics, 3 categories
+2026-01-19 12:22:11 - __main__ - INFO - 
+
+Processing game 602/8700 (BGG ID: 240196): https://boardgamegeek.com/boardgame/240196/betrayal-legacy
+2026-01-19 12:22:11 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=240196&objecttype=thing
+2026-01-19 12:22:12 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 18 mechanics, 4 categories, 6 designers
+2026-01-19 12:22:12 - __main__ - INFO - Extracted credits for 240196: 18 mechanics, 4 categories
+2026-01-19 12:22:13 - __main__ - INFO - 
+
+Processing game 603/8700 (BGG ID: 21790): https://boardgamegeek.com/boardgame/21790/thurn-and-taxis
+2026-01-19 12:22:13 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=21790&objecttype=thing
+2026-01-19 12:22:13 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 2 categories, 2 designers
+2026-01-19 12:22:13 - __main__ - INFO - Extracted credits for 21790: 4 mechanics, 2 categories
+2026-01-19 12:22:14 - __main__ - INFO - 
+
+Processing game 604/8700 (BGG ID: 266830): https://boardgamegeek.com/boardgame/266830/qe
+2026-01-19 12:22:14 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=266830&objecttype=thing
+2026-01-19 12:22:15 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 1 categories, 1 designers
+2026-01-19 12:22:15 - __main__ - INFO - Extracted credits for 266830: 5 mechanics, 1 categories
+2026-01-19 12:22:16 - __main__ - INFO - 
+
+Processing game 605/8700 (BGG ID: 83330): https://boardgamegeek.com/boardgame/83330/mansions-of-madness
+2026-01-19 12:22:16 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=83330&objecttype=thing
+2026-01-19 12:22:16 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 8 categories, 1 designers
+2026-01-19 12:22:16 - __main__ - INFO - Extracted credits for 83330: 9 mechanics, 8 categories
+2026-01-19 12:22:17 - __main__ - INFO - 
+
+Processing game 606/8700 (BGG ID: 6249): https://boardgamegeek.com/boardgame/6249/alhambra
+2026-01-19 12:22:17 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=6249&objecttype=thing
+2026-01-19 12:22:18 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 2 categories, 1 designers
+2026-01-19 12:22:18 - __main__ - INFO - Extracted credits for 6249: 5 mechanics, 2 categories
+2026-01-19 12:22:19 - __main__ - INFO - 
+
+Processing game 607/8700 (BGG ID: 340466): https://boardgamegeek.com/boardgame/340466/unfathomable
+2026-01-19 12:22:19 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=340466&objecttype=thing
+2026-01-19 12:22:20 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 5 categories, 2 designers
+2026-01-19 12:22:20 - __main__ - INFO - Extracted credits for 340466: 6 mechanics, 5 categories
+2026-01-19 12:22:21 - __main__ - INFO - 
+
+Processing game 608/8700 (BGG ID: 13): https://boardgamegeek.com/boardgame/13/catan
+2026-01-19 12:22:21 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=13&objecttype=thing
+2026-01-19 12:22:21 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 14 mechanics, 2 categories, 1 designers
+2026-01-19 12:22:21 - __main__ - INFO - Extracted credits for 13: 14 mechanics, 2 categories
+2026-01-19 12:22:23 - __main__ - INFO - 
+
+Processing game 609/8700 (BGG ID: 408180): https://boardgamegeek.com/boardgame/408180/shackleton-base-a-journey-to-the-moon
+2026-01-19 12:22:23 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=408180&objecttype=thing
+2026-01-19 12:22:23 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 2 categories, 2 designers
+2026-01-19 12:22:23 - __main__ - INFO - Extracted credits for 408180: 2 mechanics, 2 categories
+2026-01-19 12:22:24 - __main__ - INFO - 
+
+Processing game 610/8700 (BGG ID: 17226): https://boardgamegeek.com/boardgame/17226/descent-journeys-in-the-dark
+2026-01-19 12:22:24 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=17226&objecttype=thing
+2026-01-19 12:22:25 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 5 categories, 1 designers
+2026-01-19 12:22:25 - __main__ - INFO - Extracted credits for 17226: 6 mechanics, 5 categories
+2026-01-19 12:22:25 - __main__ - INFO - Progress saved: 610 credits to etl/data/game_credits.csv
+2026-01-19 12:22:25 - __main__ - INFO - Progress: 10 processed, 600 skipped, 610 total entries
+2026-01-19 12:22:26 - __main__ - INFO - 
+
+Processing game 611/8700 (BGG ID: 191862): https://boardgamegeek.com/boardgame/191862/imhotep
+2026-01-19 12:22:26 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=191862&objecttype=thing
+2026-01-19 12:22:27 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 2 categories, 1 designers
+2026-01-19 12:22:27 - __main__ - INFO - Extracted credits for 191862: 5 mechanics, 2 categories
+2026-01-19 12:22:28 - __main__ - INFO - 
+
+Processing game 612/8700 (BGG ID: 348450): https://boardgamegeek.com/boardgame/348450/lacrimosa
+2026-01-19 12:22:28 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=348450&objecttype=thing
+2026-01-19 12:22:28 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 1 categories, 2 designers
+2026-01-19 12:22:28 - __main__ - INFO - Extracted credits for 348450: 6 mechanics, 1 categories
+2026-01-19 12:22:29 - __main__ - INFO - 
+
+Processing game 613/8700 (BGG ID: 105134): https://boardgamegeek.com/boardgame/105134/risk-legacy
+2026-01-19 12:22:29 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=105134&objecttype=thing
+2026-01-19 12:22:30 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 2 designers
+2026-01-19 12:22:30 - __main__ - INFO - Extracted credits for 105134: 6 mechanics, 2 categories
+2026-01-19 12:22:31 - __main__ - INFO - 
+
+Processing game 614/8700 (BGG ID: 712): https://boardgamegeek.com/boardgame/712/blood-bowl-third-edition
+2026-01-19 12:22:31 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=712&objecttype=thing
+2026-01-19 12:22:31 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 4 categories, 1 designers
+2026-01-19 12:22:31 - __main__ - INFO - Extracted credits for 712: 3 mechanics, 4 categories
+2026-01-19 12:22:32 - __main__ - INFO - 
+
+Processing game 615/8700 (BGG ID: 318009): https://boardgamegeek.com/boardgame/318009/dinosaur-island-rawr-n-write
+2026-01-19 12:22:32 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=318009&objecttype=thing
+2026-01-19 12:22:33 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 3 categories, 3 designers
+2026-01-19 12:22:33 - __main__ - INFO - Extracted credits for 318009: 7 mechanics, 3 categories
+2026-01-19 12:22:34 - __main__ - INFO - 
+
+Processing game 616/8700 (BGG ID: 245654): https://boardgamegeek.com/boardgame/245654/railroad-ink-deep-blue-edition
+2026-01-19 12:22:34 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=245654&objecttype=thing
+2026-01-19 12:22:34 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 2 categories, 2 designers
+2026-01-19 12:22:34 - __main__ - INFO - Extracted credits for 245654: 8 mechanics, 2 categories
+2026-01-19 12:22:35 - __main__ - INFO - 
+
+Processing game 617/8700 (BGG ID: 232414): https://boardgamegeek.com/boardgame/232414/oceans
+2026-01-19 12:22:35 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=232414&objecttype=thing
+2026-01-19 12:22:36 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 5 categories, 4 designers
+2026-01-19 12:22:36 - __main__ - INFO - Extracted credits for 232414: 6 mechanics, 5 categories
+2026-01-19 12:22:37 - __main__ - INFO - 
+
+Processing game 618/8700 (BGG ID: 117959): https://boardgamegeek.com/boardgame/117959/las-vegas
+2026-01-19 12:22:37 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=117959&objecttype=thing
+2026-01-19 12:22:38 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 1 categories, 1 designers
+2026-01-19 12:22:38 - __main__ - INFO - Extracted credits for 117959: 2 mechanics, 1 categories
+2026-01-19 12:22:39 - __main__ - INFO - 
+
+Processing game 619/8700 (BGG ID: 156009): https://boardgamegeek.com/boardgame/156009/port-royal
+2026-01-19 12:22:39 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=156009&objecttype=thing
+2026-01-19 12:22:40 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 4 categories, 1 designers
+2026-01-19 12:22:40 - __main__ - INFO - Extracted credits for 156009: 10 mechanics, 4 categories
+2026-01-19 12:22:41 - __main__ - INFO - 
+
+Processing game 620/8700 (BGG ID: 197376): https://boardgamegeek.com/boardgame/197376/charterstone
+2026-01-19 12:22:41 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=197376&objecttype=thing
+2026-01-19 12:22:42 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 3 categories, 1 designers
+2026-01-19 12:22:42 - __main__ - INFO - Extracted credits for 197376: 7 mechanics, 3 categories
+2026-01-19 12:22:42 - __main__ - INFO - Progress saved: 620 credits to etl/data/game_credits.csv
+2026-01-19 12:22:42 - __main__ - INFO - Progress: 20 processed, 600 skipped, 620 total entries
+2026-01-19 12:22:43 - __main__ - INFO - 
+
+Processing game 621/8700 (BGG ID: 284435): https://boardgamegeek.com/boardgame/284435/nova-luna
+2026-01-19 12:22:43 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=284435&objecttype=thing
+2026-01-19 12:22:43 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 2 designers
+2026-01-19 12:22:43 - __main__ - INFO - Extracted credits for 284435: 6 mechanics, 2 categories
+2026-01-19 12:22:44 - __main__ - INFO - 
+
+Processing game 622/8700 (BGG ID: 142379): https://boardgamegeek.com/boardgame/142379/escape-plan
+2026-01-19 12:22:44 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=142379&objecttype=thing
+2026-01-19 12:22:45 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 1 categories, 1 designers
+2026-01-19 12:22:45 - __main__ - INFO - Extracted credits for 142379: 8 mechanics, 1 categories
+2026-01-19 12:22:46 - __main__ - INFO - 
+
+Processing game 623/8700 (BGG ID: 9674): https://boardgamegeek.com/boardgame/9674/ingenious
+2026-01-19 12:22:46 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=9674&objecttype=thing
+2026-01-19 12:22:48 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 1 categories, 1 designers
+2026-01-19 12:22:48 - __main__ - INFO - Extracted credits for 9674: 6 mechanics, 1 categories
+2026-01-19 12:22:49 - __main__ - INFO - 
+
+Processing game 624/8700 (BGG ID: 144797): https://boardgamegeek.com/boardgame/144797/argent-the-consortium
+2026-01-19 12:22:49 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=144797&objecttype=thing
+2026-01-19 12:22:50 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 1 designers
+2026-01-19 12:22:50 - __main__ - INFO - Extracted credits for 144797: 6 mechanics, 2 categories
+2026-01-19 12:22:51 - __main__ - INFO - 
+
+Processing game 625/8700 (BGG ID: 336794): https://boardgamegeek.com/boardgame/336794/galaxy-trucker-second-edition
+2026-01-19 12:22:51 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=336794&objecttype=thing
+2026-01-19 12:22:52 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 8 categories, 1 designers
+2026-01-19 12:22:52 - __main__ - INFO - Extracted credits for 336794: 6 mechanics, 8 categories
+2026-01-19 12:22:53 - __main__ - INFO - 
+
+Processing game 626/8700 (BGG ID: 177639): https://boardgamegeek.com/boardgame/177639/raptor
+2026-01-19 12:22:53 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=177639&objecttype=thing
+2026-01-19 12:22:53 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 3 categories, 2 designers
+2026-01-19 12:22:53 - __main__ - INFO - Extracted credits for 177639: 8 mechanics, 3 categories
+2026-01-19 12:22:54 - __main__ - INFO - 
+
+Processing game 627/8700 (BGG ID: 146791): https://boardgamegeek.com/boardgame/146791/shadows-of-brimstone-city-of-the-ancients
+2026-01-19 12:22:54 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=146791&objecttype=thing
+2026-01-19 12:22:56 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 7 categories, 1 designers
+2026-01-19 12:22:56 - __main__ - INFO - Extracted credits for 146791: 6 mechanics, 7 categories
+2026-01-19 12:22:57 - __main__ - INFO - 
+
+Processing game 628/8700 (BGG ID: 31999): https://boardgamegeek.com/boardgame/31999/tzaar
+2026-01-19 12:22:57 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=31999&objecttype=thing
+2026-01-19 12:22:58 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 1 categories, 1 designers
+2026-01-19 12:22:58 - __main__ - INFO - Extracted credits for 31999: 2 mechanics, 1 categories
+2026-01-19 12:22:59 - __main__ - INFO - 
+
+Processing game 629/8700 (BGG ID: 84419): https://boardgamegeek.com/boardgame/84419/space-empires-4x
+2026-01-19 12:22:59 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=84419&objecttype=thing
+2026-01-19 12:22:59 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 12 mechanics, 6 categories, 1 designers
+2026-01-19 12:22:59 - __main__ - INFO - Extracted credits for 84419: 12 mechanics, 6 categories
+2026-01-19 12:23:00 - __main__ - INFO - 
+
+Processing game 630/8700 (BGG ID: 62227): https://boardgamegeek.com/boardgame/62227/labyrinth-the-war-on-terror-2001
+2026-01-19 12:23:00 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=62227&objecttype=thing
+2026-01-19 12:23:01 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 16 mechanics, 3 categories, 1 designers
+2026-01-19 12:23:01 - __main__ - INFO - Extracted credits for 62227: 16 mechanics, 3 categories
+2026-01-19 12:23:01 - __main__ - INFO - Progress saved: 630 credits to etl/data/game_credits.csv
+2026-01-19 12:23:01 - __main__ - INFO - Progress: 30 processed, 600 skipped, 630 total entries
+2026-01-19 12:23:02 - __main__ - INFO - 
+
+Processing game 631/8700 (BGG ID: 252328): https://boardgamegeek.com/boardgame/252328/star-wars-x-wing-second-edition
+2026-01-19 12:23:02 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=252328&objecttype=thing
+2026-01-19 12:23:03 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 7 categories, 3 designers
+2026-01-19 12:23:03 - __main__ - INFO - Extracted credits for 252328: 8 mechanics, 7 categories
+2026-01-19 12:23:04 - __main__ - INFO - 
+
+Processing game 632/8700 (BGG ID: 218074): https://boardgamegeek.com/boardgame/218074/detective-city-of-angels
+2026-01-19 12:23:04 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=218074&objecttype=thing
+2026-01-19 12:23:05 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 1 categories, 1 designers
+2026-01-19 12:23:05 - __main__ - INFO - Extracted credits for 218074: 5 mechanics, 1 categories
+2026-01-19 12:23:06 - __main__ - INFO - 
+
+Processing game 633/8700 (BGG ID: 196326): https://boardgamegeek.com/boardgame/196326/love-letter-premium-edition
+2026-01-19 12:23:06 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=196326&objecttype=thing
+2026-01-19 12:23:07 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 2 categories, 2 designers
+2026-01-19 12:23:07 - __main__ - INFO - Extracted credits for 196326: 2 mechanics, 2 categories
+2026-01-19 12:23:08 - __main__ - INFO - 
+
+Processing game 634/8700 (BGG ID: 97786): https://boardgamegeek.com/boardgame/97786/small-world-underground
+2026-01-19 12:23:08 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=97786&objecttype=thing
+2026-01-19 12:23:08 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 1 designers
+2026-01-19 12:23:08 - __main__ - INFO - Extracted credits for 97786: 5 mechanics, 3 categories
+2026-01-19 12:23:09 - __main__ - INFO - 
+
+Processing game 635/8700 (BGG ID: 128996): https://boardgamegeek.com/boardgame/128996/1775-rebellion
+2026-01-19 12:23:09 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=128996&objecttype=thing
+2026-01-19 12:23:10 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 3 categories, 2 designers
+2026-01-19 12:23:10 - __main__ - INFO - Extracted credits for 128996: 10 mechanics, 3 categories
+2026-01-19 12:23:11 - __main__ - INFO - 
+
+Processing game 636/8700 (BGG ID: 446497): https://boardgamegeek.com/boardgame/446497/hot-streak
+2026-01-19 12:23:11 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=446497&objecttype=thing
+2026-01-19 12:23:12 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 2 categories, 1 designers
+2026-01-19 12:23:12 - __main__ - INFO - Extracted credits for 446497: 3 mechanics, 2 categories
+2026-01-19 12:23:13 - __main__ - INFO - 
+
+Processing game 637/8700 (BGG ID: 153938): https://boardgamegeek.com/boardgame/153938/camel-up
+2026-01-19 12:23:13 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=153938&objecttype=thing
+2026-01-19 12:23:13 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 4 categories, 1 designers
+2026-01-19 12:23:13 - __main__ - INFO - Extracted credits for 153938: 5 mechanics, 4 categories
+2026-01-19 12:23:14 - __main__ - INFO - 
+
+Processing game 638/8700 (BGG ID: 91312): https://boardgamegeek.com/boardgame/91312/discworld-ankh-morpork
+2026-01-19 12:23:14 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=91312&objecttype=thing
+2026-01-19 12:23:15 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 6 categories, 1 designers
+2026-01-19 12:23:15 - __main__ - INFO - Extracted credits for 91312: 9 mechanics, 6 categories
+2026-01-19 12:23:16 - __main__ - INFO - 
+
+Processing game 639/8700 (BGG ID: 245961): https://boardgamegeek.com/boardgame/245961/fleet-the-dice-game
+2026-01-19 12:23:16 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=245961&objecttype=thing
+2026-01-19 12:23:17 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 2 categories, 2 designers
+2026-01-19 12:23:17 - __main__ - INFO - Extracted credits for 245961: 3 mechanics, 2 categories
+2026-01-19 12:23:18 - __main__ - INFO - 
+
+Processing game 640/8700 (BGG ID: 28023): https://boardgamegeek.com/boardgame/28023/jamaica
+2026-01-19 12:23:18 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=28023&objecttype=thing
+2026-01-19 12:23:19 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 3 categories, 3 designers
+2026-01-19 12:23:19 - __main__ - INFO - Extracted credits for 28023: 10 mechanics, 3 categories
+2026-01-19 12:23:19 - __main__ - INFO - Progress saved: 640 credits to etl/data/game_credits.csv
+2026-01-19 12:23:19 - __main__ - INFO - Progress: 40 processed, 600 skipped, 640 total entries
+2026-01-19 12:23:20 - __main__ - INFO - 
+
+Processing game 641/8700 (BGG ID: 280794): https://boardgamegeek.com/boardgame/280794/etherfields
+2026-01-19 12:23:20 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=280794&objecttype=thing
+2026-01-19 12:23:20 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 4 categories, 1 designers
+2026-01-19 12:23:20 - __main__ - INFO - Extracted credits for 280794: 10 mechanics, 4 categories
+2026-01-19 12:23:21 - __main__ - INFO - 
+
+Processing game 642/8700 (BGG ID: 18): https://boardgamegeek.com/boardgame/18/roborally
+2026-01-19 12:23:21 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=18&objecttype=thing
+2026-01-19 12:23:22 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 4 categories, 2 designers
+2026-01-19 12:23:22 - __main__ - INFO - Extracted credits for 18: 9 mechanics, 4 categories
+2026-01-19 12:23:23 - __main__ - INFO - 
+
+Processing game 643/8700 (BGG ID: 262215): https://boardgamegeek.com/boardgame/262215/blackout-hong-kong
+2026-01-19 12:23:23 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=262215&objecttype=thing
+2026-01-19 12:23:24 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 2 categories, 1 designers
+2026-01-19 12:23:24 - __main__ - INFO - Extracted credits for 262215: 8 mechanics, 2 categories
+2026-01-19 12:23:25 - __main__ - INFO - 
+
+Processing game 644/8700 (BGG ID: 31730): https://boardgamegeek.com/boardgame/31730/wabash-cannonball
+2026-01-19 12:23:25 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=31730&objecttype=thing
+2026-01-19 12:23:26 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 4 categories, 1 designers
+2026-01-19 12:23:26 - __main__ - INFO - Extracted credits for 31730: 8 mechanics, 4 categories
+2026-01-19 12:23:27 - __main__ - INFO - 
+
+Processing game 645/8700 (BGG ID: 181530): https://boardgamegeek.com/boardgame/181530/runebound-third-edition
+2026-01-19 12:23:27 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=181530&objecttype=thing
+2026-01-19 12:23:27 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 11 mechanics, 4 categories, 1 designers
+2026-01-19 12:23:27 - __main__ - INFO - Extracted credits for 181530: 11 mechanics, 4 categories
+2026-01-19 12:23:28 - __main__ - INFO - 
+
+Processing game 646/8700 (BGG ID: 133473): https://boardgamegeek.com/boardgame/133473/sushi-go
+2026-01-19 12:23:28 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=133473&objecttype=thing
+2026-01-19 12:23:29 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 1 designers
+2026-01-19 12:23:29 - __main__ - INFO - Extracted credits for 133473: 6 mechanics, 2 categories
+2026-01-19 12:23:30 - __main__ - INFO - 
+
+Processing game 647/8700 (BGG ID: 17405): https://boardgamegeek.com/boardgame/17405/1846-the-race-for-the-midwest
+2026-01-19 12:23:30 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=17405&objecttype=thing
+2026-01-19 12:23:31 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 2 categories, 1 designers
+2026-01-19 12:23:31 - __main__ - INFO - Extracted credits for 17405: 8 mechanics, 2 categories
+2026-01-19 12:23:32 - __main__ - INFO - 
+
+Processing game 648/8700 (BGG ID: 387866): https://boardgamegeek.com/boardgame/387866/star-wars-unlimited
+2026-01-19 12:23:32 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=387866&objecttype=thing
+2026-01-19 12:23:33 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 3 categories, 4 designers
+2026-01-19 12:23:33 - __main__ - INFO - Extracted credits for 387866: 4 mechanics, 3 categories
+2026-01-19 12:23:34 - __main__ - INFO - 
+
+Processing game 649/8700 (BGG ID: 119506): https://boardgamegeek.com/boardgame/119506/freedom-the-underground-railroad
+2026-01-19 12:23:34 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=119506&objecttype=thing
+2026-01-19 12:23:35 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 4 categories, 1 designers
+2026-01-19 12:23:35 - __main__ - INFO - Extracted credits for 119506: 6 mechanics, 4 categories
+2026-01-19 12:23:36 - __main__ - INFO - 
+
+Processing game 650/8700 (BGG ID: 171668): https://boardgamegeek.com/boardgame/171668/the-grizzled
+2026-01-19 12:23:36 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=171668&objecttype=thing
+2026-01-19 12:23:37 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 2 designers
+2026-01-19 12:23:37 - __main__ - INFO - Extracted credits for 171668: 6 mechanics, 2 categories
+2026-01-19 12:23:37 - __main__ - INFO - Progress saved: 650 credits to etl/data/game_credits.csv
+2026-01-19 12:23:37 - __main__ - INFO - Progress: 50 processed, 600 skipped, 650 total entries
+2026-01-19 12:23:38 - __main__ - INFO - 
+
+Processing game 651/8700 (BGG ID: 125618): https://boardgamegeek.com/boardgame/125618/libertalia
+2026-01-19 12:23:38 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=125618&objecttype=thing
+2026-01-19 12:23:39 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 2 categories, 1 designers
+2026-01-19 12:23:39 - __main__ - INFO - Extracted credits for 125618: 9 mechanics, 2 categories
+2026-01-19 12:23:40 - __main__ - INFO - 
+
+Processing game 652/8700 (BGG ID: 170561): https://boardgamegeek.com/boardgame/170561/valeria-card-kingdoms
+2026-01-19 12:23:40 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=170561&objecttype=thing
+2026-01-19 12:23:41 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 3 categories, 1 designers
+2026-01-19 12:23:41 - __main__ - INFO - Extracted credits for 170561: 4 mechanics, 3 categories
+2026-01-19 12:23:42 - __main__ - INFO - 
+
+Processing game 653/8700 (BGG ID: 15985): https://boardgamegeek.com/boardgame/15985/blood-bowl-living-rulebook
+2026-01-19 12:23:42 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=15985&objecttype=thing
+2026-01-19 12:23:43 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 6 categories, 1 designers
+2026-01-19 12:23:43 - __main__ - INFO - Extracted credits for 15985: 3 mechanics, 6 categories
+2026-01-19 12:23:44 - __main__ - INFO - 
+
+Processing game 654/8700 (BGG ID: 183251): https://boardgamegeek.com/boardgame/183251/karuba
+2026-01-19 12:23:44 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=183251&objecttype=thing
+2026-01-19 12:23:44 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 1 designers
+2026-01-19 12:23:44 - __main__ - INFO - Extracted credits for 183251: 6 mechanics, 2 categories
+2026-01-19 12:23:45 - __main__ - INFO - 
+
+Processing game 655/8700 (BGG ID: 404431): https://boardgamegeek.com/boardgame/404431/men-nefer
+2026-01-19 12:23:45 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=404431&objecttype=thing
+2026-01-19 12:23:46 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 1 designers
+2026-01-19 12:23:46 - __main__ - INFO - Extracted credits for 404431: 5 mechanics, 3 categories
+2026-01-19 12:23:47 - __main__ - INFO - 
+
+Processing game 656/8700 (BGG ID: 97842): https://boardgamegeek.com/boardgame/97842/last-will
+2026-01-19 12:23:47 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=97842&objecttype=thing
+2026-01-19 12:23:48 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 3 categories, 1 designers
+2026-01-19 12:23:48 - __main__ - INFO - Extracted credits for 97842: 4 mechanics, 3 categories
+2026-01-19 12:23:49 - __main__ - INFO - 
+
+Processing game 657/8700 (BGG ID: 90419): https://boardgamegeek.com/boardgame/90419/airlines-europe
+2026-01-19 12:23:49 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=90419&objecttype=thing
+2026-01-19 12:23:50 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 2 categories, 1 designers
+2026-01-19 12:23:50 - __main__ - INFO - Extracted credits for 90419: 5 mechanics, 2 categories
+2026-01-19 12:23:51 - __main__ - INFO - 
+
+Processing game 658/8700 (BGG ID: 296237): https://boardgamegeek.com/boardgame/296237/warps-edge
+2026-01-19 12:23:51 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=296237&objecttype=thing
+2026-01-19 12:23:52 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 1 categories, 1 designers
+2026-01-19 12:23:52 - __main__ - INFO - Extracted credits for 296237: 2 mechanics, 1 categories
+2026-01-19 12:23:53 - __main__ - INFO - 
+
+Processing game 659/8700 (BGG ID: 170624): https://boardgamegeek.com/boardgame/170624/crusaders-thy-will-be-done
+2026-01-19 12:23:53 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=170624&objecttype=thing
+2026-01-19 12:23:53 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 12 mechanics, 2 categories, 1 designers
+2026-01-19 12:23:53 - __main__ - INFO - Extracted credits for 170624: 12 mechanics, 2 categories
+2026-01-19 12:23:54 - __main__ - INFO - 
+
+Processing game 660/8700 (BGG ID: 163968): https://boardgamegeek.com/boardgame/163968/elysium
+2026-01-19 12:23:54 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=163968&objecttype=thing
+2026-01-19 12:23:55 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 2 designers
+2026-01-19 12:23:55 - __main__ - INFO - Extracted credits for 163968: 5 mechanics, 3 categories
+2026-01-19 12:23:55 - __main__ - INFO - Progress saved: 660 credits to etl/data/game_credits.csv
+2026-01-19 12:23:55 - __main__ - INFO - Progress: 60 processed, 600 skipped, 660 total entries
+2026-01-19 12:23:56 - __main__ - INFO - 
+
+Processing game 661/8700 (BGG ID: 172308): https://boardgamegeek.com/boardgame/172308/broom-service
+2026-01-19 12:23:56 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=172308&objecttype=thing
+2026-01-19 12:23:57 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 1 categories, 2 designers
+2026-01-19 12:23:57 - __main__ - INFO - Extracted credits for 172308: 7 mechanics, 1 categories
+2026-01-19 12:23:58 - __main__ - INFO - 
+
+Processing game 662/8700 (BGG ID: 2346): https://boardgamegeek.com/boardgame/2346/dvonn
+2026-01-19 12:23:58 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=2346&objecttype=thing
+2026-01-19 12:23:59 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 1 categories, 1 designers
+2026-01-19 12:23:59 - __main__ - INFO - Extracted credits for 2346: 2 mechanics, 1 categories
+2026-01-19 12:24:00 - __main__ - INFO - 
+
+Processing game 663/8700 (BGG ID: 248490): https://boardgamegeek.com/boardgame/248490/atlantis-rising-second-edition
+2026-01-19 12:24:00 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=248490&objecttype=thing
+2026-01-19 12:24:00 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 7 categories, 2 designers
+2026-01-19 12:24:00 - __main__ - INFO - Extracted credits for 248490: 7 mechanics, 7 categories
+2026-01-19 12:24:01 - __main__ - INFO - 
+
+Processing game 664/8700 (BGG ID: 206941): https://boardgamegeek.com/boardgame/206941/first-class-all-aboard-the-orient-express
+2026-01-19 12:24:01 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=206941&objecttype=thing
+2026-01-19 12:24:02 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 2 categories, 1 designers
+2026-01-19 12:24:02 - __main__ - INFO - Extracted credits for 206941: 3 mechanics, 2 categories
+2026-01-19 12:24:03 - __main__ - INFO - 
+
+Processing game 665/8700 (BGG ID: 221965): https://boardgamegeek.com/boardgame/221965/the-fox-in-the-forest
+2026-01-19 12:24:03 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=221965&objecttype=thing
+2026-01-19 12:24:04 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 1 designers
+2026-01-19 12:24:04 - __main__ - INFO - Extracted credits for 221965: 5 mechanics, 3 categories
+2026-01-19 12:24:05 - __main__ - INFO - 
+
+Processing game 666/8700 (BGG ID: 127398): https://boardgamegeek.com/boardgame/127398/legends-of-andor
+2026-01-19 12:24:05 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=127398&objecttype=thing
+2026-01-19 12:24:06 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 4 categories, 1 designers
+2026-01-19 12:24:06 - __main__ - INFO - Extracted credits for 127398: 7 mechanics, 4 categories
+2026-01-19 12:24:07 - __main__ - INFO - 
+
+Processing game 667/8700 (BGG ID: 147949): https://boardgamegeek.com/boardgame/147949/one-night-ultimate-werewolf
+2026-01-19 12:24:07 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=147949&objecttype=thing
+2026-01-19 12:24:08 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 5 categories, 2 designers
+2026-01-19 12:24:08 - __main__ - INFO - Extracted credits for 147949: 6 mechanics, 5 categories
+2026-01-19 12:24:09 - __main__ - INFO - 
+
+Processing game 668/8700 (BGG ID: 264055): https://boardgamegeek.com/boardgame/264055/draftosaurus
+2026-01-19 12:24:09 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=264055&objecttype=thing
+2026-01-19 12:24:10 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 4 designers
+2026-01-19 12:24:10 - __main__ - INFO - Extracted credits for 264055: 5 mechanics, 3 categories
+2026-01-19 12:24:11 - __main__ - INFO - 
+
+Processing game 669/8700 (BGG ID: 346965): https://boardgamegeek.com/boardgame/346965/azul-queens-garden
+2026-01-19 12:24:11 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=346965&objecttype=thing
+2026-01-19 12:24:11 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 1 designers
+2026-01-19 12:24:11 - __main__ - INFO - Extracted credits for 346965: 5 mechanics, 3 categories
+2026-01-19 12:24:12 - __main__ - INFO - 
+
+Processing game 670/8700 (BGG ID: 27173): https://boardgamegeek.com/boardgame/27173/vikings
+2026-01-19 12:24:12 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=27173&objecttype=thing
+2026-01-19 12:24:13 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 4 categories, 1 designers
+2026-01-19 12:24:13 - __main__ - INFO - Extracted credits for 27173: 5 mechanics, 4 categories
+2026-01-19 12:24:13 - __main__ - INFO - Progress saved: 670 credits to etl/data/game_credits.csv
+2026-01-19 12:24:13 - __main__ - INFO - Progress: 70 processed, 600 skipped, 670 total entries
+2026-01-19 12:24:14 - __main__ - INFO - 
+
+Processing game 671/8700 (BGG ID: 133848): https://boardgamegeek.com/boardgame/133848/euphoria-build-a-better-dystopia
+2026-01-19 12:24:14 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=133848&objecttype=thing
+2026-01-19 12:24:15 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 1 categories, 2 designers
+2026-01-19 12:24:15 - __main__ - INFO - Extracted credits for 133848: 8 mechanics, 1 categories
+2026-01-19 12:24:16 - __main__ - INFO - 
+
+Processing game 672/8700 (BGG ID: 432): https://boardgamegeek.com/boardgame/432/take-5
+2026-01-19 12:24:16 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=432&objecttype=thing
+2026-01-19 12:24:18 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 1 designers
+2026-01-19 12:24:18 - __main__ - INFO - Extracted credits for 432: 5 mechanics, 3 categories
+2026-01-19 12:24:19 - __main__ - INFO - 
+
+Processing game 673/8700 (BGG ID: 284777): https://boardgamegeek.com/boardgame/284777/unmatched-jurassic-park-ingen-vs-raptors
+2026-01-19 12:24:19 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=284777&objecttype=thing
+2026-01-19 12:24:19 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 5 categories, 2 designers
+2026-01-19 12:24:19 - __main__ - INFO - Extracted credits for 284777: 7 mechanics, 5 categories
+2026-01-19 12:24:20 - __main__ - INFO - 
+
+Processing game 674/8700 (BGG ID: 65781): https://boardgamegeek.com/boardgame/65781/london
+2026-01-19 12:24:20 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=65781&objecttype=thing
+2026-01-19 12:24:21 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 2 categories, 1 designers
+2026-01-19 12:24:21 - __main__ - INFO - Extracted credits for 65781: 2 mechanics, 2 categories
+2026-01-19 12:24:22 - __main__ - INFO - 
+
+Processing game 675/8700 (BGG ID: 102652): https://boardgamegeek.com/boardgame/102652/sentinels-of-the-multiverse
+2026-01-19 12:24:22 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=102652&objecttype=thing
+2026-01-19 12:24:24 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 3 categories, 3 designers
+2026-01-19 12:24:24 - __main__ - INFO - Extracted credits for 102652: 4 mechanics, 3 categories
+2026-01-19 12:24:25 - __main__ - INFO - 
+
+Processing game 676/8700 (BGG ID: 434654): https://boardgamegeek.com/boardgame/434654/toy-battle
+2026-01-19 12:24:25 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=434654&objecttype=thing
+2026-01-19 12:24:25 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 1 categories, 2 designers
+2026-01-19 12:24:25 - __main__ - INFO - Extracted credits for 434654: 3 mechanics, 1 categories
+2026-01-19 12:24:26 - __main__ - INFO - 
+
+Processing game 677/8700 (BGG ID: 4390): https://boardgamegeek.com/boardgame/4390/carcassonne-hunters-and-gatherers
+2026-01-19 12:24:26 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=4390&objecttype=thing
+2026-01-19 12:24:27 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 2 designers
+2026-01-19 12:24:27 - __main__ - INFO - Extracted credits for 4390: 6 mechanics, 2 categories
+2026-01-19 12:24:28 - __main__ - INFO - 
+
+Processing game 678/8700 (BGG ID: 307305): https://boardgamegeek.com/boardgame/307305/bullet-love
+2026-01-19 12:24:28 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=307305&objecttype=thing
+2026-01-19 12:24:29 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 4 categories, 1 designers
+2026-01-19 12:24:29 - __main__ - INFO - Extracted credits for 307305: 6 mechanics, 4 categories
+2026-01-19 12:24:30 - __main__ - INFO - 
+
+Processing game 679/8700 (BGG ID: 22827): https://boardgamegeek.com/boardgame/22827/starcraft-the-board-game
+2026-01-19 12:24:30 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=22827&objecttype=thing
+2026-01-19 12:24:31 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 7 categories, 2 designers
+2026-01-19 12:24:31 - __main__ - INFO - Extracted credits for 22827: 8 mechanics, 7 categories
+2026-01-19 12:24:32 - __main__ - INFO - 
+
+Processing game 680/8700 (BGG ID: 15363): https://boardgamegeek.com/boardgame/15363/nexus-ops
+2026-01-19 12:24:32 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=15363&objecttype=thing
+2026-01-19 12:24:32 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 2 categories, 2 designers
+2026-01-19 12:24:32 - __main__ - INFO - Extracted credits for 15363: 8 mechanics, 2 categories
+2026-01-19 12:24:32 - __main__ - INFO - Progress saved: 680 credits to etl/data/game_credits.csv
+2026-01-19 12:24:32 - __main__ - INFO - Progress: 80 processed, 600 skipped, 680 total entries
+2026-01-19 12:24:33 - __main__ - INFO - 
+
+Processing game 681/8700 (BGG ID: 328866): https://boardgamegeek.com/boardgame/328866/my-fathers-work
+2026-01-19 12:24:33 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=328866&objecttype=thing
+2026-01-19 12:24:34 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 1 designers
+2026-01-19 12:24:34 - __main__ - INFO - Extracted credits for 328866: 6 mechanics, 2 categories
+2026-01-19 12:24:35 - __main__ - INFO - 
+
+Processing game 682/8700 (BGG ID: 475): https://boardgamegeek.com/boardgame/475/taj-mahal
+2026-01-19 12:24:35 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=475&objecttype=thing
+2026-01-19 12:24:36 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 1 designers
+2026-01-19 12:24:36 - __main__ - INFO - Extracted credits for 475: 6 mechanics, 2 categories
+2026-01-19 12:24:37 - __main__ - INFO - 
+
+Processing game 683/8700 (BGG ID: 265402): https://boardgamegeek.com/boardgame/265402/in-the-hall-of-the-mountain-king
+2026-01-19 12:24:37 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=265402&objecttype=thing
+2026-01-19 12:24:38 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 2 categories, 2 designers
+2026-01-19 12:24:38 - __main__ - INFO - Extracted credits for 265402: 5 mechanics, 2 categories
+2026-01-19 12:24:39 - __main__ - INFO - 
+
+Processing game 684/8700 (BGG ID: 95527): https://boardgamegeek.com/boardgame/95527/madeira
+2026-01-19 12:24:39 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=95527&objecttype=thing
+2026-01-19 12:24:40 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 4 categories, 2 designers
+2026-01-19 12:24:40 - __main__ - INFO - Extracted credits for 95527: 6 mechanics, 4 categories
+2026-01-19 12:24:41 - __main__ - INFO - 
+
+Processing game 685/8700 (BGG ID: 213460): https://boardgamegeek.com/boardgame/213460/unlock-escape-adventures
+2026-01-19 12:24:41 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=213460&objecttype=thing
+2026-01-19 12:24:42 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 2 categories, 3 designers
+2026-01-19 12:24:42 - __main__ - INFO - Extracted credits for 213460: 4 mechanics, 2 categories
+2026-01-19 12:24:43 - __main__ - INFO - 
+
+Processing game 686/8700 (BGG ID: 362944): https://boardgamegeek.com/boardgame/362944/war-of-the-ring-the-card-game
+2026-01-19 12:24:43 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=362944&objecttype=thing
+2026-01-19 12:24:43 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 3 categories, 1 designers
+2026-01-19 12:24:43 - __main__ - INFO - Extracted credits for 362944: 4 mechanics, 3 categories
+2026-01-19 12:24:44 - __main__ - INFO - 
+
+Processing game 687/8700 (BGG ID: 105551): https://boardgamegeek.com/boardgame/105551/archipelago
+2026-01-19 12:24:44 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=105551&objecttype=thing
+2026-01-19 12:24:45 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 16 mechanics, 6 categories, 1 designers
+2026-01-19 12:24:45 - __main__ - INFO - Extracted credits for 105551: 16 mechanics, 6 categories
+2026-01-19 12:24:46 - __main__ - INFO - 
+
+Processing game 688/8700 (BGG ID: 256999): https://boardgamegeek.com/boardgame/256999/project-elite
+2026-01-19 12:24:46 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=256999&objecttype=thing
+2026-01-19 12:24:47 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 4 categories, 3 designers
+2026-01-19 12:24:47 - __main__ - INFO - Extracted credits for 256999: 8 mechanics, 4 categories
+2026-01-19 12:24:48 - __main__ - INFO - 
+
+Processing game 689/8700 (BGG ID: 34119): https://boardgamegeek.com/boardgame/34119/tales-of-the-arabian-nights
+2026-01-19 12:24:48 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=34119&objecttype=thing
+2026-01-19 12:24:49 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 13 mechanics, 5 categories, 4 designers
+2026-01-19 12:24:49 - __main__ - INFO - Extracted credits for 34119: 13 mechanics, 5 categories
+2026-01-19 12:24:50 - __main__ - INFO - 
+
+Processing game 690/8700 (BGG ID: 151022): https://boardgamegeek.com/boardgame/151022/baseball-highlights-2045
+2026-01-19 12:24:50 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=151022&objecttype=thing
+2026-01-19 12:24:51 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 1 designers
+2026-01-19 12:24:51 - __main__ - INFO - Extracted credits for 151022: 5 mechanics, 3 categories
+2026-01-19 12:24:51 - __main__ - INFO - Progress saved: 690 credits to etl/data/game_credits.csv
+2026-01-19 12:24:51 - __main__ - INFO - Progress: 90 processed, 600 skipped, 690 total entries
+2026-01-19 12:24:52 - __main__ - INFO - 
+
+Processing game 691/8700 (BGG ID: 371433): https://boardgamegeek.com/boardgame/371433/terrorscape
+2026-01-19 12:24:52 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=371433&objecttype=thing
+2026-01-19 12:24:52 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 1 designers
+2026-01-19 12:24:52 - __main__ - INFO - Extracted credits for 371433: 6 mechanics, 2 categories
+2026-01-19 12:24:53 - __main__ - INFO - 
+
+Processing game 692/8700 (BGG ID: 304051): https://boardgamegeek.com/boardgame/304051/creature-comforts
+2026-01-19 12:24:53 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=304051&objecttype=thing
+2026-01-19 12:24:54 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 15 mechanics, 1 categories, 1 designers
+2026-01-19 12:24:54 - __main__ - INFO - Extracted credits for 304051: 15 mechanics, 1 categories
+2026-01-19 12:24:55 - __main__ - INFO - 
+
+Processing game 693/8700 (BGG ID: 281655): https://boardgamegeek.com/boardgame/281655/high-frontier-4-all
+2026-01-19 12:24:55 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=281655&objecttype=thing
+2026-01-19 12:24:56 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 6 categories, 4 designers
+2026-01-19 12:24:56 - __main__ - INFO - Extracted credits for 281655: 10 mechanics, 6 categories
+2026-01-19 12:24:57 - __main__ - INFO - 
+
+Processing game 694/8700 (BGG ID: 237179): https://boardgamegeek.com/boardgame/237179/weather-machine
+2026-01-19 12:24:57 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=237179&objecttype=thing
+2026-01-19 12:25:27 - etl.extraction.bgg_credits_scraper - ERROR - Error fetching credits data from API for BGG ID 237179: HTTPSConnectionPool(host='api.geekdo.com', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.geekdo.com', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/etl/extraction/bgg_credits_scraper.py", line 109, in scrape_credits
+    response = self.session.get(api_url, timeout=self.timeout)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/tillhoffmann/Projects/private/board-game-recommender/.venv/lib/python3.13/site-packages/requests/adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.geekdo.com', port=443): Read timed out. (read timeout=30)
+2026-01-19 12:25:27 - __main__ - WARNING - Failed to extract credits for 237179
+2026-01-19 12:25:28 - __main__ - INFO - 
+
+Processing game 695/8700 (BGG ID: 232043): https://boardgamegeek.com/boardgame/232043/queendomino
+2026-01-19 12:25:28 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=232043&objecttype=thing
+2026-01-19 12:25:28 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 4 categories, 1 designers
+2026-01-19 12:25:28 - __main__ - INFO - Extracted credits for 232043: 6 mechanics, 4 categories
+2026-01-19 12:25:29 - __main__ - INFO - 
+
+Processing game 696/8700 (BGG ID: 27746): https://boardgamegeek.com/boardgame/27746/colosseum
+2026-01-19 12:25:29 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=27746&objecttype=thing
+2026-01-19 12:25:30 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 2 categories, 2 designers
+2026-01-19 12:25:30 - __main__ - INFO - Extracted credits for 27746: 5 mechanics, 2 categories
+2026-01-19 12:25:31 - __main__ - INFO - 
+
+Processing game 697/8700 (BGG ID: 36553): https://boardgamegeek.com/boardgame/36553/times-up-title-recall
+2026-01-19 12:25:31 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=36553&objecttype=thing
+2026-01-19 12:25:31 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 3 categories, 2 designers
+2026-01-19 12:25:31 - __main__ - INFO - Extracted credits for 36553: 4 mechanics, 3 categories
+2026-01-19 12:25:32 - __main__ - INFO - 
+
+Processing game 698/8700 (BGG ID: 216734): https://boardgamegeek.com/boardgame/216734/dice-throne-season-one
+2026-01-19 12:25:32 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=216734&objecttype=thing
+2026-01-19 12:25:33 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 4 categories, 2 designers
+2026-01-19 12:25:33 - __main__ - INFO - Extracted credits for 216734: 6 mechanics, 4 categories
+2026-01-19 12:25:34 - __main__ - INFO - 
+
+Processing game 699/8700 (BGG ID: 193949): https://boardgamegeek.com/boardgame/193949/star-trek-ascendancy
+2026-01-19 12:25:34 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=193949&objecttype=thing
+2026-01-19 12:25:34 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 8 categories, 3 designers
+2026-01-19 12:25:34 - __main__ - INFO - Extracted credits for 193949: 9 mechanics, 8 categories
+2026-01-19 12:25:35 - __main__ - INFO - 
+
+Processing game 700/8700 (BGG ID: 341945): https://boardgamegeek.com/boardgame/341945/la-granja-deluxe-master-set
+2026-01-19 12:25:35 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=341945&objecttype=thing
+2026-01-19 12:25:36 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 14 mechanics, 3 categories, 8 designers
+2026-01-19 12:25:36 - __main__ - INFO - Extracted credits for 341945: 14 mechanics, 3 categories
+2026-01-19 12:25:36 - __main__ - INFO - Progress saved: 700 credits to etl/data/game_credits.csv
+2026-01-19 12:25:36 - __main__ - INFO - Progress: 99 processed, 600 skipped, 700 total entries
+2026-01-19 12:25:37 - __main__ - INFO - 
+
+Processing game 701/8700 (BGG ID: 699): https://boardgamegeek.com/boardgame/699/heroquest
+2026-01-19 12:25:37 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=699&objecttype=thing
+2026-01-19 12:25:37 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 11 mechanics, 5 categories, 1 designers
+2026-01-19 12:25:37 - __main__ - INFO - Extracted credits for 699: 11 mechanics, 5 categories
+2026-01-19 12:25:38 - __main__ - INFO - 
+
+Processing game 702/8700 (BGG ID: 133038): https://boardgamegeek.com/boardgame/133038/pathfinder-adventure-card-game-rise-of-the-runelor
+2026-01-19 12:25:38 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=133038&objecttype=thing
+2026-01-19 12:25:39 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 4 categories, 5 designers
+2026-01-19 12:25:39 - __main__ - INFO - Extracted credits for 133038: 9 mechanics, 4 categories
+2026-01-19 12:25:40 - __main__ - INFO - 
+
+Processing game 703/8700 (BGG ID: 42215): https://boardgamegeek.com/boardgame/42215/tobago
+2026-01-19 12:25:40 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=42215&objecttype=thing
+2026-01-19 12:25:40 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 3 categories, 1 designers
+2026-01-19 12:25:40 - __main__ - INFO - Extracted credits for 42215: 7 mechanics, 3 categories
+2026-01-19 12:25:41 - __main__ - INFO - 
+
+Processing game 704/8700 (BGG ID: 422732): https://boardgamegeek.com/boardgame/422732/agent-avenue
+2026-01-19 12:25:41 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=422732&objecttype=thing
+2026-01-19 12:25:41 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 4 categories, 2 designers
+2026-01-19 12:25:41 - __main__ - INFO - Extracted credits for 422732: 6 mechanics, 4 categories
+2026-01-19 12:25:42 - __main__ - INFO - 
+
+Processing game 705/8700 (BGG ID: 130960): https://boardgamegeek.com/boardgame/130960/triumph-and-tragedy-european-balance-of-power-1936
+2026-01-19 12:25:42 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=130960&objecttype=thing
+2026-01-19 12:25:43 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 6 categories, 1 designers
+2026-01-19 12:25:43 - __main__ - INFO - Extracted credits for 130960: 7 mechanics, 6 categories
+2026-01-19 12:25:44 - __main__ - INFO - 
+
+Processing game 706/8700 (BGG ID: 266121): https://boardgamegeek.com/boardgame/266121/unlock-heroic-adventures
+2026-01-19 12:25:44 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=266121&objecttype=thing
+2026-01-19 12:25:44 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 4 categories, 5 designers
+2026-01-19 12:25:44 - __main__ - INFO - Extracted credits for 266121: 2 mechanics, 4 categories
+2026-01-19 12:25:45 - __main__ - INFO - 
+
+Processing game 707/8700 (BGG ID: 346501): https://boardgamegeek.com/boardgame/346501/mille-fiori
+2026-01-19 12:25:45 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=346501&objecttype=thing
+2026-01-19 12:25:45 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 2 categories, 1 designers
+2026-01-19 12:25:45 - __main__ - INFO - Extracted credits for 346501: 3 mechanics, 2 categories
+2026-01-19 12:25:46 - __main__ - INFO - 
+
+Processing game 708/8700 (BGG ID: 131357): https://boardgamegeek.com/boardgame/131357/coup
+2026-01-19 12:25:46 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=131357&objecttype=thing
+2026-01-19 12:25:47 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 5 categories, 1 designers
+2026-01-19 12:25:47 - __main__ - INFO - Extracted credits for 131357: 5 mechanics, 5 categories
+2026-01-19 12:25:48 - __main__ - INFO - 
+
+Processing game 709/8700 (BGG ID: 42052): https://boardgamegeek.com/boardgame/42052/vinhos
+2026-01-19 12:25:48 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=42052&objecttype=thing
+2026-01-19 12:25:48 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 2 mechanics, 3 categories, 1 designers
+2026-01-19 12:25:48 - __main__ - INFO - Extracted credits for 42052: 2 mechanics, 3 categories
+2026-01-19 12:25:49 - __main__ - INFO - 
+
+Processing game 710/8700 (BGG ID: 58421): https://boardgamegeek.com/boardgame/58421/egizia
+2026-01-19 12:25:49 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=58421&objecttype=thing
+2026-01-19 12:25:49 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 2 categories, 5 designers
+2026-01-19 12:25:49 - __main__ - INFO - Extracted credits for 58421: 4 mechanics, 2 categories
+2026-01-19 12:25:50 - __main__ - INFO - Progress saved: 710 credits to etl/data/game_credits.csv
+2026-01-19 12:25:50 - __main__ - INFO - Progress: 109 processed, 600 skipped, 710 total entries
+2026-01-19 12:25:51 - __main__ - INFO - 
+
+Processing game 711/8700 (BGG ID: 159508): https://boardgamegeek.com/boardgame/159508/aquasphere
+2026-01-19 12:25:51 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=159508&objecttype=thing
+2026-01-19 12:25:51 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 11 mechanics, 2 categories, 1 designers
+2026-01-19 12:25:51 - __main__ - INFO - Extracted credits for 159508: 11 mechanics, 2 categories
+2026-01-19 12:25:52 - __main__ - INFO - 
+
+Processing game 712/8700 (BGG ID: 46): https://boardgamegeek.com/boardgame/46/medici
+2026-01-19 12:25:52 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=46&objecttype=thing
+2026-01-19 12:25:52 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 1 categories, 1 designers
+2026-01-19 12:25:52 - __main__ - INFO - Extracted credits for 46: 6 mechanics, 1 categories
+2026-01-19 12:25:53 - __main__ - INFO - 
+
+Processing game 713/8700 (BGG ID: 347703): https://boardgamegeek.com/boardgame/347703/first-rat
+2026-01-19 12:25:53 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=347703&objecttype=thing
+2026-01-19 12:25:54 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 4 categories, 2 designers
+2026-01-19 12:25:54 - __main__ - INFO - Extracted credits for 347703: 3 mechanics, 4 categories
+2026-01-19 12:25:55 - __main__ - INFO - 
+
+Processing game 714/8700 (BGG ID: 875): https://boardgamegeek.com/boardgame/875/roads-and-boats
+2026-01-19 12:25:55 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=875&objecttype=thing
+2026-01-19 12:25:55 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 5 categories, 2 designers
+2026-01-19 12:25:55 - __main__ - INFO - Extracted credits for 875: 5 mechanics, 5 categories
+2026-01-19 12:25:56 - __main__ - INFO - 
+
+Processing game 715/8700 (BGG ID: 128780): https://boardgamegeek.com/boardgame/128780/pax-porfiriana
+2026-01-19 12:25:56 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=128780&objecttype=thing
+2026-01-19 12:25:56 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 5 categories, 3 designers
+2026-01-19 12:25:56 - __main__ - INFO - Extracted credits for 128780: 9 mechanics, 5 categories
+2026-01-19 12:25:57 - __main__ - INFO - 
+
+Processing game 716/8700 (BGG ID: 337765): https://boardgamegeek.com/boardgame/337765/brian-boru-high-king-of-ireland
+2026-01-19 12:25:57 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=337765&objecttype=thing
+2026-01-19 12:25:58 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 3 categories, 1 designers
+2026-01-19 12:25:58 - __main__ - INFO - Extracted credits for 337765: 10 mechanics, 3 categories
+2026-01-19 12:25:59 - __main__ - INFO - 
+
+Processing game 717/8700 (BGG ID: 269511): https://boardgamegeek.com/boardgame/269511/cooper-island
+2026-01-19 12:25:59 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=269511&objecttype=thing
+2026-01-19 12:25:59 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 1 designers
+2026-01-19 12:25:59 - __main__ - INFO - Extracted credits for 269511: 6 mechanics, 2 categories
+2026-01-19 12:26:00 - __main__ - INFO - 
+
+Processing game 718/8700 (BGG ID: 244115): https://boardgamegeek.com/boardgame/244115/shards-of-infinity
+2026-01-19 12:26:00 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=244115&objecttype=thing
+2026-01-19 12:26:00 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 4 categories, 2 designers
+2026-01-19 12:26:00 - __main__ - INFO - Extracted credits for 244115: 5 mechanics, 4 categories
+2026-01-19 12:26:01 - __main__ - INFO - 
+
+Processing game 719/8700 (BGG ID: 111799): https://boardgamegeek.com/boardgame/111799/cuba-libre
+2026-01-19 12:26:01 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=111799&objecttype=thing
+2026-01-19 12:26:02 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 4 categories, 2 designers
+2026-01-19 12:26:02 - __main__ - INFO - Extracted credits for 111799: 5 mechanics, 4 categories
+2026-01-19 12:26:03 - __main__ - INFO - 
+
+Processing game 720/8700 (BGG ID: 5782): https://boardgamegeek.com/boardgame/5782/coloretto
+2026-01-19 12:26:03 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=5782&objecttype=thing
+2026-01-19 12:26:03 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 2 categories, 1 designers
+2026-01-19 12:26:03 - __main__ - INFO - Extracted credits for 5782: 4 mechanics, 2 categories
+2026-01-19 12:26:03 - __main__ - INFO - Progress saved: 720 credits to etl/data/game_credits.csv
+2026-01-19 12:26:03 - __main__ - INFO - Progress: 119 processed, 600 skipped, 720 total entries
+2026-01-19 12:26:04 - __main__ - INFO - 
+
+Processing game 721/8700 (BGG ID: 291845): https://boardgamegeek.com/boardgame/291845/three-sisters
+2026-01-19 12:26:04 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=291845&objecttype=thing
+2026-01-19 12:26:04 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 2 categories, 2 designers
+2026-01-19 12:26:04 - __main__ - INFO - Extracted credits for 291845: 4 mechanics, 2 categories
+2026-01-19 12:26:05 - __main__ - INFO - 
+
+Processing game 722/8700 (BGG ID: 192836): https://boardgamegeek.com/boardgame/192836/the-colonists
+2026-01-19 12:26:05 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=192836&objecttype=thing
+2026-01-19 12:26:06 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 1 categories, 1 designers
+2026-01-19 12:26:06 - __main__ - INFO - Extracted credits for 192836: 7 mechanics, 1 categories
+2026-01-19 12:26:07 - __main__ - INFO - 
+
+Processing game 723/8700 (BGG ID: 369880): https://boardgamegeek.com/boardgame/369880/beer-and-bread
+2026-01-19 12:26:07 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=369880&objecttype=thing
+2026-01-19 12:26:07 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:07 - __main__ - INFO - Extracted credits for 369880: 9 mechanics, 3 categories
+2026-01-19 12:26:08 - __main__ - INFO - 
+
+Processing game 724/8700 (BGG ID: 345868): https://boardgamegeek.com/boardgame/345868/federation
+2026-01-19 12:26:08 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=345868&objecttype=thing
+2026-01-19 12:26:08 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 2 designers
+2026-01-19 12:26:08 - __main__ - INFO - Extracted credits for 345868: 6 mechanics, 2 categories
+2026-01-19 12:26:09 - __main__ - INFO - 
+
+Processing game 725/8700 (BGG ID: 298383): https://boardgamegeek.com/boardgame/298383/golem
+2026-01-19 12:26:09 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=298383&objecttype=thing
+2026-01-19 12:26:10 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 3 categories, 3 designers
+2026-01-19 12:26:10 - __main__ - INFO - Extracted credits for 298383: 6 mechanics, 3 categories
+2026-01-19 12:26:11 - __main__ - INFO - 
+
+Processing game 726/8700 (BGG ID: 415776): https://boardgamegeek.com/boardgame/415776/kingdom-legacy-feudal-kingdom
+2026-01-19 12:26:11 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=415776&objecttype=thing
+2026-01-19 12:26:11 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 7 categories, 1 designers
+2026-01-19 12:26:11 - __main__ - INFO - Extracted credits for 415776: 9 mechanics, 7 categories
+2026-01-19 12:26:12 - __main__ - INFO - 
+
+Processing game 727/8700 (BGG ID: 141572): https://boardgamegeek.com/boardgame/141572/paperback
+2026-01-19 12:26:12 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=141572&objecttype=thing
+2026-01-19 12:26:13 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:13 - __main__ - INFO - Extracted credits for 141572: 6 mechanics, 3 categories
+2026-01-19 12:26:14 - __main__ - INFO - 
+
+Processing game 728/8700 (BGG ID: 23540): https://boardgamegeek.com/boardgame/23540/shikoku-1889
+2026-01-19 12:26:14 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=23540&objecttype=thing
+2026-01-19 12:26:14 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:14 - __main__ - INFO - Extracted credits for 23540: 8 mechanics, 3 categories
+2026-01-19 12:26:15 - __main__ - INFO - 
+
+Processing game 729/8700 (BGG ID: 190082): https://boardgamegeek.com/boardgame/190082/whitehall-mystery
+2026-01-19 12:26:15 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=190082&objecttype=thing
+2026-01-19 12:26:16 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 5 categories, 2 designers
+2026-01-19 12:26:16 - __main__ - INFO - Extracted credits for 190082: 5 mechanics, 5 categories
+2026-01-19 12:26:17 - __main__ - INFO - 
+
+Processing game 730/8700 (BGG ID: 363247): https://boardgamegeek.com/boardgame/363247/azul-master-chocolatier
+2026-01-19 12:26:17 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=363247&objecttype=thing
+2026-01-19 12:26:17 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 2 categories, 1 designers
+2026-01-19 12:26:17 - __main__ - INFO - Extracted credits for 363247: 5 mechanics, 2 categories
+2026-01-19 12:26:17 - __main__ - INFO - Progress saved: 730 credits to etl/data/game_credits.csv
+2026-01-19 12:26:17 - __main__ - INFO - Progress: 129 processed, 600 skipped, 730 total entries
+2026-01-19 12:26:18 - __main__ - INFO - 
+
+Processing game 731/8700 (BGG ID: 39351): https://boardgamegeek.com/boardgame/39351/automobile
+2026-01-19 12:26:18 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=39351&objecttype=thing
+2026-01-19 12:26:18 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 2 categories, 1 designers
+2026-01-19 12:26:18 - __main__ - INFO - Extracted credits for 39351: 5 mechanics, 2 categories
+2026-01-19 12:26:19 - __main__ - INFO - 
+
+Processing game 732/8700 (BGG ID: 9625): https://boardgamegeek.com/boardgame/9625/struggle-of-empires
+2026-01-19 12:26:19 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=9625&objecttype=thing
+2026-01-19 12:26:20 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 5 categories, 1 designers
+2026-01-19 12:26:20 - __main__ - INFO - Extracted credits for 9625: 5 mechanics, 5 categories
+2026-01-19 12:26:21 - __main__ - INFO - 
+
+Processing game 733/8700 (BGG ID: 329551): https://boardgamegeek.com/boardgame/329551/mosaic-a-story-of-civilization
+2026-01-19 12:26:21 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=329551&objecttype=thing
+2026-01-19 12:26:21 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 4 categories, 1 designers
+2026-01-19 12:26:21 - __main__ - INFO - Extracted credits for 329551: 9 mechanics, 4 categories
+2026-01-19 12:26:22 - __main__ - INFO - 
+
+Processing game 734/8700 (BGG ID: 224710): https://boardgamegeek.com/boardgame/224710/zombicide-green-horde
+2026-01-19 12:26:22 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=224710&objecttype=thing
+2026-01-19 12:26:23 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 7 categories, 3 designers
+2026-01-19 12:26:23 - __main__ - INFO - Extracted credits for 224710: 5 mechanics, 7 categories
+2026-01-19 12:26:24 - __main__ - INFO - 
+
+Processing game 735/8700 (BGG ID: 270673): https://boardgamegeek.com/boardgame/270673/silver-and-gold
+2026-01-19 12:26:24 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=270673&objecttype=thing
+2026-01-19 12:26:24 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 1 designers
+2026-01-19 12:26:24 - __main__ - INFO - Extracted credits for 270673: 6 mechanics, 2 categories
+2026-01-19 12:26:25 - __main__ - INFO - 
+
+Processing game 736/8700 (BGG ID: 244114): https://boardgamegeek.com/boardgame/244114/yellow-and-yangtze
+2026-01-19 12:26:25 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=244114&objecttype=thing
+2026-01-19 12:26:26 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:26 - __main__ - INFO - Extracted credits for 244114: 10 mechanics, 3 categories
+2026-01-19 12:26:27 - __main__ - INFO - 
+
+Processing game 737/8700 (BGG ID: 354570): https://boardgamegeek.com/boardgame/354570/undaunted-stalingrad
+2026-01-19 12:26:27 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=354570&objecttype=thing
+2026-01-19 12:26:27 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 2 designers
+2026-01-19 12:26:27 - __main__ - INFO - Extracted credits for 354570: 6 mechanics, 2 categories
+2026-01-19 12:26:28 - __main__ - INFO - 
+
+Processing game 738/8700 (BGG ID: 153016): https://boardgamegeek.com/boardgame/153016/telestrations-12-player-party-pack
+2026-01-19 12:26:28 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=153016&objecttype=thing
+2026-01-19 12:26:29 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:29 - __main__ - INFO - Extracted credits for 153016: 3 mechanics, 3 categories
+2026-01-19 12:26:30 - __main__ - INFO - 
+
+Processing game 739/8700 (BGG ID: 286063): https://boardgamegeek.com/boardgame/286063/the-7th-citadel
+2026-01-19 12:26:30 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=286063&objecttype=thing
+2026-01-19 12:26:30 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 4 categories, 2 designers
+2026-01-19 12:26:30 - __main__ - INFO - Extracted credits for 286063: 6 mechanics, 4 categories
+2026-01-19 12:26:31 - __main__ - INFO - 
+
+Processing game 740/8700 (BGG ID: 123123): https://boardgamegeek.com/boardgame/123123/battlecon-devastation-of-indines
+2026-01-19 12:26:31 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=123123&objecttype=thing
+2026-01-19 12:26:32 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:32 - __main__ - INFO - Extracted credits for 123123: 7 mechanics, 3 categories
+2026-01-19 12:26:32 - __main__ - INFO - Progress saved: 740 credits to etl/data/game_credits.csv
+2026-01-19 12:26:32 - __main__ - INFO - Progress: 139 processed, 600 skipped, 740 total entries
+2026-01-19 12:26:33 - __main__ - INFO - 
+
+Processing game 741/8700 (BGG ID: 140603): https://boardgamegeek.com/boardgame/140603/francis-drake
+2026-01-19 12:26:33 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=140603&objecttype=thing
+2026-01-19 12:26:33 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 5 categories, 1 designers
+2026-01-19 12:26:33 - __main__ - INFO - Extracted credits for 140603: 6 mechanics, 5 categories
+2026-01-19 12:26:34 - __main__ - INFO - 
+
+Processing game 742/8700 (BGG ID: 370913): https://boardgamegeek.com/boardgame/370913/star-wars-the-clone-wars
+2026-01-19 12:26:34 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=370913&objecttype=thing
+2026-01-19 12:26:34 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 2 categories, 1 designers
+2026-01-19 12:26:34 - __main__ - INFO - Extracted credits for 370913: 8 mechanics, 2 categories
+2026-01-19 12:26:35 - __main__ - INFO - 
+
+Processing game 743/8700 (BGG ID: 355483): https://boardgamegeek.com/boardgame/355483/wandering-towers
+2026-01-19 12:26:35 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=355483&objecttype=thing
+2026-01-19 12:26:36 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 2 categories, 2 designers
+2026-01-19 12:26:36 - __main__ - INFO - Extracted credits for 355483: 6 mechanics, 2 categories
+2026-01-19 12:26:37 - __main__ - INFO - 
+
+Processing game 744/8700 (BGG ID: 30869): https://boardgamegeek.com/boardgame/30869/thebes
+2026-01-19 12:26:37 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=30869&objecttype=thing
+2026-01-19 12:26:37 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:37 - __main__ - INFO - Extracted credits for 30869: 3 mechanics, 3 categories
+2026-01-19 12:26:38 - __main__ - INFO - 
+
+Processing game 745/8700 (BGG ID: 135779): https://boardgamegeek.com/boardgame/135779/a-fake-artist-goes-to-new-york
+2026-01-19 12:26:38 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=135779&objecttype=thing
+2026-01-19 12:26:38 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:38 - __main__ - INFO - Extracted credits for 135779: 3 mechanics, 3 categories
+2026-01-19 12:26:39 - __main__ - INFO - 
+
+Processing game 746/8700 (BGG ID: 113924): https://boardgamegeek.com/boardgame/113924/zombicide
+2026-01-19 12:26:39 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=113924&objecttype=thing
+2026-01-19 12:26:40 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 4 categories, 3 designers
+2026-01-19 12:26:40 - __main__ - INFO - Extracted credits for 113924: 10 mechanics, 4 categories
+2026-01-19 12:26:41 - __main__ - INFO - 
+
+Processing game 747/8700 (BGG ID: 6472): https://boardgamegeek.com/boardgame/6472/a-game-of-thrones
+2026-01-19 12:26:41 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=6472&objecttype=thing
+2026-01-19 12:26:42 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 6 categories, 2 designers
+2026-01-19 12:26:42 - __main__ - INFO - Extracted credits for 6472: 9 mechanics, 6 categories
+2026-01-19 12:26:43 - __main__ - INFO - 
+
+Processing game 748/8700 (BGG ID: 2398): https://boardgamegeek.com/boardgame/2398/cribbage
+2026-01-19 12:26:43 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=2398&objecttype=thing
+2026-01-19 12:26:43 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 2 categories, 1 designers
+2026-01-19 12:26:43 - __main__ - INFO - Extracted credits for 2398: 4 mechanics, 2 categories
+2026-01-19 12:26:44 - __main__ - INFO - 
+
+Processing game 749/8700 (BGG ID: 328479): https://boardgamegeek.com/boardgame/328479/living-forest
+2026-01-19 12:26:44 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=328479&objecttype=thing
+2026-01-19 12:26:44 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 6 categories, 1 designers
+2026-01-19 12:26:44 - __main__ - INFO - Extracted credits for 328479: 5 mechanics, 6 categories
+2026-01-19 12:26:45 - __main__ - INFO - 
+
+Processing game 750/8700 (BGG ID: 39938): https://boardgamegeek.com/boardgame/39938/carson-city
+2026-01-19 12:26:45 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=39938&objecttype=thing
+2026-01-19 12:26:46 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 3 categories, 1 designers
+2026-01-19 12:26:46 - __main__ - INFO - Extracted credits for 39938: 5 mechanics, 3 categories
+2026-01-19 12:26:46 - __main__ - INFO - Progress saved: 750 credits to etl/data/game_credits.csv
+2026-01-19 12:26:46 - __main__ - INFO - Progress: 149 processed, 600 skipped, 750 total entries
+2026-01-19 12:26:47 - __main__ - INFO - 
+
+Processing game 751/8700 (BGG ID: 160010): https://boardgamegeek.com/boardgame/160010/conan
+2026-01-19 12:26:47 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=160010&objecttype=thing
+2026-01-19 12:26:47 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 5 categories, 7 designers
+2026-01-19 12:26:47 - __main__ - INFO - Extracted credits for 160010: 7 mechanics, 5 categories
+2026-01-19 12:26:48 - __main__ - INFO - 
+
+Processing game 752/8700 (BGG ID: 37904): https://boardgamegeek.com/boardgame/37904/formula-d
+2026-01-19 12:26:48 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=37904&objecttype=thing
+2026-01-19 12:26:49 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 2 categories, 2 designers
+2026-01-19 12:26:49 - __main__ - INFO - Extracted credits for 37904: 10 mechanics, 2 categories
+2026-01-19 12:26:50 - __main__ - INFO - 
+
+Processing game 753/8700 (BGG ID: 13004): https://boardgamegeek.com/boardgame/13004/the-downfall-of-pompeii
+2026-01-19 12:26:50 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=13004&objecttype=thing
+2026-01-19 12:26:50 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 11 mechanics, 1 categories, 1 designers
+2026-01-19 12:26:50 - __main__ - INFO - Extracted credits for 13004: 11 mechanics, 1 categories
+2026-01-19 12:26:51 - __main__ - INFO - 
+
+Processing game 754/8700 (BGG ID: 143519): https://boardgamegeek.com/boardgame/143519/quantum
+2026-01-19 12:26:51 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=143519&objecttype=thing
+2026-01-19 12:26:51 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 4 categories, 1 designers
+2026-01-19 12:26:51 - __main__ - INFO - Extracted credits for 143519: 5 mechanics, 4 categories
+2026-01-19 12:26:52 - __main__ - INFO - 
+
+Processing game 755/8700 (BGG ID: 135219): https://boardgamegeek.com/boardgame/135219/the-battle-of-five-armies
+2026-01-19 12:26:52 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=135219&objecttype=thing
+2026-01-19 12:26:53 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 5 categories, 3 designers
+2026-01-19 12:26:53 - __main__ - INFO - Extracted credits for 135219: 4 mechanics, 5 categories
+2026-01-19 12:26:54 - __main__ - INFO - 
+
+Processing game 756/8700 (BGG ID: 10547): https://boardgamegeek.com/boardgame/10547/betrayal-at-house-on-the-hill
+2026-01-19 12:26:54 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=10547&objecttype=thing
+2026-01-19 12:26:54 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 3 categories, 5 designers
+2026-01-19 12:26:54 - __main__ - INFO - Extracted credits for 10547: 9 mechanics, 3 categories
+2026-01-19 12:26:55 - __main__ - INFO - 
+
+Processing game 757/8700 (BGG ID: 155703): https://boardgamegeek.com/boardgame/155703/evolution
+2026-01-19 12:26:55 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=155703&objecttype=thing
+2026-01-19 12:26:56 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 6 categories, 3 designers
+2026-01-19 12:26:56 - __main__ - INFO - Extracted credits for 155703: 7 mechanics, 6 categories
+2026-01-19 12:26:57 - __main__ - INFO - 
+
+Processing game 758/8700 (BGG ID: 42776): https://boardgamegeek.com/boardgame/42776/gears-of-war-the-board-game
+2026-01-19 12:26:57 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=42776&objecttype=thing
+2026-01-19 12:26:57 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 4 categories, 1 designers
+2026-01-19 12:26:57 - __main__ - INFO - Extracted credits for 42776: 8 mechanics, 4 categories
+2026-01-19 12:26:58 - __main__ - INFO - 
+
+Processing game 759/8700 (BGG ID: 258036): https://boardgamegeek.com/boardgame/258036/between-two-castles-of-mad-king-ludwig
+2026-01-19 12:26:58 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=258036&objecttype=thing
+2026-01-19 12:26:59 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 2 categories, 2 designers
+2026-01-19 12:26:59 - __main__ - INFO - Extracted credits for 258036: 8 mechanics, 2 categories
+2026-01-19 12:27:00 - __main__ - INFO - 
+
+Processing game 760/8700 (BGG ID: 306040): https://boardgamegeek.com/boardgame/306040/merv-the-heart-of-the-silk-road
+2026-01-19 12:27:00 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=306040&objecttype=thing
+2026-01-19 12:27:00 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 11 mechanics, 4 categories, 1 designers
+2026-01-19 12:27:00 - __main__ - INFO - Extracted credits for 306040: 11 mechanics, 4 categories
+2026-01-19 12:27:00 - __main__ - INFO - Progress saved: 760 credits to etl/data/game_credits.csv
+2026-01-19 12:27:00 - __main__ - INFO - Progress: 159 processed, 600 skipped, 760 total entries
+2026-01-19 12:27:01 - __main__ - INFO - 
+
+Processing game 761/8700 (BGG ID: 334065): https://boardgamegeek.com/boardgame/334065/verdant
+2026-01-19 12:27:01 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=334065&objecttype=thing
+2026-01-19 12:27:01 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 3 categories, 5 designers
+2026-01-19 12:27:01 - __main__ - INFO - Extracted credits for 334065: 7 mechanics, 3 categories
+2026-01-19 12:27:02 - __main__ - INFO - 
+
+Processing game 762/8700 (BGG ID: 262941): https://boardgamegeek.com/boardgame/262941/dominant-species-marine
+2026-01-19 12:27:02 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=262941&objecttype=thing
+2026-01-19 12:27:03 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 9 mechanics, 3 categories, 1 designers
+2026-01-19 12:27:03 - __main__ - INFO - Extracted credits for 262941: 9 mechanics, 3 categories
+2026-01-19 12:27:04 - __main__ - INFO - 
+
+Processing game 763/8700 (BGG ID: 406652): https://boardgamegeek.com/boardgame/406652/compile-main-1
+2026-01-19 12:27:04 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=406652&objecttype=thing
+2026-01-19 12:27:04 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 2 categories, 1 designers
+2026-01-19 12:27:04 - __main__ - INFO - Extracted credits for 406652: 7 mechanics, 2 categories
+2026-01-19 12:27:05 - __main__ - INFO - 
+
+Processing game 764/8700 (BGG ID: 273330): https://boardgamegeek.com/boardgame/273330/bloodborne-the-board-game
+2026-01-19 12:27:05 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=273330&objecttype=thing
+2026-01-19 12:27:06 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 7 categories, 2 designers
+2026-01-19 12:27:06 - __main__ - INFO - Extracted credits for 273330: 10 mechanics, 7 categories
+2026-01-19 12:27:07 - __main__ - INFO - 
+
+Processing game 765/8700 (BGG ID: 41): https://boardgamegeek.com/boardgame/41/cant-stop
+2026-01-19 12:27:07 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=41&objecttype=thing
+2026-01-19 12:27:07 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 5 mechanics, 1 categories, 1 designers
+2026-01-19 12:27:07 - __main__ - INFO - Extracted credits for 41: 5 mechanics, 1 categories
+2026-01-19 12:27:08 - __main__ - INFO - 
+
+Processing game 766/8700 (BGG ID: 1353): https://boardgamegeek.com/boardgame/1353/times-up
+2026-01-19 12:27:08 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=1353&objecttype=thing
+2026-01-19 12:27:09 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 4 mechanics, 2 categories, 1 designers
+2026-01-19 12:27:09 - __main__ - INFO - Extracted credits for 1353: 4 mechanics, 2 categories
+2026-01-19 12:27:10 - __main__ - INFO - 
+
+Processing game 767/8700 (BGG ID: 171499): https://boardgamegeek.com/boardgame/171499/cacao
+2026-01-19 12:27:10 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=171499&objecttype=thing
+2026-01-19 12:27:10 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 3 categories, 1 designers
+2026-01-19 12:27:10 - __main__ - INFO - Extracted credits for 171499: 8 mechanics, 3 categories
+2026-01-19 12:27:11 - __main__ - INFO - 
+
+Processing game 768/8700 (BGG ID: 24508): https://boardgamegeek.com/boardgame/24508/taluva
+2026-01-19 12:27:11 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=24508&objecttype=thing
+2026-01-19 12:27:11 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 2 categories, 1 designers
+2026-01-19 12:27:11 - __main__ - INFO - Extracted credits for 24508: 8 mechanics, 2 categories
+2026-01-19 12:27:12 - __main__ - INFO - 
+
+Processing game 769/8700 (BGG ID: 107529): https://boardgamegeek.com/boardgame/107529/kingdom-builder
+2026-01-19 12:27:12 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=107529&objecttype=thing
+2026-01-19 12:27:12 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 10 mechanics, 2 categories, 1 designers
+2026-01-19 12:27:12 - __main__ - INFO - Extracted credits for 107529: 10 mechanics, 2 categories
+2026-01-19 12:27:13 - __main__ - INFO - 
+
+Processing game 770/8700 (BGG ID: 3685): https://boardgamegeek.com/boardgame/3685/hammer-of-the-scots
+2026-01-19 12:27:13 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=3685&objecttype=thing
+2026-01-19 12:27:14 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 7 mechanics, 2 categories, 2 designers
+2026-01-19 12:27:14 - __main__ - INFO - Extracted credits for 3685: 7 mechanics, 2 categories
+2026-01-19 12:27:14 - __main__ - INFO - Progress saved: 770 credits to etl/data/game_credits.csv
+2026-01-19 12:27:14 - __main__ - INFO - Progress: 169 processed, 600 skipped, 770 total entries
+2026-01-19 12:27:15 - __main__ - INFO - 
+
+Processing game 771/8700 (BGG ID: 326494): https://boardgamegeek.com/boardgame/326494/the-adventures-of-robin-hood
+2026-01-19 12:27:15 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=326494&objecttype=thing
+2026-01-19 12:27:15 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 3 mechanics, 1 categories, 1 designers
+2026-01-19 12:27:15 - __main__ - INFO - Extracted credits for 326494: 3 mechanics, 1 categories
+2026-01-19 12:27:16 - __main__ - INFO - 
+
+Processing game 772/8700 (BGG ID: 169255): https://boardgamegeek.com/boardgame/169255/a-game-of-thrones-the-card-game-second-edition
+2026-01-19 12:27:16 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=169255&objecttype=thing
+2026-01-19 12:27:17 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 8 mechanics, 8 categories, 2 designers
+2026-01-19 12:27:17 - __main__ - INFO - Extracted credits for 169255: 8 mechanics, 8 categories
+2026-01-19 12:27:18 - __main__ - INFO - 
+
+Processing game 773/8700 (BGG ID: 233247): https://boardgamegeek.com/boardgame/233247/civilization-a-new-dawn
+2026-01-19 12:27:18 - etl.extraction.bgg_credits_scraper - INFO - Fetching credits data from API: https://api.geekdo.com/api/geekitems?objectid=233247&objecttype=thing
+2026-01-19 12:27:18 - etl.extraction.bgg_credits_scraper - INFO - Extracted credits data: 6 mechanics, 3 categories, 1 designers
+2026-01-19 12:27:18 - __main__ - INFO - Extracted credits for 233247: 6 mechanics, 3 categories
