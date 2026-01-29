@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${PORT:-3000}",
     "lint": "next lint",
     "db:init": "npx tsx scripts/init-db.ts",
     "db:test": "npx tsx scripts/test-connection.ts",
