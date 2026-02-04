@@ -88,3 +88,4 @@ db-data
 /import/Data
 *Data
 geckodriver.log
+/etl/logs
