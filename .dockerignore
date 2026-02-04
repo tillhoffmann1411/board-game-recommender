@@ -5,6 +5,7 @@ npm-debug.log*
 # Next.js
 .next
 out
+tsconfig.tsbuildinfo
 
 # Production
 build
