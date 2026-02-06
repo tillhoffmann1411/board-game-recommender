@@ -3,6 +3,8 @@ ETL API server.
 
 Run with: uvicorn etl.api.main:app --host 0.0.0.0 --port 8000
 Swagger UI: /docs
+
+Logging is configured from env on import: ETL_LOG_LEVEL, ETL_LOG_DIR.
 """
 
 from fastapi import FastAPI
@@ -10,6 +12,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from etl.api.routes import extract, jobs, stats, upload
 from etl.api.schemas import RootResponse
+from etl.logger import setup_logging
+
+# Configure logging from env when API starts (level + log dir; one file per day)
+setup_logging(log_to_file=True)
 
 app = FastAPI(
     title="ETL API",
