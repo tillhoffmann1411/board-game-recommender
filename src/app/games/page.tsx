@@ -43,7 +43,7 @@ async function getGames(
   const skip = (page - 1) * limit;
 
   let filter: Filter<Game> = {};
-  let sort: Sort = { "bggRating.average": -1 };
+  let sort: Sort = { "bggRating.count": -1 };
 
   if (query) {
     // Use case-insensitive regex search instead of $text (no index required)
