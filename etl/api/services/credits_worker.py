@@ -51,6 +51,7 @@ def run_credits_job(
         games = list(cursor)
         total = len(games)
         update_job(job_id, progress={"processed": 0, "total": total, "errors": 0})
+        logger.info("Credits job %s: starting, games_to_process=%s", job_id, total)
 
         if total == 0:
             update_job(
@@ -114,6 +115,7 @@ def run_credits_job(
             finished_at=datetime.utcnow(),
             progress={"processed": processed, "total": total, "errors": errors},
         )
+        logger.info("Credits job %s: completed, processed=%s, errors=%s", job_id, processed, errors)
     except Exception as e:
         logger.exception("Credits job %s failed: %s", job_id, e)
         update_job(

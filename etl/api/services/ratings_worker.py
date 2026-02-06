@@ -72,6 +72,7 @@ def run_ratings_job(
         games = list(cursor)
         total = len(games)
         update_job(job_id, progress={"processed": 0, "total": total, "errors": 0, "ratings_inserted": 0})
+        logger.info("Ratings job %s: starting, games_to_process=%s", job_id, total)
 
         if total == 0:
             update_job(
@@ -170,6 +171,13 @@ def run_ratings_job(
                 "errors": errors,
                 "ratings_inserted": ratings_inserted,
             },
+        )
+        logger.info(
+            "Ratings job %s: completed, processed=%s, ratings_inserted=%s, errors=%s",
+            job_id,
+            processed,
+            ratings_inserted,
+            errors,
         )
     except Exception as e:
         logger.exception("Ratings job %s failed: %s", job_id, e)

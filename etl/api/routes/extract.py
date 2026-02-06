@@ -8,6 +8,7 @@ from typing import Annotated, Optional
 from fastapi import APIRouter, Query
 
 from etl.api.job_store import create_job
+from etl.api.schemas import JobStartedResponse
 from etl.api.services.credits_worker import run_credits_job
 from etl.api.services.ratings_worker import run_ratings_job
 
@@ -17,8 +18,13 @@ router = APIRouter(prefix="/extract", tags=["extract"])
 @router.post(
     "/credits",
     summary="Start credits extraction",
-    description="Start a background job that fetches BGG credits for games in MongoDB "
-    "that are missing credits (or all games if force_update=true), then updates game documents.",
+    description=(
+        "Start a background job that fetches BGG credits for games in MongoDB "
+        "that are missing credits (designers empty or missing), or all games if force_update=true. "
+        "Then updates each game document with mechanics, categories, designers, imageUrl, gameplay fields. "
+        "Use GET /jobs/{job_id} to poll status; POST /jobs/{job_id}/stop to cancel."
+    ),
+    response_model=JobStartedResponse,
 )
 async def start_credits_extraction(
     batch_size: Annotated[int, Query(ge=1, le=100, description="Games per progress batch")] = 10,
@@ -55,8 +61,13 @@ async def start_credits_extraction(
 @router.post(
     "/ratings",
     summary="Start ratings extraction",
-    description="Start a background job that fetches BGG ratings for games in MongoDB "
-    "that have no ratings yet (or all games if force_update=true), creates shadow users, and inserts ratings.",
+    description=(
+        "Start a background job that fetches BGG ratings for games in MongoDB "
+        "that have no ratings yet, or all games if force_update=true (existing ratings for those games are deleted first). "
+        "Creates shadow users (shadow_bgg_{username}) as needed and inserts ratings. "
+        "Use GET /jobs/{job_id} to poll status; POST /jobs/{job_id}/stop to cancel."
+    ),
+    response_model=JobStartedResponse,
 )
 async def start_ratings_extraction(
     batch_size: Annotated[int, Query(ge=1, le=100)] = 10,

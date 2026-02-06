@@ -5,6 +5,7 @@ Get job status and stop a running job.
 from fastapi import APIRouter, HTTPException
 
 from etl.api.job_store import get_job, request_cancel
+from etl.api.schemas import JobResponse, StopJobResponse
 
 router = APIRouter(prefix="/jobs", tags=["jobs"])
 
@@ -12,7 +13,12 @@ router = APIRouter(prefix="/jobs", tags=["jobs"])
 @router.get(
     "/{job_id}",
     summary="Get job status",
-    description="Return status, progress, and error (if failed) for a job.",
+    description=(
+        "Return the job record: job_id, type (credits|ratings), status (pending|running|completed|failed|cancelled), "
+        "progress (processed, total, errors; ratings_inserted for ratings jobs), "
+        "started_at, finished_at, error (if failed), config."
+    ),
+    response_model=JobResponse,
 )
 async def get_job_status(job_id: str):
     job = get_job(job_id)
@@ -24,8 +30,12 @@ async def get_job_status(job_id: str):
 @router.post(
     "/{job_id}/stop",
     summary="Stop a job",
-    description="Request that a running job stop. The job will finish its current item "
-    "and then exit with status 'cancelled'. Idempotent for unknown or already-finished jobs.",
+    description=(
+        "Request that a running or pending job stop. The job will finish its current item "
+        "then exit with status 'cancelled'. Returns status 'cancelling' if stop was requested, "
+        "or the current status and a message if the job was not running."
+    ),
+    response_model=StopJobResponse,
 )
 async def stop_job(job_id: str):
     job = get_job(job_id)

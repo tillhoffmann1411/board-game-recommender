@@ -7,6 +7,7 @@ from typing import Annotated, Optional
 from fastapi import APIRouter, Query
 
 from etl.api.job_store import list_jobs
+from etl.api.schemas import StatsResponse
 from etl.load import DataLoader
 from etl.lib.mongodb import COLLECTIONS
 
@@ -16,8 +17,12 @@ router = APIRouter(tags=["stats"])
 @router.get(
     "/stats",
     summary="Get statistics and jobs",
-    description="Return total games, games with credits, games with ratings, "
-    "games with all data, and currently running/recent jobs.",
+    description=(
+        "Return database counts: total_games, games_with_credits (has mechanics/categories/designers), "
+        "games_with_ratings (distinct games with at least one rating), games_with_all_data (credits and ratings). "
+        "Also returns a list of jobs (extraction runs), optionally filtered by status."
+    ),
+    response_model=StatsResponse,
 )
 async def get_stats(
     jobs_limit: Annotated[int, Query(ge=1, le=100, description="Max jobs to return")] = 50,
