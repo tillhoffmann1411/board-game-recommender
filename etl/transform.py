@@ -5,10 +5,15 @@ Transforms raw data into MongoDB-compatible documents.
 """
 
 from datetime import datetime
-from typing import Optional
+from typing import Any, Optional
 from bson import ObjectId
 
 from etl.logger import get_logger
+from etl.merge_csv_data import (
+    parse_age,
+    parse_playtime_range,
+    parse_player_range,
+)
 from etl.utils import clean_string, safe_int, safe_float
 
 logger = get_logger(__name__)
@@ -175,6 +180,60 @@ def transform_online_game(
         "createdAt": now,
         "updatedAt": now,
     }
+
+
+def build_game_update_from_credits(credits_data: dict[str, Any]) -> dict[str, Any]:
+    """
+    Build a game document update dict from BGG credits scraper output.
+
+    Used to merge scraped credits (mechanics, categories, designers, imageUrl,
+    gameplay) into an existing game document for MongoDB $set.
+
+    Args:
+        credits_data: Dict from BGGCreditsScraper.scrape_credits(): mechanics,
+            categories, designers (list of names), imageUrl, gameplay (dict with
+            numberofplayers, playtime, suggestedage, complexity).
+
+    Returns:
+        Dict with keys: mechanics, categories, designers, imageUrl, minPlayers,
+        maxPlayers, minPlaytime, maxPlaytime, minAge, complexity, updatedAt.
+        Only includes keys with non-None values where applicable.
+    """
+    now = datetime.utcnow()
+    update: dict[str, Any] = {
+        "mechanics": list(credits_data.get("mechanics") or []),
+        "categories": list(credits_data.get("categories") or []),
+        "designers": [],
+        "imageUrl": clean_string(credits_data.get("imageUrl")),
+        "updatedAt": now,
+    }
+    # Designers: scraper returns list of names; Game schema expects list of {id, name, url?, imageUrl?}
+    for name in credits_data.get("designers") or []:
+        if name:
+            update["designers"].append({
+                "id": clean_string(name) or "",
+                "name": clean_string(name),
+                "url": None,
+                "imageUrl": None,
+            })
+    gameplay = credits_data.get("gameplay") or {}
+    # Players
+    players_str = gameplay.get("numberofplayers")
+    min_p, max_p = parse_player_range(players_str) if players_str else (None, None)
+    update["minPlayers"] = min_p
+    update["maxPlayers"] = max_p
+    # Playtime (minutes)
+    playtime_str = gameplay.get("playtime")
+    min_pt, max_pt = parse_playtime_range(playtime_str) if playtime_str else (None, None)
+    update["minPlaytime"] = min_pt
+    update["maxPlaytime"] = max_pt
+    # Age
+    age_str = gameplay.get("suggestedage")
+    update["minAge"] = parse_age(age_str) if age_str else None
+    # Complexity (scraper returns string like "2.5")
+    complexity_val = gameplay.get("complexity")
+    update["complexity"] = safe_float(complexity_val) if complexity_val is not None else None
+    return update
 
 
 def transform_designer(raw: dict) -> dict:

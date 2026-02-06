@@ -66,32 +66,27 @@ services:
       - bgr-network
 
   # ==========================================================================
-  # ETL Pipeline (run on-demand)
+  # ETL API (upload CSV, run credits/ratings extraction jobs, stats)
   # ==========================================================================
   etl:
     build:
       context: ./etl
       dockerfile: Dockerfile
     container_name: bgr-etl
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
     depends_on:
       mongodb:
         condition: service_healthy
     environment:
       - MONGODB_URI=mongodb://mongodb:27017
       - MONGODB_DB=board-game-recommender
-      - ETL_RUN_LOAD=true
-      - ETL_DATA_DIR=/app/data
+      - ETL_DATA_DIR=/app/etl/data
     volumes:
-      - ./etl:/app
-      - ./data:/app/data
-      # Also mount etl/data to make merged CSV accessible
-      - ./etl/data:/app/etl_data
       - etl_logs:/app/logs
     networks:
       - bgr-network
-    # Run once and exit (not a persistent service)
-    profiles:
-      - etl
 
   # ==========================================================================
   # MongoDB Express (admin UI) - development only

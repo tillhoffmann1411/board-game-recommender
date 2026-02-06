@@ -4,7 +4,10 @@ ETL Data Loader
 Loads transformed data into MongoDB.
 """
 
+from datetime import datetime
 from typing import Optional
+
+from pymongo import UpdateOne
 
 from etl.lib.mongodb import MongoDBHelper, COLLECTIONS, initialize_database
 from etl.logger import get_logger, PipelineProgress
@@ -87,6 +90,64 @@ class DataLoader:
 
         progress.complete()
         return loaded
+
+    def upsert_games(
+        self,
+        games: list[dict],
+        batch_size: int = 1000,
+    ) -> tuple[int, int]:
+        """
+        Upsert games into MongoDB by bggId. New games are inserted; existing are updated.
+
+        Args:
+            games: List of game documents (each must have bggId)
+            batch_size: Documents per batch for bulk_write
+
+        Returns:
+            Tuple of (inserted_count, modified_count)
+        """
+        self.connect()
+        collection = self.mongo.get_collection(COLLECTIONS["GAMES"])
+        now = datetime.utcnow()
+        inserted = 0
+        modified = 0
+
+        for i in range(0, len(games), batch_size):
+            batch = games[i : i + batch_size]
+            operations = []
+            for doc in batch:
+                bgg_id = doc.get("bggId")
+                if bgg_id is None:
+                    continue
+                # Fields to set on every write (update or insert); exclude _id and createdAt
+                set_doc = {
+                    k: v
+                    for k, v in doc.items()
+                    if k not in ("_id", "createdAt")
+                }
+                set_doc["updatedAt"] = now
+                # On insert only: _id and createdAt
+                set_on_insert = {
+                    "_id": doc["_id"],
+                    "createdAt": doc.get("createdAt", now),
+                }
+                operations.append(
+                    UpdateOne(
+                        {"bggId": bgg_id},
+                        {
+                            "$set": set_doc,
+                            "$setOnInsert": set_on_insert,
+                        },
+                        upsert=True,
+                    )
+                )
+            if operations:
+                result = collection.bulk_write(operations)
+                inserted += result.upserted_count
+                modified += result.modified_count
+
+        logger.info(f"Upserted games: {inserted} inserted, {modified} updated")
+        return inserted, modified
 
     def load_users(
         self,
