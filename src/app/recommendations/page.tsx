@@ -15,7 +15,7 @@ interface RecommendationsPageProps {
   searchParams: Promise<{ algo?: AlgorithmType }>;
 }
 
-const algorithms: { id: AlgorithmType; name: string; icon: typeof Sparkles; description: string }[] = [
+const algorithms: { id: AlgorithmType; name: string; icon: typeof Sparkles; description: string; comingSoon?: boolean }[] = [
   {
     id: "popularity",
     name: "Popular",
@@ -33,6 +33,7 @@ const algorithms: { id: AlgorithmType; name: string; icon: typeof Sparkles; desc
     name: "Similar",
     icon: Sparkles,
     description: "Games similar to ones you rated highly",
+    comingSoon: true,
   },
   {
     id: "collaborative",
@@ -84,23 +85,38 @@ export default async function RecommendationsPage({ searchParams }: Recommendati
           {algorithms.map((algo) => {
             const Icon = algo.icon;
             const isSelected = selectedAlgo === algo.id;
-            return (
+            const isComingSoon = algo.comingSoon;
+            const card = (
+              <Card
+                className={`transition-colors ${
+                  isComingSoon
+                    ? "opacity-75 cursor-not-allowed"
+                    : isSelected
+                      ? "border-primary bg-primary/5 cursor-pointer"
+                      : "hover:bg-muted/50 cursor-pointer"
+                }`}
+              >
+                <CardHeader className="pb-2 p-3 sm:p-6">
+                  <div className="flex items-center gap-2">
+                    <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${isSelected ? "text-primary" : ""}`} />
+                    <CardTitle className="text-sm sm:text-base">{algo.name}</CardTitle>
+                    {isComingSoon && (
+                      <span className="ml-auto text-[10px] font-normal text-muted-foreground whitespace-nowrap">
+                        Coming soon
+                      </span>
+                    )}
+                  </div>
+                </CardHeader>
+                <CardContent className="p-3 pt-0 sm:p-6 sm:pt-0">
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">{algo.description}</p>
+                </CardContent>
+              </Card>
+            );
+            return isComingSoon ? (
+              <div key={algo.id}>{card}</div>
+            ) : (
               <Link key={algo.id} href={`/recommendations?algo=${algo.id}`}>
-                <Card
-                  className={`cursor-pointer transition-colors ${
-                    isSelected ? "border-primary bg-primary/5" : "hover:bg-muted/50"
-                  }`}
-                >
-                  <CardHeader className="pb-2 p-3 sm:p-6">
-                    <div className="flex items-center gap-2">
-                      <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${isSelected ? "text-primary" : ""}`} />
-                      <CardTitle className="text-sm sm:text-base">{algo.name}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-3 pt-0 sm:p-6 sm:pt-0">
-                    <p className="text-[10px] sm:text-xs text-muted-foreground">{algo.description}</p>
-                  </CardContent>
-                </Card>
+                {card}
               </Link>
             );
           })}

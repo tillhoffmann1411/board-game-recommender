@@ -13,10 +13,10 @@ import { COLLECTIONS } from "@/lib/db/schema";
 import type { Rating } from "@/lib/db/schema";
 import type { RecommendationEngine, ScoredGame, UserRating } from "./types";
 
-// Algorithm parameters
-const MIN_RATINGS_PER_GAME = 50; // Games need at least this many ratings
+// Algorithm parameters (tuned to work with typical DB sizes; avoid empty results)
+const MIN_RATINGS_PER_GAME = 5; // Games need at least this many ratings to be in the matrix (2 = user + one other)
 const SIMILAR_USER_PERCENTAGE = 0.2; // Take top 20% similar users
-const MIN_RATINGS_IN_GROUP = 5; // Minimum ratings per game in similar user group
+const MIN_RATINGS_IN_GROUP = 5; // Minimum ratings per game from similar users to recommend
 
 export class CollaborativeEngine implements RecommendationEngine {
   name = "collaborative" as const;
@@ -76,6 +76,12 @@ export class CollaborativeEngine implements RecommendationEngine {
         userRatingsMap.set(uid, new Map());
       }
       userRatingsMap.get(uid)!.set(gid, r.rating);
+    }
+
+    // Include target user's rated games so we can compute similarity even when
+    // they rated games with fewer than MIN_RATINGS_PER_GAME in the DB
+    for (const r of userRatings) {
+      gameIds.add(r.gameId.toString());
     }
 
     // Calculate mean rating for each user (for centered cosine)

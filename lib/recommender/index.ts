@@ -233,6 +233,7 @@ export function getAvailableAlgorithms(): Array<{
   name: string;
   description: string;
   minRatings: number;
+  comingSoon?: boolean;
 }> {
   return [
     {
@@ -259,6 +260,7 @@ export function getAvailableAlgorithms(): Array<{
       name: "Item Similarity",
       description: "Predictions based on similar games you've rated.",
       minRatings: 3,
+      comingSoon: true,
     },
   ];
 }
