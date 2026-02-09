@@ -94,7 +94,7 @@ export default function HomePage() {
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 mt-8 pt-8 border-t border-purple-100">
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">20,000+</div>
+                <div className="text-3xl font-bold text-purple-600">40,000+</div>
                 <div className="text-sm text-gray-500">Board Games</div>
               </div>
               <div className="text-center">
